@@ -1,2 +1,4 @@
-# Proyek-Bank-Sampah
-Proyek
+# Proyek Tugas Akhir
+TRACER STUDY SMA 1 JOMBANG
+
+
