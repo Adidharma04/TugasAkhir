@@ -4,10 +4,9 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Login</title>
-	<link rel="icon" href="<?php echo base_url().'assets/Gambar/Website/Title_SMA.png';?>">
 
 	<!-- Logo -->
-    <link rel="icon" href="<?= base_url().'assets/Gambar/Website/Title_SMA.png';?>">
+    <link rel="icon" href="<?= base_url().'/assets/Gambar/Website/Title_SMA.png';?>">
 
     <!-- Font Icon -->
     <link rel="stylesheet" href="<?= base_url().'assets/Template/Registrasi/fonts/material-icon/css/material-design-iconic-font.min.css';?>">
@@ -15,7 +14,6 @@
     <!-- Main css -->
     <link rel="stylesheet" href="<?= base_url().'assets/Template/Login/css/style.css';?>">
 
-   
     <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body>
@@ -90,7 +88,7 @@
                                     
 									<br>
 									<br>
-                                    <p>Don't have account ?<a href="<?= base_url().'Admin/register';?>" class="signup-image-link"> Create Account</a></p>
+                                    <p>Don't have account ?<a href="<?= base_url().'Admin/registrasi';?>" class="signup-image-link"> Create Account</a></p>
                                 </div>
 
                             </form>
