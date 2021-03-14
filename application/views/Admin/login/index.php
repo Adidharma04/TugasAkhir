@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Login</title>
+	<title><?= $title?></title>
 
 	<!-- Logo -->
     <link rel="icon" href="<?= base_url().'/assets/Gambar/Website/Title_SMA.png';?>">
@@ -13,8 +13,6 @@
 
     <!-- Main css -->
     <link rel="stylesheet" href="<?= base_url().'assets/Template/Login/css/style.css';?>">
-
-    <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 <body>
 <div class="main">
@@ -82,6 +80,7 @@
                                         <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" onclick="myFunction()" />
                                         <label for="agree-term" class="label-agree-term"><span><span></span></span>Show Password</label>
                                 </div>
+
                                 <div class="form-group ">
                                     <br>
                                     <input type="submit" name="login" id="login" class="form-submit" value="Login"/>
@@ -93,8 +92,6 @@
 
                             </form>
                         </div>
-                    
-
                     </div>
                 </div>
             </section>

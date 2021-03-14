@@ -45,10 +45,13 @@ class registrasi extends CI_Controller {
         ]);  
 
         //------------------------------------------------//
-
+        
+        //-- Title Halaman
+        $data ['title'] = 'Halaman Registrasi';
+        //----------------------------
         if($this->form_validation->run() == FALSE){
             $this->load->view('Template/Login_register/header.php');
-            $this->load->view('Admin/registrasi/index');
+            $this->load->view('Admin/registrasi/index' , $data);
             $this->load->view('Template/Login_register/footer.php');
         }else{
             $this->_proses_registrasi();

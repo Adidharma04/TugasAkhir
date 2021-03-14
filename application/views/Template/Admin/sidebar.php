@@ -1,146 +1,205 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+<!-- Main Sidebar Container -->
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="index3.html" class="brand-link">
+      <img src="<?= base_url().'assets/Gambar/Website/Title_SMA.png'?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <span class="brand-text font-weight-light">SMAN 1 Plosok</span>
+    </a>
 
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/Template/Admin/vendor/fontawesome-free/css/all.min.css';?>">
-        <link rel="stylesheet" type="text/css" href="<?php echo base_url().'assets/Template/Admin/css/sb-admin-2.min.css';?>">
-    <!-- Page Wrapper -->
-    <div id="wrapper">
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
-        <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-            <div class="sidebar-brand-icon rotate-n-15">
-                
-            </div>
-            <div class="sidebar-brand-text mx-3">Admin</div>
-        </a>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider my-0">
-
-        <!-- Nav Item - Dashboard -->
-        <li class="nav-item active">
-            <a class="nav-link" href="<?php echo base_url('Admin/home');?>">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Dashboard</span></a>
-        </li>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider">
-
-        <!-- Heading -->
-        <div class="sidebar-heading">
-            Pengguna / User
+    <div class="sidebar">
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="" class="img-circle elevation-2" alt="User Image">
         </div>
+        <div class="info">
+          <a href="#" class="d-block">Adi Dharma</a>
+        </div>
+      </div>
 
-        <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                <i class="fas fa-fw fa-users"></i>
-                <span>Data Pengguna</span>
+      
+
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+         
+          <li class="nav-item">
+            <a href="<?php echo base_url('Admin/dashboard_admin')?>" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Dashboard
+              </p>
             </a>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Komponen Data:</h6>
-                    <a class="collapse-item" href="<?php echo base_url('Admin/pegawai');?>">Pegawai</a>
-                    <a class="collapse-item" href="<?php echo base_url('Admin/alumni');?>">Alumni</a>
-                    <a class="collapse-item" href="<?php echo base_url('Admin/user');?>">User</a>
-                    <a class="collapse-item" href="<?php echo base_url('Admin/user_role');?>">User Role</a>
-                </div>
-            </div>
-        </li>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider">
-
-         <!-- Heading -->
-         <div class="sidebar-heading">
-            Informasi
-        </div>
-        <!-- Nav Item - Utilities Collapse Menu -->
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-                <i class="fas fa-fw fa-calendar"></i>
-                <span>Event</span>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-users"></i>
+              <p>
+                Pengguna
+                <i class="right fas fa-angle-left"></i>
+              </p>
             </a>
-            <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Custom Utilities:</h6>
-                    <a class="collapse-item" href="utilities-color.html">Event</a>
-                    <a class="collapse-item" href="utilities-border.html">Panitia Event</a>
-                </div>
-            </div>
-        </li>
-        
-         <!-- Nav Item - Charts -->
-         <li class="nav-item">
-            <a class="nav-link" href="charts.html">
-                <i class="fas fa-fw fa-newspaper"></i>
-                <span>Berita</span></a>
-        </li>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider">
-
-        <!-- Heading -->
-        <div class="sidebar-heading">
-            Kritik / Saran
-        </div>
-
-        <!-- Nav Item - Charts -->
-        <li class="nav-item">
-            <a class="nav-link" href="charts.html">
-                <i class="fas fa-fw fa-bullhorn"></i>
-                <span>Kritik</span></a>
-        </li>
-
-        <!-- Nav Item - Tables -->
-        <li class="nav-item">
-            <a class="nav-link" href="tables.html">
-                <i class="fa fa-fw fa-edit"></i>
-                <span>Saran</span></a>
-        </li>
-
-        <!-- Divider -->
-        <hr class="sidebar-divider d-none d-md-block">
-
-        <!-- Heading -->
-        <div class="sidebar-heading">
-            Registrasi Staff IT atau Guru BK
-        </div>
-
-        <!-- Nav Item - Charts -->
-        <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url('Admin/register_pegawai');?>">
-                <i class="fas fa-fw fa-user"></i>
-                <span>Registrasi Super Admin </span></a>
-        </li>
-
-        <li class="nav-item">
-            <a class="nav-link" href="<?php echo base_url('Admin/register_pegawai');?>">
-                <i class="fas fa-fw fa-user"></i>
-                <span>Registrasi Guru BK </span></a>
-        </li>
-         <!-- Divider -->
-         <hr class="sidebar-divider d-none d-md-block">
-        <!-- Sidebar Toggler (Sidebar) -->
-        <div class="text-center d-none d-md-inline">
-            <button class="rounded-circle border-0" id="sidebarToggle"></button>
-        </div>
-
-    </ul>
-    <!-- End of Sidebar -->
-
-<!-- Bootstrap core JavaScript-->
-<script src="<?php echo base_url().'assets/Template/Admin/vendor/jquery/jquery.min.js';?>"></script>
-<script src="<?php echo base_url().'assets/Template/Admin/vendor/bootstrap/js/bootstrap.bundle.min.js';?>"></script>
-<!-- Core plugin JavaScript-->
-<script src="<?php echo base_url().'assets/Template/Admin/vendor/jquery-easing/jquery.easing.min.js';?>"></script>
-<!-- Custom scripts for all pages-->
-<script src="<?php echo base_url().'assets/Template/Admin/js/sb-admin-2.min.js';?>"></script>
-<!-- Page level plugins -->
-<script src="<?php echo base_url().'assets/Template/Admin/vendor/chart.js/Chart.min.js';?>"></script>
-<!-- Page level custom scripts -->
-<script src="<?php echo base_url().'assets/Template/Admin/js/demo/chart-area-demo.js';?>"></script>
-<script src="<?php echo base_url().'assets/Template/Admin/js/demo/chart-pie-demo.js';?>"></script>
-
-
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<?php echo base_url('Admin/profile')?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Profile</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="<?php echo base_url('Admin/siswa')?>" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Informasi Siswa</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="./index3.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Informasi Pegawai</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-search"></i>
+              <p>
+                Tracer
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="pages/charts/chartjs.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Tracer Kuliah</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/charts/flot.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Tracer Kerja</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fa fa-comments-o"></i>
+              <p>
+                Kritik dan Saran
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="pages/forms/general.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Kritik</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/forms/advanced.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Saran</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon far fa-envelope"></i>
+              <p>
+                Mailbox
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="pages/mailbox/mailbox.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Inbox</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/mailbox/compose.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Compose</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="pages/mailbox/read-mail.html" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Read</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-header">INFORMASI</li>
+          <li class="nav-item">
+            <a href="pages/calendar.html" class="nav-link">
+              <i class="nav-icon far fa-calendar-alt"></i>
+              <p>
+                Event
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pages/gallery.html" class="nav-link">
+              <i class="nav-icon far fa-newspaper-o"></i>
+              <p>
+                Berita
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pages/gallery.html" class="nav-link">
+              <i class="nav-icon fa fa-briefcase"></i>
+              <p>
+                Lowongan Kerja
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pages/gallery.html" class="nav-link">
+              <i class="nav-icon fa fa-comments"></i>
+              <p>
+                Forum Diskusi
+              </p>
+            </a>
+          </li>
+          <li class="nav-header">Logout</li>
+          <li class="nav-item">
+            <a href="<?php echo base_url("Admin/logiin/logout")?>" class="nav-link">
+              <i class="nav-icon fa fa-sign-out"></i>
+              <p>
+                Keluar
+              </p>
+            </a>
+          </li>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+  
+<!-- jQuery -->
+<script src="<?= base_url("assets/Template/Admin/plugins/jquery/jquery.min.js")?>"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="<?= base_url("assets/Template/Admin/plugins/jquery-ui/jquery-ui.min.js")?>"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
+<script src="<?= base_url("assets/Template/Admin/plugins/bootstrap/js/bootstrap.bundle.min.js")?>"></script>
+<!-- overlayScrollbars -->
+<script src="<?= base_url("assets/Template/Admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js")?>"></script>
+<!-- AdminLTE App -->
+<script src="<?= base_url("assets/Template/Admin/dist/js/adminlte.js")?>"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="<?= base_url("assets/Template/Admin/dist/js/demo.js")?>"></script>

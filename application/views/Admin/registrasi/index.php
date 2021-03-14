@@ -3,7 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Login</title>
+	<title><?= $title?></title>
+    
 	<link rel="icon" href="<?php echo base_url().'assets/Gambar/Website/Title_SMA.png';?>">
 	 <!-- Logo -->
 	 <link rel="icon" href="<?= base_url().'assets/images/Logo/logo_utama.png';?>">
@@ -72,7 +73,7 @@
                                 <?php endif; ?>
                                 <!----------------------->
                             <h2 class="form-title">Sign Up</h2>
-                            <form method="POST" class="register-form" action="register" role="form" autocomplete="off" id="formlogin">
+                            <form method="POST" class="register-form" action="registrasi" role="form" autocomplete="off" id="formlogin">
 
                                 <div class="form-group">
                                     <label for="name"><i class="zmdi zmdi-account material-icons-name"></i><font color="red" size="4px">*</font> </label>
@@ -111,7 +112,7 @@
                                 </div>
                                 
                                 <div class="form-group form-button">
-                                    <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
+                                    <input type="submit" name="signup" id="signup" class="form-submit" value="Registrasi"/>
                                 </div>
                                 
                             </form>

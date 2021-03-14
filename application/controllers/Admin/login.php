@@ -21,10 +21,14 @@ class login extends CI_Controller {
         $this->form_validation->set_rules('password', 'Password', 'required|trim',[
             'required'  => 'Masukkan Password',
         ]);
+        
+         //-- Title Halaman
+         $data ['title'] = 'Halaman Login';
+         //----------------------------
 
         if($this->form_validation->run() == FALSE){
             $this->load->view('Template/Login_register/header.php');
-            $this->load->view('Admin/login/index');
+            $this->load->view('Admin/login/index', $data);
             $this->load->view('Template/Login_register/footer.php');
         }else{
             $this->_prosesLogin();
@@ -45,7 +49,7 @@ class login extends CI_Controller {
                     ];
                         $this->session->set_userdata($data);
                     if($user['role_id']==1){
-                        redirect('Admin/home');
+                        redirect('Admin/home_admin');
                     }
                     if($user['role_id']==3){
                         redirect('Alumni/dashboard_alumni');
@@ -63,6 +67,10 @@ class login extends CI_Controller {
             $this->session->set_flashdata('not_username','<center> Username anda tidak Terdaftar!</center>');
             redirect("Admin/login");
         }
+    }
+    public function logout(){
+        $this->session->sess_destroy();
+        redirect('Admin/login', 'refresh');
     }
 
 }
