@@ -63,29 +63,19 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li><a href="<?php echo base_url("User/dashboard");?>">Home</a></li>
-                                    <li><a href="#">Track Record Data Alumni</a>
+                                    <li><a href="<?php echo base_url("User/dashboarduser");?>">Home</a></li>
+                                    <li><a href="#">Tracking</a>
                                         <ul class="dropdown">
-                                            <li><a href="<?php echo base_url("User/dashboard");?>">Alumni Bekerja</a></li>
-                                            <li><a href="<?php echo base_url("User/dashboard");?>">Alumni Kuliah</a></li>
-                                            <li><a href="<?php echo base_url("User/dashboard");?>">Alumni Lainnya</a></li>
+                                            <li><a href="<?php echo base_url("User/recordkuliahuser");?>">Record Kuliah</a></li>
+                                            <li><a href="<?php echo base_url("User/recordkerjauser");?>">Record Kerja</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#">Kesan Dan Pesan</a>
-                                        <ul class="dropdown">
-                                            <li><a href="<?php echo base_url("User/dashboard");?>">Tahun 2018</a></li>
-                                            <li><a href="<?php echo base_url("User/dashboard");?>">Tahun 2019</a></li>
-                                            <li><a href="<?php echo base_url("User/dashboard");?>">Tahun 2020</a></li>
-                                        </ul>
+                                    <li><a href="<?php echo base_url('User/eventuser')?>">Event</a>
                                     </li>
-                                    <li><a href="#">Informasi</a>
-                                        <ul class="dropdown">
-                                            <li><a href="<?php echo base_url("User/dashboard");?>">Pendaftaran Kuliah</a></li>
-                                            <li><a href="<?php echo base_url("User/dashboard");?>">Lowongan Kerja</a></li>
-                                        </ul>
+                                    <li><a href="<?php echo base_url('User/informasiuser')?>">Informasi</a>
                                     </li>
-                                    <li><a href="<?php echo base_url("User/dashboard");?>">Tentang Kami</a></li>
-                                    <li><a href="course.html">Kontak</a></li>
+                                    <li><a href="<?php echo base_url("User/lokeruser");?>">Sharing Loker</a></li>
+                                    <li><a href="<?php echo base_url("User/kritiksaranuser");?>">Kritik & Saran</a></li>
                                 </ul>
                             </div>
                             <!-- Nav End -->
