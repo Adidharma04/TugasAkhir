@@ -15,7 +15,7 @@
           <img src="" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Adi Dharma</a>
+          <a href="#" class="d-block"><?php echo ucfirst($this->session->userdata('sess_name')) ?></a>
         </div>
       </div>
 
@@ -172,9 +172,26 @@
               </p>
             </a>
           </li>
+          <li class="nav-header">Registrasi Pengguna</li>
+          <li class="nav-item">
+            <a href="<?php echo base_url("Admin/registrasi_pegawai")?>" class="nav-link">
+              <i class="nav-icon fa fa-Book"></i>
+              <p>
+                Registrasi Pegawai
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<?php echo base_url("Admin/registrasi_siswa")?>" class="nav-link">
+              <i class="nav-icon fa fa-Book"></i>
+              <p>
+                Registrasi Siswa
+              </p>
+            </a>
+          </li>
           <li class="nav-header">Logout</li>
           <li class="nav-item">
-            <a href="<?php echo base_url("Admin/logiin/logout")?>" class="nav-link">
+            <a href="<?php echo base_url("Admin/login/logout")?>" class="nav-link">
               <i class="nav-icon fa fa-sign-out"></i>
               <p>
                 Keluar

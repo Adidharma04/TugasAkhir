@@ -41,48 +41,8 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                        <span>
-                                  <br>
-                                  <?php
-                                    if (!empty($this->session->flashdata('pesan'))) {
-                                    ?>
-                                      <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                          <?= $this->session->flashdata('pesan'); ?>
-                                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                              <span aria-hidden="true">&times;</span>
-                                          </button>
-                                      </div>
-                                  <?php
-                                    }
-                                    ?>
-
-                                  <?php
-                                    if (!empty($this->session->flashdata('pesan2'))) {
-                                    ?>
-                                      <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                          <?= $this->session->flashdata('pesan2'); ?>
-                                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                              <span aria-hidden="true">&times;</span>
-                                          </button>
-                                      </div>
-                                  <?php
-                                    }
-                                    ?>
-
-                                  <?php
-                                    if (!empty($this->session->flashdata('pesan3'))) {
-                                    ?>
-                                      <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                          <?= $this->session->flashdata('pesan3'); ?>
-                                          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                              <span aria-hidden="true">&times;</span>
-                                          </button>
-                                      </div>
-                                  <?php
-                                    }
-                                    ?>
-
-                              </span>
+                                <?php echo $this->session->flashdata('msg') ?>
+                            <br>
                             <div class="card-header">
                                 <h3 class="card-title">Table Informasi Siswa</h3>
                             </div>
@@ -105,8 +65,8 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <?php $no = 1; foreach ($information_student as $swa) : ?>
                                         <tr>
-                                            <?php $no = 1; foreach ($information_student as $swa) : ?>
                                                 <td><?= $no++ ?></td>
                                                 <td><?= $swa->nis ?></td>
                                                 <td><?= $swa->nama ?></td>
@@ -114,15 +74,14 @@
                                                 <td><?= $swa->tanggal_lahir ?></td>
                                                 <td><?= $swa->jurusan ?></td>
                                                 <td><?= $swa->email ?></td>
-                                                <td><?= $swa->foto ?></td>
-                                                <td><?= $swa->foto ?></td>
+                                                <td><img src="<?= base_url('assets/Gambar/Upload/siswa/') . $swa->foto ?>" style= "width:50px; height:50px;" ></td>
                                                 <td>
-                                                    <a href="#" class="btn btn-info"><i class="fas fa-eye"></i> Detail</a>
-                                                    <a href="#" class="btn btn-success"><i class="fas fa-pencil-square-o"></i> Edit</a>
+                                                    <a href="<?= base_url().'Admin/siswa/detail/'.$swa->id_student ?>" class="btn btn-info"><i class="fas fa-eye"></i> Detail</a>
+                                                    <a href="<?= base_url().'Admin/siswa/edit/'.$swa->id_student ?>" class="btn btn-success"><i class="fas fa-pencil-square-o"></i>Edit</a>
                                                     <a href="#" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>
                                                 </td>
-                                            <?php endforeach ?>
                                         </tr>
+                                        <?php endforeach ?>
                                     </tbody>
                                     <tfoot>
                                         <tr>

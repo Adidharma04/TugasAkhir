@@ -26,12 +26,12 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Tambah Siswa</h1>
+              <h1>Registrasi Pengguna</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Tambah Siswa</li>
+                <li class="breadcrumb-item active">Registrasi Pegawai</li>
               </ol>
             </div>
           </div>
@@ -40,10 +40,11 @@
 
       <!-- Main content -->
       <section class="content">
+
         <!-- Default box -->
         <div class="card">
           <div class="card-header" style="background-color:blanchedalmond">
-            <h3 class="card-title">Form Tambah Siswa</h3>
+            <h3 class="card-title">Form Registrasi Pegawai</h3>
 
             <div class="card-tools">
               <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -52,22 +53,55 @@
             </div>
           </div>
           <div class="card-body">
-            <form action="" method="post" enctype="multipart/form-data">
-            
+            <form action="" method="post">
               <div class="form-group">
-                <label>Nis</label>
-                <input type="text" class="form-control" id="nis" name="nis" placeholder="Masukkan Nomer Induk Siswa" value="<?= set_value('nama'); ?>" >
-                <?= form_error('nis','<small class="text-danger">','</small>');?>
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" name="username" id="username" placeholder="Masukkan Username" value="<?= set_value('username'); ?>" >
+                    <?= form_error('username','<small class="text-danger">','</small>');?>
+              </div> 
+              <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="text" class="form-control" name="password" id="password" placeholder="Masukkan Password" value="<?= set_value('password'); ?>" >
+                    <?= form_error('password','<small class="text-danger">','</small>');?>
+              </div> 
+              <div class="form-group">
+                <label for="level">Level</label>
+                <div class="form-check">
+                  <input type="radio" name="level" value="staff" > Staff Admin
+                </div>
+                <div class="form-check">
+                  <input type="radio" name="level" value="bk" > Guru BK
+                </div>
+                <div class="form-check">
+                  <input type="radio" name="level" value="siswa" > Siswa
+                </div>
+                <div class="form-check">
+                  <input type="radio" name="level" value="alumni" > Alumni
+                </div>
               </div>
               <div class="form-group">
-                <label for="nama">Nama</label>
-                <input type="text" class="form-control" name="nama" id="nama" placeholder="Masukkan Nama" value="<?= set_value('nama'); ?>" >
-                <?= form_error('nama','<small class="text-danger">','</small>');?>
+                <label for="no_induk">No Induk</label>
+                <input type="text" class="form-control" name="no_induk" id="no_induk" placeholder="Masukkan No Induk Pegawai" value="<?= set_value('no_induk'); ?>" >
+                <?= form_error('no_induk','<small class="text-danger">','</small>');?>
               </div>
               <div class="form-group">
-                <label for="alamat">Alamat</label>
-                <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Masukkan Alamat" value="<?= set_value('alamat'); ?>" >
-                <?= form_error('alamat','<small class="text-danger">','</small>');?>
+                    <label for="nama">Nama</label>
+                    <input type="text" class="form-control" name="nama" id="nama" placeholder="Masukkan Nama" value="<?= set_value('nama'); ?>" >
+                    <?= form_error('nama','<small class="text-danger">','</small>');?>
+              </div>
+              <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" class="form-control" name="email" id="email" placeholder="Masukkan Email" value="<?= set_value('email'); ?>" >
+                    <?= form_error('email','<small class="text-danger">','</small>');?>
+              </div>
+              <div class="form-group">
+                <label for="gender">Jenis Kelamin</label>
+                <div class="form-check">
+                  <input type="radio" name="jenis_kelamin" value="laki" > Laki-Laki
+                </div>
+                <div class="form-check">
+                  <input type="radio" name="jenis_kelamin" value="perempuan" > Perempuan
+                </div>
               </div>
               <div class="form-group">
                 <label>Tanggal lahir:(Month/Day/Year)</label>
@@ -79,41 +113,14 @@
                 <?= form_error('tempat_lahir','<small class="text-danger">','</small>');?>
               </div>
               <div class="form-group">
-                <label for="gender">Jurusan</label>
-                <div class="form-check">
-                  <input type="radio" name="jurusan" value="ipa" > IPA
-                </div>
-                <div class="form-check">
-                  <input type="radio" name="jurusan" value="ips" > IPS
-                </div>
-              </div>
-              <div class="form-group">
-                <label>Email:</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan Email" >
-                <?= form_error('email','<small class="text-danger">','</small>');?>
-              </div>
-              <div class="form-group">
                 <label>No Telfon</label>
                 <input type="number" class="form-control" id="no_telfon" name="no_telfon" placeholder="Masukkan Nomer Telfon"value="<?= set_value('no_telfon'); ?>" >
                 <?= form_error('no_telfon','<small class="text-danger">','</small>');?>
               </div>
               <div class="form-group">
-                <label for="foto">Foto</label>
-                <input type="file" class="form-control" id="foto" name="foto">
-              </div>
-              <div class="form-group">
-                <label>Tahun Lulus</label>
-                <input type="number" class="form-control" id="tahun_lulus" name="tahun_lulus" placeholder="Masukkan Tahun Lulus" >
-                <?= form_error('tahun_lulus','<small class="text-danger">','</small>');?>
-              </div>
-              <div class="form-group">
-                <label for="gender">Jenis Kelamin</label>
-                <div class="form-check">
-                  <input type="radio" name="jenis_kelamin" value="laki" > Laki-Laki
-                </div>
-                <div class="form-check">
-                  <input type="radio" name="jenis_kelamin" value="perempuan" > Perempuan
-                </div>
+                <label for="alamat">Alamat</label>
+                <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Masukkan Alamat" value="<?= set_value('alamat'); ?>" >
+                <?= form_error('alamat','<small class="text-danger">','</small>');?>
               </div>
               <div class="form-group">
                 <button type="submit" class="btn btn-primary">Submit</button>

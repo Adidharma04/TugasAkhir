@@ -26,12 +26,12 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Tambah Siswa</h1>
+              <h1>Detail Siswa</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Tambah Siswa</li>
+                <li class="breadcrumb-item active">Detail Siswa</li>
               </ol>
             </div>
           </div>
@@ -41,93 +41,47 @@
       <!-- Main content -->
       <section class="content">
         <!-- Default box -->
-        <div class="card">
-          <div class="card-header" style="background-color:blanchedalmond">
-            <h3 class="card-title">Form Tambah Siswa</h3>
-
-            <div class="card-tools">
-              <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                <i class="fas fa-minus"></i>
-              </button>
+        <?php foreach($information_student as $swa):?>
+        <div class="col-12 col-lg-7 d-flex align-items-stretch" >
+              <div class="card bg-light">
+                <div class="card-header text-muted border-bottom-0">
+                  <?= $swa->nis?>
+                  <hr>
+                </div>
+                <div class="card-body pt-0">
+                  <div class="row">
+                    <div class="col-7">
+                      <h1 class="lead"><b> <?= $swa->nama?></b></h1>
+                      <p class="text-muted text-sm"><b>Tanggal Lahir: </b> <?= $swa->tanggal_lahir?> </p>
+                      <ul class="ml-4 mb-0 fa-ul text-muted">
+                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span>  <b>Alamat : </b> <?= $swa->alamat?></li>
+                        <br>
+                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span>     <b>No telfon : </b> <?= $swa->no_telfon?></li>
+                        <br>
+                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-cogs"></i></span>      <b>Jurusan : </b> <?= $swa->jurusan?></li>
+                        <br>
+                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-envelope"></i></span>  <b>Emai : </b> <?= $swa->email?></li>
+                        <br>
+                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-calendar"></i></span>  <b>Tahun Lulus : </b> <?= $swa->tahun_lulus?></li>
+                        <br>
+                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-venus"></i></span>     <b>Jenis Kelamin : </b> <?= $swa->jenis_kelamin?></li>
+                      </ul>
+                    </div>
+                    <div class="col-5 text-center">
+                      <img src=" <?= base_url('assets/Gambar/Upload/Siswa/') . $swa->foto ?>" alt="user-avatar" class="img-circle img-fluid" style= "width:300px; height:200px;">
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <div class="text-right">
+                    <a href="<?= base_url().'Admin/siswa'?>" class="btn btn-sm btn-primary">
+                      <i class="fas fa-arrow-left"></i> Kembali
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="card-body">
-            <form action="" method="post" enctype="multipart/form-data">
-            
-              <div class="form-group">
-                <label>Nis</label>
-                <input type="text" class="form-control" id="nis" name="nis" placeholder="Masukkan Nomer Induk Siswa" value="<?= set_value('nama'); ?>" >
-                <?= form_error('nis','<small class="text-danger">','</small>');?>
-              </div>
-              <div class="form-group">
-                <label for="nama">Nama</label>
-                <input type="text" class="form-control" name="nama" id="nama" placeholder="Masukkan Nama" value="<?= set_value('nama'); ?>" >
-                <?= form_error('nama','<small class="text-danger">','</small>');?>
-              </div>
-              <div class="form-group">
-                <label for="alamat">Alamat</label>
-                <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Masukkan Alamat" value="<?= set_value('alamat'); ?>" >
-                <?= form_error('alamat','<small class="text-danger">','</small>');?>
-              </div>
-              <div class="form-group">
-                <label>Tanggal lahir:(Month/Day/Year)</label>
-                <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" >
-              </div>
-              <div class="form-group">
-                <label>Tempat lahir:</label>
-                <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" placeholder="Masukkan Tempat Lahir" value="<?= set_value('tempat_lahir'); ?>" >
-                <?= form_error('tempat_lahir','<small class="text-danger">','</small>');?>
-              </div>
-              <div class="form-group">
-                <label for="gender">Jurusan</label>
-                <div class="form-check">
-                  <input type="radio" name="jurusan" value="ipa" > IPA
-                </div>
-                <div class="form-check">
-                  <input type="radio" name="jurusan" value="ips" > IPS
-                </div>
-              </div>
-              <div class="form-group">
-                <label>Email:</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan Email" >
-                <?= form_error('email','<small class="text-danger">','</small>');?>
-              </div>
-              <div class="form-group">
-                <label>No Telfon</label>
-                <input type="number" class="form-control" id="no_telfon" name="no_telfon" placeholder="Masukkan Nomer Telfon"value="<?= set_value('no_telfon'); ?>" >
-                <?= form_error('no_telfon','<small class="text-danger">','</small>');?>
-              </div>
-              <div class="form-group">
-                <label for="foto">Foto</label>
-                <input type="file" class="form-control" id="foto" name="foto">
-              </div>
-              <div class="form-group">
-                <label>Tahun Lulus</label>
-                <input type="number" class="form-control" id="tahun_lulus" name="tahun_lulus" placeholder="Masukkan Tahun Lulus" >
-                <?= form_error('tahun_lulus','<small class="text-danger">','</small>');?>
-              </div>
-              <div class="form-group">
-                <label for="gender">Jenis Kelamin</label>
-                <div class="form-check">
-                  <input type="radio" name="jenis_kelamin" value="laki" > Laki-Laki
-                </div>
-                <div class="form-check">
-                  <input type="radio" name="jenis_kelamin" value="perempuan" > Perempuan
-                </div>
-              </div>
-              <div class="form-group">
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </div>
-            </form>
-          </div>
-          <!-- /.card-body -->
-          <div class="card-footer">
-            SMAN 1 PLOSO JOMBANG
-          </div>
-          <!-- /.card-footer-->
-        </div>
-        <!-- /.card -->
-
+        <?php endforeach ?>
       </section>
       <!-- /.content -->
     </div>

@@ -27,43 +27,8 @@
                             <h2 class="form-title">Sign In</h2>
 
                             <form method="POST" class="register-form" action="login" role="form" autocomplete="off" id="index">
-                            
-                                <!-- Alert Berhasil Registrasi-->
-                                <?php if($this->session->flashdata('pesan') == TRUE):?>
-                                    <div class="alert alert-info alert-success">
-                                        <a href="login" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                        <br>
-                                        <?php echo $this->session->flashdata('pesan');?>
-                                    </div>
-                                <?php endif; ?>
-								<!----------------------->
-								<!-- Alert Tidak ada Username-->
-                                <?php if($this->session->flashdata('not_username') == TRUE):?>
-                                    <div class="alert alert-info alert-danger">
-                                        <a href="login" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                        <br>
-                                        <?php echo $this->session->flashdata('not_username');?>
-                                    </div>
-                                <?php endif; ?>
-								<!----------------------->
-								<!-- Alert Username Tidak Aktif-->
-                                <?php if($this->session->flashdata('not_aktif') == TRUE):?>
-                                    <div class="alert alert-info alert-danger">
-                                        <a href="login" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                        <br>
-                                        <?php echo $this->session->flashdata('not_aktif');?>
-                                    </div>
-                                <?php endif; ?>
-								<!----------------------->
-                                <!-- Alert Username Tidak Aktif-->
-                                <?php if($this->session->flashdata('wrong_pass') == TRUE):?>
-                                    <div class="alert alert-info alert-danger">
-                                        <a href="login" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                                        <br>
-                                        <?php echo $this->session->flashdata('wrong_pass');?>
-                                    </div>
-                                <?php endif; ?>
-								<!----------------------->
+  
+                                <?php echo $this->session->flashdata('msg') ?>
 
                                 <div class="form-group">
                                     <label for="username"><i class="zmdi zmdi-account material-icons-name"></i><font color="red" size="4px">*</font> </label>
