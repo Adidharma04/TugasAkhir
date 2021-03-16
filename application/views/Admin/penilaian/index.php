@@ -23,12 +23,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Profile</h1>
+            <h1>Penilaian</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="<?php echo base_url('Admin/dashboard_admin') ?>">Home</a></li>
-              <li class="breadcrumb-item active">Table Profile</li>
+              <li class="breadcrumb-item active">Table Penilaian</li>
             </ol>
           </div>
         </div>
@@ -42,7 +42,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Table Profile</h3>
+                <h3 class="card-title">Table Penilaian</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -52,19 +52,22 @@
                   <thead>
                     <tr>
                       <th>No</th>
-                      <th>Username</th>
-                      <th>Level</th>
-                      <th>Last logged</th>
+                      <th>Profile</th>
+                      <th>Kritik</th>
+                      <th>Saran</th>
+                      <th>Update at</th>
+                      <th>Created at</th>
                       <th>Opsi</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <?php $no = 1; foreach ($profile as $prf) : ?>
+                    <?php $no = 1; foreach ($penilaian as $pnl) : ?>
                       <tr>
                         <td><?= $no++ ?></td>
-                        <td><?= $prf->username ?></td>
-                        <td><?= $prf->level ?></td>
-                        <td><?= $prf->last_logged ?></td>
+                        <td><?= $pnl->kritik ?></td>
+                        <td><?= $pnl->saran ?></td>
+                        <td><?= $pnl->update_at ?></td>
+                        <td><?= $pnl->created_at ?></td>
                         <td>
                           <a href="#" class="btn btn-info"><i class="fa fa-eye"></i> Detail</a>
                           <a href="#" class="btn btn-success"><i class="fa fa-pencil"></i>Edit</a>
@@ -76,9 +79,11 @@
                   <tfoot>
                     <tr>
                       <th>No</th>
-                      <th>Username</th>
-                      <th>Level</th>
-                      <th>Last logged</th>
+                      <th>Profile</th>
+                      <th>Kritik</th>
+                      <th>Saran</th>
+                      <th>Update at</th>
+                      <th>Created at</th>
                       <th>Opsi</th>
                     </tr>
                   </tfoot>

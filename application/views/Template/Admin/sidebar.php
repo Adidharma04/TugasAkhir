@@ -97,15 +97,9 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/forms/general.html" class="nav-link">
+                <a href="<?= base_url().'Admin/penilaian'?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Kritik</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/forms/advanced.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Saran</p>
+                  <p>Kritik lan Saran</p>
                 </a>
               </li>
             </ul>

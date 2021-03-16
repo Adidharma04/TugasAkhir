@@ -6,10 +6,14 @@ class siswa extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('Admin/siswa_model');
-        // $this->load->helper('url');
-        //     if ($this->session->userdata('role_id')!= 1) {
-        //         redirect('Admin/login', 'refresh');
-        //     }  
+        if ( empty( $this->session->userdata('sess_id_profile') ) ) {
+            
+            $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> <br> 
+                        <small>Anda harus login terlebih dahulu !</small>
+                    </div>';
+            $this->session->set_flashdata('msg', $html);
+            redirect("Admin/login");
+        }
     }
     public function index()
     {
@@ -82,11 +86,25 @@ class siswa extends CI_Controller {
         }
     }
     public function edit($id_student){
-        //-- rule--//
-        $this->form_validation->set_rules('nis', 'Nis ', 'required|trim|is_unique[information_student.nis]',[
-            'required' => 'Masukkan No Induk Siswa',
-            'is_unique' => 'No Induk Siswa telah terdaftar',
-        ]);
+
+        $getDataSiswaById = $this->siswa_model->getSiswa($id_student);
+        $nis = $getDataSiswaById->nis;
+        $email = $getDataSiswaById->email;
+        
+        // input 
+        $inputNIS = $this->input->post('nis');
+        $inputEmail = $this->input->post('email');
+
+        if ( $nis != $inputNIS ) {
+
+            //-- rule--//
+            $this->form_validation->set_rules('nis', 'Nis ', 'required|trim|is_unique[information_student.nis]',[
+                'required' => 'Masukkan No Induk Siswa',
+                'is_unique' => 'No Induk Siswa telah terdaftar',
+            ]);
+        }
+
+       
 
         $this->form_validation->set_rules('nama', 'Nama', 'required|trim',[
             'required' => 'Masukkan Nama Siswa',
@@ -98,10 +116,14 @@ class siswa extends CI_Controller {
         $this->form_validation->set_rules('tempat_lahir', 'Tempat Lahir', 'required|trim',[
             'required' => 'Masukkan Tempat Lahir',
         ]);
-        $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[information_student.email]',[
-            'required'  => 'Masukkan Email Siswa',
-            'is_unique' => 'Email telah terdaftar',
-        ]);
+
+        if ( $email != $inputEmail ) {
+
+            $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[information_student.email]',[
+                'required'  => 'Masukkan Email Siswa',
+                'is_unique' => 'Email telah terdaftar',
+            ]);
+        }
 
         $this->form_validation->set_rules('no_telfon', 'No Telpon', 'required|trim',[
             'required' => 'Masukkan No Telpon Siswa',
@@ -114,7 +136,7 @@ class siswa extends CI_Controller {
         //-- Title Halaman
         $data ['title'] = 'Halaman Admin-Dashboard';
         //----------------------------
-        $data ['information_student'] = $this->siswa_model->getSiswa($id_student);
+        $data ['information_student'] = $getDataSiswaById;
         if($this->form_validation->run() == FALSE){
             $this->load->view('Template/Admin/navbar',$data);
             $this->load->view('Template/Admin/sidebar',$data);
@@ -122,7 +144,7 @@ class siswa extends CI_Controller {
             $this->load->view('Template/Admin/footer');
         }
         else{
-            $this->siswa_model->ubahDataSiswa();
+            $this->siswa_model->editDataSiswa( $id_student );
             $html = '<div class="alert alert-success">
                      <center>
                         <a href="siswa" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -144,6 +166,20 @@ class siswa extends CI_Controller {
             $this->load->view('Template/Admin/sidebar',$data);
             $this->load->view('Admin/siswa/detail',$data);
             $this->load->view('Template/Admin/footer');
+    }
+
+
+
+    // proses hapus siswa
+    function onDelete( $id_profile ) {
+
+        $this->siswa_model->prosesHapusSiswa( $id_profile );
+        $html = '<div class="alert alert-success">
+                     <b>Pemberitahuan</b> <br>
+                     Data siswa berhasil terhapus pada tanggal '.date('d F Y H.i A').'
+                     </div>';
+            $this->session->set_flashdata('msg', $html);
+            redirect('Admin/siswa','refresh');
     }
 
 }

@@ -1,11 +1,14 @@
-<?php 
+<?php
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class profile extends CI_Controller {
+class penilaian extends CI_Controller {
+
+
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Admin/profile_model');
+        $this->load->model('Admin/penilaian_model');
         if ( empty( $this->session->userdata('sess_id_profile') ) ) {
             
             $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> <br> 
@@ -15,19 +18,21 @@ class profile extends CI_Controller {
             redirect("Admin/login");
         }
     }
+
     public function index()
     {
-        //-- Title Halaman
-         $data ['title'] = 'Halaman Siswa | Admin';
-        //----------------------------
-        $data['profile'] = $this->profile_model->tampilDataProfile(); 
+         //-- Title Halaman
+         $data ['title'] = 'Halaman Kritik Saran | Admin';
+         //----------------------------
+        $data['penilaian'] = $this->penilaian_model->tampilDataPenilaian(); 
         $this->load->view('Template/Admin/navbar',$data);
         $this->load->view('Template/Admin/sidebar',$data);
-        $this->load->view('Admin/profile/index',$data);
+        $this->load->view('Admin/penilaian/index',$data);
         $this->load->view('Template/Admin/footer');
-    } 
+    }
 
 }
 
-/* End of file profile.php */
+/* End of file Controllername.php */
+
 ?>

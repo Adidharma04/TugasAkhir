@@ -78,7 +78,41 @@
                                                 <td>
                                                     <a href="<?= base_url().'Admin/siswa/detail/'.$swa->id_student ?>" class="btn btn-info"><i class="fas fa-eye"></i> Detail</a>
                                                     <a href="<?= base_url().'Admin/siswa/edit/'.$swa->id_student ?>" class="btn btn-success"><i class="fas fa-pencil-square-o"></i>Edit</a>
-                                                    <a href="#" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>
+                                                    <a href="#"  data-toggle="modal" data-target="#action-delete-<?php echo $swa->id_student ?>" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>
+
+
+
+
+                                                    <!-- Modal delete -->
+                                                    <div class="modal fade" id="action-delete-<?php echo $swa->id_student ?>">
+                                                        <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                            
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <label for="">NIS : <span class="text-bold"><?php echo $swa->nis ?></span></label> <br>
+                                                                <label for="">NAMA : <span class="text-bold"><?php echo $swa->nama ?></span></label>
+
+                                                                <hr>
+                                                                <label>
+                                                                    Apakah anda yakin ingin menghapus siswa atas nama <?php echo $swa->nama ?> ? 
+                                                                </label> <br>
+                                                                <small>Siswa yang telah dihapus tidak dapat dipulihkan kembali.</small>
+                                                            </div>
+                                                            <div class="modal-footer justify-content-between">
+                                                                <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                                                                <a href="<?php echo base_url('admin/siswa/onDelete/'. $swa->id_profile) ?>" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus Sekarang</a>
+                                                            </div>
+                                                        </div>
+                                                        <!-- /.modal-content -->
+                                                        </div>
+                                                        <!-- /.modal-dialog -->
+                                                    </div>
+                                                    <!-- /.modal -->
                                                 </td>
                                         </tr>
                                         <?php endforeach ?>

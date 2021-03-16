@@ -39,20 +39,99 @@ class siswa_model extends CI_Model {
         $config['upload_path'] = './assets/Gambar/Upload/Siswa/';    
         $config['allowed_types'] = 'jpg|png|jpeg';
         $this->load->library('upload', $config);
-        if($this->upload->do_upload('foto')){
-            $return = array('result' => 'success', 'file' => $this->upload->data(), 'error' => '');      
-            return $return;
-        }else{    
-            $return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors());return $return;   
-        }  
+
+        if ( empty( $_FILES['foto']['name'] ) ) {
+
+            return array('result' => 'success', 'file' => ['file_name' => ""]);
+        } else {
+
+            if($this->upload->do_upload('foto')){
+                $return = array('result' => 'success', 'file' => $this->upload->data(), 'error' => '');      
+                return $return;
+            }else{    
+                $return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors());return $return;   
+            }  
+        }
     }
     public function getSiswa($id_student){
-		return $this->db->get_where('information_student',['id_student'=>$id_student])->result();
+		// return $this->db->get_where('information_student',['id_student'=>$id_student])->result();
+        return $this->db->get_where('information_student',['id_student'=>$id_student])->row();
 	}
-    public function editDataSiswa(){
-        $last_id_profile = $this->db->insert_id();
-        $data=[
-			'id_profile'    =>  $last_id_profile,
+    public function editDataSiswa( $id_student ){
+        
+        // ambil detail informasi siswa
+        $ambilInformasiSiswa = $this->getSiswa( $id_student );
+        
+        $nis = $this->input->post('nis', true);
+
+
+
+        // upload foto
+        $config['upload_path'] = './assets/Gambar/Upload/Siswa/';    
+        $config['allowed_types'] = 'jpg|png|jpeg';
+        $this->load->library('upload', $config);
+
+
+        $foto = "";
+        // apabila dia ingin mengubah gambar 
+        if ( !empty( $_FILES['foto']['name'] ) ) {
+
+
+            if ( $this->upload->do_upload('foto') ){
+
+                if ( $ambilInformasiSiswa->foto ) { // remove old photo
+
+                    $link = $config['upload_path']. $ambilInformasiSiswa->foto;
+                    unlink( $link );
+                }
+
+                // set value new photo
+                $foto = $this->upload->data('file_name');
+                
+            }else{    
+                
+                // upload error
+                $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> '.$this->upload->display_errors().'</div>';
+                $this->session->set_flashdata('msg', $html);
+
+                redirect('Admin/siswa/edit/'. $id_student);
+                
+            }  
+
+
+
+
+        // gaambar tetap alias tidak diubah sama sekali
+        } else {
+
+            if ( $ambilInformasiSiswa->foto ) {
+
+                $foto = $ambilInformasiSiswa->foto;
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // data profile
+        $dataProfile = array    (
+
+            'username'  => $nis
+        );
+        
+        // data informasi siswa
+        $dataInformationStudent =[
+
             'nama'          =>  $this->input->post('nama', true),
             'alamat'        =>  $this->input->post('alamat', true),
             'tanggal_lahir' =>  $this->input->post('tanggal_lahir', true),
@@ -60,13 +139,32 @@ class siswa_model extends CI_Model {
             'jurusan'       =>  $this->input->post('jurusan', true),
             'email'         =>  $this->input->post('email', true),
             'no_telfon'     =>  $this->input->post('no_telfon', true),
-            'foto'          =>  $this->input->post('foto', true),
-            'nis'           =>  $this->input->post('nis', true),
+            'foto'          =>  $foto,
+            'nis'           =>  $nis,    
             'tahun_lulus'   =>  $this->input->post('tahun_lulus', true),
             'jenis_kelamin' =>  $this->input->post('jenis_kelamin', true),
 		];
-        $this->db->where('id_profile', $this->input->post('id_profile'));	
-        $this->db->update('information_siswa', $data);
+
+        // // update information_student
+        $this->db->where('id_student', $id_student);	
+        $this->db->update('information_student', $dataInformationStudent);
+
+        // update profile
+        $this->db->where('id_profile', $ambilInformasiSiswa->id_profile);	
+        $this->db->update('profile', $dataProfile);
+
+
+    }
+
+
+
+    // porses hapus
+    function prosesHapusSiswa( $id_profile ){
+
+        $this->db->where('id_profile', $id_profile)->delete('information_student');
+        $this->db->where('id_profile', $id_profile)->delete('profile');
+
+
     }
 }
 

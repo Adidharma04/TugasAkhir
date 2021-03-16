@@ -52,35 +52,37 @@
             </div>
           </div>
           <div class="card-body">
-          <?php foreach($information_student as $swa):?>
-            <form action="" method="post">
+
+            <?php echo $this->session->flashdata('msg') ?>
+
+            <form action="" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label>Nis</label>
-                    <input type="text" class="form-control" id="nis" name="nis" placeholder="Masukkan Nomer Induk Siswa" value="<?= $swa->nis;?>" >
+                    <input type="text" class="form-control" id="nis" name="nis" placeholder="Masukkan Nomer Induk Siswa" value="<?= $information_student->nis;?>" >
                     <?= form_error('nis','<small class="text-danger">','</small>');?>
                 </div>
                 <div class="form-group">
                     <label for="nama">Nama</label>
-                    <input type="text" class="form-control" name="nama" id="nama" placeholder="Masukkan Nama" value="<?= $swa->nama;?>" >
+                    <input type="text" class="form-control" name="nama" id="nama" placeholder="Masukkan Nama" value="<?= $information_student->nama;?>" >
                     <?= form_error('nama','<small class="text-danger">','</small>');?>
                 </div>
                 <div class="form-group">
                     <label for="alamat">Alamat</label>
-                    <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Masukkan Alamat" value="<?= $swa->alamat;?>">
+                    <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Masukkan Alamat" value="<?= $information_student->alamat;?>">
                     <?= form_error('alamat','<small class="text-danger">','</small>');?>
                 </div>
                 <div class="form-group">
                     <label>Tanggal lahir:(Month/Day/Year)</label>
-                    <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="<?= $swa->tanggal_lahir;?>">
+                    <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="<?= $information_student->tanggal_lahir;?>">
                 </div>
                 <div class="form-group">
                     <label>Tempat lahir:</label>
-                    <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" placeholder="Masukkan Tempat Lahir" value="<?= $swa->tempat_lahir;?>">
+                    <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" placeholder="Masukkan Tempat Lahir" value="<?= $information_student->tempat_lahir;?>">
                     <?= form_error('tempat_lahir','<small class="text-danger">','</small>');?>
                 </div>
                 <div class="form-group">
                     <label for="gender">Jurusan</label>
-                    <?php if($swa->jurusan == "ipa"): ?>
+                    <?php if($information_student->jurusan == "ipa"): ?>
                       <div class="form-check">
                             <input type="radio" name="jurusan" value="ipa" checked> Ipa
                       </div>
@@ -98,31 +100,31 @@
                 </div>
                 <div class="form-group">
                     <label>Email:</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan Email" value="<?= $swa->email;?>">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan Email" value="<?= $information_student->email;?>">
                     <?= form_error('email','<small class="text-danger">','</small>');?>
                 </div>
                 <div class="form-group">
                     <label>No Telfon</label>
-                    <input type="number" class="form-control" id="no_telfon" name="no_telfon" placeholder="Masukkan Nomer Telfon" value="<?= $swa->no_telfon;?>">
+                    <input type="number" class="form-control" id="no_telfon" name="no_telfon" placeholder="Masukkan Nomer Telfon" value="<?= $information_student->no_telfon;?>">
                     <?= form_error('no_telfon','<small class="text-danger">','</small>');?>
                 </div>
                 <div class="form-group">
                     <label for="foto">Foto</label>
                     <div class="input-group">
                     <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="foto" name="foto" value="<?= $swa->foto;?>">
+                        <input type="file" class="custom-file-input" id="foto" name="foto" value="<?= $information_student->foto;?>">
                         <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                     </div>
                     </div>
                 </div>
                 <div class="form-group">
                     <label>Tahun Lulus</label>
-                    <input type="number" class="form-control" id="tahun_lulus" name="tahun_lulus" placeholder="Masukkan Tahun Lulus" value="<?= $swa->tahun_lulus;?>">
+                    <input type="number" class="form-control" id="tahun_lulus" name="tahun_lulus" placeholder="Masukkan Tahun Lulus" value="<?= $information_student->tahun_lulus;?>">
                     <?= form_error('tahun_lulus','<small class="text-danger">','</small>');?>
                 </div>
                 <div class="form-group">
                     <label for="gender">Jenis Kelamin</label>
-                    <?php if($swa->jenis_kelamin == "laki"): ?>
+                    <?php if($information_student->jenis_kelamin == "laki"): ?>
                       <div class="form-check">
                             <input type="radio" name="jenis_kelamin" value="laki" checked>  Laki-Laki
                       </div>
@@ -142,7 +144,6 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
               </div>
             </form>
-            <?php endforeach ?>
           </div>
           <!-- /.card-body -->
           <div class="card-footer">
