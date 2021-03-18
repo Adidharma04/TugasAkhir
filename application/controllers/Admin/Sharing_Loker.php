@@ -119,7 +119,7 @@ class Sharing_Loker extends CI_Controller {
             
             $this->load->view('Template/Admin/navbar',$data);
             $this->load->view('Template/Admin/sidebar',$data);
-            $this->load->view('Admin/sharring_loker/detail',$data);
+            $this->load->view('Admin/sharing_loker/detail',$data);
             $this->load->view('Template/Admin/footer');
     }
 
