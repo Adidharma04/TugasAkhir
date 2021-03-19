@@ -26,12 +26,12 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Edit Data Siswa</h1>
+              <h1>Tambah Event</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Edit Siswa</li>
+                <li class="breadcrumb-item active">Tambah Event</li>
               </ol>
             </div>
           </div>
@@ -43,7 +43,7 @@
         <!-- Default box -->
         <div class="card">
           <div class="card-header" style="background-color:blanchedalmond">
-            <h3 class="card-title">Form Edit Siswa</h3>
+            <h3 class="card-title">Form Tambah Event</h3>
 
             <div class="card-tools">
               <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -52,103 +52,54 @@
             </div>
           </div>
           <div class="card-body">
-
-            <?php echo $this->session->flashdata('msg') ?>
-
             <form action="" method="post" enctype="multipart/form-data">
                 <div class="form-group">
-                    <label>Nis</label>
-                    <input type="text" class="form-control" id="nis" name="nis" placeholder="Masukkan Nomer Induk Siswa" value="<?= $information_student->nis;?>" >
-                    <?= form_error('nis','<small class="text-danger">','</small>');?>
+                    <label for="nama_event">Nama Event</label>
+                    <input type="text" class="form-control" name="nama_event" id="nama_event" placeholder="Masukkan Nama Event" value="<?= set_value('nama_event'); ?>" >
+                    <?= form_error('nama_event','<small class="text-danger">','</small>');?>
                 </div>
                 <div class="form-group">
-                    <label for="nama">Nama</label>
-                    <input type="text" class="form-control" name="nama" id="nama" placeholder="Masukkan Nama" value="<?= $information_student->nama;?>" >
-                    <?= form_error('nama','<small class="text-danger">','</small>');?>
+                    <label for="deskripsi_event">Deskripsi Event</label>
+                    <textarea type="text" class="form-control" id="deskripsi_event" name="deskripsi_event" placeholder="Masukkan Deskripsi Event"></textarea>
+                    <?= form_error('nama_event','<small class="text-danger">','</small>');?>
                 </div>
                 <div class="form-group">
-                    <label for="alamat">Alamat</label>
-                    <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Masukkan Alamat" value="<?= $information_student->alamat;?>">
-                    <?= form_error('alamat','<small class="text-danger">','</small>');?>
-                </div>
-                <div class="form-group">
-                    <label>Tanggal lahir:(Month/Day/Year)</label>
-                    <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="<?= $information_student->tanggal_lahir;?>">
-                </div>
-                <div class="form-group">
-                    <label>Tempat lahir:</label>
-                    <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" placeholder="Masukkan Tempat Lahir" value="<?= $information_student->tempat_lahir;?>">
-                    <?= form_error('tempat_lahir','<small class="text-danger">','</small>');?>
-                </div>
-                <div class="form-group">
-                    <label for="gender">Jurusan</label>
-                    <?php if($information_student->jurusan == "ipa"): ?>
-                      <div class="form-check">
-                            <input type="radio" name="jurusan" value="ipa" checked> Ipa
-                      </div>
-                      <div class="form-check">
-                          <input type="radio" name="jurusan" value="ips">  Ips
-                      </div>
-                    <?php else: ?>
-                      <div class="form-check">
-                            <input type="radio" name="jurusan" value="ipa">  Ipa
-                      </div>
-                      <div class="form-check">
-                          <input type="radio" name="jurusan" value="ipa" checked>  Ips
-                      </div>
-                    <?php endif ?>
-                </div>
-                <div class="form-group">
-                    <label>Email:</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan Email" value="<?= $information_student->email;?>">
-                    <?= form_error('email','<small class="text-danger">','</small>');?>
-                </div>
-                <div class="form-group">
-                    <label>No Telfon</label>
-                    <input type="number" class="form-control" id="no_telfon" name="no_telfon" placeholder="Masukkan Nomer Telfon" value="<?= $information_student->no_telfon;?>">
-                    <?= form_error('no_telfon','<small class="text-danger">','</small>');?>
+                    <label>Tanggal Event:(Month/Day/Year)</label>
+                    <input type="date" class="form-control" id="tanggal_event" name="tanggal_event" >
                 </div>
                 <div class="form-group">
                     <label for="foto">Foto</label>
-                    <div class="input-group">
-                      <div class="custom-file">
-                          <input type="file" class="custom-file-input" id="foto" name="foto" value="<?= $information_student->foto;?>">
-                          <label class="custom-file-label" for="foto" value="" >
-                              <?php if($information_student->foto == ""): ?>
-                                Choose File
-                              <?php else: ?>
-                                <?= $information_student->foto;?>
-                              <?php endif ?>
-                          </label>
-                      </div>
+                    <input type="file" class="form-control" id="foto" name="foto">
+                </div>
+                <div class="form-group">
+                    <label for="lokasi">Lokasi Event</label>
+                    <input type="text" class="form-control" name="lokasi" id="lokasi" placeholder="Masukkan Lokasi Event" value="<?= set_value('lokasi'); ?>" >
+                    <?= form_error('lokasi','<small class="text-danger">','</small>');?>
+                </div>
+                <div class="form-group">
+                    <label for="jenis_event">Jenis Kegiatan</label>
+                    <div class="form-check">
+                    <input type="radio" name="jenis_event" value="pay" > Bayar
+                    </div>
+                    <div class="form-check">
+                    <input type="radio" name="jenis_event" value="free" > Gratis
                     </div>
                 </div>
                 <div class="form-group">
-                    <label>Tahun Lulus</label>
-                    <input type="number" class="form-control" id="tahun_lulus" name="tahun_lulus" placeholder="Masukkan Tahun Lulus" value="<?= $information_student->tahun_lulus;?>">
-                    <?= form_error('tahun_lulus','<small class="text-danger">','</small>');?>
+                    <label for="status">Status Kegiatan</label>
+                    <div class="form-check">
+                        <input type="radio" name="status" value="pending" > Pending 
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" name="status" value="accept" > Di terima
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" name="status" value="decline" > Di tolak
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label for="gender">Jenis Kelamin</label>
-                    <?php if($information_student->jenis_kelamin == "laki"): ?>
-                      <div class="form-check">
-                            <input type="radio" name="jenis_kelamin" value="laki" checked>  Laki-Laki
-                      </div>
-                      <div class="form-check">
-                          <input type="radio" name="jenis_kelamin" value="perempuan">  Perempuan
-                      </div>
-                    <?php else: ?>
-                      <div class="form-check">
-                            <input type="radio" name="jenis_kelamin" value="laki">  Laki-Laki
-                      </div>
-                      <div class="form-check">
-                          <input type="radio" name="jenis_kelamin" value="perempuan" checked>  Perempuan
-                      </div>
-                    <?php endif ?>
+                    <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
-              <div class="form-group">
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </div>
             </form>
           </div>
           <!-- /.card-body -->

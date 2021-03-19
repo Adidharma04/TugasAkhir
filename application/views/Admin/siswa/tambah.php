@@ -98,8 +98,19 @@
                 <?= form_error('no_telfon','<small class="text-danger">','</small>');?>
               </div>
               <div class="form-group">
-                <label for="foto">Foto</label>
-                <input type="file" class="form-control" id="foto" name="foto">
+              <label for="foto">Foto</label>
+                    <div class="input-group">
+                      <div class="custom-file">
+                          <input type="file" class="custom-file-input" id="foto" name="foto" value="<?= $information_student->foto;?>">
+                          <label class="custom-file-label" for="foto" value="" >
+                              <?php if($information_student->foto == ""): ?>
+                                Choose File
+                              <?php else: ?>
+                                <?= $information_student->foto;?>
+                              <?php endif ?>
+                          </label>
+                      </div>
+                    </div>
               </div>
               <div class="form-group">
                 <label>Tahun Lulus</label>

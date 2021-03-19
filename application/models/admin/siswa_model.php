@@ -35,6 +35,7 @@ class siswa_model extends CI_Model {
         ];
         $this->db->insert('information_student', $informasi_siswa);
     }
+
     public function upload(){    
         $config['upload_path'] = './assets/Gambar/Upload/Siswa/';    
         $config['allowed_types'] = 'jpg|png|jpeg';
@@ -54,7 +55,6 @@ class siswa_model extends CI_Model {
         }
     }
     public function getSiswa($id_student){
-		// return $this->db->get_where('information_student',['id_student'=>$id_student])->result();
         return $this->db->get_where('information_student',['id_student'=>$id_student])->row();
 	}
     public function editDataSiswa( $id_student ){
@@ -98,9 +98,6 @@ class siswa_model extends CI_Model {
                 
             }  
 
-
-
-
         // gaambar tetap alias tidak diubah sama sekali
         } else {
 
@@ -109,19 +106,6 @@ class siswa_model extends CI_Model {
                 $foto = $ambilInformasiSiswa->foto;
             }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         // data profile
         $dataProfile = array    (

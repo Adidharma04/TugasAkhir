@@ -135,7 +135,7 @@
           </li>
           <li class="nav-header">INFORMASI</li>
           <li class="nav-item">
-            <a href="pages/calendar.html" class="nav-link">
+            <a href="<?= base_url().'Admin/event'?>" class="nav-link">
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
                 Event
@@ -146,7 +146,7 @@
             <a href="pages/gallery.html" class="nav-link">
               <i class="nav-icon far fa-newspaper-o"></i>
               <p>
-                Berita
+                informasi Umum
               </p>
             </a>
           </li>

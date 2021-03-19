@@ -20,6 +20,13 @@
         <a href="#" class="nav-link">Contact</a>
       </li>
     </ul>
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link"  href="<?php echo base_url("Admin/login/logout")?>" >
+          <i class="nav-icon fa fa-power-off fa-2x"></i>
+          </a>
+        </li>
+      </ul>
 
   </nav>
   <!-- /.navbar -->

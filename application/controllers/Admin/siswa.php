@@ -86,7 +86,6 @@ class siswa extends CI_Controller {
         }
     }
     public function edit($id_student){
-
         $getDataSiswaById = $this->siswa_model->getSiswa($id_student);
         $nis = $getDataSiswaById->nis;
         $email = $getDataSiswaById->email;
@@ -95,16 +94,14 @@ class siswa extends CI_Controller {
         $inputNIS = $this->input->post('nis');
         $inputEmail = $this->input->post('email');
 
+        //-- rule--//
         if ( $nis != $inputNIS ) {
 
-            //-- rule--//
             $this->form_validation->set_rules('nis', 'Nis ', 'required|trim|is_unique[information_student.nis]',[
                 'required' => 'Masukkan No Induk Siswa',
                 'is_unique' => 'No Induk Siswa telah terdaftar',
             ]);
         }
-
-       
 
         $this->form_validation->set_rules('nama', 'Nama', 'required|trim',[
             'required' => 'Masukkan Nama Siswa',
@@ -149,7 +146,7 @@ class siswa extends CI_Controller {
                      <center>
                         <a href="siswa" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                         <br>
-                        Data Berhasil Di Edit!
+                        Data Siswa Berhasil Di Edit!
                      <center>
                      </div>';
             $this->session->set_flashdata('msg', $html);
@@ -167,7 +164,6 @@ class siswa extends CI_Controller {
             $this->load->view('Admin/siswa/detail',$data);
             $this->load->view('Template/Admin/footer');
     }
-
 
 
     // proses hapus siswa
