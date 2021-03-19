@@ -41,13 +41,12 @@
         <div class="row">
           <div class="col-12">
             <div class="card">
+            <?php echo $this->session->flashdata('msg') ?>
               <div class="card-header">
                 <h3 class="card-title">Table Penilaian</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <button type="button" class="btn btn-outline-primary btn-block"><i class="fa fa-plus"></i> Tambah</button>
-                <br>
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                     <tr>
@@ -64,31 +63,62 @@
                     <?php $no = 1; foreach ($penilaian as $pnl) : ?>
                       <tr>
                         <td><?= $no++ ?></td>
+                        <td><?= $pnl->id_profile ?></td>
                         <td><?= $pnl->kritik ?></td>
                         <td><?= $pnl->saran ?></td>
                         <td><?= $pnl->update_at ?></td>
                         <td><?= $pnl->created_at ?></td>
                         <td>
-                          <a href="#" class="btn btn-info"><i class="fa fa-eye"></i> Detail</a>
-                          <a href="#" class="btn btn-success"><i class="fa fa-pencil"></i>Edit</a>
-                          <a href="#" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>
-                        </td>
-                      </tr>
-                    <?php endforeach ?>
-                  </tbody>
-                  <tfoot>
-                    <tr>
-                      <th>No</th>
-                      <th>Profile</th>
-                      <th>Kritik</th>
-                      <th>Saran</th>
-                      <th>Update at</th>
-                      <th>Created at</th>
-                      <th>Opsi</th>
-                    </tr>
-                  </tfoot>
-                </table>
-              </div>
+                        <a href="<?= base_url().'Admin/penilaian/detail/'.$pnl->id_penilaian ?>" class="btn btn-info"><i class="fas fa-eye"></i> Detail</a>
+                        <a href="#"  data-toggle="modal" data-target="#action-delete-<?php echo $pnl->id_penilaian ?>" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>
+
+
+                                                    <!-- Modal delete -->
+                                                    <div class="modal fade" id="action-delete-<?php echo $pnl->id_penilaian ?>">
+                                                        <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                            
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <label for="">Id Profile : <span class="text-bold"><?php echo $pnl->id_profile ?></span></label> <br>
+
+                                                                <hr>
+                                                                <label>
+                                                                    Apakah anda yakin ingin menghapus Kritik dan Saran ini <?php echo $pnl->id_profile ?> ? 
+                                                                </label> <br>
+                                                                <small>Kritik dan Saran yang telah dihapus tidak dapat dipulihkan kembali.</small>
+                                                            </div>
+                                                            <div class="modal-footer justify-content-between">
+                                                                <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                                                                <a href="<?php echo base_url('admin/penilaian/onDelete/'. $pnl->id_penilaian) ?>" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus Sekarang</a>
+                                                            </div>
+                                                        </div>
+                                                        <!-- /.modal-content -->
+                                                        </div>
+                                                        <!-- /.modal-dialog -->
+                                                    </div>
+                                                    <!-- /.modal -->
+                                                </td>
+                                        </tr>
+                                        <?php endforeach ?>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                        <th>No</th>
+                                        <th>Profile</th>
+                                        <th>Kritik</th>
+                                        <th>Saran</th>
+                                        <th>Update at</th>
+                                        <th>Created at</th>
+                                        <th>Opsi</th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
               <!-- /.card-body -->
             </div>
             <!-- /.card -->

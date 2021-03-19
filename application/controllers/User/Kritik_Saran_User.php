@@ -1,11 +1,11 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class eventuser extends CI_Controller {
+class Kritik_Saran_User extends CI_Controller {
 
     public function index()
     {
-        $this->load->view('User/event');
+        $this->load->view('User/kritik_saran');
     }
 }
 ?>
