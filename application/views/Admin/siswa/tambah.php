@@ -53,17 +53,27 @@
           </div>
           <div class="card-body">
             <form action="" method="post" enctype="multipart/form-data">
-            
-              <div class="form-group">
-                <label>Nis</label>
-                <input type="text" class="form-control" id="nis" name="nis" placeholder="Masukkan Nomer Induk Siswa" value="<?= set_value('nama'); ?>" >
-                <?= form_error('nis','<small class="text-danger">','</small>');?>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Nis</label>
+                    <input type="text" class="form-control" id="nis" name="nis" placeholder="Masukkan Nomer Induk Siswa" value="<?= set_value('nis'); ?>" >
+                    <?= form_error('nis','<small class="text-danger">','</small>');?>
+                  </div>  
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="nama">Nama</label>
+                    <input type="text" class="form-control" name="nama" id="nama" placeholder="Masukkan Nama" value="<?= set_value('nama'); ?>" >
+                    <?= form_error('nama','<small class="text-danger">','</small>');?>
+                  </div>
+                </div>
+
               </div>
-              <div class="form-group">
-                <label for="nama">Nama</label>
-                <input type="text" class="form-control" name="nama" id="nama" placeholder="Masukkan Nama" value="<?= set_value('nama'); ?>" >
-                <?= form_error('nama','<small class="text-danger">','</small>');?>
-              </div>
+
+              
+              
               <div class="form-group">
                 <label for="alamat">Alamat</label>
                 <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Masukkan Alamat" value="<?= set_value('alamat'); ?>" >
@@ -71,7 +81,7 @@
               </div>
               <div class="form-group">
                 <label>Tanggal lahir:(Month/Day/Year)</label>
-                <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" >
+                <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="<?= set_value('tanggal_lahir') ?>" >
               </div>
               <div class="form-group">
                 <label>Tempat lahir:</label>
@@ -81,15 +91,15 @@
               <div class="form-group">
                 <label for="gender">Jurusan</label>
                 <div class="form-check">
-                  <input type="radio" name="jurusan" value="ipa" > IPA
+                  <input type="radio" name="jurusan" value="ipa" <?= set_value('jurusan') == "ipa" ? "checked" : "" ?> > IPA
                 </div>
                 <div class="form-check">
-                  <input type="radio" name="jurusan" value="ips" > IPS
+                  <input type="radio" name="jurusan" value="ips" <?= set_value('jurusan') == "ips" ? "checked" : "" ?>> IPS
                 </div>
               </div>
               <div class="form-group">
                 <label>Email:</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan Email" >
+                <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan Email" value="<?= set_value('email') ?>" >
                 <?= form_error('email','<small class="text-danger">','</small>');?>
               </div>
               <div class="form-group">
@@ -103,7 +113,7 @@
               </div>
               <div class="form-group">
                 <label>Tahun Lulus</label>
-                <input type="number" class="form-control" id="tahun_lulus" name="tahun_lulus" placeholder="Masukkan Tahun Lulus" >
+                <input type="number" class="form-control" id="tahun_lulus" name="tahun_lulus" placeholder="Masukkan Tahun Lulus" value="<?= set_value('tahun_lulus') ?>">
                 <?= form_error('tahun_lulus','<small class="text-danger">','</small>');?>
               </div>
               <div class="form-group">

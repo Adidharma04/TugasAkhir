@@ -33,6 +33,14 @@ class siswa_model extends CI_Model {
             'jenis_kelamin' => $this->input->post('jenis_kelamin', true),
         ];
         $this->db->insert('information_student', $informasi_siswa);
+
+
+        // insert (ISSUE)
+        /** 
+         *  1. Ketika insert memiliki nis + email yang sama maka validasi bekerja
+         *  2. Ketika sudah dibenarkan (nis + email) yang berbeda
+         *  3. ynag tersimpan hanya di tabel profile
+         */
     }
     public function upload(){    
         $config['upload_path'] = './assets/Gambar/Upload/Siswa/';    

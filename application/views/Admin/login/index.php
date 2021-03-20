@@ -52,7 +52,7 @@
                                     
 									<br>
 									<br>
-                                    <p>Don't have account ?<a href="<?= base_url().'Admin/registrasi';?>" class="signup-image-link"> Create Account</a></p>
+                                    <p>Don't have account ?<a href="<?= base_url().'Admin/register';?>" class="signup-image-link"> Create Account</a></p>
                                 </div>
 
                             </form>

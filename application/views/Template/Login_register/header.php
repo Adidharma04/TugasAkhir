@@ -14,4 +14,8 @@
   <!-- Custom styles for this template-->
   <link href="<?= base_url().'assets/Template/Bootstrap/css/sb-admin-2.min.css';?>" rel="stylesheet">
 
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="<?= base_url().'assets/Template/Bootstrap/vendor/jquery/jquery.min.js';?>"></script>
+
 </head>

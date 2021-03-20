@@ -72,7 +72,7 @@
                                                     <?php if($job->foto == ""): ?>
                                                         <img src="<?= base_url('assets/Gambar/Website/default_job.png')?>" style= "width:70px; height:70px;" >
                                                     <?php else: ?>
-                                                        <img src="<?= base_url('assets/Gambar/Upload/siswa/') . $job->foto ?>" style= "width:70px; height:70px;" >
+                                                        <img src="<?= base_url('assets/Gambar/Upload/Loker/') . $job->foto ?>" style= "width:70px; height:70px;" >
                                                     <?php endif ?>
                                                 </td>
                                                 <td>

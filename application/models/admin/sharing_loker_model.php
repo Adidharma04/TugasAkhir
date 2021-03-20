@@ -10,10 +10,11 @@ class sharing_loker_model extends CI_Model {
     
     public function tambahDataLoker($upload){
 
-        $last_id_profile = $this->db->insert_id();
+    
+        $id_profile = $this->session->userdata('sess_id_profile');
 
         $job_vacancy =[
-            'id_profile'                   => $last_id_profile,
+            'id_profile'                   => $id_profile,
             'nama_pekerjaan'               => $this->input->post('nama_pekerjaan', true),
             'deskripsi_pekerjaan'          => $this->input->post('deskripsi_pekerjaan', true),
             'alamat'                       => $this->input->post('alamat', true),

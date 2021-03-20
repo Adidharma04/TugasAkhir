@@ -71,8 +71,6 @@
                         <td>
                         <a href="<?= base_url().'Admin/penilaian/detail/'.$pnl->id_penilaian ?>" class="btn btn-info"><i class="fas fa-eye"></i> Detail</a>
                         <a href="#"  data-toggle="modal" data-target="#action-delete-<?php echo $pnl->id_penilaian ?>" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>
-
-
                                                     <!-- Modal delete -->
                                                     <div class="modal fade" id="action-delete-<?php echo $pnl->id_penilaian ?>">
                                                         <div class="modal-dialog">

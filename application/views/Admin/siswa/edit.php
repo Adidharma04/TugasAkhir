@@ -108,21 +108,36 @@
                     <input type="number" class="form-control" id="no_telfon" name="no_telfon" placeholder="Masukkan Nomer Telfon" value="<?= $information_student->no_telfon;?>">
                     <?= form_error('no_telfon','<small class="text-danger">','</small>');?>
                 </div>
-                <div class="form-group">
-                    <label for="foto">Foto</label>
-                    <div class="input-group">
-                      <div class="custom-file">
-                          <input type="file" class="custom-file-input" id="foto" name="foto" value="<?= $information_student->foto;?>">
-                          <label class="custom-file-label" for="foto" value="" >
-                              <?php if($information_student->foto == ""): ?>
-                                Choose File
-                              <?php else: ?>
-                                <?= $information_student->foto;?>
-                              <?php endif ?>
-                          </label>
-                      </div>
+
+                <div class="row">
+                    
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <h4>Foto Siswa</h4>
+                        <div class="input-group">
+                          <div class="custom-file">
+                              <input type="file" class="custom-file-input" id="foto" name="foto" value="<?= $information_student->foto;?>">
+                              <label class="custom-file-label" for="foto" value="" >
+                                  <?php 
+                                    $img = base_url('assets/Gambar/Website/default_siswa.jpg');
+                                    if($information_student->foto == ""): ?>
+                                    Choose File
+                                  <?php else: ?>
+                                    <?= $information_student->foto; $img = base_url('assets/Gambar/Upload/Siswa/'. $information_student->foto);?>
+                                    
+                                  <?php endif ?>
+                              </label>
+                          </div>
+                        </div>
+                        <small>Tambahkan foto apabila dibutuhkan</small>
+                    </div>
+                    </div>
+                    <div class="col-md-4">
+                                    
+                        <img src="<?php echo $img ?>" alt="preview" style="width: 30%; border-radius: 5px; border: 2px solid #e0e0e0">
                     </div>
                 </div>
+                
                 <div class="form-group">
                     <label>Tahun Lulus</label>
                     <input type="number" class="form-control" id="tahun_lulus" name="tahun_lulus" placeholder="Masukkan Tahun Lulus" value="<?= $information_student->tahun_lulus;?>">

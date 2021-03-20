@@ -42,9 +42,19 @@ class siswa extends CI_Controller
         $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim', [
             'required' => 'Masukkan Alamat Siswa',
         ]);
+        
+        $this->form_validation->set_rules('tanggal_lahir', 'Tanggal Lahir', 'required|trim', [
+            'required' => 'Masukkan Tanggal Lahir',
+        ]);
+        
         $this->form_validation->set_rules('tempat_lahir', 'Tempat Lahir', 'required|trim', [
             'required' => 'Masukkan Tempat Lahir',
         ]);
+
+        $this->form_validation->set_rules('jurusan', 'Jurusan', 'required|trim', [
+            'required' => 'Pilih salah satu jurusan',
+        ]);
+
         $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[information_student.email]', [
             'required'  => 'Masukkan Email Siswa',
             'is_unique' => 'Email telah terdaftar',
