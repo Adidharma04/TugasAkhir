@@ -55,7 +55,6 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Nama Pekerjaan</th>
-                                            <th>Deskripsi Pekerjaan</th>
                                             <th>Alamat</th>
                                             <th>Status</th>
                                             <th>Foto</th>
@@ -67,17 +66,19 @@
                                         <tr>
                                                 <td><?= $no++ ?></td>
                                                 <td><?= $job->nama_pekerjaan ?></td>
-                                                <td><?= $job->deskripsi_pekerjaan ?></td>
                                                 <td><?= $job->alamat ?></td>
                                                 <td><?= $job->status ?></td>
-                                                <td><img src="<?= base_url('assets/Gambar/Upload/loker/') . $job->foto ?>" style= "width:50px; height:50px;" ></td>
                                                 <td>
-                                                    <a href="<?= base_url().'Admin/loker/detail/'.$job->id_vacancy ?>" class="btn btn-info"><i class="fas fa-eye"></i> Detail</a>
-                                                    <a href="<?= base_url().'Admin/loker/edit/'.$job->id_vacancy ?>" class="btn btn-success"><i class="fas fa-pencil-square-o"></i>Edit</a>
+                                                    <?php if($job->foto == ""): ?>
+                                                        <img src="<?= base_url('assets/Gambar/Website/default_job.png')?>" style= "width:70px; height:70px;" >
+                                                    <?php else: ?>
+                                                        <img src="<?= base_url('assets/Gambar/Upload/siswa/') . $job->foto ?>" style= "width:70px; height:70px;" >
+                                                    <?php endif ?>
+                                                </td>
+                                                <td>
+                                                    <a href="<?= base_url().'Admin/sharing_loker/detail/'.$job->id_vacancy ?>" class="btn btn-info"><i class="fas fa-eye"></i> Detail</a>
+                                                    <a href="<?= base_url().'Admin/sharing_loker/edit/'.$job->id_vacancy ?>" class="btn btn-success"><i class="fas fa-pencil-square-o"></i>Edit</a>
                                                     <a href="#"  data-toggle="modal" data-target="#action-delete-<?php echo $job->id_vacancy ?>" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>
-
-
-
 
                                                     <!-- Modal delete -->
                                                     <div class="modal fade" id="action-delete-<?php echo $job->id_vacancy ?>">
@@ -116,7 +117,6 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Nama Pekerjaan</th>
-                                            <th>Deskripsi Pekerjaan</th>
                                             <th>Alamat</th>
                                             <th>Status</th>
                                             <th>Foto</th>

@@ -1,11 +1,11 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class event extends CI_Controller {
+class informasi_umum extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Admin/event_model');
+        $this->load->model('Admin/informasi_umum_model');
         if ( empty( $this->session->userdata('sess_id_profile') ) ) {
             
             $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> <br> 
@@ -18,12 +18,12 @@ class event extends CI_Controller {
     public function index()
     {
         //-- Title Halaman
-         $data ['title'] = 'Halaman Event | Admin';
+         $data ['title'] = 'Halaman Informasi Umum | Admin';
         //----------------------------
-        $data['event'] = $this->event_model->tampilDataEvent(); 
+        $data['information_general'] = $this->informasi_umum_model->tampilDataInformasi(); 
         $this->load->view('Template/Admin/navbar',$data);
         $this->load->view('Template/Admin/sidebar',$data);
-        $this->load->view('Admin/event/index',$data);
+        $this->load->view('Admin/informasi_umum/index',$data);
         $this->load->view('Template/Admin/footer');
     } 
     public function tambah(){

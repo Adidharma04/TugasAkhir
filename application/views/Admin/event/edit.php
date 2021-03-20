@@ -63,8 +63,8 @@
                 </div>
                 <div class="form-group">
                     <label for="deskripsi_event">Deskripsi Event</label>
-                    <textarea type="text" class="form-control" name="deskripsi_event" id="deskripsi_event" placeholder="Masukkan Nama Event"><?= $event->deskripsi_event; ?></textarea>
-                    <?= form_error('nama_event','<small class="text-danger">','</small>');?>
+                    <textarea type="text" class="form-control" name="deskripsi_event" id="deskripsi_event" placeholder="Masukkan Deskripsi Event"><?= $event->deskripsi_event; ?></textarea>
+                    <?= form_error('deskripsi_event','<small class="text-danger">','</small>');?>
                 </div>
                 <div class="form-group">
                     <label>Tanggal Event:(Month/Day/Year)</label>
@@ -99,37 +99,37 @@
                 </div>
                 <div class="form-group">
                     <label for="status">Status Kegiatan</label>
-                    <?php if($event->status == "accept"): ?>
-                        <div class="form-check">
-                              <input type="radio" name="status" value="accept" checked> Diterima
-                        </div>
-                        <div class="form-check">
-                            <input type="radio" name="status" value="pending">  Pending
-                        </div>
-                        <div class="form-check">
-                            <input type="radio" name="status" value="decline">  Ditolak
-                        </div>
-                    <?php elseif($event->status == "pending"): ?>
-                        <div class="form-check">
-                              <input type="radio" name="status" value="accept" > Diterima
-                          </div>
-                          <div class="form-check">
-                              <input type="radio" name="status" value="pending" checked>  Pending
-                          </div>
-                          <div class="form-check">
-                              <input type="radio" name="status" value="decline" >  Ditolak
-                          </div>
-                    <?php else: ?>
-                        <div class="form-check">
-                              <input type="radio" name="status" value="accept" > Diterima
-                        </div>
-                        <div class="form-check">
-                            <input type="radio" name="status" value="pending">  Pending
-                        </div>
-                        <div class="form-check">
-                            <input type="radio" name="status" value="decline" >  Ditolak
-                        </div>
-                    <?php endif ?>
+                        <?php if($event->status == "accept"): ?>
+                            <div class="form-check">
+                                  <input type="radio" name="status" value="accept" checked> Diterima
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" name="status" value="pending">  Pending
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" name="status" value="decline">  Ditolak
+                            </div>
+                        <?php elseif($event->status == "pending"): ?>
+                            <div class="form-check">
+                                  <input type="radio" name="status" value="accept" > Diterima
+                              </div>
+                              <div class="form-check">
+                                  <input type="radio" name="status" value="pending" checked>  Pending
+                              </div>
+                              <div class="form-check">
+                                  <input type="radio" name="status" value="decline" >  Ditolak
+                              </div>
+                        <?php else: ?>
+                            <div class="form-check">
+                                  <input type="radio" name="status" value="accept" > Diterima
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" name="status" value="pending">  Pending
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" name="status" value="decline" checked >  Ditolak
+                            </div>
+                        <?php endif ?>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Submit</button>

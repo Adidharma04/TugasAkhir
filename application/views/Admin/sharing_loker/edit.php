@@ -56,64 +56,64 @@
             <?php echo $this->session->flashdata('msg') ?>
 
             <form action="" method="post" enctype="multipart/form-data">
-                <div class="form-group">
-                    <label for="nama">Nama Pekerjaan</label>
-                    <input type="text" class="form-control" name="nama_pekerjaan" id="nama_pekerjaan" placeholder="Masukkan Nama Pekerjaan" value="<?= $job_vacancy->nama_pekerjaan;?>" >
-                    <?= form_error('nama_pekerjaan','<small class="text-danger">','</small>');?>
-                </div>
-                <div class="form-group">
-                    <label for="nama">Deskripsi Pekerjaan</label>
-                    <input type="text" class="form-control" name="deskripsi_pekerjaan" id="deskripsi_pekerjaan" placeholder="Masukkan Deskripsi" value="<?= $job_vacancy->deskripsi_pekerjaan;?>" >
+              <div class="form-group">
+                <label for="nama">Nama Pekerjaan</label>
+                <input type="text" class="form-control" name="nama_pekerjaan" id="nama_pekerjaan" placeholder="Masukkan Nama Pekerjaan" value="<?= $job_vacancy->nama_pekerjaan; ?>">
+                <?= form_error('nama_pekerjaan', '<small class="text-danger">', '</small>'); ?>
+              </div>
+              <div class="form-group">
+                    <label for="deskripsi_pekerjaan">Deskripsi Pekerjaan</label>
+                    <textarea class="form-control" name="deskripsi_pekerjaan" id="deskripsi_pekerjaan" placeholder="Masukkan Deskripsi Pekerjaan"><?= $job_vacancy->deskripsi_pekerjaan; ?></textarea>
                     <?= form_error('deskripsi_pekerjaan','<small class="text-danger">','</small>');?>
                 </div>
-                <div class="form-group">
-                    <label for="alamat">Alamat</label>
-                    <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Masukkan Alamat" value="<?= $job_vacancy->alamat;?>">
-                    <?= form_error('alamat','<small class="text-danger">','</small>');?>
-                </div>
-                <div class="form-group">
-                    <label for="status">Status</label>
-                    <?php if($job_vacancy->status == "pending"): ?>
+              <div class="form-group">
+                <label for="alamat">Alamat</label>
+                <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Masukkan Alamat" value="<?= $job_vacancy->alamat; ?>">
+                <?= form_error('alamat', '<small class="text-danger">', '</small>'); ?>
+              </div>
+              <div class="form-group">
+                <label for="status">Status</label>
+                    <?php if ($job_vacancy->status == "accept") : ?>
                       <div class="form-check">
-                            <input type="radio" name="status" value="pending" checked>  Pending
-                      </div>
-                      <div class="form-check">
-                          <input type="radio" name="accept" value="accept">  Accept
+                        <input type="radio" name="status" value="accept" checked> Diterima
                       </div>
                       <div class="form-check">
-                          <input type="radio" name="decline" value="accept">  Decline
-                      </div>
-                    <?php elseif ($job_vacancy->status == "accept"): ?>
-                        <div class="form-check">
-                            <input type="radio" name="status" value="pending">  Pending
+                        <input type="radio" name="status" value="pending"> Pending
                       </div>
                       <div class="form-check">
-                          <input type="radio" name="accept" value="accept" checked> Accept
+                        <input type="radio" name="status" value="decline"> Ditolak
+                      </div>
+                    <?php elseif ($job_vacancy->status == "pending") : ?>
+                      <div class="form-check">
+                        <input type="radio" name="status" value="accept"> Diterima
                       </div>
                       <div class="form-check">
-                          <input type="radio" name="decline" value="accept">  Decline
-                      </div>
-                      <?php else: ?>
-                        <div class="form-check">
-                            <input type="radio" name="status" value="pending">  Pending
+                        <input type="radio" name="status" value="pending" checked> Pending
                       </div>
                       <div class="form-check">
-                          <input type="radio" name="accept" value="accept" > Accept
+                        <input type="radio" name="status" value="decline"> Ditolak
+                      </div>
+                    <?php else : ?>
+                      <div class="form-check">
+                        <input type="radio" name="status" value="accept"> Diterima
                       </div>
                       <div class="form-check">
-                          <input type="radio" name="decline" value="accept" checked>  Decline
+                        <input type="radio" name="status" value="pending"> Pending
+                      </div>
+                      <div class="form-check">
+                        <input type="radio" name="status" value="decline" checked> Ditolak
                       </div>
                     <?php endif ?>
+              </div>
+              <div class="form-group">
+                <label for="foto">Foto</label>
+                <div class="input-group">
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="foto" name="foto" value="<?= $job_vacancy->foto; ?>">
+                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                  </div>
                 </div>
-                <div class="form-group">
-                    <label for="foto">Foto</label>
-                    <div class="input-group">
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="foto" name="foto" value="<?= $job_vacancy->foto;?>">
-                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                    </div>
-                    </div>
-                </div>
+              </div>
               <div class="form-group">
                 <button type="submit" class="btn btn-primary">Submit</button>
               </div>

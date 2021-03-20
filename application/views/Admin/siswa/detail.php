@@ -41,47 +41,51 @@
       <!-- Main content -->
       <section class="content">
         <!-- Default box -->
-      
-        <div class="col-12 col-lg-7 d-flex align-items-stretch" >
-              <div class="card bg-light">
-                <div class="card-header text-muted border-bottom-0">
-                  <?= $information_student->nis?>
-                  <hr>
+
+        <div class="col-19 col-lg-7 d-flex align-items-stretch" >
+          <div class="card bg-light">
+            <div class="card-header text-muted border-bottom-0">
+              <h2><?= $information_student->nama ?><h2>
+              <hr>
+            </div>
+            <div class="card-body pt-0" style="padding-right:90.7px;">
+              <div class="row">
+                <div class="col-7">
+                  <h4 class="lead"><b> <?= $information_student->nis ?></b></h4>
+                  <p class="text-muted text-sm"><b>Tanggal Lahir: </b> <?= $information_student->tanggal_lahir ?> </p>
+                  <ul class="ml-4 mb-0 fa-ul text-muted">
+                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> <b>Alamat : </b> <?= $information_student->alamat ?></li>
+                    <br>
+                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> <b>No telfon : </b> <?= $information_student->no_telfon ?></li>
+                    <br>
+                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-cogs"></i></span> <b>Jurusan : </b> <?= $information_student->jurusan ?></li>
+                    <br>
+                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-envelope"></i></span> <b>Emai : </b> <?= $information_student->email ?></li>
+                    <br>
+                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-calendar"></i></span> <b>Tahun Lulus : </b> <?= $information_student->tahun_lulus ?></li>
+                    <br>
+                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-venus"></i></span> <b>Jenis Kelamin : </b> <?= $information_student->jenis_kelamin ?></li>
+                  </ul>
                 </div>
-                <div class="card-body pt-0">
-                  <div class="row">
-                    <div class="col-7">
-                      <h1 class="lead"><b> <?= $information_student->nama?></b></h1>
-                      <p class="text-muted text-sm"><b>Tanggal Lahir: </b> <?= $information_student->tanggal_lahir?> </p>
-                      <ul class="ml-4 mb-0 fa-ul text-muted">
-                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span>  <b>Alamat : </b> <?= $information_student->alamat?></li>
-                        <br>
-                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span>     <b>No telfon : </b> <?= $information_student->no_telfon?></li>
-                        <br>
-                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-cogs"></i></span>      <b>Jurusan : </b> <?= $information_student->jurusan?></li>
-                        <br>
-                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-envelope"></i></span>  <b>Emai : </b> <?= $information_student->email?></li>
-                        <br>
-                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-calendar"></i></span>  <b>Tahun Lulus : </b> <?= $information_student->tahun_lulus?></li>
-                        <br>
-                        <li class="small"><span class="fa-li"><i class="fas fa-lg fa-venus"></i></span>     <b>Jenis Kelamin : </b> <?= $information_student->jenis_kelamin?></li>
-                      </ul>
-                    </div>
-                    <div class="col-5 text-center">
-                      <img src=" <?= base_url('assets/Gambar/Upload/Siswa/') . $information_student->foto ?>" alt="user-avatar" class="img-circle img-fluid" style= "width:300px; height:200px;">
-                    </div>
-                  </div>
-                </div>
-                <div class="card-footer">
-                  <div class="text-right">
-                    <a href="<?= base_url().'Admin/siswa'?>" class="btn btn-sm btn-primary">
-                      <i class="fas fa-arrow-left"></i> Kembali
-                    </a>
-                  </div>
+                <div class="col-5 text-center">
+                    <?php if ($information_student->foto == "") : ?>
+                      <img src="<?= base_url('assets/Gambar/Website/default_siswa.jpg') ?>" style="width:180px; height:200px;">
+                    <?php else : ?>
+                      <img src="<?= base_url('assets/Gambar/Upload/siswa/') . $information_student->foto ?>" style="width:180px; height:200px;">
+                    <?php endif ?>
                 </div>
               </div>
             </div>
-        
+            <div class="card-footer">
+              <div class="text-right">
+                <a href="<?= base_url() . 'Admin/siswa' ?>" class="btn btn-sm btn-primary">
+                  <i class="fas fa-arrow-left"></i> Kembali
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </section>
       <!-- /.content -->
     </div>

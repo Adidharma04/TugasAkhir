@@ -26,12 +26,12 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Detail Loker</h1>
+              <h1>Detail Event</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Detail Info Loker</li>
+                <li class="breadcrumb-item active">Detail Event</li>
               </ol>
             </div>
           </div>
@@ -45,26 +45,29 @@
         <div class="col-12 col-lg-9 d-flex align-items-stretch">
           <div class="card bg-light">
             <div class="card-header text-muted border-bottom-0">
-                <h2><?= $job_vacancy->nama_pekerjaan ?></h2>
+                <h2><?= $event->nama_event ?></h2>
                 <hr>
             </div>
             <div class="card-body pt-0" style="padding-right:80.7px;">
               <div class="row">
                 <div class="col-7">
                   <ul class="ml-5 mb-0 fa-ul text-muted">
-                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-envelope fa-1x"></i> </span><b><h6>Deskripsi Pekerjaan</h6></b></li>
-                    <span align="justify"> <p ><?= $job_vacancy->deskripsi_pekerjaan ?></p></span>
+                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-envelope fa-1x"></i> </span><b><h6>Deskripsi Kegiatan</h6></b></li>
+                    <span align="justify"> <p ><?= $event->deskripsi_event ?></p></span>
                     <br>
-                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building fa-1x"></i> </span><b><h6>Alamat Perusahaan</h6></b></li>
-                    <span align="justify"><p><?= $job_vacancy->alamat ?></p></span>
+                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-calendar fa-1x"></i> </span><b><h6>Tanggal Kegiatan</h6></b></li>
+                    <span align="justify"><p><?= $event->tanggal_event ?></p></span>
                     <br>
-                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-clock-o fa-1x"></i> </span><b><h6>Status Status</h6></b> </li>
-                    <span align="justify"><p><?= $job_vacancy->status ?></p></span>
+                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-map-marker fa-1x"></i> </span><b><h6>Lokasi</h6></b> </li>
+                    <span align="justify"><p><?= $event->lokasi ?></p></span>
+                    <br>
+                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-clock-o fa-1x"></i> </span><b><h6>Status</h6></b> </li>
+                    <span align="justify"><p><?= $event->status ?></p></span>
                   </ul>
                 </div>
                 <div class="col-5 text-center">
-                    <?php if ($job_vacancy->foto == "") : ?>
-                      <img src="<?= base_url('assets/Gambar/Website/default_job.png') ?>" style="width:230px; height:300px;">
+                    <?php if ($event->foto == "") : ?>
+                      <img src="<?= base_url('assets/Gambar/Website/default_event.png') ?>" style="width:230px; height:300px;">
                     <?php else : ?>
                       <img src="<?= base_url('assets/Gambar/Upload/siswa/') . $job_vacancy->foto ?>" style="width:300px; height:300px;">
                     <?php endif ?>
@@ -73,7 +76,7 @@
             </div>
             <div class="card-footer">
               <div class="text-right">
-                <a href="<?= base_url() . 'Admin/sharing_loker' ?>" class="btn btn-sm btn-primary">
+                <a href="<?= base_url() . 'Admin/event' ?>" class="btn btn-sm btn-primary">
                   <i class="fas fa-arrow-left"></i> Kembali
                 </a>
               </div>

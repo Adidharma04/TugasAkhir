@@ -10,13 +10,12 @@ class sharing_loker_model extends CI_Model {
     
     public function tambahDataLoker($upload){
 
-        $this->db->insert('profile', $profile);
         $last_id_profile = $this->db->insert_id();
 
         $job_vacancy =[
             'id_profile'                   => $last_id_profile,
             'nama_pekerjaan'               => $this->input->post('nama_pekerjaan', true),
-            'deskripsi_pekerjaan'          => $this->input->post('nama_pekerjaan', true),
+            'deskripsi_pekerjaan'          => $this->input->post('deskripsi_pekerjaan', true),
             'alamat'                       => $this->input->post('alamat', true),
             'status'                       => $this->input->post('status', true),
             'foto'                         => $upload['file']['file_name'],
@@ -45,15 +44,11 @@ class sharing_loker_model extends CI_Model {
 		// return $this->db->get_where('information_student',['id_student'=>$id_student])->result();
         return $this->db->get_where('job_vacancy',['id_vacancy'=>$id_vacancy])->row();
 	}
-    public function editDataLoker( $id_vacancy ){
+    public function editDataLoker( $id_vacancy){
         
         // ambil detail informasi loker
         $ambilInformasiLoker = $this->getLoker( $id_vacancy );
         
-        $nama_pekerjaan = $this->input->post('nama_pekerjaan', true);
-
-
-
         // upload foto
         $config['upload_path'] = './assets/Gambar/Upload/Loker/';    
         $config['allowed_types'] = 'jpg|png|jpeg';
@@ -67,7 +62,7 @@ class sharing_loker_model extends CI_Model {
 
             if ( $this->upload->do_upload('foto') ){
 
-                if ( $ambilInformasiSiswa->foto ) { // remove old photo
+                if ( $ambilInformasiLoker->foto ) { // remove old photo
 
                     $link = $config['upload_path']. $ambilInformasiLoker->foto;
                     unlink( $link );
@@ -82,12 +77,9 @@ class sharing_loker_model extends CI_Model {
                 $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> '.$this->upload->display_errors().'</div>';
                 $this->session->set_flashdata('msg', $html);
 
-                redirect('Admin/loker/edit/'. $id_student);
+                redirect('Admin/loker/edit/'. $id_vacancy);
                 
             }  
-
-
-
 
         // gaambar tetap alias tidak diubah sama sekali
         } else {
@@ -102,13 +94,13 @@ class sharing_loker_model extends CI_Model {
         $dataInformationLoker =[
 
             'nama_pekerjaan'               => $this->input->post('nama_pekerjaan', true),
-            'deskripsi_pekerjaan'          => $this->input->post('nama_pekerjaan', true),
+            'deskripsi_pekerjaan'          => $this->input->post('deskripsi_pekerjaan', true),
             'alamat'                       => $this->input->post('alamat', true),
             'status'                       => $this->input->post('status', true),
-            'foto'                         => $upload['file']['file_name'],
+            'foto'                         => $foto,
 		];
 
-        // // update job_vacancy
+        // update job_vacancy
         $this->db->where('id_vacancy', $id_vacancy);	
         $this->db->update('job_vacancy', $dataInformationLoker);
 

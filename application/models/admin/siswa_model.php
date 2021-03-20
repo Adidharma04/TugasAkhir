@@ -8,7 +8,6 @@ class siswa_model extends CI_Model {
         return $this->db->get('information_student')->result();
     }
     public function tambahDataSiswa($upload){
-
         $nis = $this->input->post('nis', true);
         $profile = [
             'username'  => $nis,
@@ -35,7 +34,6 @@ class siswa_model extends CI_Model {
         ];
         $this->db->insert('information_student', $informasi_siswa);
     }
-
     public function upload(){    
         $config['upload_path'] = './assets/Gambar/Upload/Siswa/';    
         $config['allowed_types'] = 'jpg|png|jpeg';
@@ -55,6 +53,7 @@ class siswa_model extends CI_Model {
         }
     }
     public function getSiswa($id_student){
+		// return $this->db->get_where('information_student',['id_student'=>$id_student])->result();
         return $this->db->get_where('information_student',['id_student'=>$id_student])->row();
 	}
     public function editDataSiswa( $id_student ){
@@ -64,13 +63,10 @@ class siswa_model extends CI_Model {
         
         $nis = $this->input->post('nis', true);
 
-
-
         // upload foto
         $config['upload_path'] = './assets/Gambar/Upload/Siswa/';    
         $config['allowed_types'] = 'jpg|png|jpeg';
         $this->load->library('upload', $config);
-
 
         $foto = "";
         // apabila dia ingin mengubah gambar 
@@ -98,7 +94,7 @@ class siswa_model extends CI_Model {
                 
             }  
 
-        // gaambar tetap alias tidak diubah sama sekali
+        // gambar tetap alias tidak diubah sama sekali
         } else {
 
             if ( $ambilInformasiSiswa->foto ) {
