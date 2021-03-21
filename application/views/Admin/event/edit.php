@@ -56,10 +56,14 @@
             <?php echo $this->session->flashdata('msg') ?>
 
             <form action="" method="post" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-md-6">
                 <div class="form-group">
                     <label for="nama_event">Nama Event</label>
-                    <input type="text" class="form-control" name="nama_event" id="nama_event" placeholder="Masukkan Nama Event" value="<?= $event->nama_event; ?>" >
+                    <input type="text" class="form-control" name="nama_event" id="nama_event" placeholder="Masukkan Nama Event"  value="<?= $event->nama_event; ?>" >
                     <?= form_error('nama_event','<small class="text-danger">','</small>');?>
+                </div> 
+                </div>
                 </div>
                 <div class="form-group">
                     <label for="deskripsi_event">Deskripsi Event</label>
@@ -70,9 +74,32 @@
                     <label>Tanggal Event:(Month/Day/Year)</label>
                     <input type="date" class="form-control" id="tanggal_event" name="tanggal_event" value="<?= $event->tanggal_event; ?>">
                 </div>
-                <div class="form-group">
-                    <label for="foto">Foto</label>
-                    <input type="file" class="form-control" id="foto" name="foto">
+                <div class="row">
+                    <div class="col-md-4">
+                      <div class="form-group">
+                        <h4>Foto Event</h4>
+                        <div class="input-group">
+                          <div class="custom-file">
+                              <input type="file" class="custom-file-input" id="foto" name="foto" value="<?= $event->foto;?>">
+                              <label class="custom-file-label" for="foto" value="" >
+                                  <?php 
+                                    $img = base_url('assets/Gambar/Website/default_event.png');
+                                    if($event->foto == ""): ?>
+                                    Choose File
+                                  <?php else: ?>
+                                    <?= $event->foto; $img = base_url('assets/Gambar/Upload/Event/'. $event->foto);?>
+                                    
+                                  <?php endif ?>
+                              </label>
+                          </div>
+                        </div>
+                        <small>Tambahkan foto apabila dibutuhkan</small>
+                    </div>
+                    </div>
+                    <div class="col-md-4">
+                                    
+                        <img src="<?php echo $img ?>" alt="preview" style="width: 30%; border-radius: 5px; border: 2px solid #e0e0e0">
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="lokasi">Lokasi Event</label>
@@ -101,33 +128,33 @@
                     <label for="status">Status Kegiatan</label>
                         <?php if($event->status == "accept"): ?>
                             <div class="form-check">
-                                  <input type="radio" name="status" value="accept" checked> Diterima
+                                  <input type="radio" name="status" value="accept" checked> Accept
                             </div>
                             <div class="form-check">
                                 <input type="radio" name="status" value="pending">  Pending
                             </div>
                             <div class="form-check">
-                                <input type="radio" name="status" value="decline">  Ditolak
+                                <input type="radio" name="status" value="decline">  Decline
                             </div>
                         <?php elseif($event->status == "pending"): ?>
                             <div class="form-check">
-                                  <input type="radio" name="status" value="accept" > Diterima
+                                  <input type="radio" name="status" value="accept" > Accept
                               </div>
                               <div class="form-check">
                                   <input type="radio" name="status" value="pending" checked>  Pending
                               </div>
                               <div class="form-check">
-                                  <input type="radio" name="status" value="decline" >  Ditolak
+                                  <input type="radio" name="status" value="decline" >  Decline
                               </div>
                         <?php else: ?>
                             <div class="form-check">
-                                  <input type="radio" name="status" value="accept" > Diterima
+                                  <input type="radio" name="status" value="accept" > Accept
                             </div>
                             <div class="form-check">
                                 <input type="radio" name="status" value="pending">  Pending
                             </div>
                             <div class="form-check">
-                                <input type="radio" name="status" value="decline" checked >  Ditolak
+                                <input type="radio" name="status" value="decline" checked >  Decline
                             </div>
                         <?php endif ?>
                 </div>

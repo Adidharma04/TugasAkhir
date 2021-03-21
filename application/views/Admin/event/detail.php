@@ -69,7 +69,7 @@
                     <?php if ($event->foto == "") : ?>
                       <img src="<?= base_url('assets/Gambar/Website/default_event.png') ?>" style="width:230px; height:300px;">
                     <?php else : ?>
-                      <img src="<?= base_url('assets/Gambar/Upload/siswa/') . $job_vacancy->foto ?>" style="width:300px; height:300px;">
+                      <img src="<?= base_url('assets/Gambar/Upload/Event/') . $event->foto ?>" style="width:300px; height:300px;">
                     <?php endif ?>
                 </div>
               </div>

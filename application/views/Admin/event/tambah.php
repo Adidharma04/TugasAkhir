@@ -53,11 +53,18 @@
           </div>
           <div class="card-body">
             <form action="" method="post" enctype="multipart/form-data">
+
+            <div class="row">
+                <div class="col-md-6">
                 <div class="form-group">
                     <label for="nama_event">Nama Event</label>
                     <input type="text" class="form-control" name="nama_event" id="nama_event" placeholder="Masukkan Nama Event" value="<?= set_value('nama_event'); ?>" >
                     <?= form_error('nama_event','<small class="text-danger">','</small>');?>
+                </div> 
                 </div>
+                </div>
+            
+                
                 <div class="form-group">
                     <label for="deskripsi_event">Deskripsi Event</label>
                     <textarea type="text" class="form-control" id="deskripsi_event" name="deskripsi_event" placeholder="Masukkan Deskripsi Event"></textarea>
@@ -91,10 +98,10 @@
                         <input type="radio" name="status" value="pending" > Pending 
                     </div>
                     <div class="form-check">
-                        <input type="radio" name="status" value="accept" > Di terima
+                        <input type="radio" name="status" value="accept" > Accept
                     </div>
                     <div class="form-check">
-                        <input type="radio" name="status" value="decline" > Di tolak
+                        <input type="radio" name="status" value="decline" > Decline
                     </div>
                 </div>
                 <div class="form-group">

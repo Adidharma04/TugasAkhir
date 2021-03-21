@@ -9,10 +9,10 @@ class event_model extends CI_Model {
     }
     public function tambahDataEvent($upload){
 
-        $last_id_profile = $this->db->insert_id();
+        $id_profile = $this->session->userdata('sess_id_profile');
 
         $event =[
-            'id_profile'            => $last_id_profile,
+            'id_profile'            => $id_profile,
             'nama_event'            => $this->input->post('nama_event', true),
             'deskripsi_event'       => $this->input->post('deskripsi_event', true),
             'tanggal_event'         => $this->input->post('tanggal_event', true),
@@ -54,7 +54,7 @@ class event_model extends CI_Model {
         
 
         // upload foto
-        $config['upload_path'] = './assets/Gambar/Upload/Siswa/';    
+        $config['upload_path'] = './assets/Gambar/Upload/Event/';    
         $config['allowed_types'] = 'jpg|png|jpeg';
         $this->load->library('upload', $config);
 
@@ -81,7 +81,7 @@ class event_model extends CI_Model {
                 $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> '.$this->upload->display_errors().'</div>';
                 $this->session->set_flashdata('msg', $html);
 
-                redirect('Admin/siswa/edit/'. $id_event);
+                redirect('Admin/event/edit/'. $id_event);
                 
             }  
 

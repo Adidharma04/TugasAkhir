@@ -1,7 +1,7 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class informasi_umum extends CI_Controller {
+class Informasi_umum extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
@@ -20,108 +20,116 @@ class informasi_umum extends CI_Controller {
         //-- Title Halaman
          $data ['title'] = 'Halaman Informasi Umum | Admin';
         //----------------------------
-        $data['information_general'] = $this->informasi_umum_model->tampilDataInformasi(); 
+        $data['information_general'] = $this->informasi_umum_model->tampilDataInformasiUmum(); 
         $this->load->view('Template/Admin/navbar',$data);
         $this->load->view('Template/Admin/sidebar',$data);
         $this->load->view('Admin/informasi_umum/index',$data);
         $this->load->view('Template/Admin/footer');
     } 
-    public function tambah(){
-
-        //rule
-        $this->form_validation->set_rules('nama_event', 'Nama Event', 'required|trim',[
-            'required' => 'Masukkan Nama Event',
-        ]);
-        $this->form_validation->set_rules('deskripsi_event', 'Deskripsi Event', 'required|trim',[
-            'required' => 'Masukkan Deskripsi Event',
+    public function tambah()
+    {
+        //-- rule--//
+        $this->form_validation->set_rules('nama_informasi', 'Nama Informasi', 'required|trim',[
+            'required' => 'Masukkan Informasi',
         ]);
 
+        $this->form_validation->set_rules('deskripsi_informasi', 'Deskripsi', 'required|trim',[
+            'required' => 'Masukkan Deskripsi',
+        ]);
+
+
+        //----------------------------------------------------------------------
+        
         //-- Title Halaman
-        $data ['title'] = 'Halaman Tambah Event | Admin';
+         $data ['title'] = 'Halaman Admin-Dashboard';
         //----------------------------
-        $data['event'] = $this->event_model->tampilDataEvent(); 
-        if ($this->form_validation->run() == FALSE) {
+        $data['information_general'] = $this->informasi_umum_model->tampilDataInformasiUmum(); 
+        if($this->form_validation->run() == FALSE){
             $this->load->view('Template/Admin/navbar',$data);
             $this->load->view('Template/Admin/sidebar',$data);
-            $this->load->view('Admin/event/tambah',$data);
+            $this->load->view('Admin/informasi_umum/tambah',$data);
             $this->load->view('Template/Admin/footer');
         }else{
-            $upload = $this->event_model->upload();
+            $upload = $this->informasi_umum_model->upload();
             if ($upload['result'] == 'success') {
-                $this->event_model->tambahDataEvent($upload);
+                $this->informasi_umum_model->tambahDataInformasiUmum($upload);
                 $html = '<div class="alert alert-success">
-                                <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
-                                <br>
-                                <b>Pemberitahuan</b> <br>
-                                Data event berhasil di tambah pada tanggal ' . date('d F Y H.i A') . '
-                         </div>';
+                        <center>
+                            <a href="informasi_umum" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                            <br>
+                            Data Berhasil Di Tambah!
+                        <center>
+                        </div>';
                 $this->session->set_flashdata('msg', $html);
-                redirect('Admin/event', 'refresh');
-            } else {
+                redirect('Admin/informasi_umum','refresh');
+            }else{
                 echo $upload['error'];
             }
         }
     }
-    public function edit($id_event){
-        $getDataEventById = $this->event_model->getEvent($id_event);
+    public function edit($id_general){
+
+        $getDataInformasiUmumById = $this->informasi_umum_model->getInformasiUmum($id_general);
+
+        $this->form_validation->set_rules('nama_informasi', 'Nama Informasi', 'required|trim',[
+            'required' => 'Masukkan Informasi',
+        ]);
+
+        $this->form_validation->set_rules('deskripsi_informasi', 'Deskripsi', 'required|trim',[
+            'required' => 'Masukkan Deskripsi',
+        ]);
         
-        //rule
-        $this->form_validation->set_rules('nama_event', 'Nama Event', 'required|trim',[
-            'required' => 'Masukkan Nama Event',
-        ]);
-        $this->form_validation->set_rules('deskripsi_event', 'Deskripsi Event', 'required|trim',[
-            'required' => 'Masukkan Deskripsi Event',
-        ]);
-
+        //----------------------------------------------------------------------
         //-- Title Halaman
-        $data ['title'] = 'Halaman Edit Event | Admin';
+        $data ['title'] = 'Halaman Admin-Dashboard';
         //----------------------------
-        $data ['event'] = $getDataEventById;
-
+        $data ['information_general'] = $getDataInformasiUmumById;
         if($this->form_validation->run() == FALSE){
             $this->load->view('Template/Admin/navbar',$data);
             $this->load->view('Template/Admin/sidebar',$data);
-            $this->load->view('Admin/event/edit',$data);
+            $this->load->view('Admin/informasi_umum/edit',$data);
             $this->load->view('Template/Admin/footer');
         }
         else{
-            $this->event_model->editDataEvent( $id_event );
+            $this->informasi_umum_model->editDataInformasiUmum( $id_general );
             $html = '<div class="alert alert-success">
-                        <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
+                     <center>
+                        <a href="informasi_umum" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                         <br>
-                        <b>Pemberitahuan</b> <br>
-                        Data event berhasil di tambah pada tanggal ' . date('d F Y H.i A') . '
-                    </div>';
+                        Informasi Berhasil Di Edit!
+                     <center>
+                     </div>';
             $this->session->set_flashdata('msg', $html);
-            redirect('Admin/evemt','refresh');
+            redirect('Admin/informasi_umum','refresh');
         }
     }
-
-    // proses detail siswa
-    public function detail($id_event){
+    public function detail($id_general){
         //-- Title Halaman
             $data ['title'] = 'Halaman Admin-Dashboard';
         //----------------------------
-            $data ['event'] = $this->event_model->getEvent($id_event);
+            $data ['information_general'] = $this->informasi_umum_model->getInformasiUmum($id_general);
             
             $this->load->view('Template/Admin/navbar',$data);
             $this->load->view('Template/Admin/sidebar',$data);
-            $this->load->view('Admin/event/detail',$data);
+            $this->load->view('Admin/informasi_umum/detail',$data);
             $this->load->view('Template/Admin/footer');
     }
 
-    // proses hapus siswa
-    function onDelete( $id_event ) {
 
-        $this->event_model->prosesHapusEvent( $id_event );
+
+    // proses hapus siswa
+    function onDelete( $id_general ) {
+
+        $this->informasi_umum_model->prosesHapusInformasiUmum( $id_general );
         $html = '<div class="alert alert-success">
                      <b>Pemberitahuan</b> <br>
-                     Data Event berhasil terhapus pada tanggal '.date('d F Y H.i A').'
+                     Informasi berhasil terhapus pada tanggal '.date('d F Y H.i A').'
                      </div>';
             $this->session->set_flashdata('msg', $html);
-            redirect('Admin/event','refresh');
+            redirect('Admin/informasi_umum','refresh');
     }
 
 }
 
 /* End of file profile.php */
+?>

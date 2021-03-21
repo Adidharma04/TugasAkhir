@@ -143,10 +143,10 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/gallery.html" class="nav-link">
+          <a href="<?= base_url().'Admin/informasi_umum'?>" class="nav-link">
               <i class="nav-icon far fa-newspaper-o"></i>
               <p>
-                informasi Umum
+                Informasi Kuliah
               </p>
             </a>
           </li>

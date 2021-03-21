@@ -93,11 +93,11 @@ class event extends CI_Controller {
                         Data event berhasil di tambah pada tanggal ' . date('d F Y H.i A') . '
                     </div>';
             $this->session->set_flashdata('msg', $html);
-            redirect('Admin/evemt','refresh');
+            redirect('Admin/event','refresh');
         }
     }
 
-    // proses detail siswa
+    // proses detail 
     public function detail($id_event){
         //-- Title Halaman
             $data ['title'] = 'Halaman Admin-Dashboard';
@@ -110,7 +110,7 @@ class event extends CI_Controller {
             $this->load->view('Template/Admin/footer');
     }
 
-    // proses hapus siswa
+    // proses hapus
     function onDelete( $id_event ) {
 
         $this->event_model->prosesHapusEvent( $id_event );

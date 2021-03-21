@@ -58,7 +58,7 @@
                     <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building fa-1x"></i> </span><b><h6>Alamat Perusahaan</h6></b></li>
                     <span align="justify"><p><?= $job_vacancy->alamat ?></p></span>
                     <br>
-                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-clock-o fa-1x"></i> </span><b><h6>Status Status</h6></b> </li>
+                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-clock-o fa-1x"></i> </span><b><h6>Status</h6></b> </li>
                     <span align="justify"><p><?= $job_vacancy->status ?></p></span>
                   </ul>
                 </div>
