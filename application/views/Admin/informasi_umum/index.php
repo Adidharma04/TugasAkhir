@@ -55,7 +55,6 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Nama Informasi</th>
-                                            <th>Deskripsi Informasi</th>
                                             <th>Status</th>
                                             <th>Foto</th>
                                             <th>Opsi</th>
@@ -66,7 +65,6 @@
                                         <tr>
                                                 <td><?= $no++ ?></td>
                                                 <td><?= $ig->nama_informasi ?></td>
-                                                <td><?= $ig->deskripsi_informasi ?></td>
                                                 <td><?= $ig->status ?></td>
                                                 <td>
                                                     <?php if($ig->foto == ""): ?>
@@ -117,7 +115,6 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Nama Informasi</th>
-                                            <th>Deskripsi Informasi</th>
                                             <th>Status</th>
                                             <th>Foto</th>
                                             <th>Opsi</th>

@@ -52,10 +52,7 @@
               <div class="row">
                 <div class="col-7">
                   <ul class="ml-5 mb-0 fa-ul text-muted">
-                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-envelope fa-1x"></i> </span><b><h6>Deskripsi Pekerjaan</h6></b></li>
-                    <span align="justify"> <p ><?= $information_general->nama_informasi ?></p></span>
-                    <br>
-                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building fa-1x"></i> </span><b><h6>Alamat Perusahaan</h6></b></li>
+                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building fa-1x"></i> </span><b><h6>Deskripsi</h6></b></li>
                     <span align="justify"><p><?= $information_general->deskripsi_informasi ?></p></span>
                     <br>
                     <li class="small"><span class="fa-li"><i class="fas fa-lg fa-clock-o fa-1x"></i> </span><b><h6>Status</h6></b> </li>
