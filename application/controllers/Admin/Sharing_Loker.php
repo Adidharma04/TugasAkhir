@@ -103,7 +103,6 @@ class Sharing_Loker extends CI_Controller {
             $html = '<div class="alert alert-success">
                      <center>
                         <a href="siswa" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                        <br>
                         Data Berhasil Di Edit!
                      <center>
                      </div>';
@@ -124,13 +123,13 @@ class Sharing_Loker extends CI_Controller {
     }
 
 
-
     // proses hapus siswa
     function onDelete( $id_vacancy ) {
 
         $this->sharing_loker_model->prosesHapusLoker( $id_vacancy );
         $html = '<div class="alert alert-success">
-                     <b>Pemberitahuan</b> <br>
+                     <b>Pemberitahuan</b> 
+                     <br>
                      Data Loker berhasil terhapus pada tanggal '.date('d F Y H.i A').'
                      </div>';
             $this->session->set_flashdata('msg', $html);

@@ -62,6 +62,9 @@ class siswa extends CI_Controller
         $this->form_validation->set_rules('no_telfon', 'No Telpon', 'required|trim', [
             'required' => 'Masukkan No Telpon Siswa',
         ]);
+        $this->form_validation->set_rules('verifikasi_alumni', 'Verifikasi Alumni', 'required|trim', [
+            'required' => 'Masukkan Verifikasi Alumni',
+        ]);
 
         $this->form_validation->set_rules('tahun_lulus', 'Tahun Lulus', 'required|trim', [
             'required' => 'Masukkan Tahun Lulus Siswa',
@@ -83,7 +86,6 @@ class siswa extends CI_Controller
                 $this->siswa_model->tambahDataSiswa($upload);
                 $html = '<div class="alert alert-success">
                                 <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
-                                <br>
                                 <b>Pemberitahuan</b> <br>
                                 Data siswa berhasil di tambah pada tanggal ' . date('d F Y H.i A') . '
                          </div>';
@@ -152,8 +154,8 @@ class siswa extends CI_Controller
             $this->siswa_model->editDataSiswa($id_student);
             $html = '<div class="alert alert-success">
                         <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
+                        <b>Pemberitahuan</b> 
                         <br>
-                        <b>Pemberitahuan</b> <br>
                         Data siswa berhasil di edit pada tanggal ' . date('d F Y H.i A') . '
                      </div>';
             $this->session->set_flashdata('msg', $html);

@@ -47,9 +47,10 @@
                                 <h3 class="card-title">Table Informasi Siswa</h3>
                             </div>
                             <!-- /.card-header -->
+                            <div class="col-md-3">
+                                <a href='<?php echo base_url('Admin/siswa/tambah') ?>'><button type="button" class="btn btn-outline-primary btn-block"><i class="fa fa-plus"></i> Tambah</button></a>   
+                            </div>
                             <div class="card-body">
-                                <a href='<?php echo base_url('Admin/siswa/tambah') ?>'><button type="button" class="btn btn-outline-primary btn-block"><i class="fa fa-plus"></i> Tambah</button></a>
-                                <br>
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
@@ -57,9 +58,6 @@
                                             <th>Nis</th>
                                             <th>Nama</th>
                                             <th>Alamat</th>
-                                            <th>Tanggal Lahir</th>
-                                            <th>Jurusan</th>
-                                            <th>Email</th>
                                             <th>Foto</th>
                                             <th>Opsi</th>
                                         </tr>
@@ -71,9 +69,6 @@
                                                 <td><?= $swa->nis ?></td>
                                                 <td><?= $swa->nama ?></td>
                                                 <td><?= $swa->alamat ?></td>
-                                                <td><?= $swa->tanggal_lahir ?></td>
-                                                <td><?= $swa->jurusan ?></td>
-                                                <td><?= $swa->email ?></td>
                                                 <td>
                                                     <?php if($swa->foto == ""): ?>
                                                         <img src="<?= base_url('assets/Gambar/Website/default_siswa.jpg')?>" style= "width:70px; height:70px;" >
@@ -85,7 +80,6 @@
                                                     <a href="<?= base_url().'Admin/siswa/detail/'.$swa->id_student ?>" class="btn btn-info"><i class="fas fa-eye"></i> Detail</a>
                                                     <a href="<?= base_url().'Admin/siswa/edit/'.$swa->id_student ?>" class="btn btn-success"><i class="fas fa-pencil-square-o"></i>Edit</a>
                                                     <a href="#"  data-toggle="modal" data-target="#action-delete-<?php echo $swa->id_student ?>" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>
-
                                                     <!-- Modal delete -->
                                                     <div class="modal fade" id="action-delete-<?php echo $swa->id_student ?>">
                                                         <div class="modal-dialog">
@@ -125,9 +119,6 @@
                                             <th>Nis</th>
                                             <th>Nama</th>
                                             <th>Alamat</th>
-                                            <th>Tanggal Lahir</th>
-                                            <th>Jurusan</th>
-                                            <th>Email</th>
                                             <th>Foto</th>
                                             <th>Opsi</th>
                                         </tr>

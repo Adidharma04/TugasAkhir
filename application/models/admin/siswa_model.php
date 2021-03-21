@@ -19,18 +19,19 @@ class siswa_model extends CI_Model {
         $last_id_profile = $this->db->insert_id();
 
         $informasi_siswa =[
-            'id_profile'    => $last_id_profile,
-            'nama'          => $this->input->post('nama', true),
-            'alamat'        => $this->input->post('alamat', true),
-            'tanggal_lahir' => $this->input->post('tanggal_lahir', true),
-            'tempat_lahir'  => $this->input->post('tempat_lahir', true),
-            'jurusan'       => $this->input->post('jurusan', true),
-            'email'         => $this->input->post('email', true),
-            'no_telfon'     => $this->input->post('no_telfon', true),
-            'foto'          => $upload['file']['file_name'],
-            'nis'           => $nis,
-            'tahun_lulus'   => $this->input->post('tahun_lulus', true),
-            'jenis_kelamin' => $this->input->post('jenis_kelamin', true),
+            'id_profile'            => $last_id_profile,
+            'nama'                  => $this->input->post('nama', true),
+            'alamat'                => $this->input->post('alamat', true),
+            'tanggal_lahir'         => $this->input->post('tanggal_lahir', true),
+            'tempat_lahir'          => $this->input->post('tempat_lahir', true),
+            'jurusan'               => $this->input->post('jurusan', true),
+            'email'                 => $this->input->post('email', true),
+            'no_telfon'             => $this->input->post('no_telfon', true),
+            'foto'                  => $upload['file']['file_name'],
+            'nis'                   => $nis,
+            'tahun_lulus'           => $this->input->post('tahun_lulus', true),
+            'verifikasi_alumni'     => $this->input->post('verifikasi_alumni', true),
+            'jenis_kelamin'         => $this->input->post('jenis_kelamin', true),
         ];
         $this->db->insert('information_student', $informasi_siswa);
 
@@ -119,18 +120,18 @@ class siswa_model extends CI_Model {
         
         // data informasi siswa
         $dataInformationStudent =[
-
-            'nama'          =>  $this->input->post('nama', true),
-            'alamat'        =>  $this->input->post('alamat', true),
-            'tanggal_lahir' =>  $this->input->post('tanggal_lahir', true),
-            'tempat_lahir'  =>  $this->input->post('tempat_lahir', true),
-            'jurusan'       =>  $this->input->post('jurusan', true),
-            'email'         =>  $this->input->post('email', true),
-            'no_telfon'     =>  $this->input->post('no_telfon', true),
-            'foto'          =>  $foto,
-            'nis'           =>  $nis,    
-            'tahun_lulus'   =>  $this->input->post('tahun_lulus', true),
-            'jenis_kelamin' =>  $this->input->post('jenis_kelamin', true),
+            'nama'                  =>  $this->input->post('nama', true),
+            'alamat'                =>  $this->input->post('alamat', true),
+            'tanggal_lahir'         =>  $this->input->post('tanggal_lahir', true),
+            'tempat_lahir'          =>  $this->input->post('tempat_lahir', true),
+            'jurusan'               =>  $this->input->post('jurusan', true),
+            'email'                 =>  $this->input->post('email', true),
+            'no_telfon'             =>  $this->input->post('no_telfon', true),
+            'verifikasi_alumni'     =>  $this->input->post('verifikasi_alumni', true),
+            'foto'                  =>  $foto,
+            'nis'                   =>  $nis,    
+            'tahun_lulus'           =>  $this->input->post('tahun_lulus', true),
+            'jenis_kelamin'         =>  $this->input->post('jenis_kelamin', true),
 		];
 
         // // update information_student

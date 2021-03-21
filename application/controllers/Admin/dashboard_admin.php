@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class dashboard_admin extends CI_Controller {
+class Dashboard_admin extends CI_Controller {
 
 
     function __construct() {

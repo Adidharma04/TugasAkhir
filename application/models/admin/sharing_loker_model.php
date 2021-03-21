@@ -10,7 +10,6 @@ class sharing_loker_model extends CI_Model {
     
     public function tambahDataLoker($upload){
 
-    
         $id_profile = $this->session->userdata('sess_id_profile');
 
         $job_vacancy =[

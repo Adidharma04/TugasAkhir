@@ -48,7 +48,7 @@
               <h2><?= $information_student->nama ?><h2>
               <hr>
             </div>
-            <div class="card-body pt-0" style="padding-right:90.7px;">
+            <div class="card-body pt-0" style="padding-right:100.7px;">
               <div class="row">
                 <div class="col-7">
                   <h4 class="lead"><b> <?= $information_student->nis ?></b></h4>

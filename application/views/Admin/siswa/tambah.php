@@ -56,75 +56,129 @@
 
               <div class="row">
                 <div class="col-md-6">
-                  <div class="form-group">
-                    <label>Nis</label>
-                    <input type="text" class="form-control" id="nis" name="nis" placeholder="Masukkan Nomer Induk Siswa" value="<?= set_value('nis'); ?>" >
-                    <?= form_error('nis','<small class="text-danger">','</small>');?>
-                  </div>  
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label for="nama">Nama</label>
-                    <input type="text" class="form-control" name="nama" id="nama" placeholder="Masukkan Nama" value="<?= set_value('nama'); ?>" >
-                    <?= form_error('nama','<small class="text-danger">','</small>');?>
+                  <label>Nis</label>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                    </div>
+                    <input type="text" class="form-control" id="nis" name="nis" placeholder="Masukkan Nomer Induk Siswa" value="<?= set_value('nis'); ?>">
+                    <?= form_error('nis', '<small class="text-danger">', '</small>'); ?>
                   </div>
                 </div>
-
-              </div>
-
-              
-              
-              <div class="form-group">
-                <label for="alamat">Alamat</label>
-                <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Masukkan Alamat" value="<?= set_value('alamat'); ?>" >
-                <?= form_error('alamat','<small class="text-danger">','</small>');?>
-              </div>
-              <div class="form-group">
-                <label>Tanggal lahir:(Month/Day/Year)</label>
-                <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="<?= set_value('tanggal_lahir') ?>" >
-              </div>
-              <div class="form-group">
-                <label>Tempat lahir:</label>
-                <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" placeholder="Masukkan Tempat Lahir" value="<?= set_value('tempat_lahir'); ?>" >
-                <?= form_error('tempat_lahir','<small class="text-danger">','</small>');?>
-              </div>
-              <div class="form-group">
-                <label for="gender">Jurusan</label>
-                <div class="form-check">
-                  <input type="radio" name="jurusan" value="ipa" <?= set_value('jurusan') == "ipa" ? "checked" : "" ?> > IPA
-                </div>
-                <div class="form-check">
-                  <input type="radio" name="jurusan" value="ips" <?= set_value('jurusan') == "ips" ? "checked" : "" ?>> IPS
+                <div class="col-md-6">
+                  <label for="nama">Nama</label>
+                  <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fas fa-user"></i></span>
+                      </div>
+                      <input type="text" class="form-control" name="nama" id="nama" placeholder="Masukkan Nama" value="<?= set_value('nama'); ?>">
+                      <?= form_error('nama', '<small class="text-danger">', '</small>'); ?>
+                  </div>
                 </div>
               </div>
-              <div class="form-group">
-                <label>Email:</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan Email" value="<?= set_value('email') ?>" >
-                <?= form_error('email','<small class="text-danger">','</small>');?>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="alamat">Alamat</label>
+                    <textarea class="form-control" name="alamat" id="alamat" cols="30" rows="6" placeholder="Masukkan Alamat" ></textarea>
+                    <?= form_error('alamat', '<small class="text-danger">', '</small>'); ?>
+                  </div>
+                </div>
               </div>
-              <div class="form-group">
-                <label>No Telfon</label>
-                <input type="number" class="form-control" id="no_telfon" name="no_telfon" placeholder="Masukkan Nomer Telfon"value="<?= set_value('no_telfon'); ?>" >
-                <?= form_error('no_telfon','<small class="text-danger">','</small>');?>
+
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label>Tanggal lahir:(Month/Day/Year)</label>
+                    <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="<?= set_value('tanggal_lahir') ?>">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <label>Tempat lahir:</label>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
+                    </div>
+                    <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" placeholder="Masukkan Tempat Lahir" value="<?= set_value('tempat_lahir'); ?>">
+                    <?= form_error('tempat_lahir', '<small class="text-danger">', '</small>'); ?>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="jurusan">Jurusan</label>
+                    <div class="form-check">
+                      <input type="radio" name="jurusan" value="ipa" <?= set_value('jurusan') == "ipa" ? "checked" : "" ?>> IPA
+                    </div>
+                    <div class="form-check">
+                      <input type="radio" name="jurusan" value="ips" <?= set_value('jurusan') == "ips" ? "checked" : "" ?>> IPS
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                      <label for="alumni">Verifikasi Alumni</label>
+                      <div class="form-check">
+                        <input type="radio" name="verifikasi_alumni" value="null" <?= set_value('verifikasi_alumni') == "null" ? "checked" : "" ?>> Kosong
+                      </div>
+                      <div class="form-check">
+                        <input type="radio" name="verifikasi_alumni" value="pengajuan" <?= set_value('verifikasi_alumni') == "pengajuan" ? "checked" : "" ?>> Pengajuan
+                      </div>
+                      <div class="form-check">
+                        <input type="radio" name="verifikasi_alumni" value="diterima" <?= set_value('verifikasi_alumni') == "diterima" ? "checked" : "" ?>> Diterima
+                      </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="gender">Jenis Kelamin</label>
+                    <div class="form-check">
+                      <input type="radio" name="jenis_kelamin" value="laki" <?= set_value('jenis_kelamin') == "laki" ? "checked" : "" ?>> Laki-Laki
+                    </div>
+                    <div class="form-check">
+                      <input type="radio" name="jenis_kelamin" value="perempuan" <?= set_value('jenis_kelamin') == "perempuan" ? "checked" : "" ?>> Perempuan
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-4">
+                      <label>Email:</label>
+                      <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                          </div>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Examample@gmail.com" value="<?= set_value('email') ?>">
+                        <?= form_error('email', '<small class="text-danger">', '</small>'); ?>
+                      </div>
+                  </div>
+                  <div class="col-md-4">
+                      <label>No Telfon</label>
+                      <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                          </div>
+                        <input type="number" class="form-control" id="no_telfon" name="no_telfon" placeholder="08xxxxxxx" value="<?= set_value('no_telfon') ?>" >
+                      </div>
+                  </div>
+                  <div class="col-md-4">
+                    <label>Tahun Lulus</label>
+                    <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-calendar"></i></span>
+                          </div>
+                        <input type="number" class="form-control" id="tahun_lulus" name="tahun_lulus" placeholder="Masukkan Tahun Lulus" value="<?= set_value('tahun_lulus') ?>">
+                        <?= form_error('tahun_lulus', '<small class="text-danger">', '</small>'); ?>
+                    </div>
+                  </div>
               </div>
               <div class="form-group">
                 <label for="foto">Foto</label>
                 <input type="file" class="form-control" id="foto" name="foto">
               </div>
-              <div class="form-group">
-                <label>Tahun Lulus</label>
-                <input type="number" class="form-control" id="tahun_lulus" name="tahun_lulus" placeholder="Masukkan Tahun Lulus" value="<?= set_value('tahun_lulus') ?>">
-                <?= form_error('tahun_lulus','<small class="text-danger">','</small>');?>
-              </div>
-              <div class="form-group">
-                <label for="gender">Jenis Kelamin</label>
-                <div class="form-check">
-                  <input type="radio" name="jenis_kelamin" value="laki" > Laki-Laki
-                </div>
-                <div class="form-check">
-                  <input type="radio" name="jenis_kelamin" value="perempuan" > Perempuan
-                </div>
-              </div>
+
               <div class="form-group">
                 <button type="submit" class="btn btn-primary">Submit</button>
               </div>
@@ -148,6 +202,9 @@
 <script src="<?= base_url('assets/Template/Admin/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js') ?>"></script>
 <!-- Tempusdominus Bootstrap 4 -->
 <script src="<?= base_url('assets/Template/Admin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') ?>"></script>
+<!-- InputMask -->
+<script src="../../plugins/moment/moment.min.js"></script>
+<script src="../../plugins/inputmask/jquery.inputmask.min.js"></script>
 <script>
   $(function() {
     //Initialize Select2 Elements
