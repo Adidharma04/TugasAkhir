@@ -48,7 +48,7 @@
                 <h2><?= $job_vacancy->nama_pekerjaan ?></h2>
                 <hr>
             </div>
-            <div class="card-body pt-0" style="padding-right:80.7px;">
+            <div class="card-body pt-0" style="padding-right:120.7px;">
               <div class="row">
                 <div class="col-7">
                   <ul class="ml-5 mb-0 fa-ul text-muted">
@@ -66,7 +66,7 @@
                     <?php if ($job_vacancy->foto == "") : ?>
                       <img src="<?= base_url('assets/Gambar/Website/default_job.png') ?>" style="width:230px; height:300px;">
                     <?php else : ?>
-                      <img src="<?= base_url('assets/Gambar/Upload/siswa/') . $job_vacancy->foto ?>" style="width:300px; height:300px;">
+                      <img src="<?= base_url('assets/Gambar/Upload/Loker/') . $job_vacancy->foto ?>" style="width:300px; height:300px;">
                     <?php endif ?>
                 </div>
               </div>

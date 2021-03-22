@@ -52,84 +52,29 @@
                 </div>
             </div>
             <div class="row">
-
-                <!-- Single Top Popular Course -->
-                <div class="col-12 col-lg-6">
-                    <div class="single-top-popular-course d-flex align-items-center flex-wrap mb-30 wow fadeInUp" data-wow-delay="400ms">
-                        <div class="popular-course-content">
-                            <h5>Smanis Campus Fair</h5>
-                            <span>Lapangan Basket Smanis   |  March 18, 2021</span>
-                            <p>Mau spill sedikit nih siapa aja si kampus yang bakal hadir, yuk hadir yuk. Mari bersiap buat pindah server yang lebih tinggi.</p>
-                            <a class="btn academy-btn btn-sm">Free HTM</a>
+                <?php $no = 1; foreach ($event as $evn) : ?>
+                <?php if ($evn->status == "accept") : ?>
+                    <div class="col-12 col-lg-6">
+                        <div class="single-top-popular-course d-flex align-items-center flex-wrap mb-30 wow fadeInUp" data-wow-delay="400ms">
+                            <div class="popular-course-content">
+                                <h5><?= $evn->nama_event ?></h5>
+                                <span><?= $evn->lokasi ?>  |  <?= $evn->tanggal_event ?></span>
+                                <p><?= $evn->deskripsi_event ?></p>
+                                <a class="btn academy-btn btn-sm">Detail Event</a>
+                            </div>
+                            <div class="popular-course-thumb bg-img" style="background-image: url(
+                                <?php if($evn->foto == "") : ?>
+                                <?= base_url('assets/Gambar/Website/default_event.png') ?>
+                                <?php else : ?>
+                                    <?= base_url('assets/Gambar/Upload/event/') . $evn->foto ?>
+                                <?php endif?>);"></div>
                         </div>
-                        <div class="popular-course-thumb bg-img" style="background-image: url(<?php echo base_url().'assets/Gambar/Website/Dashboard/contohevent.jpg';?>);"></div>
                     </div>
-                </div>
-
+                    
+                <?php endif ?>
                 <!-- Single Top Popular Course -->
-                <div class="col-12 col-lg-6">
-                    <div class="single-top-popular-course d-flex align-items-center flex-wrap mb-30 wow fadeInUp" data-wow-delay="400ms">
-                        <div class="popular-course-content">
-                            <h5>Smanis Campus Fair</h5>
-                            <span>Lapangan Basket Smanis   |  March 18, 2021</span>
-                            <p>Mau spill sedikit nih siapa aja si kampus yang bakal hadir, yuk hadir yuk. Mari bersiap buat pindah server yang lebih tinggi.</p>
-                            <a class="btn academy-btn btn-sm">Free HTM</a>
-                        </div>
-                        <div class="popular-course-thumb bg-img" style="background-image: url(<?php echo base_url().'assets/Gambar/Website/Dashboard/contohevent.jpg';?>);"></div>
-                    </div>
-                </div>
-
-                <!-- Single Top Popular Course -->
-                <div class="col-12 col-lg-6">
-                    <div class="single-top-popular-course d-flex align-items-center flex-wrap mb-30 wow fadeInUp" data-wow-delay="400ms">
-                        <div class="popular-course-content">
-                            <h5>Smanis Campus Fair</h5>
-                            <span>Lapangan Basket Smanis   |  March 18, 2021</span>
-                            <p>Mau spill sedikit nih siapa aja si kampus yang bakal hadir, yuk hadir yuk. Mari bersiap buat pindah server yang lebih tinggi.</p>
-                            <a class="btn academy-btn btn-sm">Free HTM</a>
-                        </div>
-                        <div class="popular-course-thumb bg-img" style="background-image: url(<?php echo base_url().'assets/Gambar/Website/Dashboard/contohevent.jpg';?>);"></div>
-                    </div>
-                </div>
-
-                <!-- Single Top Popular Course -->
-                <div class="col-12 col-lg-6">
-                    <div class="single-top-popular-course d-flex align-items-center flex-wrap mb-30 wow fadeInUp" data-wow-delay="400ms">
-                        <div class="popular-course-content">
-                            <h5>Smanis Campus Fair</h5>
-                            <span>Lapangan Basket Smanis   |  March 18, 2021</span>
-                            <p>Mau spill sedikit nih siapa aja si kampus yang bakal hadir, yuk hadir yuk. Mari bersiap buat pindah server yang lebih tinggi.</p>
-                            <a class="btn academy-btn btn-sm">Free HTM</a>
-                        </div>
-                        <div class="popular-course-thumb bg-img" style="background-image: url(<?php echo base_url().'assets/Gambar/Website/Dashboard/contohevent.jpg';?>);"></div>
-                    </div>
-                </div>
-
-                <!-- Single Top Popular Course -->
-                <div class="col-12 col-lg-6">
-                    <div class="single-top-popular-course d-flex align-items-center flex-wrap mb-30 wow fadeInUp" data-wow-delay="400ms">
-                        <div class="popular-course-content">
-                            <h5>Smanis Campus Fair</h5>
-                            <span>Lapangan Basket Smanis   |  March 18, 2021</span>
-                            <p>Mau spill sedikit nih siapa aja si kampus yang bakal hadir, yuk hadir yuk. Mari bersiap buat pindah server yang lebih tinggi.</p>
-                            <a class="btn academy-btn btn-sm">Free HTM</a>
-                        </div>
-                        <div class="popular-course-thumb bg-img" style="background-image: url(<?php echo base_url().'assets/Gambar/Website/Dashboard/contohevent.jpg';?>);"></div>
-                    </div>
-                </div>
-
-                <!-- Single Top Popular Course -->
-                <div class="col-12 col-lg-6">
-                    <div class="single-top-popular-course d-flex align-items-center flex-wrap mb-30 wow fadeInUp" data-wow-delay="400ms">
-                        <div class="popular-course-content">
-                            <h5>Smanis Campus Fair</h5>
-                            <span>Lapangan Basket Smanis   |  March 18, 2021</span>
-                            <p>Mau spill sedikit nih siapa aja si kampus yang bakal hadir, yuk hadir yuk. Mari bersiap buat pindah server yang lebih tinggi.</p>
-                            <a class="btn academy-btn btn-sm">Free HTM</a>
-                        </div>
-                        <div class="popular-course-thumb bg-img" style="background-image: url(<?php echo base_url().'assets/Gambar/Website/Dashboard/contohevent.jpg';?>);"></div>
-                    </div>
-                </div>
+                
+                <?php endforeach ?>
             </div>
         </div>
     </div>

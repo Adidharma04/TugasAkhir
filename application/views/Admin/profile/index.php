@@ -45,9 +45,10 @@
                 <h3 class="card-title">Table Profile</h3>
               </div>
               <!-- /.card-header -->
+              <div class="col-md-3">
+                                <a href='#'><button type="button" class="btn btn-outline-primary btn-block"><i class="fa fa-plus"></i> Tambah</button></a>
+                            </div>
               <div class="card-body">
-                <button type="button" class="btn btn-outline-primary btn-block"><i class="fa fa-plus"></i> Tambah</button>
-                <br>
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                     <tr>

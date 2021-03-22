@@ -53,22 +53,40 @@
           </div>
           <div class="card-body">
             <form action="" method="post" enctype="multipart/form-data">
-            
-              <div class="form-group">
-                <label>Nama Pekerjaan</label>
-                <input type="text" class="form-control" id="nama_pekerjaan" name="nama_pekerjaan" placeholder="Masukkan Nama Pekerjaan beserta Jabatan" value="<?= set_value('nama_pekerjaan'); ?>" >
-                <?= form_error('nama_pekerjaan','<small class="text-danger">','</small>');?>
+              <div class="row">
+                  <div class="col-md-6">
+                  <label>Nama Pekerjaan</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-briefcase"></i></span>
+                        </div>
+                        <input type="text" class="form-control" id="nama_pekerjaan" name="nama_pekerjaan" placeholder="Masukkan Nama Pekerjaan beserta Jabatan" value="<?= set_value('nama_pekerjaan'); ?>" >
+                        <?= form_error('nama_pekerjaan','<small class="text-danger">','</small>');?>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                  <label>Alamat Pekerjaan</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-building"></i></span>
+                        </div>
+                        <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Masukkan Alamat Perusahaan" value="<?= set_value('alamat'); ?>" >
+                        <?= form_error('alamat','<small class="text-danger">','</small>');?>
+                    </div>
+                  </div>
               </div>
+              <!-- Batas Baris -->
               <div class="form-group">
                 <label for="deskripsi_pekerjaan">Deskripsi Pekerjaan</label>
-                <input type="text" class="form-control" name="deskripsi_pekerjaan" id="deskripsi_pekerjaan" placeholder="Masukkan Deskripsi" value="<?= set_value('deskripsi_pekerjaan'); ?>" >
-                <?= form_error('deskripsi_pekerjaan','<small class="text-danger">','</small>');?>
+                <textarea class="form-control" name="deskripsi_pekerjaan" id="deskripsi_pekerjaan" cols="30" rows="6" placeholder="Masukkan Deskripsi Pekerjaan" value="<?= set_value('deskripsi_pekerjaan'); ?>"></textarea>
+                  <?= form_error('deskripsi_pekerjaan', '<small class="text-danger">', '</small>'); ?>
               </div>
+              <!-- Batas Baris -->
               <div class="form-group">
-                <label for="alamat">Alamat</label>
-                <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Masukkan Alamat Perusahaan" value="<?= set_value('alamat'); ?>" >
-                <?= form_error('alamat','<small class="text-danger">','</small>');?>
+                <label for="foto">Foto</label>
+                <input type="file" class=" form-control" id="foto" name="foto">
               </div>
+              <!-- Batas Baris -->
               <div class="form-group">
                 <label for="status">Status</label>
                 <div class="form-check">
@@ -82,15 +100,14 @@
                 </div>
               </div>
               <div class="form-group">
-                <label for="foto">Foto</label>
-                <input type="file" class="form-control" id="foto" name="foto">
-              </div>
-              <div class="form-group">
                 <button type="submit" class="btn btn-primary">Submit</button>
               </div>
             </form>
           </div>
           <!-- /.card-body -->
+          <div class="card-footer">
+            SMAN 1 PLOSO JOMBANG
+          </div>
           <!-- /.card-footer-->
         </div>
         <!-- /.card -->

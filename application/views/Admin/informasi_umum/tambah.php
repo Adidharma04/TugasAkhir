@@ -53,40 +53,49 @@
           </div>
           <div class="card-body">
             <form action="" method="post" enctype="multipart/form-data">
-            
-            <div class="row">
-                <div class="col-md-6">
-                <div class="form-group">
+              <div div class="row">
+                  <div class="col-md-6">
                     <label for="nama_informasi">Nama Informasi</label>
-                    <input type="text" class="form-control" name="nama_informasi" id="nama_informasi" placeholder="Masukkan Informasi" value="<?= set_value('nama_informasi'); ?>" >
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                      </div>
+                      <input type="text" class="form-control" name="nama_informasi" id="nama_informasi" placeholder="Masukkan Informasi" value="<?= set_value('nama_informasi'); ?>" >
+                    </div>
                     <?= form_error('nama_informasi','<small class="text-danger">','</small>');?>
-                </div> 
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="foto">Foto</label>
+                        <input type="file" class="form-control" id="foto" name="foto">
+                    </div>
+                  </div>
                 </div>
+                <!-- Batas Baris -->
+                <div class="form-group">
+                    <label for="deskripsi_informasi">Deskripsi Informasi</label>
+                    <textarea type="text" class="form-control" id="deskripsi_informasi" name="deskripsi_informasi" cols="30" rows="6" placeholder="Masukkan Deskripsi Informasi"></textarea>
+                        <?= form_error('deskripsi_informasi','<small class="text-danger">','</small>');?>
                 </div>
-              <div class="form-group">
-                <label for="deskripsi_informasi">Deskripsi Informasi</label>
-                <input type="text" class="form-control" name="deskripsi_informasi" id="deskripsi_informasi" placeholder="Masukkan Deskripsi" value="<?= set_value('deskripsi_informasi'); ?>" >
-                <?= form_error('deskripsi_pekerjaan','<small class="text-danger">','</small>');?>
+                <div class="form-group">
+                  <label for="status">Status</label>
+                  <div class="form-check">
+                    <input type="radio" name="status" value="pending" > Pending
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" name="status" value="accept" > Accept
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" name="status" value="decline" > Decline
+                  </div>
+                </div>
+              <div class="row">
+                  <div class="col-md-2">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <span> <a href="<?= base_url("Admin/informasi_umum")?>" class="btn btn-danger">Cancel</a></span>
+                  </div>
               </div>
-              <div class="form-group">
-                <label for="status">Status</label>
-                <div class="form-check">
-                  <input type="radio" name="status" value="pending" > Pending
-                </div>
-                <div class="form-check">
-                  <input type="radio" name="status" value="accept" > Accept
-                </div>
-                <div class="form-check">
-                  <input type="radio" name="status" value="decline" > Decline
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="foto">Foto</label>
-                <input type="file" class="form-control" id="foto" name="foto">
-              </div>
-              <div class="form-group">
-                <button type="submit" class="btn btn-primary">Submit</button>
-              </div>
+
             </form>
           </div>
           <!-- /.card-body -->

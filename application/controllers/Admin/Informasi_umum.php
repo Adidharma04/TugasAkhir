@@ -36,8 +36,6 @@ class Informasi_umum extends CI_Controller {
         $this->form_validation->set_rules('deskripsi_informasi', 'Deskripsi', 'required|trim',[
             'required' => 'Masukkan Deskripsi',
         ]);
-
-
         //----------------------------------------------------------------------
         
         //-- Title Halaman
@@ -54,11 +52,9 @@ class Informasi_umum extends CI_Controller {
             if ($upload['result'] == 'success') {
                 $this->informasi_umum_model->tambahDataInformasiUmum($upload);
                 $html = '<div class="alert alert-success">
-                        <center>
-                            <a href="informasi_umum" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                            <br>
-                            Data Berhasil Di Tambah!
-                        <center>
+                            <a href="sharing_loker" class="close" data-dismiss="alert" >&times;</a>
+                            <b>Pemberitahuan</b> <br>
+                            Data Informasi Umum berhasil di tambah pada tanggal ' . date('d F Y H.i A') . '
                         </div>';
                 $this->session->set_flashdata('msg', $html);
                 redirect('Admin/informasi_umum','refresh');
@@ -93,12 +89,10 @@ class Informasi_umum extends CI_Controller {
         else{
             $this->informasi_umum_model->editDataInformasiUmum( $id_general );
             $html = '<div class="alert alert-success">
-                     <center>
-                        <a href="informasi_umum" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                        <br>
-                        Informasi Berhasil Di Edit!
-                     <center>
-                     </div>';
+                            <a href="sharing_loker" class="close" data-dismiss="alert" >&times;</a>
+                            <b>Pemberitahuan</b> <br>
+                            Data Loker berhasil di edit pada tanggal ' . date('d F Y H.i A') . '
+                        </div>';
             $this->session->set_flashdata('msg', $html);
             redirect('Admin/informasi_umum','refresh');
         }

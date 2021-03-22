@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class penilaian extends CI_Controller {
+class Penilaian extends CI_Controller {
 
 
     public function __construct()
@@ -42,8 +42,6 @@ class penilaian extends CI_Controller {
             $this->load->view('Admin/penilaian/detail',$data);
             $this->load->view('Template/Admin/footer');
     }
-
-
 
     // proses hapus
     function onDelete( $id_penilaian ) {

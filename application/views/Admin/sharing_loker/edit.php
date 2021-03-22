@@ -56,21 +56,62 @@
             <?php echo $this->session->flashdata('msg') ?>
 
             <form action="" method="post" enctype="multipart/form-data">
-              <div class="form-group">
-                <label for="nama">Nama Pekerjaan</label>
-                <input type="text" class="form-control" name="nama_pekerjaan" id="nama_pekerjaan" placeholder="Masukkan Nama Pekerjaan" value="<?= $job_vacancy->nama_pekerjaan; ?>">
-                <?= form_error('nama_pekerjaan', '<small class="text-danger">', '</small>'); ?>
+              <div class="row">
+                  <div class="col-md-6">
+                  <label>Nama Pekerjaan</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-briefcase"></i></span>
+                        </div>
+                        <input type="text" class="form-control" id="nama_pekerjaan" name="nama_pekerjaan" placeholder="Masukkan Nama Pekerjaan beserta Jabatan" value="<?= $job_vacancy->nama_pekerjaan; ?>">
+                        <?= form_error('nama_pekerjaan','<small class="text-danger">','</small>');?>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                  <label>Alamat Pekerjaan</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-building"></i></span>
+                        </div>
+                        <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Masukkan Alamat Perusahaan" value="<?= $job_vacancy->nama_pekerjaan; ?>" >
+                        <?= form_error('alamat','<small class="text-danger">','</small>');?>
+                    </div>
+                  </div>
               </div>
+              <!-- Batas Baris -->
               <div class="form-group">
-                    <label for="deskripsi_pekerjaan">Deskripsi Pekerjaan</label>
-                    <textarea class="form-control" name="deskripsi_pekerjaan" id="deskripsi_pekerjaan" placeholder="Masukkan Deskripsi Pekerjaan"><?= $job_vacancy->deskripsi_pekerjaan; ?></textarea>
-                    <?= form_error('deskripsi_pekerjaan','<small class="text-danger">','</small>');?>
+                <label for="deskripsi_pekerjaan">Deskripsi Pekerjaan</label>
+                <textarea class="form-control" name="deskripsi_pekerjaan" id="deskripsi_pekerjaan" cols="30" rows="6" placeholder="Masukkan Deskripsi Pekerjaan"> <?= $job_vacancy->deskripsi_pekerjaan; ?> </textarea>
+                  <?= form_error('deskripsi_pekerjaan', '<small class="text-danger">', '</small>'); ?>
+              </div>
+              <!-- Batas Baris -->
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="form-group">
+                    <h4>Foto Event</h4>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input form-control" id="foto" name="foto" value="<?= $job_vacancy->foto; ?>">
+                        <label class="custom-file-label" for="foto" value="">
+                          <?php
+                          $img = base_url('assets/Gambar/Website/default_job.png');
+                          if ($job_vacancy->foto == "") : ?>
+                            Choose File
+                          <?php else : ?>
+                            <?= $job_vacancy->foto;
+                            $img = base_url('assets/Gambar/Upload/Loker/' . $job_vacancy->foto); ?>
+                          <?php endif ?>
+                        </label>
+                      </div>
+                    </div>
+                    <small>Tambahkan foto apabila dibutuhkan</small>
+                  </div>
                 </div>
-              <div class="form-group">
-                <label for="alamat">Alamat</label>
-                <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Masukkan Alamat" value="<?= $job_vacancy->alamat; ?>">
-                <?= form_error('alamat', '<small class="text-danger">', '</small>'); ?>
+                <div class="col-md-4">
+                  <img src="<?php echo $img ?>" alt="preview" style="width: 30%; border-radius: 5px; border: 2px solid #e0e0e0">
+                </div>
               </div>
+              <!-- Batas Baris -->
               <div class="form-group">
                 <label for="status">Status</label>
                     <?php if ($job_vacancy->status == "accept") : ?>
@@ -104,15 +145,6 @@
                         <input type="radio" name="status" value="decline" checked> Ditolak
                       </div>
                     <?php endif ?>
-              </div>
-              <div class="form-group">
-                <label for="foto">Foto</label>
-                <div class="input-group">
-                  <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="foto" name="foto" value="<?= $job_vacancy->foto; ?>">
-                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                  </div>
-                </div>
               </div>
               <div class="form-group">
                 <button type="submit" class="btn btn-primary">Submit</button>

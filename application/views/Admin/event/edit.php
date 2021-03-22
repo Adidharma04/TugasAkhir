@@ -56,111 +56,128 @@
             <?php echo $this->session->flashdata('msg') ?>
 
             <form action="" method="post" enctype="multipart/form-data">
-            <div class="row">
+
+              <div div class="row">
                 <div class="col-md-6">
-                <div class="form-group">
-                    <label for="nama_event">Nama Event</label>
-                    <input type="text" class="form-control" name="nama_event" id="nama_event" placeholder="Masukkan Nama Event"  value="<?= $event->nama_event; ?>" >
-                    <?= form_error('nama_event','<small class="text-danger">','</small>');?>
-                </div> 
+                  <label for="nama_event">Nama Event</label>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                    </div>
+                    <input type="text" class="form-control" name="nama_event" id="nama_event" placeholder="Masukkan Nama Event" value="<?= $event->nama_event; ?>">
+                  </div>
+                  <?= form_error('nama_event', '<small class="text-danger">', '</small>'); ?>
                 </div>
+                <div class="col-md-6">
+                  <label for="lokasi">Lokasi</label>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
+                    </div>
+                    <input type="text" class="form-control" name="lokasi" id="lokasi" placeholder="Masukkan Lokasi Event" value="<?= $event->lokasi; ?>">
+                  </div>
+                  <?= form_error('lokasi', '<small class="text-danger">', '</small>'); ?>
                 </div>
-                <div class="form-group">
-                    <label for="deskripsi_event">Deskripsi Event</label>
-                    <textarea type="text" class="form-control" name="deskripsi_event" id="deskripsi_event" placeholder="Masukkan Deskripsi Event"><?= $event->deskripsi_event; ?></textarea>
-                    <?= form_error('deskripsi_event','<small class="text-danger">','</small>');?>
-                </div>
-                <div class="form-group">
+              </div>
+              <!-- Batas Baris -->
+              <div class="form-group">
+                <label for="deskripsi_event">Deskripsi Event</label>
+                <textarea type="text" class="form-control" id="deskripsi_event" name="deskripsi_event" cols="30" rows="6" placeholder="Masukkan Deskripsi Event"><?= $event->deskripsi_event; ?></textarea>
+                <?= form_error('deskripsi_event', '<small class="text-danger">', '</small>'); ?>
+              </div>
+              <!-- Batas Baris -->
+              <div div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
                     <label>Tanggal Event:(Month/Day/Year)</label>
                     <input type="date" class="form-control" id="tanggal_event" name="tanggal_event" value="<?= $event->tanggal_event; ?>">
+                  </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-4">
-                      <div class="form-group">
-                        <h4>Foto Event</h4>
-                        <div class="input-group">
-                          <div class="custom-file">
-                              <input type="file" class="custom-file-input" id="foto" name="foto" value="<?= $event->foto;?>">
-                              <label class="custom-file-label" for="foto" value="" >
-                                  <?php 
-                                    $img = base_url('assets/Gambar/Website/default_event.png');
-                                    if($event->foto == ""): ?>
-                                    Choose File
-                                  <?php else: ?>
-                                    <?= $event->foto; $img = base_url('assets/Gambar/Upload/Event/'. $event->foto);?>
-                                    
-                                  <?php endif ?>
-                              </label>
-                          </div>
-                        </div>
-                        <small>Tambahkan foto apabila dibutuhkan</small>
+                <div class="col-md-5">
+                  <div class="form-group">
+                    <label>Foto Event</label>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input form-control" id="foto" name="foto" value="<?= $event->foto; ?>">
+                        <label class="custom-file-label" for="foto" value="">
+                          <?php
+                          $img = base_url('assets/Gambar/Website/default_event.png');
+                          if ($event->foto == "") : ?>
+                            Choose File
+                          <?php else : ?>
+                            <?= $event->foto;
+                            $img = base_url('assets/Gambar/Upload/Loker/' . $event->foto); ?>
+                          <?php endif ?>
+                        </label>
+                      </div>
                     </div>
-                    </div>
-                    <div class="col-md-4">
-                                    
-                        <img src="<?php echo $img ?>" alt="preview" style="width: 30%; border-radius: 5px; border: 2px solid #e0e0e0">
-                    </div>
+                    <small>Tambahkan foto apabila dibutuhkan</small>
+                  </div>
                 </div>
-                <div class="form-group">
-                    <label for="lokasi">Lokasi Event</label>
-                    <input type="text" class="form-control" name="lokasi" id="lokasi" placeholder="Masukkan Lokasi Event" value="<?= $event->lokasi; ?>" >
-                    <?= form_error('lokasi','<small class="text-danger">','</small>');?>
+                <div class="col-md-3">
+                  <img src="<?php echo $img ?>" alt="preview" style="width: 30%; border-radius: 5px; border: 2px solid #e0e0e0">
                 </div>
-                <div class="form-group">
-                    <label for="jenis_event">Jenis Kegiatan</label>
-                    <?php if($event->jenis_event == "pay"): ?>
-                      <div class="form-check">
-                            <input type="radio" name="jenis_event" value="pay" checked> Bayar
-                      </div>
-                      <div class="form-check">
-                          <input type="radio" name="jenis_event" value="free">  Gratis
-                      </div>
-                    <?php else: ?>
-                      <div class="form-check">
-                            <input type="radio" name="jenis_event" value="pay">  Bayar
-                      </div>
-                      <div class="form-check">
-                          <input type="radio" name="jenis_event" value="free" checked> Gratis
-                      </div>
-                    <?php endif ?>
-                </div>
-                <div class="form-group">
-                    <label for="status">Status Kegiatan</label>
-                        <?php if($event->status == "accept"): ?>
-                            <div class="form-check">
-                                  <input type="radio" name="status" value="accept" checked> Accept
-                            </div>
-                            <div class="form-check">
-                                <input type="radio" name="status" value="pending">  Pending
-                            </div>
-                            <div class="form-check">
-                                <input type="radio" name="status" value="decline">  Decline
-                            </div>
-                        <?php elseif($event->status == "pending"): ?>
-                            <div class="form-check">
-                                  <input type="radio" name="status" value="accept" > Accept
-                              </div>
-                              <div class="form-check">
-                                  <input type="radio" name="status" value="pending" checked>  Pending
-                              </div>
-                              <div class="form-check">
-                                  <input type="radio" name="status" value="decline" >  Decline
-                              </div>
-                        <?php else: ?>
-                            <div class="form-check">
-                                  <input type="radio" name="status" value="accept" > Accept
-                            </div>
-                            <div class="form-check">
-                                <input type="radio" name="status" value="pending">  Pending
-                            </div>
-                            <div class="form-check">
-                                <input type="radio" name="status" value="decline" checked >  Decline
-                            </div>
-                        <?php endif ?>
-                </div>
-                <div class="form-group">
+              </div>
+              <!-- Batas Baris -->
+              <div class="form-group">
+                <label for="jenis_event">Jenis Kegiatan</label>
+                <?php if ($event->jenis_event == "pay") : ?>
+                  <div class="form-check">
+                    <input type="radio" name="jenis_event" value="pay" checked> Bayar
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" name="jenis_event" value="free"> Gratis
+                  </div>
+                <?php else : ?>
+                  <div class="form-check">
+                    <input type="radio" name="jenis_event" value="pay"> Bayar
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" name="jenis_event" value="free" checked> Gratis
+                  </div>
+                <?php endif ?>
+              </div>
+              <!-- Batas Baris -->
+              <div class="form-group">
+                <label for="status">Status Kegiatan</label>
+                <?php if ($event->status == "accept") : ?>
+                  <div class="form-check">
+                    <input type="radio" name="status" value="accept" checked> Accept
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" name="status" value="pending"> Pending
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" name="status" value="decline"> Decline
+                  </div>
+                <?php elseif ($event->status == "pending") : ?>
+                  <div class="form-check">
+                    <input type="radio" name="status" value="accept"> Accept
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" name="status" value="pending" checked> Pending
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" name="status" value="decline"> Decline
+                  </div>
+                <?php else : ?>
+                  <div class="form-check">
+                    <input type="radio" name="status" value="accept"> Accept
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" name="status" value="pending"> Pending
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" name="status" value="decline" checked> Decline
+                  </div>
+                <?php endif ?>
+              </div>
+              <div class="row">
+                  <div class="col-md-2">
                     <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
+                    <span> <a href="<?= base_url() . 'Admin/event' ?>" class="btn btn-danger">Cancel</a></span>
+                  </div>
+              </div>
             </form>
           </div>
           <!-- /.card-body -->

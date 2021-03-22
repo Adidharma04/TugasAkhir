@@ -47,9 +47,10 @@
                                 <h3 class="card-title">Table Informasi Perkuliahan</h3>
                             </div>
                             <!-- /.card-header -->
-                            <div class="card-body">
+                            <div class="col-md-3">
                                 <a href='<?php echo base_url('Admin/informasi_umum/tambah') ?>'><button type="button" class="btn btn-outline-primary btn-block"><i class="fa fa-plus"></i> Tambah</button></a>
-                                <br>
+                            </div>
+                            <div class="card-body">
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>

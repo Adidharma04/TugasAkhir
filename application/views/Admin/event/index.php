@@ -45,9 +45,10 @@
                 <h3 class="card-title">Table Event</h3>
               </div>
               <!-- /.card-header -->
+              <div class="col-md-3">
+                  <a href='<?php echo base_url('Admin/event/tambah') ?>'><button type="button" class="btn btn-outline-primary btn-block"><i class="fa fa-plus"></i> Tambah</button></a>
+              </div>
               <div class="card-body">
-                <a href='<?php echo base_url('Admin/event/tambah') ?>'><button type="button" class="btn btn-outline-primary btn-block"><i class="fa fa-plus"></i> Tambah</button></a>
-                <br>
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                     <tr>
@@ -61,8 +62,7 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <?php $no = 1;
-                    foreach ($event as $evn) : ?>
+                    <?php $no = 1; foreach ($event as $evn) : ?>
                       <tr>
                         <td><?= $no++ ?></td>
                         <td><?= $evn->nama_event ?></td>
@@ -121,6 +121,7 @@
                       <th>Tanggal Event</th>
                       <th>Lokasi</th>
                       <th>Jenis Event</th>
+                      <th>Foto</th>
                       <th>Opsi</th>
                     </tr>
                   </tfoot>

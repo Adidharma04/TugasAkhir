@@ -53,36 +53,54 @@
           </div>
           <div class="card-body">
             <form action="" method="post" enctype="multipart/form-data">
+                <div div class="row">
 
-            <div class="row">
-                <div class="col-md-6">
-                <div class="form-group">
+                  <div class="col-md-6">
                     <label for="nama_event">Nama Event</label>
-                    <input type="text" class="form-control" name="nama_event" id="nama_event" placeholder="Masukkan Nama Event" value="<?= set_value('nama_event'); ?>" >
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                      </div>
+                      <input type="text" class="form-control" name="nama_event" id="nama_event" placeholder="Masukkan Nama Event" value="<?= set_value('nama_event'); ?>" >
+                    </div>
                     <?= form_error('nama_event','<small class="text-danger">','</small>');?>
-                </div> 
+                  </div>
+                  <div class="col-md-6">
+                    <label for="lokasi">Lokasi</label>
+                      <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
+                          </div>
+                          <input type="text" class="form-control" name="lokasi" id="lokasi" placeholder="Masukkan Lokasi Event" value="<?= set_value('lokasi'); ?>" >
+                      </div>
+                      <?= form_error('lokasi','<small class="text-danger">','</small>');?>
+                  </div>
+
                 </div>
-                </div>
-            
-                
+                <!-- Batas Baris -->
                 <div class="form-group">
                     <label for="deskripsi_event">Deskripsi Event</label>
-                    <textarea type="text" class="form-control" id="deskripsi_event" name="deskripsi_event" placeholder="Masukkan Deskripsi Event"></textarea>
-                    <?= form_error('nama_event','<small class="text-danger">','</small>');?>
+                    <textarea type="text" class="form-control" id="deskripsi_event" name="deskripsi_event" cols="30" rows="6" placeholder="Masukkan Deskripsi Event"></textarea>
+                    <?= form_error('deskripsi_event','<small class="text-danger">','</small>');?>
                 </div>
-                <div class="form-group">
-                    <label>Tanggal Event:(Month/Day/Year)</label>
-                    <input type="date" class="form-control" id="tanggal_event" name="tanggal_event" >
+                <!-- Batas Baris -->
+                <div div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Tanggal Event:(Month/Day/Year)</label>
+                      <input type="date" class="form-control" id="tanggal_event" name="tanggal_event" value="<?= set_value('tanggal_event'); ?>">
+                      <?= form_error('tanggal_event','<small class="text-danger">','</small>');?>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="foto">Foto</label>
+                      <input type="file" class="form-control" id="foto" name="foto">
+                      <small>Tambahkan Foto jika ada!</small>
+                    </div>
+                  </div>
                 </div>
-                <div class="form-group">
-                    <label for="foto">Foto</label>
-                    <input type="file" class="form-control" id="foto" name="foto">
-                </div>
-                <div class="form-group">
-                    <label for="lokasi">Lokasi Event</label>
-                    <input type="text" class="form-control" name="lokasi" id="lokasi" placeholder="Masukkan Lokasi Event" value="<?= set_value('lokasi'); ?>" >
-                    <?= form_error('lokasi','<small class="text-danger">','</small>');?>
-                </div>
+                <!-- Batas Baris -->
                 <div class="form-group">
                     <label for="jenis_event">Jenis Kegiatan</label>
                     <div class="form-check">
@@ -92,6 +110,7 @@
                     <input type="radio" name="jenis_event" value="free" > Gratis
                     </div>
                 </div>
+                <!-- Batas Baris -->
                 <div class="form-group">
                     <label for="status">Status Kegiatan</label>
                     <div class="form-check">
@@ -104,9 +123,14 @@
                         <input type="radio" name="status" value="decline" > Decline
                     </div>
                 </div>
-                <div class="form-group">
+                <!-- Batas Baris -->
+                <div class="row">
+                  <div class="col-md-2">
                     <button type="submit" class="btn btn-primary">Submit</button>
+                    <span> <a href="<?= base_url("Admin/event")?>" class="btn btn-danger">Cancel</a></span>
+                  </div>
                 </div>
+                
             </form>
           </div>
           <!-- /.card-body -->

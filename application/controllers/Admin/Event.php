@@ -1,7 +1,7 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class event extends CI_Controller {
+class Event extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
@@ -34,6 +34,12 @@ class event extends CI_Controller {
         ]);
         $this->form_validation->set_rules('deskripsi_event', 'Deskripsi Event', 'required|trim',[
             'required' => 'Masukkan Deskripsi Event',
+        ]);
+        $this->form_validation->set_rules('lokasi', 'Lokasi Event', 'required|trim',[
+            'required' => 'Masukkan Lokasi Event',
+        ]);
+        $this->form_validation->set_rules('tanggal_event', 'Tanggal Event', 'required|trim',[
+            'required' => 'Masukkan Tanggal Event',
         ]);
 
         //-- Title Halaman

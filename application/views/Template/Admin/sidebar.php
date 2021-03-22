@@ -183,15 +183,6 @@
               </p>
             </a>
           </li>
-          <li class="nav-header">Logout</li>
-          <li class="nav-item">
-            <a href="<?php echo base_url("Admin/login/logout")?>" class="nav-link">
-              <i class="nav-icon fa fa-sign-out"></i>
-              <p>
-                Keluar
-              </p>
-            </a>
-          </li>
       </nav>
       <!-- /.sidebar-menu -->
     </div>
