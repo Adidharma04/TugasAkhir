@@ -52,20 +52,32 @@
             </div>
           </div>
           <div class="card-body">
-
             <?php echo $this->session->flashdata('msg') ?>
 
             <form action="" method="post" enctype="multipart/form-data">
-                <div class="form-group">
-                    <label>Nis</label>
-                    <input type="text" class="form-control" id="nis" name="nis" placeholder="Masukkan Nomer Induk Siswa" value="<?= $information_student->nis;?>" >
-                    <?= form_error('nis','<small class="text-danger">','</small>');?>
-                </div>
-                <div class="form-group">
-                    <label for="nama">Nama</label>
-                    <input type="text" class="form-control" name="nama" id="nama" placeholder="Masukkan Nama" value="<?= $information_student->nama;?>" >
-                    <?= form_error('nama','<small class="text-danger">','</small>');?>
-                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                      <label>Nis</label>
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                        </div>
+                        <input type="text" class="form-control" id="nis" name="nis" placeholder="Masukkan Nomer Induk Siswa" value="<?= $information_student->nis;?>">
+                        <?= form_error('nis', '<small class="text-danger">', '</small>'); ?>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="nama">Nama</label>
+                      <div class="input-group mb-3">
+                          <div class="input-group-prepend">
+                              <span class="input-group-text"><i class="fas fa-user"></i></span>
+                          </div>
+                          <input type="text" class="form-control" name="nama" id="nama" placeholder="Masukkan Nama" value="<?= $information_student->nama;?>">
+                          <?= form_error('nama', '<small class="text-danger">', '</small>'); ?>
+                      </div>
+                    </div>
+                  </div>
+                  
                 <div class="form-group">
                     <label for="alamat">Alamat</label>
                     <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Masukkan Alamat" value="<?= $information_student->alamat;?>">
