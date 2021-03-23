@@ -8,7 +8,7 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <!-- daterange picker -->
-  <link rel="stylesheet" href="<?= base_url() . 'assets/Template/Admin//plugins/daterangepicker/daterangepicker.css' ?>">
+  <link rel="stylesheet" href="<?= base_url() . 'assets/Template/Admin/plugins/daterangepicker/daterangepicker.css' ?>">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?= base_url() . 'assets/Template/Admin/dist/css/adminlte.min.css' ?>">
   <!-- Select2 -->
