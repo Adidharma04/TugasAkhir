@@ -1,22 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login</title>
-    <link rel="icon" href="<?php echo base_url() . 'assets/Gambar/Website/Title_SMA.png'; ?>">
-    <!-- Logo -->
-    <link rel="icon" href="<?= base_url() . 'assets/images/Logo/logo_utama.png'; ?>">
-
-    <!-- Font Icon -->
-    <link rel="stylesheet" href="<?= base_url() . 'assets/Template/Registrasi/fonts/material-icon/css/material-design-iconic-font.min.css'; ?>">
-
-    <!-- Main css -->
-    <link rel="stylesheet" href="<?= base_url() . 'assets/Template/Registrasi/css/style.css'; ?>">
-</head>
-
-<body>
     <div class="main">
         <!-- Sign up form -->
         <section class="signup">
@@ -57,8 +39,8 @@
                             </div>
                         <?php endif; ?>
                         <!----------------------->
-                        <h2 class="form-title">Sign Up</h2>
-                        <form method="POST" class="register-form" action="register" role="form" autocomplete="off" id="formlogin">
+                        <h2 class="form-title" style="margin-top: 40%; font-size: 28px">Registrasi Alumni</h2>
+                        <form class="register-form" action="register" role="form" autocomplete="off" id="formlogin">
 
 
                             <div class="row">
@@ -80,7 +62,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="name"><i class="zmdi zmdi-account material-icons-name"></i>
-                                            <font color="red" size="3px">*</font>
+                                            
                                         </label>
                                         <input type="text" name="nama" id="name" placeholder="Nama" value="<?= set_value('nama'); ?>" disabled/>
                                         <?= form_error('nama', '<small class="text-danger">', '</small>'); ?>
@@ -89,7 +71,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="no_telfon"><i class="zmdi zmdi-phone"> </i>
-                                            <font color="red" size="4px">*</font>
+
                                         </label>
                                         <input type="number" name="no_telfon" id="no_telfon" placeholder="No Telfon" value="<?= set_value('no_telfon'); ?>" disabled/>
                                         <?= form_error('no_telfon', '<small class="text-danger">', '</small>'); ?>
@@ -100,39 +82,12 @@
                                 <label for="email"><i class="zmdi zmdi-email"> </i>
                                     <font color="red" size="4px">*</font>
                                 </label>
-                                <input type="email" name="email" id="email" placeholder="Email" value="<?= set_value('email'); ?>" disabled/>
+                                <input type="email" name="email" id="email" placeholder="Email" value="<?= set_value('email'); ?>"/>
                                 <?= form_error('email', '<small class="text-danger">', '</small>'); ?>
                             </div>
 
-                            <div class="form-group">
-                                <label for="username"><i class="zmdi zmdi-account-add"> </i>
-                                    <font color="red" size="4px">*</font>
-                                </label>
-                                <input type="username" name="username" id="username" placeholder="Username" value="<?= set_value('username'); ?>" />
-                                <?= form_error('username', '<small class="text-danger">', '</small>'); ?>
-                            </div>
-                            <div class="form-group">
-                                <label for="password1"><i class="zmdi zmdi-lock"></i>
-                                    <font color="red" size="4px">*</font>
-                                </label>
-                                <input type="password" name="password1" id="myInput1" placeholder="Password" />
-                                <?= form_error('password1', '<small class="text-danger">', '</small>'); ?>
-                            </div>
-                            <div class="form-group">
-                                <label for="re-pass"><i class="zmdi zmdi-lock-outline"></i>
-                                    <font color="red" size="4px">*</font>
-                                </label>
-                                <input type="password" name="password2" id="myInput2" placeholder="Repeat your password" />
-                            </div>
-
-
-                            <div class="form-group ">
-                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" onclick="myFunction()" />
-                                <label for="agree-term" class="label-agree-term"><span><span></span></span>Show Password</label>
-                            </div>
-
                             <div class="form-group form-button">
-                                <input type="submit" name="signup" id="signup" class="form-submit" value="Register" />
+                                <input type="submit" name="signup" id="btn-register" class="form-submit" value="Register" />
                             </div>
 
                         </form>
@@ -144,20 +99,23 @@
     </div>
 
 
-</body>
-<!-- JS -->
-<script src="<?= base_url() . 'assets/Template/Registrasi/vendor/jquery/jquery.min.js'; ?>"></script>
-<script src="<?= base_url() . 'assets/Template/Registrasi/js/main.js'; ?>"></script>
 <script>
     $(function() {
 
         var base_url = "<?php echo base_url() ?>";
+        
+        var btnRegister = $('#btn-register');
+
+        // inisialisasi awal 
+        btnRegister.val("Cari NIS terlebih dahulu");
+
 
         // event klik
         $('#check-nis').click(function() {
 
             // ambil nilai NIS
             let nis = $('input[name="no_induk"]').val();
+            // nis = 1868135063
 
             // Pengecekan validasi
             if (nis.length > 0) {
@@ -172,19 +130,18 @@
 
                     success: function(result) { // hasil or result
 
-                        // true
+                        // true (siswa ditemukan)
                         if (result.status) {
 
-                            console.log(result);
-                            alert("Oke ditemukan");
 
                             $('input[name="nama"]').val(result.data[0].nama);
 
+                            $('input[name="no_telfon"]').val(result.data[0].no_telfon);
                             $('input[name="email"]').val(result.data[0].email);
 
-                            $('input[name="no_telfon"]').val(result.data[0].no_telfon);
-
                             $('input[name="no_induk"]').css('border-bottom', '2px solid green');
+
+                            btnRegister.val("Registrasi Alumni Sekarang");
                         } else {
 
 
@@ -201,10 +158,79 @@
             } else {
 
                 $('input[name="no_induk"]').css('border-bottom', '1px solid red');
-                alert("NIS Harap diisi");
+                
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Maaf',
+                    text: 'Harap masukkan NIS Anda',
+                    timer: 1000,
+                    showConfirmButton: false,
+                    didOpen: () => {
+                        Swal.showLoading()
+                        timerInterval = setInterval(() => {
+                        const content = Swal.getContent()
+                        if (content) {
+                            const b = content.querySelector('b')
+                            if (b) {
+                            b.textContent = Swal.getTimerLeft()
+                            }
+                        }
+                        }, 100)
+                    },
+                    willClose: () => {
+                        clearInterval(timerInterval)
+                    }
+                })
             }
 
         });
+
+
+
+        // click event btn register
+        $('#formlogin').submit(function( e ) {
+
+            var nis   = $('input[name="no_induk"]').val();
+            var email = $('input[name="email"]').val();
+
+
+            if ( (email.length > 0) && (nis.length > 0) ) {
+            
+
+                $.ajax({
+
+                    type : "POST",
+                    url  : base_url + 'Admin/register/prosesRegistrasiSiswa',
+                    data : $(this).serialize(), // get all attribute name with value | no_induk=1868135063&email=ika@gmail.com
+                    dataType : "json",
+
+                    success: function( result ) {
+
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Registrasi Alumni',
+                            html: 'Permintaan anda sedang diproses <br> <small>Selalu cek email <b>'+ email +'</b> untuk mengetahui hasil konfirmasi BK</small>',
+                            showConfirmButton: true,
+                        }).then( function( isConfirm ) {
+
+                            window.location.href = base_url + 'User/dashboard_user';
+                        } );
+                    }
+                });
+
+                alert();
+
+
+            } else {
+
+                $('input[name="email"]').css('border-bottom', '1px solid red');
+            }
+
+
+            // disable refresh
+            e.preventDefault();
+        })
+        
 
     });
 
@@ -228,5 +254,3 @@
         }
     }
 </script>
-
-</html>

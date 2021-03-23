@@ -54,6 +54,36 @@ class Register_model extends CI_Model {
 		] );
 		
 	}
+
+
+
+
+	
+	// registrasi 
+	function registrasiSiswa() {
+
+
+		$nis   = $this->input->post('no_induk');
+		$email = $this->input->post('email');
+
+		$data_informationstudent = [
+
+			'email'				=> $email,
+			'verifikasi_alumni'	=> "pengajuan"
+		];
+
+		$this->db->where('nis', $nis);
+		$this->db->update('information_student', $data_informationstudent);
+
+
+		return true;
+
+
+
+
+		/** Proses Pengiriman Email (Add On) */
+		// . . . . .
+	}
 }
 /* End of file ModelName.php */
 ?>

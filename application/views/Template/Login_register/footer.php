@@ -1,4 +1,7 @@
-    
+
+
+    <script src="<?= base_url() . 'assets/Template/Registrasi/js/main.js'; ?>"></script>
+
     <script src="<?= base_url().'assets/Template/Bootstrap/vendor/bootstrap/js/bootstrap.bundle.min.js';?>"></script>
 
     <!-- Core plugin JavaScript-->
