@@ -1,7 +1,7 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class registrasi_model extends CI_Model {
+class Registrasi_model extends CI_Model {
 	
 	public function registrasiAlumni(){
 		$data=[
@@ -16,6 +16,7 @@ class registrasi_model extends CI_Model {
 		];
 		$this->db->insert('user', $data);
 	}
+
 }
 /* End of file ModelName.php */
 ?>

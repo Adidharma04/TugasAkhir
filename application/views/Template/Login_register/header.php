@@ -18,4 +18,13 @@
   <!-- Bootstrap core JavaScript-->
   <script src="<?= base_url().'assets/Template/Bootstrap/vendor/jquery/jquery.min.js';?>"></script>
 
+  
+  <!-- Main css -->
+  <link rel="stylesheet" href="<?= base_url() . 'assets/Template/Registrasi/css/style.css'; ?>">
+
+
+  <!-- Sweetalert -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.13.0/dist/sweetalert2.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.13.0/dist/sweetalert2.min.js"></script>
+
 </head>
