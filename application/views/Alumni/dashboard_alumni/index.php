@@ -32,69 +32,7 @@
       
 
       <div class="container-fluid">
-        <!-- Small boxes (Stat box) -->
-        <div class="row">
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3>150</h3>
-
-                <p>Siswa Laki</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-bag"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-success">
-              <div class="inner">
-                <h3>156</h3>
-
-                <p>Siswa Perempuan</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-warning">
-              <div class="inner">
-                <h3>2412</h3>
-
-                <p>Total Alumni</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-person-add"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-              <div class="inner">
-                <h3>100</h3>
-
-                <p>Pengguna</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-pie-graph"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-        </div>
+        
         <!-- /.row -->
         <div class="row">
           <div class="card bg-light">
@@ -102,9 +40,9 @@
                   <h2>Profile Akun <?php echo ucfirst($this->session->userdata('sess_level')) ?><h2>
                   <hr>
                 </div>
-                <div class="card-body pt-0" style="padding-right:200.7px;">
+                <div class="card-body pt-0" style="padding-right:70.7px;">
                   <div class="row">
-                    <div class="col-12">
+                    <div class="col-6">
                       <h4 class="lead"><b><?php echo ucfirst($this->session->userdata('sess_name')) ?></b></h4>
                       
                       <p class="text-muted text-sm"><b>Tanggal Lahir: </b> <?php echo ucfirst($this->session->userdata('sess_tanggal_lahir')) ?></p>
@@ -120,8 +58,12 @@
                           <br>
                       </ul>
                     </div>
-                    <div class="col-5 text-center">
-                        
+                    <div class="col-6 text-center">
+                            <?php if ($this->session->userdata('sess_foto') == "") : ?>
+                            <img src="<?= base_url('assets/Gambar/Website/default_siswa.jpg') ?>" style="width:180px; height:200px;">
+                            <?php else : ?>
+                            <img src="<?= base_url('assets/Gambar/Upload/siswa/') . $this->session->userdata('sess_foto') ?>" style="width:180px; height:200px;">
+                            <?php endif ?>
                     </div>
                   </div>
                 </div>

@@ -2,24 +2,24 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Dashboard_admin extends CI_Controller {
+class Dashboard_alumni extends CI_Controller {
 
 
     function __construct() {
         parent::__construct();
-        if ( empty( $this->session->userdata('sess_id_profile') )  ) {
-            
+
+        if ( empty( $this->session->userdata('sess_id_profile') ) ) {
             $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> <br> 
                         <small>Anda harus login terlebih dahulu !</small>
                     </div>';
             $this->session->set_flashdata('msg', $html);
             redirect("Admin/login");
-        }if($this->session->userdata('sess_level') != "staff"){
+        }if($this->session->userdata('sess_level') != "alumni"){
+            $session_destroy = $this->session->sess_destroy();
             $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> <br> 
-                    <small>Anda Bukan Staff!</small>
+                    <small>Anda Bukan Alumni!</small>
                 </div>';
-            $this->session->set_flashdata('msg', $html);
-            $this->session->sess_destroy();
+            $this->session->set_flashdata('msg', $html,$session_destroy);
             redirect('Admin/login', 'refresh');
         }
     }
@@ -30,10 +30,10 @@ class Dashboard_admin extends CI_Controller {
          $data ['title'] = 'Halaman Dashboard | Admin';
          //----------------------------
 
-        $this->load->view('Template/Admin/navbar',$data);
-        $this->load->view('Template/Admin/sidebar',$data);
-        $this->load->view('Admin/dashboard_admin/index',$data);
-        $this->load->view('Template/Admin/footer');
+        $this->load->view('Template/Alumni/navbar_alumni',$data);
+        $this->load->view('Template/Alumni/sidebar_alumni',$data);
+        $this->load->view('Alumni/dashboard_alumni/index',$data);
+        $this->load->view('Template/Alumni/footer_alumni');
     }
 
 }

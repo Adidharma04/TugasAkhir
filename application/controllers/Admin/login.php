@@ -57,7 +57,7 @@ class Login extends CI_Controller {
             // check password
             if ( password_verify( $password, $kolom['password'] ) ) {
 
-                // add session
+                // add session 
                 $addSession = array(
 
                     'sess_id_profile'   => $kolom['id_profile'],
@@ -76,19 +76,43 @@ class Login extends CI_Controller {
                     if ( $getDataInformationEmployee->num_rows() == 0 ) {
                         
                         $this->session->set_userdata('sess_name', $kolom['username']);
+                        $this->session->set_userdata('sess_tanggal_lahir', $kolom['id_profile']);
                     } else {
 
                         $this->session->set_userdata('sess_name', $kolomEmployee['nama']);
+                        $this->session->set_userdata('sess_tanggal_lahir', $kolomEmployee['tanggal_lahir']);
+                        $this->session->set_userdata('sess_alamat', $kolomEmployee['alamat']);
+                        $this->session->set_userdata('sess_email', $kolomEmployee['email']);
+                        $this->session->set_userdata('sess_telfon', $kolomEmployee['no_telfon']);
                     }
                 }
 
+                if ( ($kolom['level'] == "alumni")  ) {
+
+                    $id_profile = $kolom['id_profile'];
+                    $getDataInformationAlumni = $this->login_model->getDataAlumniBy_IdLogin( $id_profile );
+
+                    $kolomAlumni = $getDataInformationAlumni->row_array();
+                    if ( $getDataInformationAlumni->num_rows() == 0 ) {
+                        
+                        $this->session->set_userdata('sess_name', $kolom['username']);
+                        $this->session->set_userdata('sess_tanggal_lahir', $kolom['id_profile']);
+                    } else {
+
+                        $this->session->set_userdata('sess_name', $kolomAlumni['nama']);
+                        $this->session->set_userdata('sess_tanggal_lahir', $kolomAlumni['tanggal_lahir']);
+                        $this->session->set_userdata('sess_alamat', $kolomAlumni['alamat']);
+                        $this->session->set_userdata('sess_email', $kolomAlumni['email']);
+                        $this->session->set_userdata('sess_telfon', $kolomAlumni['no_telfon']);
+                        $this->session->set_userdata('sess_foto', $kolomAlumni['foto']);
+                    }
+                }
                 // end session
 
                 // role ? 
 
                 /// ................
                 switch ( $kolom['level'] ) {
-
 
                     case "staff":
                         redirect("admin/dashboard_admin");
@@ -99,7 +123,10 @@ class Login extends CI_Controller {
                         break;
 
                     case "siswa":
-                        echo "Okee siswa";
+                        redirect("siswa/dashboard_siswa");
+                        break;
+                    case "alumni":
+                        redirect("Alumni/dashboard_alumni");
                         break;
                 }
                 /// ................

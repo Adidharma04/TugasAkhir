@@ -16,6 +16,13 @@ class Penilaian extends CI_Controller {
                     </div>';
             $this->session->set_flashdata('msg', $html);
             redirect("Admin/login");
+        }if($this->session->userdata('sess_level') != "staff"){
+            $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> <br> 
+                    <small>Anda Bukan Staff!</small>
+                </div>';
+            $this->session->set_flashdata('msg', $html);
+            $this->session->sess_destroy();
+            redirect('Admin/login', 'refresh');
         }
     }
 
