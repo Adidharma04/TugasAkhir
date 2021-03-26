@@ -27,7 +27,7 @@ class Dashboard_alumni extends CI_Controller {
     public function index()
     {
          //-- Title Halaman
-         $data ['title'] = 'Halaman Dashboard | Admin';
+         $data ['title'] = 'Halaman Dashboard | Alumni';
          //----------------------------
 
         $this->load->view('Template/Alumni/navbar_alumni',$data);

@@ -19,8 +19,6 @@
         </div>
       </div>
 
-      
-
       <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -36,30 +34,37 @@
             </a>
           </li>
           
+          <li class="nav-header">Tracer History</li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fa fa-comments-o"></i>
+            <a href="<?= base_url().''?>" class="nav-link">
+              <i class="nav-icon fa fa-graduation-cap"></i>
               <p>
-                Kritik dan Saran
-                <i class="fas fa-angle-left right"></i>
+                Tracer Kuliah
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="<?= base_url().'Alumni/penilaian'?>" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Kritik dan Saran</p>
-                </a>
-              </li>
-            </ul>
           </li>
-
+          <li class="nav-item">
+            <a href="<?= base_url().''?>" class="nav-link">
+              <i class="nav-icon fa fa-briefcase"></i>
+              <p>
+               Tracer Kerja
+              </p>
+            </a>
+          </li>
           <li class="nav-header">INFORMASI</li>
           <li class="nav-item">
             <a href="<?= base_url().'Alumni/event'?>" class="nav-link">
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
                 Event
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<?= base_url().'Alumni/penilaian'?>" class="nav-link">
+              <i class="nav-icon far fa-comments"></i>
+              <p>
+                Kritik dan Saran
               </p>
             </a>
           </li>

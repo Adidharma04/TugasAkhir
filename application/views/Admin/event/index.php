@@ -68,7 +68,15 @@
                         <td><?= $evn->nama_event ?></td>
                         <td><?= $evn->tanggal_event ?></td>
                         <td><?= $evn->lokasi ?></td>
-                        <td><?= $evn->jenis_event ?></td>
+                        <td 
+                          <?php if($evn->jenis_event=="pay") : ?>
+                            class="badge badge-danger"
+                          <?php else : ?>
+                            class="badge badge-success"
+                          <?php endif ?>
+                        >
+                        <?= $evn->jenis_event ?>
+                        </td>
                         <td>
                           <?php if ($evn->foto == "") : ?>
                             <img src="<?= base_url('assets/Gambar/Website/default_event.png') ?>" style="width:70px; height:70px;">
