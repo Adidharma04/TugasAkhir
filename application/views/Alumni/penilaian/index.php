@@ -32,8 +32,9 @@
 
       <div class="container-fluid">
       <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-8">
             <div class="card">
+            <?php echo $this->session->flashdata('msg') ?>
               <div class="card-header">
                 <h3 class="card-title">
                   <i class="fas fa-comment"></i>
@@ -43,18 +44,19 @@
               <!-- /.card-header -->
               <div class="card-body">
                 <blockquote class="quote-danger">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                  <p><b>Kritik</b></p>
+                  <p>Kirtik :</p>
                   <small>Last update <cite title="Source Title">sa</cite></small>
                 </blockquote>
                 <blockquote class="quote-primary">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                <p><b>Saran</b></p>
+                  <p>Saran :</p>
                   <small>Last update <cite title="Source Title">sa</cite></small>
                 </blockquote>
                 <div class="row">
                   <div class="col-md-2">
-                  <a href="<?= base_url("Alumni/tambah")?>" class="btn btn-primary">Tambah</a>
-                    
-                  </div>
+                  <a href="<?= base_url("Alumni/penilaian/tambah")?>" class="btn btn-primary">Tambah</a>
+                </div>
               </div>
               </div>
               <!-- /.card-body -->

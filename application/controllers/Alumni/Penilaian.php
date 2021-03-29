@@ -29,8 +29,9 @@ class Penilaian extends CI_Controller {
          //-- Title Halaman
          $data ['title'] = 'Halaman Dashboard | Alumni';
         //----------------------------
-        
-        $data['penilaian'] = $this->penilaian_model->tampilDataPenilaian(); 
+
+        $data['penilaian'] = $this->penilaian_model->tampilDataPenilaian();
+
         $this->load->view('Template/Alumni/navbar_alumni',$data);
         $this->load->view('Template/Alumni/sidebar_alumni',$data);
         $this->load->view('Alumni/penilaian/index',$data);
@@ -57,12 +58,11 @@ class Penilaian extends CI_Controller {
             $this->penilaian_model->tambahDataPenilaian();
                 $html = '<div class="alert alert-success">
                                 <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
-                                <br>
                                 <b>Pemberitahuan</b> <br>
                                 Kritik dan saran berhasil di tambah pada tanggal ' . date('d F Y H.i A') . '
                          </div>';
                 $this->session->set_flashdata('msg', $html);
-                redirect('Admin/event', 'refresh');
+                redirect('Alumni/penilaian', 'refresh');
         }
     }
 

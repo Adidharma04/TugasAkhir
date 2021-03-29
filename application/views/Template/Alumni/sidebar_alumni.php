@@ -53,7 +53,7 @@
           </li>
           <li class="nav-header">INFORMASI</li>
           <li class="nav-item">
-            <a href="<?= base_url().'Alumni/event'?>" class="nav-link">
+            <a href="<?= base_url().'Alumni/Event'?>" class="nav-link">
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
                 Event
