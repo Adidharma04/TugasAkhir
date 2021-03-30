@@ -36,6 +36,8 @@ class Penilaian extends CI_Controller {
         $this->load->view('Template/Alumni/sidebar_alumni',$data);
         $this->load->view('Alumni/penilaian/index',$data);
         $this->load->view('Template/Alumni/footer_alumni');
+
+        // print_r( $data['penilaian'] );
     }
     public function tambah()
     {

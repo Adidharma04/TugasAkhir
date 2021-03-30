@@ -15,6 +15,7 @@
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1 class="m-0">Event</h1>
+            <p>Deskripsi penjelasan event</p>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -33,13 +34,9 @@
       <div class="container-fluid">
 
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-10 offset-1">
             <div class="card card-row card-default">
-            <div class="card-header bg-info">
-                <h3 class="card-title">
-                Event
-                </h3>
-            </div>
+            
             <div class="card-body">
                 <div class="card card-light card-outline">
                 <div class="card-header">
@@ -51,23 +48,46 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <p>Nama Event &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</p>
-                    <hr>
-                    <p>Deskripsi Event &nbsp;:</p>
-                    <hr>
-                    <p>Lokasi Event &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</p>
-                    <hr>
-                    <p>Tanggal Event &nbsp;&nbsp;&nbsp;&nbsp;:</p>
-                    <hr>
-                    <p>Foto Event &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</p>
-                    <hr>
-                    <p>Jenis Event &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</p>
+                    
+                  <table class="table" width="100%">
+                    <thead>
+                    <tr>
+                      <th style="width: 80%">Informasi Event</th>
+                      <th style="width: 20% !important">Aksi</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <?php for( $i = 0; $i < 2; $i++) { ?>
+                    <tr>
+                      <td>
+                      
+                        <div class="row">
+                        
+                          <div class="col-md-3">
+                            <img src="<?php echo base_url('assets/Gambar/Website/Dashboard/beasiswa.jpg') ?>" alt="" style="width: 100%; border: 1.5px solid #e0e0e0; border-radius: 5px">
+                          </div>
+                          <div class="col-md-9">
+                            <label for="" style="font-size: 18px;">Beasiswa Pendidikan Pemuda Indonesia</label> <br>
+                            <small>"Pendaftaran beassiswa baru yang akan dibuka untuk SMA"</small> <br><hr style="margin: 5px">
+
+
+                            <label style="font-size: 13px"><i class="far fa-calendar-alt"></i> 20 Desember 2020 &emsp; | &emsp; <i class="fa-map-marker"></i> Kampus Polinema  &emsp; | &emsp; <span class="badge badge-success">Disetujui</span> </label>
+                            
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        <br>
+                        <small>Ubah Informasi Event</small><br>
+                        <a href="" class="btn btn-sm btn-warning">Sunting</a>
+                        <a href="" class="btn btn-sm btn-warning">Hapus</a>
+                      </td>
+                    </tr>
+                    <?php } ?>
+                  </table>
                     
                 </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-2">
-                  <a href="<?= base_url("Alumni/Event/tambah")?>" class="btn btn-primary">Tambah</a>
                 </div>
             </div>
             </div>

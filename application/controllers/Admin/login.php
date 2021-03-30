@@ -105,6 +105,7 @@ class Login extends CI_Controller {
                         $this->session->set_userdata('sess_email', $kolomAlumni['email']);
                         $this->session->set_userdata('sess_telfon', $kolomAlumni['no_telfon']);
                         $this->session->set_userdata('sess_foto', $kolomAlumni['foto']);
+                        $this->session->set_userdata('sess_gender', $kolomAlumni['jenis_kelamin']);
                     }
                 }
                 // end session

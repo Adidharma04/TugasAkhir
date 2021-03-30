@@ -34,6 +34,10 @@ class Event extends CI_Controller {
         $this->load->view('Template/Alumni/sidebar_alumni',$data);
         $this->load->view('Alumni/event/index',$data);
         $this->load->view('Template/Alumni/footer_alumni');
+
+        
+
+        
     }
 
     public function tambah(){

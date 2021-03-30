@@ -33,15 +33,45 @@
 
       <div class="container-fluid">
         
-        <!-- /.row -->
-        <div class="row">
-          <div class="card bg-light">
+          <!-- /.row -->
+          <div class="row">
+            <div class="col-8">
+              <div class="card bg-light">
                 <div class="card-header text-muted border-bottom-0">
                   <h2>Profile Akun <?php echo ucfirst($this->session->userdata('sess_level')) ?><h2>
                   <hr>
                 </div>
                 <div class="card-body pt-0" style="padding-right:70.7px;">
                   <div class="row">
+                    
+                    <div class="col-6 text-center">
+
+                      <?php
+                      
+                        $img = "";
+                        $sess_img = $this->session->userdata('sess_foto');
+
+                        if ( !$sess_img == "" ) {
+
+                          // foto default 
+                          if ( $this->session->userdata('sess_gender') == "laki-laki" ) {
+
+                            $img = base_url('assets/Gambar/Website/male.png');
+                          } else {
+
+                            $img = base_url('assets/Gambar/Website/female.png');
+                          }
+                        } else {
+
+                          // terdapat foto
+                          $img = base_url('assets/Gambar/Upload/siswa/'. $sess_img);
+                        }
+                      ?>
+
+                        <img src="<?= $img ?>" style="width: 200px; border-radius: 5px; border: 1.5px solid #e0e0e0">
+
+                    </div>
+
                     <div class="col-6">
                       <h4 class="lead"><b><?php echo ucfirst($this->session->userdata('sess_name')) ?></b></h4>
                       
@@ -58,13 +88,7 @@
                           <br>
                       </ul>
                     </div>
-                    <div class="col-6 text-center">
-                            <?php if ($this->session->userdata('sess_foto') == "") : ?>
-                            <img src="<?= base_url('assets/Gambar/Website/default_siswa.jpg') ?>" style="width:180px; height:200px;">
-                            <?php else : ?>
-                            <img src="<?= base_url('assets/Gambar/Upload/siswa/') . $this->session->userdata('sess_foto') ?>" style="width:180px; height:200px;">
-                            <?php endif ?>
-                    </div>
+
                   </div>
                 </div>
                 <div class="card-footer">
@@ -78,6 +102,8 @@
                   </div>
                 </div>
               </div>
+
+            </div>
           </div>
       </div><!-- /.container-fluid -->
 
