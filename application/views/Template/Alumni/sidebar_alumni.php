@@ -69,7 +69,7 @@
             </a>
           </li>
           <li class="nav-item">
-          <a href="<?= base_url().'Alumni/informasi_umum'?>" class="nav-link">
+          <a href="<?= base_url().'Alumni/Sharing_loker'?>" class="nav-link">
               <i class="nav-icon far fa-newspaper-o"></i>
               <p>
                 Informasi Kuliah
