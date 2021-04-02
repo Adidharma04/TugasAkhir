@@ -26,7 +26,7 @@
                with font-awesome or any other icon font library -->
          
           <li class="nav-item">
-            <a href="<?php echo base_url('Alumni/dashboard_alumni')?>" class="nav-link">
+            <a href="<?php echo base_url('siswa/dashboard_siswa')?>" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -34,26 +34,9 @@
             </a>
           </li>
           
-          <li class="nav-header">Tracer History</li>
-          <li class="nav-item">
-            <a href="<?= base_url().''?>" class="nav-link">
-              <i class="nav-icon fa fa-graduation-cap"></i>
-              <p>
-                Tracer Kuliah
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="<?= base_url().''?>" class="nav-link">
-              <i class="nav-icon fa fa-briefcase"></i>
-              <p>
-               Tracer Kerja
-              </p>
-            </a>
-          </li>
           <li class="nav-header">INFORMASI</li>
           <li class="nav-item">
-            <a href="<?= base_url().'Alumni/Event'?>" class="nav-link">
+            <a href="<?= base_url().'siswa/event'?>" class="nav-link">
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
                 Event
@@ -61,15 +44,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="<?= base_url().'Alumni/penilaian'?>" class="nav-link">
-              <i class="nav-icon far fa-comments"></i>
-              <p>
-                Kritik dan Saran
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-          <a href="<?= base_url().'Alumni/Sharing_loker'?>" class="nav-link">
+          <a href="<?= base_url().'siswa/informasi_umum'?>" class="nav-link">
               <i class="nav-icon far fa-newspaper-o"></i>
               <p>
                 Informasi Kuliah
@@ -77,10 +52,18 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="<?= base_url().'Alumni/sharing_loker'?>" class="nav-link">
+            <a href="<?= base_url().'siswa/sharing_loker'?>" class="nav-link">
               <i class="nav-icon fa fa-briefcase"></i>
               <p>
                 Lowongan Kerja
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pages/gallery.html" class="nav-link">
+              <i class="nav-icon fa fa-comments"></i>
+              <p>
+                Forum Diskusi
               </p>
             </a>
           </li>

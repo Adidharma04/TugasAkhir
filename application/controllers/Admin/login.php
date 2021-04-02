@@ -108,6 +108,28 @@ class Login extends CI_Controller {
                         $this->session->set_userdata('sess_gender', $kolomAlumni['jenis_kelamin']);
                     }
                 }
+
+                if ( ($kolom['level'] == "siswa")  ) {
+
+                    $id_profile = $kolom['id_profile'];
+                    $getDataInformationSiswa = $this->login_model->getDataSiswaBy_IdLogin( $id_profile );
+
+                    $kolomSiswa = $getDataInformationSiswa->row_array();
+                    if ( $getDataInformationSiswa->num_rows() == 0 ) {
+                        
+                        $this->session->set_userdata('sess_name', $kolom['username']);
+                        $this->session->set_userdata('sess_tanggal_lahir', $kolom['id_profile']);
+                    } else {
+
+                        $this->session->set_userdata('sess_name', $kolomSiswa['nama']);
+                        $this->session->set_userdata('sess_tanggal_lahir', $kolomSiswa['tanggal_lahir']);
+                        $this->session->set_userdata('sess_alamat', $kolomSiswa['alamat']);
+                        $this->session->set_userdata('sess_email', $kolomSiswa['email']);
+                        $this->session->set_userdata('sess_telfon', $kolomSiswa['no_telfon']);
+                        $this->session->set_userdata('sess_foto', $kolomSiswa['foto']);
+                        $this->session->set_userdata('sess_gender', $kolomSiswa['jenis_kelamin']);
+                    }
+                }
                 // end session
 
                 // role ? 

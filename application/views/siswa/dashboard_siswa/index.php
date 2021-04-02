@@ -54,7 +54,7 @@
                         if ( !$sess_img == "" ) {
 
                           // foto default 
-                          if ( $this->session->userdata('sess_gender') == "laki" ) {
+                          if ( $this->session->userdata('sess_gender') == "laki-laki" ) {
 
                             $img = base_url('assets/Gambar/Website/male.png');
                           } else {

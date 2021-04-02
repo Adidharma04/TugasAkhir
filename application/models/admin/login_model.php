@@ -23,4 +23,9 @@ class Login_model extends CI_Model
 		$where = ['id_profile' => $id_profile];
 		return $this->db->get_where('information_student', $where);
 	}
+	// siswa
+	function getDataSiswaBy_IdLogin( $id_profile ) {
+		$where = ['id_profile' => $id_profile];
+		return $this->db->get_where('information_student', $where);
+	}
 }
