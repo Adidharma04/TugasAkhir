@@ -17,6 +17,11 @@ class Login_model extends CI_Model
 		$where = ['id_profile' => $id_profile];
 		return $this->db->get_where('information_employee', $where);
 	}
+	// information employee
+	function getDataEmployeeBKBy_IdLogin( $id_profile ) {
+		$where = ['id_profile' => $id_profile];
+		return $this->db->get_where('information_employee', $where);
+	}
 
 	// information alumni
 	function getDataAlumniBy_IdLogin( $id_profile ) {

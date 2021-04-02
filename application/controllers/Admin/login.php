@@ -87,6 +87,26 @@ class Login extends CI_Controller {
                     }
                 }
 
+                if ( ($kolom['level'] == "bk") || ($kolom['level'] == "bk") ) {
+
+                    $id_profile = $kolom['id_profile'];
+                    $getDataInformationEmployeeBK = $this->login_model->getDataEmployeeBKBy_IdLogin( $id_profile );
+
+                    $kolomEmployeeBK = $getDataInformationEmployeeBK->row_array();
+                    if ( $getDataInformationEmployeeBK->num_rows() == 0 ) {
+                        
+                        $this->session->set_userdata('sess_name', $kolom['username']);
+                        $this->session->set_userdata('sess_tanggal_lahir', $kolom['id_profile']);
+                    } else {
+
+                        $this->session->set_userdata('sess_name', $kolomEmployeeBK['nama']);
+                        $this->session->set_userdata('sess_tanggal_lahir', $kolomEmployeeBK['tanggal_lahir']);
+                        $this->session->set_userdata('sess_alamat', $kolomEmployeeBK['alamat']);
+                        $this->session->set_userdata('sess_email', $kolomEmployeeBK['email']);
+                        $this->session->set_userdata('sess_telfon', $kolomEmployeeBK['no_telfon']);
+                    }
+                }
+
                 if ( ($kolom['level'] == "alumni")  ) {
 
                     $id_profile = $kolom['id_profile'];
@@ -142,7 +162,7 @@ class Login extends CI_Controller {
                         break;
 
                     case "bk";
-                        redirect("admin/dashboard_admin");
+                        redirect("bk/dashboard_bk");
                         break;
 
                     case "siswa":

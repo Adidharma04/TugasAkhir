@@ -17,7 +17,7 @@ class Dashboard_siswa extends CI_Controller {
         }if($this->session->userdata('sess_level') != "siswa"){
             $session_destroy = $this->session->sess_destroy();
             $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> <br> 
-                    <small>Anda Bukan Alumni!</small>
+                    <small>Anda Bukan Siswa!</small>
                 </div>';
             $this->session->set_flashdata('msg', $html,$session_destroy);
             redirect('Admin/login', 'refresh');

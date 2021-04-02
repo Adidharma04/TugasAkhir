@@ -8,7 +8,7 @@ class Penilaian extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Admin/Penilaian_model');
+        $this->load->model('bk/Penilaian_model');
         if ( empty( $this->session->userdata('sess_id_profile') ) ) {
             
             $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> <br> 
@@ -16,9 +16,9 @@ class Penilaian extends CI_Controller {
                     </div>';
             $this->session->set_flashdata('msg', $html);
             redirect("Admin/login");
-        }if($this->session->userdata('sess_level') != "staff"){
+        }if($this->session->userdata('sess_level') != "bk"){
             $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> <br> 
-                    <small>Anda Bukan Staff!</small>
+                    <small>Anda Bukan Guru BK!</small>
                 </div>';
             $this->session->set_flashdata('msg', $html);
             $this->session->sess_destroy();
@@ -29,25 +29,13 @@ class Penilaian extends CI_Controller {
     public function index()
     {
          //-- Title Halaman
-         $data ['title'] = 'Halaman Kritik Saran | Admin';
+         $data ['title'] = 'Halaman Kritik Saran | Guru BK';
          //----------------------------
         $data['penilaian'] = $this->Penilaian_model->tampilDataPenilaian(); 
         $this->load->view('Template/Admin/navbar',$data);
-        $this->load->view('Template/Admin/sidebar',$data);
-        $this->load->view('Admin/penilaian/index',$data);
+        $this->load->view('Template/Admin/sidebar_bk',$data);
+        $this->load->view('bk/penilaian/index',$data);
         $this->load->view('Template/Admin/footer');
-    }
-
-    // proses hapus
-    function onDelete( $id_penilaian ) {
-
-        $this->Penilaian_model->prosesHapusPenilaian( $id_penilaian );
-        $html = '<div class="alert alert-success">
-                     <b>Pemberitahuan</b> <br>
-                     Data Kritik dan Saran berhasil terhapus pada tanggal '.date('d F Y H.i A').'
-                     </div>';
-            $this->session->set_flashdata('msg', $html);
-            redirect('Admin/penilaian','refresh');
     }
 
 }
