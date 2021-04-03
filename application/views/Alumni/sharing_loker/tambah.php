@@ -26,12 +26,12 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Tambah Event</h1>
+              <h1>Tambah Loker</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Tambah Event</li>
+                <li class="breadcrumb-item active">Tambah Loker</li>
               </ol>
             </div>
           </div>
@@ -43,7 +43,7 @@
         <!-- Default box -->
         <div class="card">
           <div class="card-header" style="background-color:blanchedalmond">
-            <h3 class="card-title">Form Tambah Event</h3>
+            <h3 class="card-title">Form Tambah Loker</h3>
 
             <div class="card-tools">
               <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -53,72 +53,42 @@
           </div>
           <div class="card-body">
             <form action="" method="post" enctype="multipart/form-data">
-                <div div class="row">
-
+              <div class="row">
                   <div class="col-md-6">
-                    <label for="nama_event">Nama Event</label>
+                  <label>Nama Pekerjaan</label>
                     <div class="input-group mb-3">
-                      <div class="input-group-prepend">
-                          <span class="input-group-text"><i class="fas fa-id-card"></i></span>
-                      </div>
-                      <input type="text" class="form-control" name="nama_event" id="nama_event" placeholder="Masukkan Nama Event" value="<?= set_value('nama_event'); ?>" >
-                    </div>
-                    <?= form_error('nama_event','<small class="text-danger">','</small>');?>
-                  </div>
-                  <div class="col-md-6">
-                    <label for="lokasi">Lokasi</label>
-                      <div class="input-group mb-3">
-                          <div class="input-group-prepend">
-                              <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
-                          </div>
-                          <input type="text" class="form-control" name="lokasi" id="lokasi" placeholder="Masukkan Lokasi Event" value="<?= set_value('lokasi'); ?>" >
-                      </div>
-                      <?= form_error('lokasi','<small class="text-danger">','</small>');?>
-                  </div>
-
-                </div>
-                <!-- Batas Baris -->
-                <div class="form-group">
-                    <label for="deskripsi_event">Deskripsi Event</label>
-                    <textarea type="text" class="form-control" id="deskripsi_event" name="deskripsi_event" cols="30" rows="6" placeholder="Masukkan Deskripsi Event"></textarea>
-                    <?= form_error('deskripsi_event','<small class="text-danger">','</small>');?>
-                </div>
-                <!-- Batas Baris -->
-                <div div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label>Tanggal Event:(Month/Day/Year)</label>
-                      <input type="date" class="form-control" id="tanggal_event" name="tanggal_event" value="<?= set_value('tanggal_event'); ?>">
-                      <?= form_error('tanggal_event','<small class="text-danger">','</small>');?>
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-briefcase"></i></span>
+                        </div>
+                        <input type="text" class="form-control" id="nama_pekerjaan" name="nama_pekerjaan" placeholder="Masukkan Nama Pekerjaan beserta Jabatan" value="<?= set_value('nama_pekerjaan'); ?>" >
+                        <?= form_error('nama_pekerjaan','<small class="text-danger">','</small>');?>
                     </div>
                   </div>
                   <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="foto">Foto</label>
-                      <input type="file" class="form-control" id="foto" name="foto">
-                      <small>Tambahkan Foto jika ada!</small>
+                  <label>Alamat Pekerjaan</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-building"></i></span>
+                        </div>
+                        <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Masukkan Alamat Perusahaan" value="<?= set_value('alamat'); ?>" >
+                        <?= form_error('alamat','<small class="text-danger">','</small>');?>
                     </div>
                   </div>
-                </div>
-                <!-- Batas Baris -->
-                <div class="form-group">
-                    <label for="jenis_event">Jenis Kegiatan</label>
-                    <div class="form-check">
-                      <input type="radio" name="jenis_event" value="pay" > Bayar
-                    </div>
-                    <div class="form-check">
-                      <input type="radio" name="jenis_event" value="free" > Gratis
-                    </div>
-                    <?= form_error('jenis_event','<small class="text-danger">','</small>');?>
-                </div>
-                <!-- Batas Baris -->
-                <div class="row">
-                  <div class="col-md-2">
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                    <span> <a href="<?= base_url("Alumni/event")?>" class="btn btn-danger">Cancel</a></span>
-                  </div>
-                </div>
-                
+              </div>
+              <!-- Batas Baris -->
+              <div class="form-group">
+                <label for="deskripsi_pekerjaan">Deskripsi Pekerjaan</label>
+                <textarea class="form-control" name="deskripsi_pekerjaan" id="deskripsi_pekerjaan" cols="30" rows="6" placeholder="Masukkan Deskripsi Pekerjaan" value="<?= set_value('deskripsi_pekerjaan'); ?>"></textarea>
+                  <?= form_error('deskripsi_pekerjaan', '<small class="text-danger">', '</small>'); ?>
+              </div>
+              <!-- Batas Baris -->
+              <div class="form-group">
+                <label for="foto">Foto</label>
+                <input type="file" class=" form-control" id="foto" name="foto">
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
             </form>
           </div>
           <!-- /.card-body -->

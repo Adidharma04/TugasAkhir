@@ -12,10 +12,33 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="" class="img-circle elevation-2" alt="User Image">
+        <?php
+                      
+                      $img = "";
+                      $sess_img = $this->session->userdata('sess_foto');
+
+                      if ( !$sess_img == "" ) {
+
+                        // foto default 
+                        if ( $this->session->userdata('sess_gender') == "laki" ) {
+
+                          $img = base_url('assets/Gambar/Website/male.png');
+                        } else {
+
+                          $img = base_url('assets/Gambar/Website/female.png');
+                        }
+                      } else {
+
+                        // terdapat foto
+                        $img = base_url('assets/Gambar/Upload/siswa/'. $sess_img);
+                      }
+                    ?>
+
+                      <img src="<?= $img ?>" style="width: 50px; border-radius: 5px; border: 1.5px solid #e0e0e0">
+
         </div>
         <div class="info">
-          <a href="#" class="d-block"><?php echo ucfirst($this->session->userdata('sess_name')) ?></a>
+          <a href="<?= base_url("Alumni/dashboard_alumni")?>" class="d-block"><?php echo ucfirst($this->session->userdata('sess_name')) ?></a>
         </div>
       </div>
 
@@ -26,7 +49,7 @@
                with font-awesome or any other icon font library -->
          
           <li class="nav-item">
-            <a href="<?php echo base_url('Alumni/dashboard_alumni')?>" class="nav-link">
+            <a href="<?php echo base_url('Admin/dashboard_admin')?>" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -69,7 +92,7 @@
             </a>
           </li>
           <li class="nav-item">
-          <a href="<?= base_url().'Alumni/Sharing_loker'?>" class="nav-link">
+          <a href="<?= base_url().'Alumni/Informasi_umum'?>" class="nav-link">
               <i class="nav-icon far fa-newspaper-o"></i>
               <p>
                 Informasi Kuliah

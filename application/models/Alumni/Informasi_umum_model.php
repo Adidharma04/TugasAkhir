@@ -1,44 +1,44 @@
-<?php
+<?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Event_model extends CI_Model {
-
-    public function tampilDataEvent(){
+class informasi_umum_model extends CI_Model {
+    
+    public function tampilDataInformasi()
+    {
         $id_profile = $this->session->userdata('sess_id_profile');
         
         $where = ['id_profile' => $id_profile];
-        return $this->db->get_where('event', $where);
+        return $this->db->get_where('information_general', $where);
+
     }
-    public function tambahDataEvent($upload){
+    public function tambahDataInformasi($upload){
 
         $id_profile = $this->session->userdata('sess_id_profile');
 
-        $event =[
+        // data input
+        $informasi_umum =[
             'id_profile'            => $id_profile,
-            'nama_event'            => $this->input->post('nama_event', true),
-            'deskripsi_event'       => $this->input->post('deskripsi_event', true),
-            'tanggal_event'         => $this->input->post('tanggal_event', true),
+            'nama_informasi'        => $this->input->post('nama_informasi', true),
+            'deskripsi_informasi'   => $this->input->post('deskripsi_informasi', true),    
+            'status'                => "pending",    
             'foto'                  => $upload['file']['file_name'],
-            'lokasi'                => $this->input->post('lokasi', true),
-            'jenis_event'           => $this->input->post('jenis_event', true),
-            'status'                => "pending",
-            
         ];
+        
         // query untuk melakukan pengecekan
         $where = ['id_profile' => $id_profile];
-        $dataEvent = $this->db->get_where('event', $where);
-        
-        if ( $dataEvent->num_rows() == 1 ) {
+        $dataPenilaian = $this->db->get_where('information_general', $where);
+
+
+        if ( $dataPenilaian->num_rows() == 1 ) {
             // do update data
             $this->db->where( $where );
-            $this->db->insert('event', $event);
+            $this->db->insert('information_general', $informasi_umum);
         } else {
-            $this->db->insert('event', $event);
+            $this->db->insert('information_general', $informasi_umum);
         }
-
     }
     public function upload(){    
-        $config['upload_path'] = './assets/Gambar/Upload/Event/';    
+        $config['upload_path'] = './assets/Gambar/Upload/informasi/';    
         $config['allowed_types'] = 'jpg|png|jpeg';
         $this->load->library('upload', $config);
 
@@ -55,8 +55,8 @@ class Event_model extends CI_Model {
             }  
         }
     }
-
+    
 }
 
-/* End of file Event_model.php */
-?> 
+/* End of file ModelName.php */
+?>

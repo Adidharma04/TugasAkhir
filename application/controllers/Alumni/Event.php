@@ -26,18 +26,14 @@ class Event extends CI_Controller {
 
     public function index()
     {
-         //-- Title Halaman
-         $data ['title'] = 'Halaman Event | Alumni';
-         //----------------------------
+        //-- Title Halaman
+        $data ['title'] = 'Halaman Event | Alumni';
+        //----------------------------
         $data['event'] = $this->event_model->tampilDataEvent(); 
         $this->load->view('Template/Alumni/navbar_alumni',$data);
         $this->load->view('Template/Alumni/sidebar_alumni',$data);
         $this->load->view('Alumni/event/index',$data);
-        $this->load->view('Template/Alumni/footer_alumni');
-
-        
-
-        
+        $this->load->view('Template/Alumni/footer_alumni');  
     }
 
     public function tambah(){
@@ -54,7 +50,7 @@ class Event extends CI_Controller {
         $this->form_validation->set_rules('tanggal_event', 'Tanggal Event', 'required|trim',[
             'required' => 'Masukkan Tanggal Event',
         ]);
-        $this->form_validation->set_rules('lokasi_event', 'Lokasi Event', 'required|trim',[
+        $this->form_validation->set_rules('lokasi', 'Lokasi Event', 'required|trim',[
             'required' => 'Masukkan Lokasi Event',
         ]);
         $this->form_validation->set_rules('jenis_event', 'Jenis Event', 'required|trim',[
@@ -68,15 +64,14 @@ class Event extends CI_Controller {
         }else{
             $upload = $this->event_model->upload();
             if ($upload['result'] == 'success') {
-                $this->vent_model->tambahDataEvent($upload);
+                $this->event_model->tambahDataEvent($upload);
                 $html = '<div class="alert alert-success">
                                 <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
-                                <br>
                                 <b>Pemberitahuan</b> <br>
                                 Data event berhasil di tambah pada tanggal ' . date('d F Y H.i A') . '
                          </div>';
                 $this->session->set_flashdata('msg', $html);
-                redirect('Admin/event', 'refresh');
+                redirect('Alumni/event', 'refresh');
             } else {
                 echo $upload['error'];
             }

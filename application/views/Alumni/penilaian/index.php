@@ -85,12 +85,13 @@
                 
                 <blockquote class="quote-danger">
                   <p><b>Kritik</b></p>
-                  <p>"<?php echo $kritik ?> "</p>
+                  <p>"<?php echo $kritik ?>"</p>
                   <small>Last update <cite title="Source Title"><?php echo $update_at ?></cite></small>
                 </blockquote>
+                
                 <blockquote class="quote-primary">
-                <p><b>Saran</b></p>
-                <p>"<?php echo $saran ?> "</p>
+                  <p><b>Saran</b></p>
+                  <p>"<?php echo $saran ?> "</p>
                   <small>Last update <cite title="Source Title"><?php echo $update_at ?></cite></small>
                 </blockquote>
                 <div class="row">
