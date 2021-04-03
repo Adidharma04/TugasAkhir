@@ -33,6 +33,13 @@ class Event extends CI_Controller {
         $this->load->view('Template/Admin/footer');
     } 
 
+
+
+    function processVerify( $id_event ) {
+
+        $this->event_model->prosesKonfirmasiStatus( $id_event );
+        redirect('bk/event', 'refresh');
+    }
 }
 
 /* End of file profile.php */

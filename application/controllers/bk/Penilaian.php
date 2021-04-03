@@ -9,6 +9,8 @@ class Penilaian extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('bk/Penilaian_model');
+
+
         if ( empty( $this->session->userdata('sess_id_profile') ) ) {
             
             $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> <br> 
@@ -32,9 +34,12 @@ class Penilaian extends CI_Controller {
          $data ['title'] = 'Halaman Kritik Saran | Guru BK';
          //----------------------------
         $data['penilaian'] = $this->Penilaian_model->tampilDataPenilaian(); 
+
         $this->load->view('Template/Admin/navbar',$data);
         $this->load->view('Template/Admin/sidebar_bk',$data);
+
         $this->load->view('bk/penilaian/index',$data);
+
         $this->load->view('Template/Admin/footer');
     }
 

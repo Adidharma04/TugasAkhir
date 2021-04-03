@@ -120,6 +120,8 @@ class Login extends CI_Controller {
                     } else {
 
                         $this->session->set_userdata('sess_name', $kolomAlumni['nama']);
+                        $this->session->set_userdata('sess_nis', $kolomAlumni['nis']);
+                        $this->session->set_userdata('sess_id_student', $kolomAlumni['id_student']);
                         $this->session->set_userdata('sess_tanggal_lahir', $kolomAlumni['tanggal_lahir']);
                         $this->session->set_userdata('sess_alamat', $kolomAlumni['alamat']);
                         $this->session->set_userdata('sess_email', $kolomAlumni['email']);
