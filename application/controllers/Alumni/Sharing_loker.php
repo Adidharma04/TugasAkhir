@@ -50,7 +50,6 @@ class sharing_loker extends CI_Controller {
             'required' => 'Masukkan Deskripsi',
         ]);
 
-
         $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim',[
             'required' => 'Masukkan Alamat Perusahaan',
         ]);

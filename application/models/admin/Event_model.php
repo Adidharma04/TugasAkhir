@@ -20,7 +20,6 @@ class event_model extends CI_Model {
             'lokasi'                => $this->input->post('lokasi', true),
             'jenis_event'           => $this->input->post('jenis_event', true),
             'status'                => $this->input->post('status', true),
-            
         ];
         $this->db->insert('event', $event);
     }
