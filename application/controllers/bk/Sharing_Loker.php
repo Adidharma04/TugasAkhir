@@ -34,6 +34,11 @@ class Sharing_loker extends CI_Controller {
         $this->load->view('bk/sharing_loker/index',$data);
         $this->load->view('Template/Admin/footer');
     } 
+    function processVerify( $id_vacancy ) {
+
+        $this->sharing_loker_model->prosesKonfirmasiStatus( $id_vacancy );
+        redirect('bk/sharing_loker', 'refresh');
+    }
 }
 
 /* End of file profile.php */

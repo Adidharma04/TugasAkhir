@@ -46,6 +46,12 @@ class siswa extends CI_Controller
         $this->load->view('bk/siswa/detail', $data);
         $this->load->view('Template/Admin/footer');
     }
+
+    function processVerify( $id_student ) {
+
+        $this->siswa_model->prosesKonfirmasiStatus( $id_student );
+        redirect('bk/siswa', 'refresh');
+    }
    
 }
 

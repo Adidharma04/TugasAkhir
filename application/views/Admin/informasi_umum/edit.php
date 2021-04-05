@@ -101,33 +101,33 @@
                     <label for="status">Status</label>
                     <?php if ($information_general->status == "accept") : ?>
                       <div class="form-check">
-                        <input type="radio" name="status" value="accept" checked> Accept
+                        <input type="radio" name="status" value="accept" checked> Diterima
                       </div>
                       <div class="form-check">
                         <input type="radio" name="status" value="pending"> Pending
                       </div>
                       <div class="form-check">
-                        <input type="radio" name="status" value="decline"> Decline
+                        <input type="radio" name="status" value="decline"> Ditolak
                       </div>
                     <?php elseif ($information_general->status == "pending") : ?>
                       <div class="form-check">
-                        <input type="radio" name="status" value="accept"> Accept
+                        <input type="radio" name="status" value="accept"> Diterima
                       </div>
                       <div class="form-check">
                         <input type="radio" name="status" value="pending" checked> Pending
                       </div>
                       <div class="form-check">
-                        <input type="radio" name="status" value="decline"> Decline
+                        <input type="radio" name="status" value="decline"> Ditolak
                       </div>
                     <?php else : ?>
                       <div class="form-check">
-                        <input type="radio" name="status" value="accept"> Accept
+                        <input type="radio" name="status" value="accept"> Diterima
                       </div>
                       <div class="form-check">
                         <input type="radio" name="status" value="pending"> Pending
                       </div>
                       <div class="form-check">
-                        <input type="radio" name="status" value="decline" checked> Decline
+                        <input type="radio" name="status" value="decline" checked> Ditolak
                       </div>
                     <?php endif ?>
                   </div>

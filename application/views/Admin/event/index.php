@@ -66,16 +66,21 @@
                       <tr>
                         <td><?= $no++ ?></td>
                         <td><?= $evn->nama_event ?></td>
-                        <td><?= $evn->tanggal_event ?></td>
+                        <td><?= date('d F Y', strtotime($evn->tanggal_event)) ?></td>
                         <td><?= $evn->lokasi ?></td>
-                        <td 
-                          <?php if($evn->jenis_event=="pay") : ?>
-                            class="badge badge-danger"
-                          <?php else : ?>
-                            class="badge badge-success"
-                          <?php endif ?>
-                        >
-                        <?= $evn->jenis_event ?>
+                        <td>
+                          <?php
+                          
+                            if( $evn->jenis_event=="pay" ) {
+
+                              $styleBadge = "badge badge-danger";
+                            } else {
+
+                              $styleBadge = "badge badge-success";
+                            }
+                          ?>
+                        <label class="<?php echo $styleBadge ?>"><?php echo $evn->jenis_event ?></label>
+
                         </td>
                         <td>
                           <?php if ($evn->foto == "") : ?>
