@@ -91,7 +91,7 @@
                     <?php  
                       }// end foreach
 
-                      }if ( $job_vacancy->num_rows() < 0 ){ // end if
+                      } else { // end if
                     ?>
                       <div class="col-md-9">
                           <div class="text-center">

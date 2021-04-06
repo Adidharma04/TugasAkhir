@@ -85,7 +85,7 @@
                             
                               $colorBtn = "";
                               $textBtn = "";
-                              if ( ($swa->verifikasi_alumni == "diterima") || ($swa->verifikasi_alumni == "pengajuan") ) {
+                              if ( ($swa->verifikasi_alumni == "diterima") ) {
 
                                 echo '<small>Telah dikonfirmasi</small>';
 

@@ -95,9 +95,10 @@ class Event extends CI_Controller {
         
             if($this->form_validation->run() == FALSE){
                 $this->load->view('Template/Alumni/navbar_alumni',$data);
-                $this->load->view('Template/Alumni/sidebar_alummi',$data);
+                $this->load->view('Template/Alumni/sidebar_alumni',$data);
                 $this->load->view('Alumni/event/edit',$data);
                 $this->load->view('Template/Alumni/footer_alumni');
+
             }
             else{
                 $this->event_model->editDataEvent( $id_event );
@@ -108,7 +109,7 @@ class Event extends CI_Controller {
                             Data event berhasil di tambah pada tanggal ' . date('d F Y H.i A') . '
                         </div>';
                 $this->session->set_flashdata('msg', $html);
-                redirect('Admin/event','refresh');
+                redirect('Alumni/event','refresh');
             }
         }
 }

@@ -66,6 +66,16 @@
                     if ( $event->num_rows() > 0 ) {
 
                       foreach ( $event->result() AS $evn) {
+
+
+                        $gambar = "";
+                        if ( $evn->foto ) {
+
+                          $gambar = base_url('assets/Gambar/Upload/Event/'. $evn->foto);
+                        } else {
+                          // default
+                          $gambar = base_url('assets/Gambar/Website/Dashboard/beasiswa.jpg');
+                        }
                     ?>
 
                     <tr>
@@ -73,7 +83,7 @@
                         <div class="row">
                             
                             <div class="col-md-3">
-                              <img src="<?php echo base_url('assets/Gambar/Website/Dashboard/beasiswa.jpg') ?>" alt="" style="width: 100%; border: 1.5px solid #e0e0e0; border-radius: 5px">
+                              <img src="<?php echo $gambar ?>" alt="" style="width: 100%; border: 1.5px solid #e0e0e0; border-radius: 5px">
                             </div>
                             <div class="col-md-9">
                               <label for="" style="font-size: 18px;"><?php echo ucfirst($evn->nama_event) ?></label> <br>
@@ -85,7 +95,7 @@
                       <td>
                         <br>
                         <small>Ubah Informasi Event</small><br>
-                        <a href="<?= base_url() . 'alumni/event/edit/'. $evn->$sess_id_student?>" class="btn btn-sm btn-warning">Sunting</a>
+                        <a href="<?= base_url() . 'alumni/event/edit/'. $evn->id_event?>" class="btn btn-sm btn-warning">Sunting</a>
                         &nbsp;
                         <a href="" class="btn btn-sm btn-warning">Hapus</a>
                       </td>

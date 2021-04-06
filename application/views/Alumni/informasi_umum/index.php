@@ -91,7 +91,7 @@
                     <?php  
                       }// end foreach
 
-                      }if ( $informasi_umum->num_rows() < 0 ){ // end if
+                      }else { // end if
                     ?>
                       <div class="col-md-9">
                           <div class="text-center">
