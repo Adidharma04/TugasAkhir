@@ -77,8 +77,40 @@ class Event extends CI_Controller {
             }
         }
     }
+    public function edit($id_event){
+        $getDataEventById = $this->event_model->getEvent($id_event);
+        
+        //rule
+        $this->form_validation->set_rules('nama_event', 'Nama Event', 'required|trim',[
+            'required' => 'Masukkan Nama Event',
+        ]);
+        $this->form_validation->set_rules('deskripsi_event', 'Deskripsi Event', 'required|trim',[
+            'required' => 'Masukkan Deskripsi Event',
+        ]);
 
-
+        //-- Title Halaman
+        $data ['title'] = 'Halaman Edit Event | Admin';
+        //----------------------------
+        $data ['event'] = $getDataEventById;
+        
+            if($this->form_validation->run() == FALSE){
+                $this->load->view('Template/Alumni/navbar_alumni',$data);
+                $this->load->view('Template/Alumni/sidebar_alummi',$data);
+                $this->load->view('Alumni/event/edit',$data);
+                $this->load->view('Template/Alumni/footer_alumni');
+            }
+            else{
+                $this->event_model->editDataEvent( $id_event );
+                $html = '<div class="alert alert-success">
+                            <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
+                            <br>
+                            <b>Pemberitahuan</b> <br>
+                            Data event berhasil di tambah pada tanggal ' . date('d F Y H.i A') . '
+                        </div>';
+                $this->session->set_flashdata('msg', $html);
+                redirect('Admin/event','refresh');
+            }
+        }
 }
 
 /* End of file Controllername.php */

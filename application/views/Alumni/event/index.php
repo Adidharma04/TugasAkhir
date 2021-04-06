@@ -85,9 +85,9 @@
                       <td>
                         <br>
                         <small>Ubah Informasi Event</small><br>
-                        <a href="" class="btn btn-sm btn-warning">Sunting</a>
+                        <a href="<?= base_url() . 'alumni/event/edit/'. $evn->$sess_id_student?>" class="btn btn-sm btn-warning">Sunting</a>
                         &nbsp;
-                        <a href="<?= base_url() . 'alumni/Siswa/index/'. $sess_id_student ?>" class="btn btn-sm btn-warning">Hapus</a>
+                        <a href="" class="btn btn-sm btn-warning">Hapus</a>
                       </td>
                     </tr>
 

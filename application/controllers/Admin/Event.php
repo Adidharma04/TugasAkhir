@@ -89,25 +89,25 @@ class Event extends CI_Controller {
         $data ['title'] = 'Halaman Edit Event | Admin';
         //----------------------------
         $data ['event'] = $getDataEventById;
-
-        if($this->form_validation->run() == FALSE){
-            $this->load->view('Template/Admin/navbar',$data);
-            $this->load->view('Template/Admin/sidebar',$data);
-            $this->load->view('Admin/event/edit',$data);
-            $this->load->view('Template/Admin/footer');
+        
+            if($this->form_validation->run() == FALSE){
+                $this->load->view('Template/Admin/navbar',$data);
+                $this->load->view('Template/Admin/sidebar',$data);
+                $this->load->view('Admin/event/edit',$data);
+                $this->load->view('Template/Admin/footer');
+            }
+            else{
+                $this->event_model->editDataEvent( $id_event );
+                $html = '<div class="alert alert-success">
+                            <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
+                            <br>
+                            <b>Pemberitahuan</b> <br>
+                            Data event berhasil di tambah pada tanggal ' . date('d F Y H.i A') . '
+                        </div>';
+                $this->session->set_flashdata('msg', $html);
+                redirect('Admin/event','refresh');
+            }
         }
-        else{
-            $this->event_model->editDataEvent( $id_event );
-            $html = '<div class="alert alert-success">
-                        <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
-                        <br>
-                        <b>Pemberitahuan</b> <br>
-                        Data event berhasil di tambah pada tanggal ' . date('d F Y H.i A') . '
-                    </div>';
-            $this->session->set_flashdata('msg', $html);
-            redirect('Admin/event','refresh');
-        }
-    }
 
     // proses detail 
     public function detail($id_event){

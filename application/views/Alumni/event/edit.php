@@ -26,12 +26,12 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Tambah Loker</h1>
+              <h1>Edit Data Event</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Tambah Loker</li>
+                <li class="breadcrumb-item active">Edit Event</li>
               </ol>
             </div>
           </div>
@@ -43,7 +43,7 @@
         <!-- Default box -->
         <div class="card">
           <div class="card-header" style="background-color:blanchedalmond">
-            <h3 class="card-title">Form Tambah Loker</h3>
+            <h3 class="card-title">Form Edit Event</h3>
 
             <div class="card-tools">
               <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -52,42 +52,96 @@
             </div>
           </div>
           <div class="card-body">
+
+            <?php echo $this->session->flashdata('msg') ?>
+
             <form action="" method="post" enctype="multipart/form-data">
+
+              <div div class="row">
+                <div class="col-md-6">
+                  <label for="nama_event">Nama Event</label>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                    </div>
+                    <input type="text" class="form-control" name="nama_event" id="nama_event" placeholder="Masukkan Nama Event" value="<?= $event->nama_event; ?>">
+                  </div>
+                  <?= form_error('nama_event', '<small class="text-danger">', '</small>'); ?>
+                </div>
+                <div class="col-md-6">
+                  <label for="lokasi">Lokasi</label>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
+                    </div>
+                    <input type="text" class="form-control" name="lokasi" id="lokasi" placeholder="Masukkan Lokasi Event" value="<?= $event->lokasi; ?>">
+                  </div>
+                  <?= form_error('lokasi', '<small class="text-danger">', '</small>'); ?>
+                </div>
+              </div>
+              <!-- Batas Baris -->
+              <div class="form-group">
+                <label for="deskripsi_event">Deskripsi Event</label>
+                <textarea type="text" class="form-control" id="deskripsi_event" name="deskripsi_event" cols="30" rows="6" placeholder="Masukkan Deskripsi Event"><?= $event->deskripsi_event; ?></textarea>
+                <?= form_error('deskripsi_event', '<small class="text-danger">', '</small>'); ?>
+              </div>
+              <!-- Batas Baris -->
+              <div div class="row">
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label>Tanggal Event:(Month/Day/Year)</label>
+                    <input type="date" class="form-control" id="tanggal_event" name="tanggal_event" value="<?= $event->tanggal_event; ?>">
+                  </div>
+                </div>
+                <div class="col-md-5">
+                  <div class="form-group">
+                    <label>Foto Event</label>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input form-control" id="foto" name="foto" value="<?= $event->foto; ?>">
+                        <label class="custom-file-label" for="foto" value="">
+                          <?php
+                          $img = base_url('assets/Gambar/Website/default_event.png');
+                          if ($event->foto == "") : ?>
+                            Choose File
+                          <?php else : ?>
+                            <?= $event->foto;
+                            $img = base_url('assets/Gambar/Upload/Loker/' . $event->foto); ?>
+                          <?php endif ?>
+                        </label>
+                      </div>
+                    </div>
+                    <small>Tambahkan foto apabila dibutuhkan</small>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <img src="<?php echo $img ?>" alt="preview" style="width: 30%; border-radius: 5px; border: 2px solid #e0e0e0">
+                </div>
+              </div>
+              <!-- Batas Baris -->
+              <div class="form-group">
+                <label for="jenis_event">Jenis Kegiatan</label>
+                <?php if ($event->jenis_event == "pay") : ?>
+                  <div class="form-check">
+                    <input type="radio" name="jenis_event" value="pay" checked> Bayar
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" name="jenis_event" value="free"> Gratis
+                  </div>
+                <?php else : ?>
+                  <div class="form-check">
+                    <input type="radio" name="jenis_event" value="pay"> Bayar
+                  </div>
+                  <div class="form-check">
+                    <input type="radio" name="jenis_event" value="free" checked> Gratis
+                  </div>
+                <?php endif ?>
+              </div>
               <div class="row">
-                  <div class="col-md-6">
-                  <label>Nama Pekerjaan</label>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-briefcase"></i></span>
-                        </div>
-                        <input type="text" class="form-control" id="nama_pekerjaan" name="nama_pekerjaan" placeholder="Masukkan Nama Pekerjaan beserta Jabatan" value="<?= set_value('nama_pekerjaan'); ?>" >
-                        <?= form_error('nama_pekerjaan','<small class="text-danger">','</small>');?>
-                    </div>
+                  <div class="col-md-2">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <span> <a href="<?= base_url() . 'Admin/event' ?>" class="btn btn-danger">Cancel</a></span>
                   </div>
-                  <div class="col-md-6">
-                  <label>Alamat Pekerjaan</label>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-building"></i></span>
-                        </div>
-                        <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Masukkan Alamat Perusahaan" value="<?= set_value('alamat'); ?>" >
-                        <?= form_error('alamat','<small class="text-danger">','</small>');?>
-                    </div>
-                  </div>
-              </div>
-              <!-- Batas Baris -->
-              <div class="form-group">
-                <label for="deskripsi_pekerjaan">Deskripsi Pekerjaan</label>
-                <textarea class="form-control" name="deskripsi_pekerjaan" id="deskripsi_pekerjaan" cols="30" rows="6" placeholder="Masukkan Deskripsi Pekerjaan" value="<?= set_value('deskripsi_pekerjaan'); ?>"></textarea>
-                  <?= form_error('deskripsi_pekerjaan', '<small class="text-danger">', '</small>'); ?>
-              </div>
-              <!-- Batas Baris -->
-              <div class="form-group">
-                <label for="foto">Foto</label>
-                <input type="file" class=" form-control" id="foto" name="foto">
-              </div>
-              <div class="form-group">
-                <button type="submit" class="btn btn-primary">Submit</button>
               </div>
             </form>
           </div>

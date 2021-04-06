@@ -26,7 +26,6 @@ class penilaian_model extends CI_Model {
         $where = ['id_profile' => $id_profile];
         $dataPenilaian = $this->db->get_where('penilaian', $where);
 
-
         if ( $dataPenilaian->num_rows() == 1 ) {
             // do update data
             $this->db->where( $where );
