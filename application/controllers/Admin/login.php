@@ -207,7 +207,7 @@ class Login extends CI_Controller {
 
     public function logout(){
         $this->session->sess_destroy();
-        redirect('Admin/login', 'refresh');
+        redirect('User/dashboard_user', 'refresh');
     }
 
 }
