@@ -94,7 +94,7 @@
                 <div class="card-footer">
                   <div class="text-right">
                       <?php $sess_id_student = $this->session->userdata('sess_id_student') ?>
-                    <a href="<?= base_url() . 'alumni/dashboard_alumni/edit/'. $sess_id_student ?>" class="btn btn-sm btn-primary">
+                    <a href="<?= base_url() . 'alumni/Siswa/index/'. $sess_id_student ?>" class="btn btn-sm btn-primary">
                       <i class="fas fa-user"></i> Edit Profile
                     </a>
                     <a href="<?= base_url() . 'Admin/edit_profile' ?>" class="btn btn-sm btn-primary">

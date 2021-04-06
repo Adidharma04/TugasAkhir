@@ -76,7 +76,6 @@ class Event extends CI_Controller {
                 echo $upload['error'];
             }
         }
-
     }
 
 

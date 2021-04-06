@@ -1,10 +1,8 @@
-<?php
+<?php 
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Dashboard_alumni extends CI_Controller {
-
-
+class Siswa extends CI_Controller {
     function __construct() {
         parent::__construct();
 
@@ -22,27 +20,12 @@ class Dashboard_alumni extends CI_Controller {
             $this->session->set_flashdata('msg', $html,$session_destroy);
             redirect('Admin/login', 'refresh');
         }
-        $this->load->model('Admin/siswa_model');
+        $this->load->model('Alumni/siswa_model');
     }
 
-    public function index()
+    public function index($id_student)
     {
-        //-- Title Halaman
-        $data ['title'] = 'Halaman Dashboard | Alumni';
-        //----------------------------
-
-        $this->load->view('Template/Alumni/navbar_alumni',$data);
-        $this->load->view('Template/Alumni/sidebar_alumni',$data);
-        $this->load->view('Alumni/dashboard_alumni/index',$data);
-        $this->load->view('Template/Alumni/footer_alumni');
-
-
-        // print_r( $this->session->userdata() );
-    }
-
-    // user edit
-    public function edit($id_student){
-
+        
         $getDataSiswaById = $this->siswa_model->getSiswa($id_student);
         $nis = $getDataSiswaById->nis;
         $email = $getDataSiswaById->email;
@@ -91,10 +74,10 @@ class Dashboard_alumni extends CI_Controller {
         //----------------------------
         $data['information_student'] = $getDataSiswaById;
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('Template/Admin/navbar', $data);
-            $this->load->view('Template/Admin/sidebar', $data);
-            $this->load->view('Admin/siswa/edit', $data);
-            $this->load->view('Template/Admin/footer');
+            $this->load->view('Template/Alumni/navbar_alumni', $data);
+            $this->load->view('Template/Alumni/sidebar_alumni', $data);
+            $this->load->view('Alumni/siswa/index', $data);
+            $this->load->view('Template/Alumni/footer_alumni');
         } else {
             $this->siswa_model->editDataSiswa($id_student);
             $html = '<div class="alert alert-success">
@@ -104,15 +87,13 @@ class Dashboard_alumni extends CI_Controller {
                         Data siswa berhasil di edit pada tanggal ' . date('d F Y H.i A') . '
                      </div>';
             $this->session->set_flashdata('msg', $html);
-            redirect('Admin/siswa', 'refresh');
+            redirect('Alumni/dashboard_alumni', 'refresh');
         }
+
     }
-
-
-    
 
 }
 
-/* End of file Controllername.php */
+/* End of file Siswa.php */
 
 ?>
