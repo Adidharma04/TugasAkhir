@@ -30,7 +30,7 @@
     </div>
 
     <!-- <Header> -->
-    <?php $this->load->view('Template/User/navbar')?>
+    <?php $this->load->view('Template/siswa/navbar')?>
 
     <!-- <Body> -->
     <div class="breadcumb-area bg-img"  style="background-image: url(<?php echo base_url().'assets/Gambar/Website/Dashboard/bg-4.jpg';?>);">
@@ -87,8 +87,6 @@
             <div class="row">
                 <div class="col-12">
                     <div class="cta-content d-flex align-items-center justify-content-between flex-wrap">
-                        <h3>Ingin menambakan informasi terbaru ? Klik disini</h3>
-                        <a href="<?= base_url("Alumni/informasi_umum/tambah")?>" class="btn academy-btn">More Information!</a>
                     </div>
                 </div>
             </div>
@@ -96,7 +94,7 @@
     </div>
     <!-- ##### Course Area End ##### -->       
     <!-- <footer> -->
-    <?php $this->load->view('Template/User/footer')?>
+    <?php $this->load->view('Template/siswa/footer')?>
 </body>
 
 </html>

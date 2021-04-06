@@ -29,10 +29,10 @@
                     <div class="col-12 h-100">
                         <div class="header-content h-100 d-flex align-items-center justify-content-between">
                             <div class="academy-logo">
-                                <a href="<?php echo base_url("User/dashboard");?>"><img src=" <?php echo base_url().'assets/Gambar/Website/Dashboard/SMA_ploso.png';?>" alt=""></a>
+                                <a href="<?php echo base_url("siswa/dashboard_siswa");?>"><img src=" <?php echo base_url().'assets/Gambar/Website/Dashboard/SMA_ploso.png';?>" alt=""></a>
                             </div>
                             <div class="login-content">
-                                <a href="<?php echo base_url("Admin/login");?>">Register / Login</a>
+                            <a href="nav-link" data-toggle="modal" data-target="#action-logout"> HAI, <?php echo ucfirst($this->session->userdata('sess_name')) ?> </a>
                             </div>
                         </div>
                     </div>
@@ -63,21 +63,22 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li><a href="<?php echo base_url("User/dashboard_user");?>">Home</a></li>
+                                    <li><a href="<?php echo base_url("siswa/dashboard_siswa");?>">Home</a></li>
                                     <li><a href="#">Tracking</a>
                                         <ul class="dropdown">
-                                            <li><a href="<?php echo base_url("User/record_kuliah_user");?>">Record Kuliah</a></li>
-                                            <li><a href="<?php echo base_url("User/record_kerja_user");?>">Record Kerja</a></li>
+                                            <li><a href="<?php echo base_url("siswa/record_kuliah_siswa");?>">Record Kuliah</a></li>
+                                            <li><a href="<?php echo base_url("siswa/record_kerja_siswa");?>">Record Kerja</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="#">Informasi</a>
                                         <ul class="dropdown">
-                                            <li><a href="<?php echo base_url('User/event_user')?>">Event</a></li>
-                                            <li><a href="<?php echo base_url('User/informasi_user')?>">Perkuliahan</a></li>
-                                            <li><a href="<?php echo base_url("User/loker_user")?>">Loker</a></li>
+                                            <li><a href="<?php echo base_url('siswa/event_siswa')?>">Event</a></li>
+                                            <li><a href="<?php echo base_url('siswa/informasi_siswa')?>">Perkuliahan</a></li>
+                                            <li><a href="<?php echo base_url("siswa/loker_siswa")?>">Loker</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="<?php echo base_url("User/kritik_saran_user");?>">Kritik & Saran</a></li>
+                                    <li><a href="<?php echo base_url("siswa/kritik_saran_siswa");?>">Kritik & Saran</a></li>
+                                    <li><a href="<?php echo base_url("siswa/forum_diskusi");?>">Forum Diskusi</a></li>
                                 </ul>
                             </div>
                             <!-- Nav End -->
@@ -96,5 +97,29 @@
     </header>
     <!-- ##### Header Area End ##### -->
 </body>
+
+<div class="modal fade" id="action-logout">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <b>Logout</b>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <label>
+            Apakah anda ingin keluar dari halaman ini?
+          </label> <br>
+        </div>
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+          <a href="<?php echo base_url('Admin/login/logout') ?>" class="btn btn-success"><i class="fa fa-power-off"></i> Logout</a>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
 
 </html>
