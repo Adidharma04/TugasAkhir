@@ -49,7 +49,7 @@
                with font-awesome or any other icon font library -->
          
           <li class="nav-item">
-            <a href="<?php echo base_url('Admin/dashboard_admin')?>" class="nav-link">
+            <a href="<?php echo base_url('Alumni/dashboard_alumni')?>" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard

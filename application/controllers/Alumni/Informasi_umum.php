@@ -71,7 +71,6 @@ class Informasi_umum extends CI_Controller {
                 echo $upload['error'];
             }
         }
-
     }
 
 

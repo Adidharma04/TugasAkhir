@@ -57,9 +57,6 @@
                       </tr>
                     </thead>
                     <tbody>
-
-
-
                     <?php
                     // button
                     $btnText = "Tambah Event";
@@ -69,7 +66,6 @@
                     if ( $event->num_rows() > 0 ) {
 
                       foreach ( $event->result() AS $evn) {
-                      
                     ?>
 
                     <tr>
@@ -82,11 +78,8 @@
                             <div class="col-md-9">
                               <label for="" style="font-size: 18px;"><?php echo ucfirst($evn->nama_event) ?></label> <br>
                               <small>"<?php echo $evn->deskripsi_event ?>"</small> <br><hr style="margin: 5px">
-                              <label style="font-size: 13px"><i class="far fa-calendar-alt"></i> <?php //echo $evn->$tanggal_event ?> &emsp; | &emsp; <i class="fa fa-building"></i> <?php //echo $evn->$lokasi ?>  &emsp; | &emsp; <span class="badge badge-success"><?php //echo $evn->$status ?></span> </label>  
-                            </div>
-                            
-                          
-                          
+                              <label style="font-size: 13px"><i class="far fa-calendar-alt"></i> <?php echo $evn->tanggal_event ?> &emsp; | &emsp; <i class="fa fa-building"></i> <?php echo $evn->lokasi ?>  &emsp; | &emsp; <span class="badge badge-success"><?php echo $evn->status ?></span> </label>  
+                            </div> 
                         </div>
                       </td>
                       <td>
@@ -94,7 +87,7 @@
                         <small>Ubah Informasi Event</small><br>
                         <a href="" class="btn btn-sm btn-warning">Sunting</a>
                         &nbsp;
-                        <a href="" class="btn btn-sm btn-warning">Hapus</a>
+                        <a href="<?= base_url() . 'alumni/Siswa/index/'. $sess_id_student ?>" class="btn btn-sm btn-warning">Hapus</a>
                       </td>
                     </tr>
 
