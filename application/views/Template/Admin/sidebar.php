@@ -12,7 +12,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="" class="img-circle elevation-2" alt="User Image">
+          <img src="<?= base_url().'assets/Gambar/Website/admin.png'?>">
         </div>
         <div class="info">
           <a href="#" class="d-block"><?php echo ucfirst($this->session->userdata('sess_name')) ?></a>
@@ -99,7 +99,7 @@
               <li class="nav-item">
                 <a href="<?= base_url().'Admin/penilaian'?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Kritik lan Saran</p>
+                  <p>Dari Alumni</p>
                 </a>
               </li>
             </ul>

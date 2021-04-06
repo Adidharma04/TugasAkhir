@@ -117,10 +117,10 @@
                         <input type="radio" name="status" value="pending" > Pending 
                     </div>
                     <div class="form-check">
-                        <input type="radio" name="status" value="accept" > Accept
+                        <input type="radio" name="status" value="accept" > Diterima
                     </div>
                     <div class="form-check">
-                        <input type="radio" name="status" value="decline" > Decline
+                        <input type="radio" name="status" value="decline" > Ditolak
                     </div>
                 </div>
                 <!-- Batas Baris -->

@@ -55,7 +55,7 @@
                       <th>Nama Event</th>
                       <th>Tanggal Event</th>
                       <th>Lokasi</th>
-                      <th>Jenis Event</th>
+                      <th>Status</th>
                       <th>Foto</th>
                       <th>Opsi</th>
                     </tr>
@@ -65,7 +65,7 @@
                       <tr>
                         <td><?= $no++ ?></td>
                         <td><?= $evn->nama_event ?></td>
-                        <td><?= $evn->tanggal_event ?></td>
+                        <td><?= date('d F Y', strtotime($evn->tanggal_event)) ?></td>
                         <td><?= $evn->lokasi ?></td>
                         <td>
                           
@@ -80,7 +80,21 @@
                             }
                           ?>
                         <label class="<?php echo $styleBadge ?>"><?php echo $evn->jenis_event ?></label>
+                        <?php
+                          
+                          if( $evn->status=="decline" ) {
 
+                            $styleBadge = "badge badge-danger";
+                          } elseif ( $evn->status=="pending" ){
+
+                            $styleBadge = "badge badge-info";
+                          }
+                          else {
+
+                            $styleBadge = "badge badge-success";
+                          }
+                        ?>
+                        <label class="<?php echo $styleBadge ?>"><?php echo $evn->status ?></label>
                         </td>
                         <td>
                           <?php if ($evn->foto == "") : ?>
@@ -157,7 +171,7 @@
                       <th>Nama Event</th>
                       <th>Tanggal Event</th>
                       <th>Lokasi</th>
-                      <th>Jenis Event</th>
+                      <th>Status</th>
                       <th>Foto</th>
                       <th>Opsi</th>
                     </tr>

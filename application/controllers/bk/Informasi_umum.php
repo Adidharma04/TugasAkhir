@@ -32,6 +32,11 @@ class Informasi_umum extends CI_Controller {
         $this->load->view('bk/informasi_umum/index',$data);
         $this->load->view('Template/Admin/footer');
     } 
+    function processVerify( $id_general ) {
+
+        $this->informasi_umum_model->prosesKonfirmasiStatus( $id_general );
+        redirect('bk/informasi_umum', 'refresh');
+    }
 }
 
 /* End of file profile.php */
