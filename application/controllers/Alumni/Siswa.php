@@ -20,7 +20,7 @@ class Siswa extends CI_Controller {
             $this->session->set_flashdata('msg', $html,$session_destroy);
             redirect('Admin/login', 'refresh');
         }
-        $this->load->model('Alumni/siswa_model');
+        $this->load->model('alumni/siswa_model');
     }
 
     public function index($id_student)

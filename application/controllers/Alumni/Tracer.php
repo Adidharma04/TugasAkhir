@@ -47,6 +47,7 @@
             $this->load->view('Alumni/tracer/index',$data);
             // $this->load->view('Template/Alumni/footer_alumni');
         }
+        
     
     }
     

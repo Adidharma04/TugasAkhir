@@ -17,7 +17,7 @@
 
             <h1 class="m-0">Halaman Informasi Tracer</h1>
             <p>Deskripsi penjelasan event</p>
-            <a href="" class="btn btn-primary"><i class="fas fa-plus"></i>Tambah Tracer Baru</a>
+            <a href="javascript:;" data-toggle="modal" data-target="#konfirmasi" class="btn btn-primary"><i class="fas fa-plus"></i>Tambah Tracer Baru</a>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -34,11 +34,6 @@
     <section class="content">
 
       <div class="container-fluid">
-
-      
-
-
-
         <!-- Timelime example  -->
         <div class="row">
           <div class="col-md-12">
@@ -144,6 +139,43 @@
         </div>
       </div>
       <!-- /.timeline -->
+
+                          <!-- Modal delete -->
+                          <div class="modal fade" id="konfirmasi">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                    <b>Tracer Study</b>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                <div class="row">
+
+                                    <!-- Accept -->
+                                    <div class="col-md-6 text-center" style="border-right: 1px solid #e0e0e0">
+                                    <img style="width: 210px" src="<?= base_url('assets/Gambar/Website/tracer_graduation.png')?>">
+                                      <h6><b>Tambah Data Kuliah</b></h6>
+                                      <small>Klik tombol dibawah ini untuk menambahkan kuliah</small> <br><br>
+                                      <a href="<?php echo base_url('alumni/tracer_kuliah/tambah') ?>" class="btn btn-success btn-sm">Kuliah</a>
+                                    </div>
+
+                                    <!-- Ditolak -->
+                                    <div class="col-md-6 text-center" style="border-right: 1px solid #e0e0e0">
+                                    <img style="width: 210px" src="<?= base_url('assets/Gambar/Website/tracer_work.png')?>">
+                                      <h6><b>Tambah Data Kerja</b></h6>
+                                      <small>Klik tombol dibawah ini untuk menambah kerja</small> <br><br>
+                                      <a href="<?php echo base_url('bk/event/processVerify/') ?>" class="btn btn-success btn-sm">Kerja</a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- /.modal-content -->
+                            </div>
+                            <!-- /.modal-dialog -->
+                          </div>
+                          <!-- /.modal -->
 
 
 

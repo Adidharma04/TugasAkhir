@@ -93,7 +93,7 @@
                     <input type="date" class="form-control" id="tanggal_event" name="tanggal_event" value="<?= $event->tanggal_event; ?>">
                   </div>
                 </div>
-                <div class="col-md-5">
+                <div class="col-md-4">
                   <div class="form-group">
                     <label>Foto Event</label>
                     <div class="input-group">
@@ -106,7 +106,7 @@
                             Choose File
                           <?php else : ?>
                             <?= $event->foto;
-                            $img = base_url('assets/Gambar/Upload/Loker/' . $event->foto); ?>
+                            $img = base_url('assets/Gambar/Upload/Event/' . $event->foto); ?>
                           <?php endif ?>
                         </label>
                       </div>
@@ -114,8 +114,8 @@
                     <small>Tambahkan foto apabila dibutuhkan</small>
                   </div>
                 </div>
-                <div class="col-md-3">
-                  <img src="<?php echo $img ?>" alt="preview" style="width: 30%; border-radius: 5px; border: 2px solid #e0e0e0">
+                <div class="col-md-4">
+                        <img src="<?php echo $img ?>" alt="preview" style="width: 30%; border-radius: 5px; border: 2px solid #e0e0e0">
                 </div>
               </div>
               <!-- Batas Baris -->
@@ -140,7 +140,7 @@
               <div class="row">
                   <div class="col-md-2">
                     <button type="submit" class="btn btn-primary">Submit</button>
-                    <span> <a href="<?= base_url() . 'Admin/event' ?>" class="btn btn-danger">Cancel</a></span>
+                    <span> <a href="<?= base_url() . 'Alumni/event' ?>" class="btn btn-danger">Cancel</a></span>
                   </div>
               </div>
             </form>

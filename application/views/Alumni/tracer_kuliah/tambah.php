@@ -26,12 +26,12 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Edit Informasi Perkuliahan</h1>
+              <h1>Tambah Tracer Kuliah</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Edit Informasi</li>
+                <li class="breadcrumb-item active">Tambah Tracer Kuliah</li>
               </ol>
             </div>
           </div>
@@ -43,7 +43,7 @@
         <!-- Default box -->
         <div class="card">
           <div class="card-header" style="background-color:blanchedalmond">
-            <h3 class="card-title">Form Edit Informasi</h3>
+            <h3 class="card-title">Form Tambah Tracer Kuliah</h3>
 
             <div class="card-tools">
               <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -52,57 +52,70 @@
             </div>
           </div>
           <div class="card-body">
-
-            <?php echo $this->session->flashdata('msg') ?>
-            <form action="" method="post" enctype="multipart/form-data">
-                  <div div class="row">
-                    <div class="col-md-2">
-                      <label for="nama_informasi">Nama Informasi</label>
-                      <div class="input-group mb-3">
+            <form action="" method="post" enctype="multipart/form-data" >
+            <div class="row">
+                  <div class="col-md-4">
+                  <label>Nama Kampus</label>
+                    <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                            <span class="input-group-text"><i class="fas fa-graduation-cap"></i></span>
                         </div>
-                        <input type="text" class="form-control" name="nama_informasi" id="nama_informasi" placeholder="Masukkan Informasi" value="<?= $information_general->nama_informasi; ?>">
-                      </div>
-                      <?= form_error('nama_informasi','<small class="text-danger">','</small>');?>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                          <label>Foto Event</label>
-                          <div class="input-group">
-                            <div class="custom-file">
-                              <input type="file" class="custom-file-input form-control" id="foto" name="foto" value="<?= $information_general->foto; ?>">
-                              <label class="custom-file-label" for="foto" value="">
-                                <?php
-                                $img = base_url('assets/Gambar/Website/default_info.png');
-                                if ($information_general->foto == "") : ?>
-                                  Choose File
-                                <?php else : ?>
-                                  <?= $information_general->foto;
-                                  $img = base_url('assets/Gambar/Upload/Informasi/' . $information_general->foto); ?>
-                                <?php endif ?>
-                              </label>
-                            </div>
-                          </div>
-                          <small>Tambahkan foto apabila dibutuhkan</small>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <img src="<?php echo $img ?>" alt="preview" style="width: 30%; border-radius: 5px; border: 2px solid #e0e0e0">
+                        <input type="text" class="form-control" id="nama_kampus" name="nama_kampus" placeholder="Masukkan Nama Kampus" value="<?= set_value('nama_kampus'); ?>" >
+                        <?= form_error('nama_kampus','<small class="text-danger">','</small>');?>
                     </div>
                   </div>
-                  <!-- Batas Baris -->
-                  <div class="form-group">
-                      <label for="deskripsi_informasi">Deskripsi Informasi</label>
-                      <textarea type="text" class="form-control" id="deskripsi_informasi" name="deskripsi_informasi" cols="30" rows="6" placeholder="Masukkan Deskripsi Informasi"><?= $information_general->deskripsi_informasi; ?></textarea>
-                          <?= form_error('deskripsi_informasi','<small class="text-danger">','</small>');?>
-                  </div>
-                <div class="row">
-                    <div class="col-md-2">
-                      <button type="submit" class="btn btn-primary">Submit</button>
-                      <span> <a href="<?= base_url("Alumni/informasi_umum")?>" class="btn btn-danger">Cancel</a></span>
+                  <div class="col-md-4">
+                  <label>Prodi(Program Study)</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-building"></i></span>
+                        </div>
+                        <input type="text" class="form-control" name="program_studi" id="program_studi" placeholder="Masukkan Program Study" value="<?= set_value('program_studi'); ?>" >
                     </div>
-                </div>
+                    <?= form_error('program_studi','<small class="text-danger">','</small>');?>
+                  </div>
+                  <div class="col-md-4">
+                  <label>Jurusan</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-building"></i></span>
+                        </div>
+                        <input type="text" class="form-control" name="jurusan" id="jurusan" placeholder="Masukkan Jurusan" value="<?= set_value('jurusan'); ?>" >
+                        <?= form_error('jurusan','<small class="text-danger">','</small>');?>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="row">
+                  <div class="col-md-6">
+                  <label>Tahun Lulus</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-calendar"></i></span>
+                        </div>
+                        <input type="text" class="form-control" id="tahun_lulus" name="tahun_lulus" placeholder="Masukkan Tahun Lulus" value="<?= set_value('tahun_lulus'); ?>" >
+                        <?= form_error('tahun_lulus','<small class="text-danger">','</small>');?>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                  <label>Tahun Masuk</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-calendar"></i></span>
+                        </div>
+                        <input type="text" class="form-control" id="tahun_masuk" name="tahun_masuk" placeholder="Masukkan Tahun Masuk" value="<?= set_value('tahun_masuk'); ?>" >
+                        <?= form_error('nama_pekerjaan','<small class="text-danger">','</small>');?>
+                    </div>
+                  </div>
+              </div>
+              
+              <div class="row">
+                  <div class="col-md-2">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <span> <a href="<?= base_url("Alumni/tracer")?>" class="btn btn-danger">Cancel</a></span>
+                  </div>
+              </div>
+
             </form>
           </div>
           <!-- /.card-body -->

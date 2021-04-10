@@ -116,7 +116,7 @@ class Event_model extends CI_Model {
             'foto'                  => $foto,
             'lokasi'                => $this->input->post('lokasi', true),
             'jenis_event'           => $this->input->post('jenis_event', true),
-            'status'                => $this->input->post('status', true),
+            'status'                => 'pending',
 		];
 
         // // update information_event
@@ -124,6 +124,18 @@ class Event_model extends CI_Model {
         $this->db->update('event', $dataInformationEvent);
 
     }
+     // porses hapus
+     function prosesHapusEvent( $id_event ){
+        $ambilInformasiEvent = $this->getEvent( $id_event );
+
+        $config['upload_path'] = './assets/Gambar/Upload/Loker/';
+        
+        $link = $config['upload_path'].$ambilInformasiEvent->foto;
+        unlink($link);
+        $this->db->where('id_event', $id_event)->delete('event');
+
+    }
+
 
 
 }

@@ -26,12 +26,12 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Edit Informasi Perkuliahan</h1>
+              <h1>Edit Informasi Loker</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Edit Informasi</li>
+                <li class="breadcrumb-item active">Edit Loker</li>
               </ol>
             </div>
           </div>
@@ -43,7 +43,7 @@
         <!-- Default box -->
         <div class="card">
           <div class="card-header" style="background-color:blanchedalmond">
-            <h3 class="card-title">Form Edit Informasi</h3>
+            <h3 class="card-title">Form Edit Loker</h3>
 
             <div class="card-tools">
               <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -54,55 +54,67 @@
           <div class="card-body">
 
             <?php echo $this->session->flashdata('msg') ?>
+
             <form action="" method="post" enctype="multipart/form-data">
-                  <div div class="row">
-                    <div class="col-md-2">
-                      <label for="nama_informasi">Nama Informasi</label>
-                      <div class="input-group mb-3">
+              <div class="row">
+                  <div class="col-md-6">
+                  <label>Nama Pekerjaan</label>
+                    <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                            <span class="input-group-text"><i class="fas fa-briefcase"></i></span>
                         </div>
-                        <input type="text" class="form-control" name="nama_informasi" id="nama_informasi" placeholder="Masukkan Informasi" value="<?= $information_general->nama_informasi; ?>">
-                      </div>
-                      <?= form_error('nama_informasi','<small class="text-danger">','</small>');?>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                          <label>Foto Event</label>
-                          <div class="input-group">
-                            <div class="custom-file">
-                              <input type="file" class="custom-file-input form-control" id="foto" name="foto" value="<?= $information_general->foto; ?>">
-                              <label class="custom-file-label" for="foto" value="">
-                                <?php
-                                $img = base_url('assets/Gambar/Website/default_info.png');
-                                if ($information_general->foto == "") : ?>
-                                  Choose File
-                                <?php else : ?>
-                                  <?= $information_general->foto;
-                                  $img = base_url('assets/Gambar/Upload/Informasi/' . $information_general->foto); ?>
-                                <?php endif ?>
-                              </label>
-                            </div>
-                          </div>
-                          <small>Tambahkan foto apabila dibutuhkan</small>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <img src="<?php echo $img ?>" alt="preview" style="width: 30%; border-radius: 5px; border: 2px solid #e0e0e0">
+                        <input type="text" class="form-control" id="nama_pekerjaan" name="nama_pekerjaan" placeholder="Masukkan Nama Pekerjaan beserta Jabatan" value="<?= $job_vacancy->nama_pekerjaan; ?>">
+                        <?= form_error('nama_pekerjaan','<small class="text-danger">','</small>');?>
                     </div>
                   </div>
-                  <!-- Batas Baris -->
+                  <div class="col-md-6">
+                  <label>Alamat Pekerjaan</label>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-building"></i></span>
+                        </div>
+                        <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Masukkan Alamat Perusahaan" value="<?= $job_vacancy->nama_pekerjaan; ?>" >
+                        <?= form_error('alamat','<small class="text-danger">','</small>');?>
+                    </div>
+                  </div>
+              </div>
+              <!-- Batas Baris -->
+              <div class="form-group">
+                <label for="deskripsi_pekerjaan">Deskripsi Pekerjaan</label>
+                <textarea class="form-control" name="deskripsi_pekerjaan" id="deskripsi_pekerjaan" cols="30" rows="6" placeholder="Masukkan Deskripsi Pekerjaan"> <?= $job_vacancy->deskripsi_pekerjaan; ?> </textarea>
+                  <?= form_error('deskripsi_pekerjaan', '<small class="text-danger">', '</small>'); ?>
+              </div>
+              <!-- Batas Baris -->
+              <div class="row">
+                <div class="col-md-8">
                   <div class="form-group">
-                      <label for="deskripsi_informasi">Deskripsi Informasi</label>
-                      <textarea type="text" class="form-control" id="deskripsi_informasi" name="deskripsi_informasi" cols="30" rows="6" placeholder="Masukkan Deskripsi Informasi"><?= $information_general->deskripsi_informasi; ?></textarea>
-                          <?= form_error('deskripsi_informasi','<small class="text-danger">','</small>');?>
-                  </div>
-                <div class="row">
-                    <div class="col-md-2">
-                      <button type="submit" class="btn btn-primary">Submit</button>
-                      <span> <a href="<?= base_url("Alumni/informasi_umum")?>" class="btn btn-danger">Cancel</a></span>
+                    <h4>Foto Event</h4>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input form-control" id="foto" name="foto" value="<?= $job_vacancy->foto; ?>">
+                        <label class="custom-file-label" for="foto" value="">
+                          <?php
+                          $img = base_url('assets/Gambar/Website/default_loker_null.png');
+                          if ($job_vacancy->foto == "") : ?>
+                            Choose File
+                          <?php else : ?>
+                            <?= $job_vacancy->foto;
+                            $img = base_url('assets/Gambar/Upload/Loker/' . $job_vacancy->foto); ?>
+                          <?php endif ?>
+                        </label>
+                      </div>
                     </div>
+                    <small>Tambahkan foto apabila dibutuhkan</small>
+                  </div>
                 </div>
+                <div class="col-md-4">
+                  <img src="<?php echo $img ?>" alt="preview" style="width: 30%; border-radius: 5px; border: 2px solid #e0e0e0">
+                </div>
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <span> <a href="<?= base_url("Alumni/sharing_loker")?>" class="btn btn-danger">Cancel</a></span>
+              </div>
             </form>
           </div>
           <!-- /.card-body -->

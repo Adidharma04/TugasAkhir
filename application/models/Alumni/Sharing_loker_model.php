@@ -1,7 +1,7 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class sharing_loker_model extends CI_Model {
+class Sharing_loker_model extends CI_Model {
     
     public function tampilDataLoker()
     {
@@ -10,34 +10,19 @@ class sharing_loker_model extends CI_Model {
         $where = ['id_profile' => $id_profile];
         return $this->db->get_where('job_vacancy', $where);
 
-    }
-    
-    public function tambahDataLoker($upload){
+    }public function tambahDataLoker($upload){
 
         $id_profile = $this->session->userdata('sess_id_profile');
 
-        // data input
-        $loker =[
+        $job_vacancy =[
             'id_profile'                   => $id_profile,
             'nama_pekerjaan'               => $this->input->post('nama_pekerjaan', true),
             'deskripsi_pekerjaan'          => $this->input->post('deskripsi_pekerjaan', true),
             'alamat'                       => $this->input->post('alamat', true),
-            'status'                       => "pending",
+            'status'                       => 'pending',
             'foto'                         => $upload['file']['file_name'],
         ];
-        
-        // query untuk melakukan pengecekan
-        $where = ['id_profile' => $id_profile];
-        $loker = $this->db->get_where('job_vacancy', $where);
-
-
-        if ( $loker->num_rows() == 1 ) {
-            // do update data
-            $this->db->where( $where );
-            $this->db->insert('job_vacancy', $loker);
-        } else {
-            $this->db->insert('job_vacancy', $loker);
-        }
+        $this->db->insert('job_vacancy', $job_vacancy);
     }
     public function upload(){    
         $config['upload_path'] = './assets/Gambar/Upload/Loker/';    
@@ -57,6 +42,78 @@ class sharing_loker_model extends CI_Model {
             }  
         }
     }
+    public function getLoker($id_vacancy){
+		// return $this->db->get_where('information_student',['id_student'=>$id_student])->result();
+        return $this->db->get_where('job_vacancy',['id_vacancy'=>$id_vacancy])->row();
+	}
+    public function editDataLoker( $id_vacancy){
+        
+        // ambil detail informasi loker
+        $ambilInformasiLoker = $this->getLoker( $id_vacancy );
+        
+        // upload foto
+        $config['upload_path'] = './assets/Gambar/Upload/Loker/';    
+        $config['allowed_types'] = 'jpg|png|jpeg';
+        $this->load->library('upload', $config);
+
+
+        $foto = "";
+        // apabila dia ingin mengubah gambar 
+        if ( !empty( $_FILES['foto']['name'] ) ) {
+
+
+            if ( $this->upload->do_upload('foto') ){
+
+                if ( $ambilInformasiLoker->foto ) { // remove old photo
+
+                    $link = $config['upload_path']. $ambilInformasiLoker->foto;
+                    unlink( $link );
+                }
+
+                // set value new photo
+                $foto = $this->upload->data('file_name');
+                
+            }else{    
+                
+                // upload error
+                $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> '.$this->upload->display_errors().'</div>';
+                $this->session->set_flashdata('msg', $html);
+
+                redirect('Admin/loker/edit/'. $id_vacancy);
+                
+            }  
+
+        // gaambar tetap alias tidak diubah sama sekali
+        } else {
+
+            if ( $ambilInformasiLoker->foto ) {
+
+                $foto = $ambilInformasiLoker->foto;
+            }
+        }
+        
+        // data informasi loker
+        $dataInformationLoker =[
+
+            'nama_pekerjaan'               => $this->input->post('nama_pekerjaan', true),
+            'deskripsi_pekerjaan'          => $this->input->post('deskripsi_pekerjaan', true),
+            'alamat'                       => $this->input->post('alamat', true),
+            'status'                       => 'pending',
+            'foto'                         => $foto,
+		];
+
+        // update job_vacancy
+        $this->db->where('id_vacancy', $id_vacancy);	
+        $this->db->update('job_vacancy', $dataInformationLoker);
+
+    }   // porses hapus
+    function prosesHapusLoker( $id_vacancy ){
+
+        $this->db->where('id_vacancy', $id_vacancy)->delete('job_vacancy');
+
+    }
+
+    
     
 }
 

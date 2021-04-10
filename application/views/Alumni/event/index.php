@@ -43,7 +43,7 @@
                     <h5 class="card-title">Detail Event</h5>
                     <div class="card-tools">
                       <a href="Event/tambah" class="btn btn-tool">
-                          <i class="fas fa-pen"></i>
+                      <a href="Event/tambah" class="btn btn-primary"><i class="fas fa-plus"></i>Tambah Event Baru</a>
                       </a>
                     </div>
                 </div>
@@ -67,14 +67,13 @@
 
                       foreach ( $event->result() AS $evn) {
 
-
                         $gambar = "";
                         if ( $evn->foto ) {
 
                           $gambar = base_url('assets/Gambar/Upload/Event/'. $evn->foto);
                         } else {
                           // default
-                          $gambar = base_url('assets/Gambar/Website/Dashboard/beasiswa.jpg');
+                          $gambar = base_url('assets/Gambar/Website/default_event_null.png');
                         }
                     ?>
 
@@ -97,18 +96,26 @@
                         <small>Ubah Informasi Event</small><br>
                         <a href="<?= base_url() . 'alumni/event/edit/'. $evn->id_event?>" class="btn btn-sm btn-warning">Sunting</a>
                         &nbsp;
-                        <a href="" class="btn btn-sm btn-warning">Hapus</a>
+                        <a href="<?= base_url() . 'alumni/event/onDelete/'. $evn->id_event?>" class="btn btn-sm btn-warning">Hapus</a>
                       </td>
                     </tr>
-
 
                     <?php 
                     
                       }// end foreach
 
-                    } // end if
-                    
-                    ?>
+                      } else { // end if
+                      ?>
+                        <div class="col-md-9">
+                            <div class="text-center">
+                              <img style="width: 450px" src="<?= base_url('assets/Gambar/Website/default_event_null.png')?>">
+                              <h4 style="margin: 5px">Belum ada Event yang tersedia</h4>
+                              <small>Masukkan Event yang akan datang......</small> <br><br>
+                            </div>
+                        </div>
+                      <?php 
+                      }
+                      ?>
 
                   </table>
                     

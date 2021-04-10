@@ -112,6 +112,18 @@ class Event extends CI_Controller {
                 redirect('Alumni/event','refresh');
             }
         }
+        // proses hapus
+    function onDelete( $id_event ) {
+
+        $this->event_model->prosesHapusEvent( $id_event );
+        $html = '<div class="alert alert-success">
+                     <b>Pemberitahuan</b> <br>
+                     Data Event berhasil terhapus pada tanggal '.date('d F Y H.i A').'
+                     </div>';
+            $this->session->set_flashdata('msg', $html);
+            redirect('Alumni/event','refresh');
+    }
+
 }
 
 /* End of file Controllername.php */

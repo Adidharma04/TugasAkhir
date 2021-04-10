@@ -93,9 +93,10 @@
                     </div>
                   </div>
                   <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="foto">Foto</label>
-                      <input type="file" class="form-control" id="foto" name="foto">
+                  <label for="foto">Foto</label>
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="foto" name="foto">
+                      <label class="custom-file-label" for="foto">Pilih file</label>
                       <small>Tambahkan Foto jika ada!</small>
                     </div>
                   </div>

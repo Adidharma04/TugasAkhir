@@ -77,7 +77,7 @@
             </a>
           </li> -->
           <li class="nav-item">
-            <a href="<?= base_url('Alumni/tracer').''?>" class="nav-link <?php //if ($uriSegment == "dashboard_alumni") echo 'active'; ?>">
+            <a href="<?= base_url('Alumni/tracer').''?>" class="nav-link <?php if ($uriSegment == "tracer") echo 'active'; ?>">
               <i class="nav-icon fa fa-briefcase"></i>
               <p>
                Tracer

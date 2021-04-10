@@ -110,7 +110,6 @@ class informasi_umum_model extends CI_Model {
     function prosesHapusInformasiUmum( $id_general ){
 
         $this->db->where('id_general', $id_general)->delete('information_general');
-
     }
 }
 

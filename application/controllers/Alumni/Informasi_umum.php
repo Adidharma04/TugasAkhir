@@ -71,6 +71,50 @@ class Informasi_umum extends CI_Controller {
                 echo $upload['error'];
             }
         }
+    }public function edit($id_general){
+
+        $getDataInformasiUmumById = $this->informasi_umum_model->getInformasiUmum($id_general);
+
+        $this->form_validation->set_rules('nama_informasi', 'Nama Informasi', 'required|trim',[
+            'required' => 'Masukkan Informasi',
+        ]);
+
+        $this->form_validation->set_rules('deskripsi_informasi', 'Deskripsi', 'required|trim',[
+            'required' => 'Masukkan Deskripsi',
+        ]);
+        
+        //----------------------------------------------------------------------
+        //-- Title Halaman
+        $data ['title'] = 'Halaman Admin-Dashboard';
+        //----------------------------
+        $data ['information_general'] = $getDataInformasiUmumById;
+        if($this->form_validation->run() == FALSE){
+            $this->load->view('Template/Alumni/navbar_alumni',$data);
+            $this->load->view('Template/Alumni/sidebar_alumni',$data);
+            $this->load->view('Alumni/informasi_umum/edit',$data);
+            $this->load->view('Template/Alumni/footer_alumni');
+        }
+        else{
+            $this->informasi_umum_model->editDataInformasiUmum( $id_general );
+            $html = '<div class="alert alert-success">
+                            <a href="sharing_loker" class="close" data-dismiss="alert" >&times;</a>
+                            <b>Pemberitahuan</b> <br>
+                            Data Loker berhasil di edit pada tanggal ' . date('d F Y H.i A') . '
+                        </div>';
+            $this->session->set_flashdata('msg', $html);
+            redirect('Admin/informasi_umum','refresh');
+        }
+    }
+    // proses hapus siswa
+    function onDelete( $id_general ) {
+
+        $this->informasi_umum_model->prosesHapusInformasiUmum( $id_general );
+        $html = '<div class="alert alert-success">
+                     <b>Pemberitahuan</b> <br>
+                     Informasi berhasil terhapus pada tanggal '.date('d F Y H.i A').'
+                     </div>';
+            $this->session->set_flashdata('msg', $html);
+            redirect('Alumni/informasi_umum','refresh');
     }
 
 
