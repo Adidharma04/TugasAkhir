@@ -22,7 +22,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="<?php echo base_url('Alumni/dashboard_alumni')?>">Home</a></li>
-              <li class="breadcrumb-item active">Penilaian </li>
+              <li class="breadcrumb-item active">Tracer </li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -81,8 +81,7 @@
                       $nama = $item['data']['nama_kampus'];
                       $caption = "Menempuh Pendidikan";
 
-                      $deskripsi = "Melakukan studi di salah satu kampus ". $nama . " jurusan ". $item['data']['jurusan'].' dengan keahlian atau program studi '.
-                        $item['data']['program_studi'];
+                      $deskripsi = "Melanjukan Studi di <b>".ucfirst($nama)."</b> jurusan <b>". $item['data']['jurusan'].'</b> dengan keahlian atau program studi <b>'.$item['data']['program_studi'].'</b> Diterima jalur';
 
                       $tanggal_pembuatan = date('d M Y H.i A', strtotime($item['data']['created_at']));
 
@@ -100,12 +99,11 @@
                     <i class="<?php echo $icon.' '.$color ?>"></i>
                     <div class="timeline-item">
                       <span class="time"><i class="fas fa-clock"></i> dibuat pada  <?php echo $tanggal_pembuatan ?></span>
-                      <h3 class="timeline-header"><a href="#"><?php echo $nama ?></a> - <?php echo $caption ?></h3>
+                      <h3 class="timeline-header"> <?php echo $caption ?> - di <a href="#"><?php echo ucfirst($nama) ?></a></h3>
 
                       <div class="timeline-body">
                         <?php echo $deskripsi ?>
-
-                        <label class="badge badge-success">Label</label>
+                        <label class="badge badge-success"><?php echo ucfirst($item['data']['jalur_penerimaan']) ?></label>
                       </div>
                       <div class="timeline-footer">
                         <a class="btn btn-primary btn-sm">Read more</a>
@@ -158,7 +156,7 @@
                                     <img style="width: 210px" src="<?= base_url('assets/Gambar/Website/tracer_graduation.png')?>">
                                       <h6><b>Tambah Data Kuliah</b></h6>
                                       <small>Klik tombol dibawah ini untuk menambahkan kuliah</small> <br><br>
-                                      <a href="<?php echo base_url('alumni/tracer_kuliah/tambah') ?>" class="btn btn-success btn-sm">Kuliah</a>
+                                      <a href="<?php echo base_url('Alumni/tracer_kuliah/index') ?>" class="btn btn-success btn-sm">Kuliah</a>
                                     </div>
 
                                     <!-- Ditolak -->

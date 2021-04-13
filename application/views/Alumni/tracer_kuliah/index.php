@@ -52,7 +52,7 @@
             </div>
           </div>
           <div class="card-body">
-            <form action="" method="post" enctype="multipart/form-data" >
+          <form action="" method="post" enctype="multipart/form-data">
             <div class="row">
                   <div class="col-md-4">
                   <label>Nama Kampus</label>
@@ -61,8 +61,8 @@
                             <span class="input-group-text"><i class="fas fa-graduation-cap"></i></span>
                         </div>
                         <input type="text" class="form-control" id="nama_kampus" name="nama_kampus" placeholder="Masukkan Nama Kampus" value="<?= set_value('nama_kampus'); ?>" >
-                        <?= form_error('nama_kampus','<small class="text-danger">','</small>');?>
                     </div>
+                    <?= form_error('nama_kampus','<small class="text-danger">','</small>');?>
                   </div>
                   <div class="col-md-4">
                   <label>Prodi(Program Study)</label>
@@ -81,34 +81,59 @@
                             <span class="input-group-text"><i class="fas fa-building"></i></span>
                         </div>
                         <input type="text" class="form-control" name="jurusan" id="jurusan" placeholder="Masukkan Jurusan" value="<?= set_value('jurusan'); ?>" >
-                        <?= form_error('jurusan','<small class="text-danger">','</small>');?>
                     </div>
+                    <?= form_error('jurusan','<small class="text-danger">','</small>');?>
                   </div>
               </div>
 
               <div class="row">
                   <div class="col-md-6">
-                  <label>Tahun Lulus</label>
+                    <label>Tahun Masuk</label>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-calendar"></i></span>
                         </div>
-                        <input type="text" class="form-control" id="tahun_lulus" name="tahun_lulus" placeholder="Masukkan Tahun Lulus" value="<?= set_value('tahun_lulus'); ?>" >
-                        <?= form_error('tahun_lulus','<small class="text-danger">','</small>');?>
+                        <input type="number" class="form-control" id="tahun_masuk" name="tahun_masuk" placeholder="Masukkan Tahun Masuk" value="<?= set_value('tahun_masuk'); ?>" >
                     </div>
+                    <?= form_error('tahun_masuk','<small class="text-danger">','</small>');?>
                   </div>
                   <div class="col-md-6">
-                  <label>Tahun Masuk</label>
+                    <label>Tahun lulus</label>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-calendar"></i></span>
                         </div>
-                        <input type="text" class="form-control" id="tahun_masuk" name="tahun_masuk" placeholder="Masukkan Tahun Masuk" value="<?= set_value('tahun_masuk'); ?>" >
-                        <?= form_error('nama_pekerjaan','<small class="text-danger">','</small>');?>
+                        <input type="number" class="form-control" id="tahun_lulus" name="tahun_lulus" placeholder="Masukkan Tahun Lulus" value="<?= set_value('tahun_lulus'); ?>" >
                     </div>
+                    <?= form_error('tahun_lulus','<small class="text-danger">','</small>');?>
                   </div>
+                  
               </div>
-              
+               <!-- Batas Baris -->
+               <div class="form-group">
+                    <label for="status">Jalur Penerimaan</label>
+                    <div class="form-check">
+                        <input type="radio" name="jalur_penerimaan" value="snmptn" > SNMPTN 
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" name="jalur_penerimaan" value="sbmptn" > SBMPTN
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" name="jalur_penerimaan" value="snmpn" > SNMPN
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" name="jalur_penerimaan" value="sbmpn" > SBMPN
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" name="jalur_penerimaan" value="mandiri" > SBMPN
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" name="jalur_penerimaan" value="ikatan_dinas" > Ikatan Dinas
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" name="jalur_penerimaan" value="kedinasan" > Kedinasan
+                    </div>
+                </div>
               <div class="row">
                   <div class="col-md-2">
                     <button type="submit" class="btn btn-primary">Submit</button>

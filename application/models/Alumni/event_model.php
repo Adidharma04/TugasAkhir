@@ -127,11 +127,12 @@ class Event_model extends CI_Model {
      // porses hapus
      function prosesHapusEvent( $id_event ){
         $ambilInformasiEvent = $this->getEvent( $id_event );
-
-        $config['upload_path'] = './assets/Gambar/Upload/Loker/';
-        
-        $link = $config['upload_path'].$ambilInformasiEvent->foto;
-        unlink($link);
+        $config['upload_path'] = './assets/Gambar/Upload/Event/';    
+        $config['allowed_types'] = 'jpg|png|jpeg';
+        $this->load->library('upload', $config);
+            // remove old photo
+            $link = $config['upload_path']. $ambilInformasiEvent->foto;
+            unlink( $link );
         $this->db->where('id_event', $id_event)->delete('event');
 
     }

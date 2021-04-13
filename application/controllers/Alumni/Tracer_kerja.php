@@ -1,10 +1,11 @@
 <?php 
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Tracer_kuliah extends CI_Controller {
+class Tracer_kerja extends CI_Controller {
     function __construct() {
         parent::__construct();
-        $this->load->model('Alumni/tracer_kuliah_model');
+        $this->load->model('Alumni/tracer_kerja_model');
         if ( empty( $this->session->userdata('sess_id_profile') ) ) {
             $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> <br> 
                         <small>Anda harus login terlebih dahulu !</small>
@@ -20,9 +21,11 @@ class Tracer_kuliah extends CI_Controller {
             redirect('Admin/login', 'refresh');
         }
     }
-    public function index(){
+
+    public function index()
+    {
         //-- Title Halaman
-        $data ['title'] = 'Halaman Tambah Tracer Kuliah | Alumni';
+        $data ['title'] = 'Halaman Tambah Tracer Kerja | Alumni';
         //----------------------------
         //rule
         $this->form_validation->set_rules('nama_kampus', 'Nama Kampus', 'required|trim',[
@@ -54,10 +57,10 @@ class Tracer_kuliah extends CI_Controller {
                          </div>';
                 $this->session->set_flashdata('msg', $html);
                 redirect('Alumni/tracer', 'refresh');
-        }
+        }        
     }
 
 }
 
-/* End of file Tracer_kuliah.php */
+/* End of file Tracer_kerja.php */
 ?>
