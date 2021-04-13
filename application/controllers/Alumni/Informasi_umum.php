@@ -102,7 +102,7 @@ class Informasi_umum extends CI_Controller {
                             Data Loker berhasil di edit pada tanggal ' . date('d F Y H.i A') . '
                         </div>';
             $this->session->set_flashdata('msg', $html);
-            redirect('Admin/informasi_umum','refresh');
+            redirect('Alumni/informasi_umum','refresh');
         }
     }
     // proses hapus siswa
