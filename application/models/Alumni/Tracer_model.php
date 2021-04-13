@@ -85,7 +85,53 @@
             // return
             return $dataTracer;
         }
-    
+        
+
+
+
+
+
+        // ambil data edit tracer
+        function getDataTracerByTypeAndId( $tipe, $id ) {
+
+            if ( $tipe == "kuliah" ) {
+
+                $this->db->where('id_kuliah', $id);
+                $query = $this->db->get('tracer_kuliah');
+
+            } else {
+
+                $this->db->where('id_kerja', $id);
+                $query = $this->db->get('tracer_kerja');
+            }
+
+
+            return $query;
+        }
+
+
+
+        // delete tracer kuliah / kerja
+        function hapusTracer( $tipe, $id ){
+
+
+            if ( $tipe == "kuliah" ) {
+
+                $this->db->where('id_kuliah', $id);
+                $this->db->delete('tracer_kuliah');
+                
+                
+            
+            } else if ( $tipe == "kerja" ) {
+
+                $this->db->where('id_kerja', $id);
+                $this->db->delete('tracer_kerja');
+            }
+
+
+            // redirect
+            redirect('Alumni/tracer');
+        }
     }
 
 

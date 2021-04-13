@@ -120,7 +120,7 @@ class Event extends CI_Controller {
                      <b>Pemberitahuan</b> <br>
                      Data Event berhasil terhapus pada tanggal '.date('d F Y H.i A').'
                      </div>';
-            $this->session->set_flashdata('msg', $html);
+        $this->session->set_flashdata('msg', $html);
             redirect('Alumni/event','refresh');
     }
 

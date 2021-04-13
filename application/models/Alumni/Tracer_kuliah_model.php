@@ -18,6 +18,16 @@ class Tracer_kuliah_model extends CI_Model {
         ];
         $this->db->insert('tracer_kuliah', $tracer_kuliah);
     }
+
+
+
+    // hapus tracer kuliah
+    function hapusTracerKuliah( $id ) {
+
+        // query 
+        $this->db->where('id_kuliah', $id);
+        $this->db->delete('tracer_kuliah');
+    }
     
 
 }

@@ -64,6 +64,11 @@
                     $color = "";
                     $icon  = "";
 
+
+                    // menampung segala jenis id baik {kerja, kuliah}
+                    $id_tracer = "";
+
+
                     if ( $item['tipe_tracer'] == "kerja" ) {
                       
                         $nama    = $item['data']['nama_perusahaan'];
@@ -74,6 +79,10 @@
 
                         $color = "bg-blue";
                         $icon  = "fas fa-briefcase";
+
+
+                        // replace id
+                        $id_tracer = $item['data']['id_kerja'];
                     
                     
                     } else if ( $item['tipe_tracer'] == "kuliah" ) {
@@ -87,6 +96,9 @@
 
                       $color = "bg-yellow";
                       $icon = "fas fa-graduation-cap";
+
+                      // replace id
+                      $id_tracer = $item['data']['id_kuliah'];
                     }
 
 
@@ -107,8 +119,40 @@
                         <?php }?>
                       </div>
                       <div class="timeline-footer">
-                        <a class="btn btn-primary btn-sm">Read more</a>
-                        <a class="btn btn-danger btn-sm">Delete</a>
+                        <a href="<?php echo base_url('Alumni/tracer/viewupdatetracer/'. $item['tipe_tracer'].'/'. $id_tracer) ?>" class="btn btn-dark btn-sm">Sunting</a>
+                        <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#action-delete-<?php echo $item['tipe_tracer'].'-'.$id_tracer ?>" >Delete</a>
+
+
+
+
+
+
+                        <!-- Modal delete -->
+                        <div class="modal fade" id="action-delete-<?php echo $item['tipe_tracer'].'-'.$id_tracer ?>">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                <label>
+                                  Apakah anda ingin menghapus data tracer <?php echo $item['tipe_tracer'] ?>
+                                </label> <br>
+                                <small>Data yang telah dihapus tidak dapat dipulihkan kembali.</small>
+                              </div>
+                              <div class="modal-footer justify-content-between">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                                <a href="<?php echo base_url('Alumni/tracer/proseshapustracer/'. $item['tipe_tracer'].'/'. $id_tracer) ?>" class="btn btn-danger"><i class="fa fa-trash"></i> Logout</a>
+                              </div>
+                            </div>
+                            <!-- /.modal-content -->
+                          </div>
+                          <!-- /.modal-dialog -->
+                        </div>
+                        <!-- /.modal -->
                       </div>
                     </div>
                   </div>

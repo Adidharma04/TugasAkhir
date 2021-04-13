@@ -33,6 +33,9 @@
 
             // load model
             $this->load->model('Alumni/Tracer_model');
+
+            $this->load->model('Alumni/Tracer_kerja_model');
+            $this->load->model('Alumni/Tracer_kuliah_model');
         }
 
         public function index(){
@@ -47,7 +50,48 @@
             $this->load->view('Alumni/tracer/index',$data);
             // $this->load->view('Template/Alumni/footer_alumni');
         }
-        
+
+
+
+
+        // proses hapus
+        function proseshapustracer( $tipe, $id ) {
+
+            $this->Tracer_model->hapusTracer( $tipe, $id );
+        }
+
+
+
+
+
+
+
+        function viewupdatetracer( $tipe, $id ) {
+
+            $ambilDataTracer = $this->Tracer_model->getDataTracerByTypeAndId( $tipe, $id )->row_array();
+            
+            //-- Title Halaman
+            $data ['title'] = 'Halaman Tracer | Alumni';
+            $data['tracer'] =  $ambilDataTracer;
+
+
+            if ( $tipe == "kuliah" ) {
+
+                //----------------------------
+                $this->load->view('Template/Alumni/navbar_alumni',$data);
+                $this->load->view('Template/Alumni/sidebar_alumni',$data);
+                $this->load->view('Alumni/tracer/index',$data);
+
+            } else if ( $tipe == "kerja" ) {
+
+                 $this->load->view('Template/Alumni/navbar_alumni',$data);
+                 $this->load->view('Template/Alumni/sidebar_alumni',$data);
+                 $this->load->view('Alumni/tracer/index',$data);
+
+            }
+            
+        }   
+
     
     }
     

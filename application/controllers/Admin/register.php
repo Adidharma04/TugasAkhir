@@ -74,6 +74,19 @@ class Register extends CI_Controller {
         echo json_encode( $pesan );
     }
 
+
+
+
+
+    function test() {
+
+        $email = "masukkan emailmu";
+        echo "mau mentesting gmail dari ". $email;
+
+
+        $this->register_model->notifikasiEmail( $email );
+    }
+
 }
 
 /* End of file register.php */
