@@ -82,7 +82,15 @@
                             <div class="col-md-9">
                               <label for="" style="font-size: 18px;"><?php echo ucfirst($jv->nama_pekerjaan) ?></label> <br>
                               <small>"<?php echo $jv->deskripsi_pekerjaan?>"</small> <br><hr style="margin: 5px">
-                              <label style="font-size: 13px"><i class="far fa-calendar-alt"></i> <?php echo $jv->created_at ?> <span class="badge badge-success"><?php echo $jv->status ?></span> </label>  
+                              <label style="font-size: 13px"><i class="far fa-calendar-alt"></i> <?php echo $jv->created_at ?>
+                                  <?php if($jv->status=="pending"){?>
+                                    <span class="badge badge-info"><?php echo $jv->status ?></span>
+                                  <?php } else if($jv->status=="accept"){?>
+                                    <span class="badge badge-success"><?php echo $jv->status ?></span>
+                                  <?php } else if($jv->status=="decline"){?>
+                                    <span class="badge badge-danger"><?php echo $jv->status ?></span>
+                                  <?php }?>
+                              </label>  
                             </div>
                           </div>
                         </td>

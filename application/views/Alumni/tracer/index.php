@@ -69,7 +69,7 @@
                         $nama    = $item['data']['nama_perusahaan'];
                         $caption = "Pernah Bekerja";
 
-                        $deskripsi = "Bekerja di salah satu perusahaan ". $item['data']['jenis_perusahaan']. " pada tanggal ".$item['data']['tahun_masuk']." yaitu ". $item['data']['nama_perusahaan'];
+                        $deskripsi = "Bekerja di salah satu perusahaan ". $item['data']['jenis_perusahaan']. " pada tanggal ".$item['data']['tahun_masuk']." dengan alamat perusahaan di ". ucfirst($item['data']['alamat_perusahaan']);
                         $tanggal_pembuatan = date('d M Y H.i A', strtotime($item['data']['created_at']));
 
                         $color = "bg-blue";
@@ -99,11 +99,12 @@
                     <i class="<?php echo $icon.' '.$color ?>"></i>
                     <div class="timeline-item">
                       <span class="time"><i class="fas fa-clock"></i> dibuat pada  <?php echo $tanggal_pembuatan ?></span>
-                      <h3 class="timeline-header"> <?php echo $caption ?> - di <a href="#"><?php echo ucfirst($nama) ?></a></h3>
-
+                        <h3 class="timeline-header"> <?php echo $caption ?> - di <a href="#"><?php echo ucfirst($nama) ?></a></h3>
                       <div class="timeline-body">
                         <?php echo $deskripsi ?>
-                        <label class="badge badge-success"><?php echo ucfirst($item['data']['jalur_penerimaan']) ?></label>
+                        <?php if ( $item['tipe_tracer'] == "kuliah" ){ ?>
+                          <label class="badge badge-success"><?php echo ucfirst($item['data']['jalur_penerimaan']) ?></label>
+                        <?php }?>
                       </div>
                       <div class="timeline-footer">
                         <a class="btn btn-primary btn-sm">Read more</a>
@@ -164,7 +165,7 @@
                                     <img style="width: 210px" src="<?= base_url('assets/Gambar/Website/tracer_work.png')?>">
                                       <h6><b>Tambah Data Kerja</b></h6>
                                       <small>Klik tombol dibawah ini untuk menambah kerja</small> <br><br>
-                                      <a href="<?php echo base_url('bk/event/processVerify/') ?>" class="btn btn-success btn-sm">Kerja</a>
+                                      <a href="<?php echo base_url('alumni/tracer_kerja/index') ?>" class="btn btn-success btn-sm">Kerja</a>
                                     </div>
                                   </div>
                                 </div>

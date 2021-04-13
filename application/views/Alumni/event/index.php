@@ -87,7 +87,16 @@
                             <div class="col-md-9">
                               <label for="" style="font-size: 18px;"><?php echo ucfirst($evn->nama_event) ?></label> <br>
                               <small>"<?php echo $evn->deskripsi_event ?>"</small> <br><hr style="margin: 5px">
-                              <label style="font-size: 13px"><i class="far fa-calendar-alt"></i> <?php echo $evn->tanggal_event ?> &emsp; | &emsp; <i class="fa fa-building"></i> <?php echo $evn->lokasi ?>  &emsp; | &emsp; <span class="badge badge-success"><?php echo $evn->status ?></span> </label>  
+                              <label style="font-size: 13px"><i class="far fa-calendar-alt"></i> <?php echo $evn->tanggal_event ?> &emsp; | &emsp; <i class="fa fa-building"></i> <?php echo $evn->lokasi ?>  &emsp; | &emsp; 
+                                  <?php if($evn->status=="pending"){?>
+                                    <span class="badge badge-info"><?php echo $evn->status ?></span>
+                                  <?php } else if($evn->status=="accept"){?>
+                                    <span class="badge badge-success"><?php echo $evn->status ?></span>
+                                  <?php } else if($evn->status=="decline"){?>
+                                    <span class="badge badge-danger"><?php echo $evn->status ?></span>
+                                  <?php }?>
+                              </label>  
+
                             </div> 
                         </div>
                       </td>

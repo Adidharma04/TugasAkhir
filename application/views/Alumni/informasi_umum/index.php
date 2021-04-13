@@ -82,7 +82,15 @@
                             <div class="col-md-9">
                               <label for="" style="font-size: 18px;"><?php echo ucfirst($ifu->nama_informasi) ?></label> <br>
                               <small>"<?php echo $ifu->deskripsi_informasi ?>"</small> <br><hr style="margin: 5px">
-                              <label style="font-size: 13px"><i class="far fa-calendar-alt"></i> <?php echo $ifu->created_at ?> <span class="badge badge-danger"><?php echo $ifu->status ?></span> </label>  
+                              <label style="font-size: 13px"><i class="far fa-calendar-alt"></i> <?php echo $ifu->created_at ?>
+                                  <?php if($ifu->status=="pending"){?>
+                                    <span class="badge badge-info"><?php echo $ifu->status ?></span>
+                                  <?php } else if($ifu->status=="accept"){?>
+                                    <span class="badge badge-success"><?php echo $ifu->status ?></span>
+                                  <?php } else if($ifu->status=="decline"){?>
+                                    <span class="badge badge-danger"><?php echo $ifu->status ?></span>
+                                  <?php }?> 
+                              </label>  
                             </div>
                           </div>
                         </td>
