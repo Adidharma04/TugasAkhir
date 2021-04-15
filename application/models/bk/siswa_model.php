@@ -10,21 +10,21 @@ class siswa_model extends CI_Model {
             'verifikasi_alumni !=' => "null" 
         ];
 
-        $this->db->select('information_student.*');
+        $this->db->select('profil_siswa.*');
         $this->db->where( $where );
-        return $this->db->get('information_student')->result();
+        return $this->db->get('profil_siswa')->result();
 
     }
 
-    public function getSiswa($id_student){
-		// return $this->db->get_where('information_student',['id_student'=>$id_student])->result();
-        return $this->db->get_where('information_student',['id_student'=>$id_student])->row();
+    public function getSiswa($id_siswa){
+		// return $this->db->get_where('profil_siswa',['id_siswa'=>$id_siswa])->result();
+        return $this->db->get_where('profil_siswa',['id_siswa'=>$id_siswa])->row();
 	}
-    function prosesKonfirmasiStatus( $id_student ){
+    function prosesKonfirmasiStatus( $id_siswa ){
 
 
         $verifikasi_alumni =  $this->input->get('verifikasi_alumni');
-        $getDataInformationStudent = $this->getSiswa( $id_student );
+        $getDataInformationStudent = $this->getSiswa( $id_siswa );
 
 
         $data = [
@@ -53,8 +53,8 @@ class siswa_model extends CI_Model {
 
 
         // student
-        $this->db->where('id_student', $id_student);
-        $this->db->update('information_student', $data);
+        $this->db->where('id_siswa', $id_siswa);
+        $this->db->update('profil_siswa', $data);
 
 
 

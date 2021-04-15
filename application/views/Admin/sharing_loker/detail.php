@@ -45,7 +45,7 @@
         <div class="col-12 col-lg-9 d-flex align-items-stretch">
           <div class="card bg-light">
             <div class="card-header text-muted border-bottom-0">
-                <h2><?= $job_vacancy->nama_pekerjaan ?></h2>
+                <h2><?= $loker->nama_pekerjaan ?></h2>
                 <hr>
             </div>
             <div class="card-body pt-0" style="padding-right:120.7px;">
@@ -53,20 +53,20 @@
                 <div class="col-7">
                   <ul class="ml-5 mb-0 fa-ul text-muted">
                     <li class="small"><span class="fa-li"><i class="fas fa-lg fa-envelope fa-1x"></i> </span><b><h6>Deskripsi Pekerjaan</h6></b></li>
-                    <span align="justify"> <p ><?= $job_vacancy->deskripsi_pekerjaan ?></p></span>
+                    <span align="justify"> <p ><?= $loker->deskripsi_pekerjaan ?></p></span>
                     <br>
                     <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building fa-1x"></i> </span><b><h6>Alamat Perusahaan</h6></b></li>
-                    <span align="justify"><p><?= $job_vacancy->alamat ?></p></span>
+                    <span align="justify"><p><?= $loker->alamat ?></p></span>
                     <br>
                     <li class="small"><span class="fa-li"><i class="fas fa-lg fa-clock-o fa-1x"></i> </span><b><h6>Status</h6></b> </li>
-                    <span align="justify"><p><?= $job_vacancy->status ?></p></span>
+                    <span align="justify"><p><?= $loker->status ?></p></span>
                   </ul>
                 </div>
                 <div class="col-5 text-center">
-                    <?php if ($job_vacancy->foto == "") : ?>
+                    <?php if ($loker->foto == "") : ?>
                       <img src="<?= base_url('assets/Gambar/Website/default_job.png') ?>" style="width:230px; height:300px;">
                     <?php else : ?>
-                      <img src="<?= base_url('assets/Gambar/Upload/Loker/') . $job_vacancy->foto ?>" style="width:300px; height:300px;">
+                      <img src="<?= base_url('assets/Gambar/Upload/Loker/') . $loker->foto ?>" style="width:300px; height:300px;">
                     <?php endif ?>
                 </div>
               </div>

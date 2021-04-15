@@ -62,7 +62,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php $no = 1; foreach ($information_general as $ig) : ?>
+                                        <?php $no = 1; foreach ($informasi_umum as $ig) : ?>
                                         <tr>
                                                 <td><?= $no++ ?></td>
                                                 <td><?= $ig->nama_informasi ?></td>
@@ -94,10 +94,10 @@
                                 $textBtn  = "Konfirmasi Informasi";
                               }
                             ?>
-                            <a href="javascript:;" data-toggle="modal" data-target="#konfirmasi-<?php echo $ig->id_general ?>" class="btn <?php echo $colorBtn ?>"><i class="fas fa-eye"></i><?php echo $textBtn ?></a>
+                            <a href="javascript:;" data-toggle="modal" data-target="#konfirmasi-<?php echo $ig->id_umum ?>" class="btn <?php echo $colorBtn ?>"><i class="fas fa-eye"></i><?php echo $textBtn ?></a>
                             
                             <!-- Modal delete -->
-                            <div class="modal fade" id="konfirmasi-<?php echo $ig->id_general ?>">
+                            <div class="modal fade" id="konfirmasi-<?php echo $ig->id_umum ?>">
                               <div class="modal-dialog">
                                 <div class="modal-content">
                                   <div class="modal-header">
@@ -114,7 +114,7 @@
                                         <?php echo pemanggilanSVG( "accept" ) ?>
                                         <h6><b>Informasi Disetujui</b></h6>
                                         <small>Klik tombol dibawah ini untuk mensetujui informasi</small> <br><br>
-                                        <a href="<?php echo base_url('bk/informasi_umum/processVerify/'. $ig->id_general.'?status=accept') ?>" class="btn btn-success btn-sm">Setujui</a>
+                                        <a href="<?php echo base_url('bk/informasi_umum/processVerify/'. $ig->id_umum.'?status=accept') ?>" class="btn btn-success btn-sm">Setujui</a>
                                       </div>
 
                                       <!-- Ditolak -->
@@ -122,7 +122,7 @@
                                         <?php echo pemanggilanSVG( "decline" ) ?>
                                         <h6><b>Informasi Ditolak</b></h6>
                                         <small>Klik tombol dibawah ini untuk menolak informasi</small> <br><br>
-                                        <a href="<?php echo base_url('bk/informasi_umum/processVerify/'. $ig->id_general.'?status=decline') ?>" class="btn btn-danger btn-sm">Ditolak</a>
+                                        <a href="<?php echo base_url('bk/informasi_umum/processVerify/'. $ig->id_umum.'?status=decline') ?>" class="btn btn-danger btn-sm">Ditolak</a>
                                       </div>
 
                                     </div>

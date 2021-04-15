@@ -28,15 +28,15 @@ class Sharing_loker extends CI_Controller {
         //-- Title Halaman
          $data ['title'] = 'Halaman Informasi Loker | Guru BK';
         //----------------------------
-        $data['job_vacancy'] = $this->sharing_loker_model->tampilDataLoker(); 
+        $data['loker'] = $this->sharing_loker_model->tampilDataLoker(); 
         $this->load->view('Template/Admin/navbar',$data);
         $this->load->view('Template/Admin/sidebar_bk',$data);
         $this->load->view('bk/sharing_loker/index',$data);
         $this->load->view('Template/Admin/footer');
     } 
-    function processVerify( $id_vacancy ) {
+    function processVerify( $id_loker ) {
 
-        $this->sharing_loker_model->prosesKonfirmasiStatus( $id_vacancy );
+        $this->sharing_loker_model->prosesKonfirmasiStatus( $id_loker );
         redirect('bk/sharing_loker', 'refresh');
     }
 }

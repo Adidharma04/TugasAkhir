@@ -63,7 +63,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php $no = 1; foreach ($information_student as $swa) : ?>
+                                        <?php $no = 1; foreach ($profil_siswa as $swa) : ?>
                                         <tr>
                                                 <td><?= $no++ ?></td>
                                                 <td><?= $swa->nis ?></td>
@@ -77,7 +77,7 @@
                                                     <?php endif ?>
                                                 </td>
                                                 <td>
-                                                <a href="<?= base_url().'bk/siswa/detail/'.$swa->id_student ?>" class="btn btn-info"><i class="fas fa-eye"></i> Detail</a>
+                                                <a href="<?= base_url().'bk/siswa/detail/'.$swa->id_siswa ?>" class="btn btn-info"><i class="fas fa-eye"></i> Detail</a>
                                                 </td>
                                                 <td>
                             
@@ -98,10 +98,10 @@
                                 $textBtn  = "Konfirmasi Alumni";
                               }
                             ?>
-                            <a href="javascript:;" data-toggle="modal" data-target="#konfirmasi-<?php echo $swa->id_student ?>" class="btn <?php echo $colorBtn ?>"><i class="fas fa-eye"></i><?php echo $textBtn ?></a>
+                            <a href="javascript:;" data-toggle="modal" data-target="#konfirmasi-<?php echo $swa->id_siswa ?>" class="btn <?php echo $colorBtn ?>"><i class="fas fa-eye"></i><?php echo $textBtn ?></a>
                             
                             <!-- Modal delete -->
-                            <div class="modal fade" id="konfirmasi-<?php echo $swa->id_student ?>">
+                            <div class="modal fade" id="konfirmasi-<?php echo $swa->id_siswa ?>">
                               <div class="modal-dialog">
                                 <div class="modal-content">
                                   <div class="modal-header">
@@ -118,7 +118,7 @@
                                         <?php echo pemanggilanSVG( "diterima" ) ?>
                                         <h6><b>Alumni Disetujui</b></h6>
                                         <small>Klik tombol dibawah ini untuk mensetujui alumni</small> <br><br>
-                                        <a href="<?php echo base_url('bk/siswa/processVerify/'. $swa->id_student.'?verifikasi_alumni=diterima') ?>" class="btn btn-success btn-sm">Setujui</a>
+                                        <a href="<?php echo base_url('bk/siswa/processVerify/'. $swa->id_siswa.'?verifikasi_alumni=diterima') ?>" class="btn btn-success btn-sm">Setujui</a>
                                       </div>
 
                                       <!-- Ditolak -->
@@ -126,7 +126,7 @@
                                         <?php echo pemanggilanSVG( "pengajuan" ) ?>
                                         <h6><b>Ditolak</b></h6>
                                         <small>Klik tombol dibawah ini untuk menolak registrasi siswa</small> <br><br>
-                                        <a href="<?php echo base_url('bk/siswa/processVerify/'. $swa->id_student.'?verifikasi_alumni=pengajuan') ?>" class="btn btn-danger btn-sm">Ditolak</a>
+                                        <a href="<?php echo base_url('bk/siswa/processVerify/'. $swa->id_siswa.'?verifikasi_alumni=pengajuan') ?>" class="btn btn-danger btn-sm">Ditolak</a>
                                       </div>
 
                                     </div>

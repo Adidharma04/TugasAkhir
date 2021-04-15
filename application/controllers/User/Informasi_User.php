@@ -10,7 +10,7 @@ class Informasi_User extends CI_Controller {
     }
     public function index()
     {
-        $data['information_general'] = $this->informasi_umum_model->tampilDataInformasiUmum(); 
+        $data['informasi_umum'] = $this->informasi_umum_model->tampilDataInformasiUmum(); 
         
         $this->load->view('User/informasi', $data);
     }

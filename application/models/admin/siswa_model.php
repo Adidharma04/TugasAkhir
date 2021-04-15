@@ -4,8 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class siswa_model extends CI_Model {
     public function tampilDataSiswa()
     {  
-        $this->db->select('information_student.*');
-        return $this->db->get('information_student')->result();
+        $this->db->select('profil_siswa.*');
+        return $this->db->get('profil_siswa')->result();
     }
     public function tambahDataSiswa($upload){
         $nis = $this->input->post('nis', true);
@@ -33,7 +33,7 @@ class siswa_model extends CI_Model {
             'verifikasi_alumni'     => $this->input->post('verifikasi_alumni', true),
             'jenis_kelamin'         => $this->input->post('jenis_kelamin', true),
         ];
-        $this->db->insert('information_student', $informasi_siswa);
+        $this->db->insert('profil_siswa', $informasi_siswa);
 
 
         // insert (ISSUE)
@@ -61,14 +61,14 @@ class siswa_model extends CI_Model {
             }  
         }
     }
-    public function getSiswa($id_student){
-		// return $this->db->get_where('information_student',['id_student'=>$id_student])->result();
-        return $this->db->get_where('information_student',['id_student'=>$id_student])->row();
+    public function getSiswa($id_siswa){
+		// return $this->db->get_where('profil_siswa',['id_siswa'=>$id_siswa])->result();
+        return $this->db->get_where('profil_siswa',['id_siswa'=>$id_siswa])->row();
 	}
-    public function editDataSiswa( $id_student ){
+    public function editDataSiswa( $id_siswa ){
         
         // ambil detail informasi siswa
-        $ambilInformasiSiswa = $this->getSiswa( $id_student );
+        $ambilInformasiSiswa = $this->getSiswa( $id_siswa );
         
         $nis = $this->input->post('nis', true);
 
@@ -99,7 +99,7 @@ class siswa_model extends CI_Model {
                 $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> '.$this->upload->display_errors().'</div>';
                 $this->session->set_flashdata('msg', $html);
 
-                redirect('Admin/siswa/edit/'. $id_student);
+                redirect('Admin/siswa/edit/'. $id_siswa);
                 
             }  
 
@@ -134,9 +134,9 @@ class siswa_model extends CI_Model {
             'jenis_kelamin'         =>  $this->input->post('jenis_kelamin', true),
 		];
 
-        // // update information_student
-        $this->db->where('id_student', $id_student);	
-        $this->db->update('information_student', $dataInformationStudent);
+        // // update profil_siswa
+        $this->db->where('id_siswa', $id_siswa);	
+        $this->db->update('profil_siswa', $dataInformationStudent);
 
         // update profile
         $this->db->where('id_profile', $ambilInformasiSiswa->id_profile);	
@@ -150,7 +150,7 @@ class siswa_model extends CI_Model {
     // porses hapus
     function prosesHapusSiswa( $id_profile ){
 
-        $this->db->where('id_profile', $id_profile)->delete('information_student');
+        $this->db->where('id_profile', $id_profile)->delete('profil_siswa');
         $this->db->where('id_profile', $id_profile)->delete('profile');
 
 

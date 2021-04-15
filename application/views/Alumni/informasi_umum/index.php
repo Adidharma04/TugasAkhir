@@ -97,9 +97,9 @@
                         <td>
                           <br>
                           <small>Ubah Informasi Umum</small><br>
-                          <a href="<?= base_url() . 'alumni/informasi_umum/edit/'. $ifu->id_general?>" class="btn btn-sm btn-warning">Sunting</a>
+                          <a href="<?= base_url() . 'alumni/informasi_umum/edit/'. $ifu->id_umum?>" class="btn btn-sm btn-warning">Sunting</a>
                           &nbsp;
-                          <a href="<?= base_url() . 'alumni/informasi_umum/onDelete/'. $ifu->id_general?>" class="btn btn-sm btn-warning">Hapus</a>
+                          <a href="<?= base_url() . 'alumni/informasi_umum/onDelete/'. $ifu->id_umum?>" class="btn btn-sm btn-warning">Hapus</a>
                         </td>
                     </tr>
                     <?php  

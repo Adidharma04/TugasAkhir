@@ -4,15 +4,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class sharing_loker_model extends CI_Model {
     public function tampilDataLoker()
     {  
-        $this->db->select('job_vacancy.*');
-        return $this->db->get('job_vacancy')->result();
+        $this->db->select('loker.*');
+        return $this->db->get('loker')->result();
     }
     
     public function tambahDataLoker($upload){
 
         $id_profile = $this->session->userdata('sess_id_profile');
 
-        $job_vacancy =[
+        $loker =[
             'id_profile'                   => $id_profile,
             'nama_pekerjaan'               => $this->input->post('nama_pekerjaan', true),
             'deskripsi_pekerjaan'          => $this->input->post('deskripsi_pekerjaan', true),
@@ -20,7 +20,7 @@ class sharing_loker_model extends CI_Model {
             'status'                       => $this->input->post('status', true),
             'foto'                         => $upload['file']['file_name'],
         ];
-        $this->db->insert('job_vacancy', $job_vacancy);
+        $this->db->insert('loker', $loker);
     }
     public function upload(){    
         $config['upload_path'] = './assets/Gambar/Upload/Loker/';    
@@ -40,14 +40,14 @@ class sharing_loker_model extends CI_Model {
             }  
         }
     }
-    public function getLoker($id_vacancy){
-		// return $this->db->get_where('information_student',['id_student'=>$id_student])->result();
-        return $this->db->get_where('job_vacancy',['id_vacancy'=>$id_vacancy])->row();
+    public function getLoker($id_loker){
+		// return $this->db->get_where('profil_siswa',['id_siswa'=>$id_siswa])->result();
+        return $this->db->get_where('loker',['id_loker'=>$id_loker])->row();
 	}
-    public function editDataLoker( $id_vacancy){
+    public function editDataLoker( $id_loker){
         
         // ambil detail informasi loker
-        $ambilInformasiLoker = $this->getLoker( $id_vacancy );
+        $ambilInformasiLoker = $this->getLoker( $id_loker );
         
         // upload foto
         $config['upload_path'] = './assets/Gambar/Upload/Loker/';    
@@ -77,7 +77,7 @@ class sharing_loker_model extends CI_Model {
                 $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> '.$this->upload->display_errors().'</div>';
                 $this->session->set_flashdata('msg', $html);
 
-                redirect('Admin/loker/edit/'. $id_vacancy);
+                redirect('Admin/loker/edit/'. $id_loker);
                 
             }  
 
@@ -100,18 +100,18 @@ class sharing_loker_model extends CI_Model {
             'foto'                         => $foto,
 		];
 
-        // update job_vacancy
-        $this->db->where('id_vacancy', $id_vacancy);	
-        $this->db->update('job_vacancy', $dataInformationLoker);
+        // update loker
+        $this->db->where('id_loker', $id_loker);	
+        $this->db->update('loker', $dataInformationLoker);
 
     }
 
 
 
     // porses hapus
-    function prosesHapusLoker( $id_vacancy ){
+    function prosesHapusLoker( $id_loker ){
 
-        $this->db->where('id_vacancy', $id_vacancy)->delete('job_vacancy');
+        $this->db->where('id_loker', $id_loker)->delete('loker');
 
     }
 }

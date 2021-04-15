@@ -44,7 +44,7 @@
     <div class="top-popular-courses-area mt-50 section-padding-100-70">
         <div class="container">
             <div class="row">
-                <?php $no = 1; foreach ($job_vacancy as $job) : ?>
+                <?php $no = 1; foreach ($loker as $job) : ?>
                 <?php if ($job->status == "accept") : ?>
                     <div class="col-12 col-lg-6">
                         <div class="single-top-popular-course d-flex align-items-center flex-wrap mb-30 wow fadeInUp" data-wow-delay="400ms">

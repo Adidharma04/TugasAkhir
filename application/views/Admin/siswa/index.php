@@ -63,7 +63,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php $no = 1; foreach ($information_student as $swa) : ?>
+                                        <?php $no = 1; foreach ($profil_siswa as $swa) : ?>
                                         <tr>
                                                 <td><?= $no++ ?></td>
                                                 <td><?= $swa->nis ?></td>
@@ -77,11 +77,11 @@
                                                     <?php endif ?>
                                                 </td>
                                                 <td>
-                                                    <a href="<?= base_url().'Admin/siswa/detail/'.$swa->id_student ?>" class="btn btn-info"><i class="fas fa-eye"></i> Detail</a>
-                                                    <a href="<?= base_url().'Admin/siswa/edit/'.$swa->id_student ?>" class="btn btn-success"><i class="fas fa-pencil-square-o"></i>Edit</a>
-                                                    <a href="#"  data-toggle="modal" data-target="#action-delete-<?php echo $swa->id_student ?>" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>
+                                                    <a href="<?= base_url().'Admin/siswa/detail/'.$swa->id_siswa ?>" class="btn btn-info"><i class="fas fa-eye"></i> Detail</a>
+                                                    <a href="<?= base_url().'Admin/siswa/edit/'.$swa->id_siswa ?>" class="btn btn-success"><i class="fas fa-pencil-square-o"></i>Edit</a>
+                                                    <a href="#"  data-toggle="modal" data-target="#action-delete-<?php echo $swa->id_siswa ?>" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>
                                                     <!-- Modal delete -->
-                                                    <div class="modal fade" id="action-delete-<?php echo $swa->id_student ?>">
+                                                    <div class="modal fade" id="action-delete-<?php echo $swa->id_siswa ?>">
                                                         <div class="modal-dialog">
                                                         <div class="modal-content">
                                                             <div class="modal-header">

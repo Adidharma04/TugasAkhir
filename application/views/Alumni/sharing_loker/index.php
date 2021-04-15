@@ -60,9 +60,9 @@
                     $btnColor = "btn-primary";
                     
                     
-                    if ( $job_vacancy->num_rows() > 0 ) {
+                    if ( $loker->num_rows() > 0 ) {
 
-                      foreach ( $job_vacancy->result() AS $jv) {
+                      foreach ( $loker->result() AS $jv) {
                         $gambar = "";
                         if ( $jv->foto ) {
 
@@ -97,9 +97,9 @@
                         <td>
                           <br>
                           <small>Ubah Sharing Loker</small><br>
-                          <a href="<?= base_url() . 'alumni/sharing_loker/edit/'. $jv->id_vacancy?>" class="btn btn-sm btn-warning">Sunting</a>
+                          <a href="<?= base_url() . 'alumni/sharing_loker/edit/'. $jv->id_loker?>" class="btn btn-sm btn-warning">Sunting</a>
                           &nbsp;
-                          <a href="<?= base_url() . 'alumni/sharing_loker/onDelete/'. $jv->id_vacancy?>" class="btn btn-sm btn-warning">Hapus</a>
+                          <a href="<?= base_url() . 'alumni/sharing_loker/onDelete/'. $jv->id_loker?>" class="btn btn-sm btn-warning">Hapus</a>
                         </td>
                     </tr>
                     <?php  

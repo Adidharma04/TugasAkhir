@@ -33,7 +33,7 @@ class Register_model extends CI_Model {
 
 		// query
 		$where = ['nis' => $nis];
-		$query = $this->db->get_where('information_student', $where);
+		$query = $this->db->get_where('profil_siswa', $where);
 		
 		// cek
 		if ( $query->num_rows() == 1 ) {
@@ -69,7 +69,7 @@ class Register_model extends CI_Model {
 
 		// ambil data siswa
 		$where = ['nis' => $nis];
-		$getDataSiswa = $this->db->get_where('information_student', $where)->row_array();
+		$getDataSiswa = $this->db->get_where('profil_siswa', $where)->row_array();
 
 
 		$data_informationstudent = [
@@ -79,7 +79,7 @@ class Register_model extends CI_Model {
 		];
 
 		$this->db->where('nis', $nis);
-		$this->db->update('information_student', $data_informationstudent);
+		$this->db->update('profil_siswa', $data_informationstudent);
 
 		
 		/** Proses Pengiriman Email (Add On) */

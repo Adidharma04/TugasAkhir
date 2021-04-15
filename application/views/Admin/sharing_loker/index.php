@@ -63,7 +63,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php $no = 1; foreach ($job_vacancy as $job) : ?>
+                                        <?php $no = 1; foreach ($loker as $job) : ?>
                                         <tr>
                                                 <td><?= $no++ ?></td>
                                                 <td><?= $job->nama_pekerjaan ?></td>
@@ -77,12 +77,12 @@
                                                     <?php endif ?>
                                                 </td>
                                                 <td>
-                                                    <a href="<?= base_url().'Admin/sharing_loker/detail/'.$job->id_vacancy ?>" class="btn btn-info"><i class="fas fa-eye"></i> Detail</a>
-                                                    <a href="<?= base_url().'Admin/sharing_loker/edit/'.$job->id_vacancy ?>" class="btn btn-success"><i class="fas fa-pencil-square-o"></i>Edit</a>
-                                                    <a href="#"  data-toggle="modal" data-target="#action-delete-<?php echo $job->id_vacancy ?>" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>
+                                                    <a href="<?= base_url().'Admin/sharing_loker/detail/'.$job->id_loker ?>" class="btn btn-info"><i class="fas fa-eye"></i> Detail</a>
+                                                    <a href="<?= base_url().'Admin/sharing_loker/edit/'.$job->id_loker ?>" class="btn btn-success"><i class="fas fa-pencil-square-o"></i>Edit</a>
+                                                    <a href="#"  data-toggle="modal" data-target="#action-delete-<?php echo $job->id_loker ?>" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>
 
                                                     <!-- Modal delete -->
-                                                    <div class="modal fade" id="action-delete-<?php echo $job->id_vacancy ?>">
+                                                    <div class="modal fade" id="action-delete-<?php echo $job->id_loker ?>">
                                                         <div class="modal-dialog">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
@@ -102,7 +102,7 @@
                                                             </div>
                                                             <div class="modal-footer justify-content-between">
                                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                                                                <a href="<?php echo base_url('admin/sharing_loker/onDelete/'. $job->id_vacancy) ?>" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus Sekarang</a>
+                                                                <a href="<?php echo base_url('admin/sharing_loker/onDelete/'. $job->id_loker) ?>" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus Sekarang</a>
                                                             </div>
                                                         </div>
                                                         <!-- /.modal-content -->

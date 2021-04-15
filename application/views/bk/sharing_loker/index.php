@@ -62,7 +62,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php $no = 1; foreach ($job_vacancy as $job) : ?>
+                                        <?php $no = 1; foreach ($loker as $job) : ?>
                                         <tr>
                                                 <td><?= $no++ ?></td>
                                                 <td><?= $job->nama_pekerjaan ?></td>
@@ -94,10 +94,10 @@
                                 $textBtn  = "Konfirmasi Loker";
                               }
                             ?>
-                            <a href="javascript:;" data-toggle="modal" data-target="#konfirmasi-<?php echo $job->id_vacancy ?>" class="btn <?php echo $colorBtn ?>"><i class="fas fa-eye"></i><?php echo $textBtn ?></a>
+                            <a href="javascript:;" data-toggle="modal" data-target="#konfirmasi-<?php echo $job->id_loker ?>" class="btn <?php echo $colorBtn ?>"><i class="fas fa-eye"></i><?php echo $textBtn ?></a>
                             
                             <!-- Modal delete -->
-                            <div class="modal fade" id="konfirmasi-<?php echo $job->id_vacancy ?>">
+                            <div class="modal fade" id="konfirmasi-<?php echo $job->id_loker ?>">
                               <div class="modal-dialog">
                                 <div class="modal-content">
                                   <div class="modal-header">
@@ -114,7 +114,7 @@
                                         <?php echo pemanggilanSVG( "accept" ) ?>
                                         <h6><b>Loker Disetujui</b></h6>
                                         <small>Klik tombol dibawah ini untuk mensetujui Loker</small> <br><br>
-                                        <a href="<?php echo base_url('bk/sharing_loker/processVerify/'. $job->id_vacancy.'?status=accept') ?>" class="btn btn-success btn-sm">Setujui</a>
+                                        <a href="<?php echo base_url('bk/sharing_loker/processVerify/'. $job->id_loker.'?status=accept') ?>" class="btn btn-success btn-sm">Setujui</a>
                                       </div>
 
                                       <!-- Ditolak -->
@@ -122,7 +122,7 @@
                                         <?php echo pemanggilanSVG( "decline" ) ?>
                                         <h6><b>Loker Ditolak</b></h6>
                                         <small>Klik tombol dibawah ini untuk menolak Loker</small> <br><br>
-                                        <a href="<?php echo base_url('bk/sharing_loker/processVerify/'. $job->id_vacancy.'?status=decline') ?>" class="btn btn-danger btn-sm">Ditolak</a>
+                                        <a href="<?php echo base_url('bk/sharing_loker/processVerify/'. $job->id_loker.'?status=decline') ?>" class="btn btn-danger btn-sm">Ditolak</a>
                                       </div>
 
                                     </div>

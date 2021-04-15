@@ -62,7 +62,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-id-card"></i></span>
                         </div>
-                        <input type="text" class="form-control" name="nama_informasi" id="nama_informasi" placeholder="Masukkan Informasi" value="<?= $information_general->nama_informasi; ?>">
+                        <input type="text" class="form-control" name="nama_informasi" id="nama_informasi" placeholder="Masukkan Informasi" value="<?= $informasi_umum->nama_informasi; ?>">
                       </div>
                       <?= form_error('nama_informasi','<small class="text-danger">','</small>');?>
                     </div>
@@ -71,15 +71,15 @@
                           <label>Foto Event</label>
                           <div class="input-group">
                             <div class="custom-file">
-                              <input type="file" class="custom-file-input form-control" id="foto" name="foto" value="<?= $information_general->foto; ?>">
+                              <input type="file" class="custom-file-input form-control" id="foto" name="foto" value="<?= $informasi_umum->foto; ?>">
                               <label class="custom-file-label" for="foto" value="">
                                 <?php
                                 $img = base_url('assets/Gambar/Website/default_info.png');
-                                if ($information_general->foto == "") : ?>
+                                if ($informasi_umum->foto == "") : ?>
                                   Choose File
                                 <?php else : ?>
-                                  <?= $information_general->foto;
-                                  $img = base_url('assets/Gambar/Upload/Informasi/' . $information_general->foto); ?>
+                                  <?= $informasi_umum->foto;
+                                  $img = base_url('assets/Gambar/Upload/Informasi/' . $informasi_umum->foto); ?>
                                 <?php endif ?>
                               </label>
                             </div>
@@ -94,12 +94,12 @@
                   <!-- Batas Baris -->
                   <div class="form-group">
                       <label for="deskripsi_informasi">Deskripsi Informasi</label>
-                      <textarea type="text" class="form-control" id="deskripsi_informasi" name="deskripsi_informasi" cols="30" rows="6" placeholder="Masukkan Deskripsi Informasi"><?= $information_general->deskripsi_informasi; ?></textarea>
+                      <textarea type="text" class="form-control" id="deskripsi_informasi" name="deskripsi_informasi" cols="30" rows="6" placeholder="Masukkan Deskripsi Informasi"><?= $informasi_umum->deskripsi_informasi; ?></textarea>
                           <?= form_error('deskripsi_informasi','<small class="text-danger">','</small>');?>
                   </div>
                   <div class="form-group">
                     <label for="status">Status</label>
-                    <?php if ($information_general->status == "accept") : ?>
+                    <?php if ($informasi_umum->status == "accept") : ?>
                       <div class="form-check">
                         <input type="radio" name="status" value="accept" checked> Diterima
                       </div>
@@ -109,7 +109,7 @@
                       <div class="form-check">
                         <input type="radio" name="status" value="decline"> Ditolak
                       </div>
-                    <?php elseif ($information_general->status == "pending") : ?>
+                    <?php elseif ($informasi_umum->status == "pending") : ?>
                       <div class="form-check">
                         <input type="radio" name="status" value="accept"> Diterima
                       </div>

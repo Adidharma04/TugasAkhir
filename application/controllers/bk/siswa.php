@@ -28,18 +28,18 @@ class siswa extends CI_Controller
         //-- Title Halaman
         $data['title'] = 'Halaman Siswa | Guru BK';
         //----------------------------
-        $data['information_student'] = $this->siswa_model->tampilDataSiswa();
+        $data['profil_siswa'] = $this->siswa_model->tampilDataSiswa();
         $this->load->view('Template/Admin/navbar', $data);
         $this->load->view('Template/Admin/sidebar_bk', $data);
         $this->load->view('bk/siswa/index', $data);
         $this->load->view('Template/Admin/footer');
     }
-    public function detail($id_student)
+    public function detail($id_siswa)
     {
         //-- Title Halaman
         $data['title'] = 'Halaman Admin-Guru BK';
         //----------------------------
-        $data['information_student'] = $this->siswa_model->getSiswa($id_student);
+        $data['profil_siswa'] = $this->siswa_model->getSiswa($id_siswa);
 
         $this->load->view('Template/Admin/navbar', $data);
         $this->load->view('Template/Admin/sidebar_bk', $data);
@@ -47,9 +47,9 @@ class siswa extends CI_Controller
         $this->load->view('Template/Admin/footer');
     }
 
-    function processVerify( $id_student ) {
+    function processVerify( $id_siswa ) {
 
-        $this->siswa_model->prosesKonfirmasiStatus( $id_student );
+        $this->siswa_model->prosesKonfirmasiStatus( $id_siswa );
         redirect('bk/siswa', 'refresh');
     }
    

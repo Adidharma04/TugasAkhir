@@ -63,7 +63,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-briefcase"></i></span>
                         </div>
-                        <input type="text" class="form-control" id="nama_pekerjaan" name="nama_pekerjaan" placeholder="Masukkan Nama Pekerjaan beserta Jabatan" value="<?= $job_vacancy->nama_pekerjaan; ?>">
+                        <input type="text" class="form-control" id="nama_pekerjaan" name="nama_pekerjaan" placeholder="Masukkan Nama Pekerjaan beserta Jabatan" value="<?= $loker->nama_pekerjaan; ?>">
                         <?= form_error('nama_pekerjaan','<small class="text-danger">','</small>');?>
                     </div>
                   </div>
@@ -73,7 +73,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-building"></i></span>
                         </div>
-                        <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Masukkan Alamat Perusahaan" value="<?= $job_vacancy->nama_pekerjaan; ?>" >
+                        <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Masukkan Alamat Perusahaan" value="<?= $loker->nama_pekerjaan; ?>" >
                         <?= form_error('alamat','<small class="text-danger">','</small>');?>
                     </div>
                   </div>
@@ -81,7 +81,7 @@
               <!-- Batas Baris -->
               <div class="form-group">
                 <label for="deskripsi_pekerjaan">Deskripsi Pekerjaan</label>
-                <textarea class="form-control" name="deskripsi_pekerjaan" id="deskripsi_pekerjaan" cols="30" rows="6" placeholder="Masukkan Deskripsi Pekerjaan"> <?= $job_vacancy->deskripsi_pekerjaan; ?> </textarea>
+                <textarea class="form-control" name="deskripsi_pekerjaan" id="deskripsi_pekerjaan" cols="30" rows="6" placeholder="Masukkan Deskripsi Pekerjaan"> <?= $loker->deskripsi_pekerjaan; ?> </textarea>
                   <?= form_error('deskripsi_pekerjaan', '<small class="text-danger">', '</small>'); ?>
               </div>
               <!-- Batas Baris -->
@@ -91,15 +91,15 @@
                     <h4>Foto Event</h4>
                     <div class="input-group">
                       <div class="custom-file">
-                        <input type="file" class="custom-file-input form-control" id="foto" name="foto" value="<?= $job_vacancy->foto; ?>">
+                        <input type="file" class="custom-file-input form-control" id="foto" name="foto" value="<?= $loker->foto; ?>">
                         <label class="custom-file-label" for="foto" value="">
                           <?php
                           $img = base_url('assets/Gambar/Website/default_loker_null.png');
-                          if ($job_vacancy->foto == "") : ?>
+                          if ($loker->foto == "") : ?>
                             Choose File
                           <?php else : ?>
-                            <?= $job_vacancy->foto;
-                            $img = base_url('assets/Gambar/Upload/Loker/' . $job_vacancy->foto); ?>
+                            <?= $loker->foto;
+                            $img = base_url('assets/Gambar/Upload/Loker/' . $loker->foto); ?>
                           <?php endif ?>
                         </label>
                       </div>

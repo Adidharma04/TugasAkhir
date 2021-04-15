@@ -44,7 +44,7 @@
     <div class="top-popular-courses-area mt-50 section-padding-100-70">
         <div class="container">
             <div class="row">
-                <?php $no = 1; foreach ($information_general as $ig) : ?>
+                <?php $no = 1; foreach ($informasi_umum as $ig) : ?>
                 <?php if ($ig->status == "accept") : ?>
                     <div class="col-12 col-lg-6">
                         <div class="single-top-popular-course d-flex align-items-center flex-wrap mb-30 wow fadeInUp" data-wow-delay="400ms">

@@ -71,9 +71,9 @@ class Informasi_umum extends CI_Controller {
                 echo $upload['error'];
             }
         }
-    }public function edit($id_general){
+    }public function edit($id_umum){
 
-        $getDataInformasiUmumById = $this->informasi_umum_model->getInformasiUmum($id_general);
+        $getDataInformasiUmumById = $this->informasi_umum_model->getInformasiUmum($id_umum);
 
         $this->form_validation->set_rules('nama_informasi', 'Nama Informasi', 'required|trim',[
             'required' => 'Masukkan Informasi',
@@ -87,7 +87,7 @@ class Informasi_umum extends CI_Controller {
         //-- Title Halaman
         $data ['title'] = 'Halaman Admin-Dashboard';
         //----------------------------
-        $data ['information_general'] = $getDataInformasiUmumById;
+        $data ['informasi_umum'] = $getDataInformasiUmumById;
         if($this->form_validation->run() == FALSE){
             $this->load->view('Template/Alumni/navbar_alumni',$data);
             $this->load->view('Template/Alumni/sidebar_alumni',$data);
@@ -95,7 +95,7 @@ class Informasi_umum extends CI_Controller {
             $this->load->view('Template/Alumni/footer_alumni');
         }
         else{
-            $this->informasi_umum_model->editDataInformasiUmum( $id_general );
+            $this->informasi_umum_model->editDataInformasiUmum( $id_umum );
             $html = '<div class="alert alert-success">
                             <a href="sharing_loker" class="close" data-dismiss="alert" >&times;</a>
                             <b>Pemberitahuan</b> <br>
@@ -106,9 +106,9 @@ class Informasi_umum extends CI_Controller {
         }
     }
     // proses hapus siswa
-    function onDelete( $id_general ) {
+    function onDelete( $id_umum ) {
 
-        $this->informasi_umum_model->prosesHapusInformasiUmum( $id_general );
+        $this->informasi_umum_model->prosesHapusInformasiUmum( $id_umum );
         $html = '<div class="alert alert-success">
                      <b>Pemberitahuan</b> <br>
                      Informasi berhasil terhapus pada tanggal '.date('d F Y H.i A').'

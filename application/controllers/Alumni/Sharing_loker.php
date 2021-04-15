@@ -29,7 +29,7 @@ class sharing_loker extends CI_Controller {
         //-- Title Halaman
         $data ['title'] = 'Halaman Sharing Loker | Alumni';
         //----------------------------
-        $data['job_vacancy'] = $this->sharing_loker_model->tampilDataLoker(); 
+        $data['loker'] = $this->sharing_loker_model->tampilDataLoker(); 
         $this->load->view('Template/Alumni/navbar_alumni',$data);
         $this->load->view('Template/Alumni/sidebar_alumni',$data);
         $this->load->view('Alumni/sharing_loker/index',$data);
@@ -55,7 +55,7 @@ class sharing_loker extends CI_Controller {
         //-- Title Halaman
          $data ['title'] = 'Halaman Admin-Dashboard';
         //----------------------------
-        $data['job_vacancy'] = $this->sharing_loker_model->tampilDataLoker(); 
+        $data['loker'] = $this->sharing_loker_model->tampilDataLoker(); 
         if($this->form_validation->run() == FALSE){
             $this->load->view('Template/Alumni/navbar_alumni',$data);
             $this->load->view('Template/Alumni/sidebar_alumni',$data);
@@ -77,9 +77,9 @@ class sharing_loker extends CI_Controller {
             }
         }
     }
-    public function edit($id_vacancy){
+    public function edit($id_loker){
 
-        $getDataLokerById = $this->sharing_loker_model->getLoker($id_vacancy);
+        $getDataLokerById = $this->sharing_loker_model->getLoker($id_loker);
 
         $this->form_validation->set_rules('nama_pekerjaan', 'Nama Pekerjaan', 'required|trim',[
             'required' => 'Masukkan Nama Pekerjaan',
@@ -97,7 +97,7 @@ class sharing_loker extends CI_Controller {
         //-- Title Halaman
         $data ['title'] = 'Halaman Admin-Dashboard';
         //----------------------------
-        $data ['job_vacancy'] = $getDataLokerById;
+        $data ['loker'] = $getDataLokerById;
         if($this->form_validation->run() == FALSE){
             $this->load->view('Template/Alumni/navbar_alumni',$data);
             $this->load->view('Template/Alumni/sidebar_alumni',$data);
@@ -105,7 +105,7 @@ class sharing_loker extends CI_Controller {
             $this->load->view('Template/Alumni/footer_alumni');  
         }
         else{
-            $this->sharing_loker_model->editDataLoker( $id_vacancy );
+            $this->sharing_loker_model->editDataLoker( $id_loker );
             $html = '<div class="alert alert-success">
                         <a href="sharing_loker" class="close" data-dismiss="alert" >&times;</a>
                         <b>Pemberitahuan</b> <br>
@@ -116,9 +116,9 @@ class sharing_loker extends CI_Controller {
         }
     } 
     // proses hapus siswa
-    function onDelete( $id_vacancy ) {
+    function onDelete( $id_loker ) {
 
-        $this->sharing_loker_model->prosesHapusLoker( $id_vacancy );
+        $this->sharing_loker_model->prosesHapusLoker( $id_loker );
         $html = '<div class="alert alert-success">
                      <b>Pemberitahuan</b> 
                      <br>

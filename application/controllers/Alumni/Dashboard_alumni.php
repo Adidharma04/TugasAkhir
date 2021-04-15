@@ -41,9 +41,9 @@ class Dashboard_alumni extends CI_Controller {
     }
 
     // user edit
-    public function edit($id_student){
+    public function edit($id_siswa){
 
-        $getDataSiswaById = $this->siswa_model->getSiswa($id_student);
+        $getDataSiswaById = $this->siswa_model->getSiswa($id_siswa);
         $nis = $getDataSiswaById->nis;
         $email = $getDataSiswaById->email;
 
@@ -53,7 +53,7 @@ class Dashboard_alumni extends CI_Controller {
 
         if ($nis != $inputNIS) {
             //-- rule--//
-            $this->form_validation->set_rules('nis', 'Nis ', 'required|trim|is_unique[information_student.nis]', [
+            $this->form_validation->set_rules('nis', 'Nis ', 'required|trim|is_unique[profil_siswa.nis]', [
                 'required' => 'Masukkan No Induk Siswa',
                 'is_unique' => 'No Induk Siswa telah terdaftar',
             ]);
@@ -72,7 +72,7 @@ class Dashboard_alumni extends CI_Controller {
 
         if ($email != $inputEmail) {
 
-            $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[information_student.email]', [
+            $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[profil_siswa.email]', [
                 'required'  => 'Masukkan Email Siswa',
                 'is_unique' => 'Email telah terdaftar',
             ]);
@@ -89,14 +89,14 @@ class Dashboard_alumni extends CI_Controller {
         //-- Title Halaman
         $data['title'] = 'Halaman Admin-Dashboard';
         //----------------------------
-        $data['information_student'] = $getDataSiswaById;
+        $data['profil_siswa'] = $getDataSiswaById;
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('Template/Admin/navbar', $data);
             $this->load->view('Template/Admin/sidebar', $data);
             $this->load->view('Admin/siswa/edit', $data);
             $this->load->view('Template/Admin/footer');
         } else {
-            $this->siswa_model->editDataSiswa($id_student);
+            $this->siswa_model->editDataSiswa($id_siswa);
             $html = '<div class="alert alert-success">
                         <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
                         <b>Pemberitahuan</b> 

@@ -55,8 +55,8 @@ class Event_model extends CI_Model {
             }  
         }
     }
-    public function getEvent($id_student){
-        return $this->db->get_where('event',['id_event'=>$id_student])->row();
+    public function getEvent($id_siswa){
+        return $this->db->get_where('event',['id_event'=>$id_siswa])->row();
 	}
     
     public function editDataEvent( $id_event ){

@@ -62,7 +62,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="fas fa-id-card"></i></span>
                     </div>
-                    <input type="text" class="form-control" id="nis" name="nis" placeholder="Masukkan Nomer Induk Siswa" value="<?= $information_student->nis; ?>">
+                    <input type="text" class="form-control" id="nis" name="nis" placeholder="Masukkan Nomer Induk Siswa" value="<?= $profil_siswa->nis; ?>">
                     <?= form_error('nis', '<small class="text-danger">', '</small>'); ?>
                   </div>
                 </div>
@@ -72,7 +72,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="fas fa-user"></i></span>
                     </div>
-                    <input type="text" class="form-control" name="nama" id="nama" placeholder="Masukkan Nama" value="<?= $information_student->nama; ?>">
+                    <input type="text" class="form-control" name="nama" id="nama" placeholder="Masukkan Nama" value="<?= $profil_siswa->nama; ?>">
                     <?= form_error('nama', '<small class="text-danger">', '</small>'); ?>
                   </div>
                 </div>
@@ -82,7 +82,7 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for="alamat">Alamat</label>
-                    <textarea class="form-control" name="alamat" id="alamat" cols="30" rows="6" placeholder="Masukkan Alamat"> <?= $information_student->alamat; ?></textarea>
+                    <textarea class="form-control" name="alamat" id="alamat" cols="30" rows="6" placeholder="Masukkan Alamat"> <?= $profil_siswa->alamat; ?></textarea>
                     <?= form_error('alamat', '<small class="text-danger">', '</small>'); ?>
                   </div>
                 </div>
@@ -92,7 +92,7 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label>Tanggal lahir:(Month/Day/Year)</label>
-                    <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="<?= $information_student->tanggal_lahir; ?>">
+                    <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="<?= $profil_siswa->tanggal_lahir; ?>">
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -101,7 +101,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
                     </div>
-                    <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" placeholder="Masukkan Tempat Lahir" value="<?= $information_student->tempat_lahir; ?>">
+                    <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" placeholder="Masukkan Tempat Lahir" value="<?= $profil_siswa->tempat_lahir; ?>">
                     <?= form_error('tempat_lahir', '<small class="text-danger">', '</small>'); ?>
                   </div>
                 </div>
@@ -114,7 +114,7 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                           </div>
-                        <input type="email" class="form-control" id="email" name="email" placeholder="Examample@gmail.com" value="<?= $information_student->email; ?>">
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Examample@gmail.com" value="<?= $profil_siswa->email; ?>">
                         <?= form_error('email', '<small class="text-danger">', '</small>'); ?>
                       </div>
                   </div>
@@ -124,7 +124,7 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-phone"></i></span>
                           </div>
-                        <input type="number" class="form-control" id="no_telfon" name="no_telfon" placeholder="08xxxxxxx" value="<?= $information_student->no_telfon; ?>">
+                        <input type="number" class="form-control" id="no_telfon" name="no_telfon" placeholder="08xxxxxxx" value="<?= $profil_siswa->no_telfon; ?>">
                       </div>
                   </div>
                   <div class="col-md-4">
@@ -133,7 +133,7 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-calendar"></i></span>
                           </div>
-                        <input type="number" class="form-control" id="tahun_lulus" name="tahun_lulus" placeholder="Masukkan Tahun Lulus" value="<?= $information_student->tahun_lulus; ?>">
+                        <input type="number" class="form-control" id="tahun_lulus" name="tahun_lulus" placeholder="Masukkan Tahun Lulus" value="<?= $profil_siswa->tahun_lulus; ?>">
                         <?= form_error('tahun_lulus', '<small class="text-danger">', '</small>'); ?>
                     </div>
                   </div>
@@ -145,15 +145,15 @@
                     <h4>Foto Siswa</h4>
                     <div class="input-group">
                       <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="foto" name="foto" value="<?= $information_student->foto; ?>">
+                        <input type="file" class="custom-file-input" id="foto" name="foto" value="<?= $profil_siswa->foto; ?>">
                         <label class="custom-file-label" for="foto">
                           <?php
                           $img = base_url('assets/Gambar/Website/default_siswa.jpg');
-                          if ($information_student->foto == "") : ?>
+                          if ($profil_siswa->foto == "") : ?>
                             Choose File
                           <?php else : ?>
-                            <?= $information_student->foto;
-                            $img = base_url('assets/Gambar/Upload/Siswa/' . $information_student->foto); ?>
+                            <?= $profil_siswa->foto;
+                            $img = base_url('assets/Gambar/Upload/Siswa/' . $profil_siswa->foto); ?>
                           <?php endif ?>
                         </label>
                       </div>
@@ -170,7 +170,7 @@
                 <div class="col-md-4">
                   <div class="form-group">
                     <label for="jurusan">Jurusan</label>
-                    <?php if ($information_student->jurusan == "ipa") : ?>
+                    <?php if ($profil_siswa->jurusan == "ipa") : ?>
                       <div class="form-check">
                         <input type="radio" name="jurusan" value="ipa" checked> Ipa
                       </div>
@@ -190,7 +190,7 @@
                 <div class="col-md-4">
                   <div class="form-group">
                       <label for="alumni">Verifikasi Alumni</label>
-                      <?php if ($information_student->verifikasi_alumni == "null") : ?>
+                      <?php if ($profil_siswa->verifikasi_alumni == "null") : ?>
                           <div class="form-check">
                             <input type="radio" name="verifikasi_alumni" value="null" checked> Kosong
                           </div>
@@ -200,7 +200,7 @@
                           <div class="form-check">
                             <input type="radio" name="verifikasi_alumni" value="diterima"> Diterima
                           </div>
-                      <?php elseif ($information_student->verifikasi_alumni == "pengajuan") : ?>
+                      <?php elseif ($profil_siswa->verifikasi_alumni == "pengajuan") : ?>
                           <div class="form-check">
                             <input type="radio" name="verifikasi_alumni" value="null" > Kosong
                           </div>
@@ -226,7 +226,7 @@
                 <div class="col-md-4">
                   <div class="form-group">
                     <label for="gender">Jenis Kelamin</label>
-                      <?php if ($information_student->jenis_kelamin == "laki") : ?>
+                      <?php if ($profil_siswa->jenis_kelamin == "laki") : ?>
                           <div class="form-check">
                             <input type="radio" name="jenis_kelamin" value="laki" checked> Laki-Laki
                           </div>

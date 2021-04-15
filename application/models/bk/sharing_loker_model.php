@@ -4,10 +4,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class sharing_loker_model extends CI_Model {
     public function tampilDataLoker()
     {  
-        $this->db->select('job_vacancy.*');
-        return $this->db->get('job_vacancy')->result();
+        $this->db->select('loker.*');
+        return $this->db->get('loker')->result();
     }
-    function prosesKonfirmasiStatus( $id_vacancy ){
+    function prosesKonfirmasiStatus( $id_loker ){
 
 
         $status =  $this->input->get('status');
@@ -17,8 +17,8 @@ class sharing_loker_model extends CI_Model {
             'status'    => $status
         ];
 
-        $this->db->where('id_vacancy', $id_vacancy);
-        $this->db->update('job_vacancy', $data);
+        $this->db->where('id_loker', $id_loker);
+        $this->db->update('loker', $data);
     }
 }
 

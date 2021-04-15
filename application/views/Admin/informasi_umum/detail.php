@@ -45,7 +45,7 @@
         <div class="col-12 col-lg-9 d-flex align-items-stretch">
           <div class="card bg-light">
             <div class="card-header text-muted border-bottom-0">
-                <h2><?= $information_general->nama_informasi ?></h2>
+                <h2><?= $informasi_umum->nama_informasi ?></h2>
                 <hr>
             </div>
             <div class="card-body pt-0" style="padding-right:80.7px;">
@@ -53,17 +53,17 @@
                 <div class="col-7">
                   <ul class="ml-5 mb-0 fa-ul text-muted">
                     <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building fa-1x"></i> </span><b><h6>Deskripsi</h6></b></li>
-                    <span align="justify"><p><?= $information_general->deskripsi_informasi ?></p></span>
+                    <span align="justify"><p><?= $informasi_umum->deskripsi_informasi ?></p></span>
                     <br>
                     <li class="small"><span class="fa-li"><i class="fas fa-lg fa-clock-o fa-1x"></i> </span><b><h6>Status</h6></b> </li>
-                    <span align="justify"><p><?= $information_general->status ?></p></span>
+                    <span align="justify"><p><?= $informasi_umum->status ?></p></span>
                   </ul>
                 </div>
                 <div class="col-5 text-center">
-                    <?php if ($information_general->foto == "") : ?>
+                    <?php if ($informasi_umum->foto == "") : ?>
                       <img src="<?= base_url('assets/Gambar/Website/default_info.png') ?>" style="width:230px; height:300px;">
                     <?php else : ?>
-                      <img src="<?= base_url('assets/Gambar/Upload/informasi/') . $information_general->foto ?>" style="width:300px; height:300px;">
+                      <img src="<?= base_url('assets/Gambar/Upload/informasi/') . $informasi_umum->foto ?>" style="width:300px; height:300px;">
                     <?php endif ?>
                 </div>
               </div>

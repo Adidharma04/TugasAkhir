@@ -66,11 +66,6 @@
                         <td><?= $prf->username ?></td>
                         <td><?= $prf->level ?></td>
                         <td><?= $prf->last_logged ?></td>
-                        <td>
-                          <a href="#" class="btn btn-info"><i class="fa fa-eye"></i> Detail</a>
-                          <a href="#" class="btn btn-success"><i class="fa fa-pencil"></i>Edit</a>
-                          <a href="#" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>
-                        </td>
                       </tr>
                     <?php endforeach ?>
                   </tbody>
@@ -80,7 +75,6 @@
                       <th>Username</th>
                       <th>Level</th>
                       <th>Last logged</th>
-                      <th>Opsi</th>
                     </tr>
                   </tfoot>
                 </table>

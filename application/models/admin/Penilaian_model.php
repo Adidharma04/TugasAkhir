@@ -8,14 +8,14 @@ class Penilaian_model extends CI_Model {
         // return $this->db->get('penilaian')->result();
 
         $sql = "SELECT 
-                    information_student.*,
+                    profil_siswa.*,
                     penilaian.kritik, penilaian.saran, penilaian.created_at, penilaian.update_at
                     
                 FROM penilaian
                 
-                JOIN information_student 
+                JOIN profil_siswa 
                 
-                ON information_student.id_profile = penilaian.id_profile";
+                ON profil_siswa.id_profile = penilaian.id_profile";
 
         return $this->db->query( $sql );
     }

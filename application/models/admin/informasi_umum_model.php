@@ -4,8 +4,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class informasi_umum_model extends CI_Model {
     public function tampilDataInformasiUmum()
     {  
-        $this->db->select('information_general.*');
-        return $this->db->get('information_general')->result();
+        $this->db->select('informasi_umum.*');
+        return $this->db->get('informasi_umum')->result();
     }
     
     public function tambahDataInformasiUmum($upload){
@@ -13,14 +13,14 @@ class informasi_umum_model extends CI_Model {
     
         $id_profile = $this->session->userdata('sess_id_profile');
 
-        $information_general =[
+        $informasi_umum =[
             'id_profile'                   => $id_profile,
             'nama_informasi'               => $this->input->post('nama_informasi', true),
             'deskripsi_informasi'          => $this->input->post('deskripsi_informasi', true),
             'status'                       => $this->input->post('status', true),
             'foto'                         => $upload['file']['file_name'],
         ];
-        $this->db->insert('information_general', $information_general);
+        $this->db->insert('informasi_umum', $informasi_umum);
     }
     public function upload(){    
         $config['upload_path'] = './assets/Gambar/Upload/Informasi/';    
@@ -40,13 +40,13 @@ class informasi_umum_model extends CI_Model {
             }  
         }
     }
-    public function getInformasiUmum($id_general){
-        return $this->db->get_where('information_general',['id_general'=>$id_general])->row();
+    public function getInformasiUmum($id_umum){
+        return $this->db->get_where('informasi_umum',['id_umum'=>$id_umum])->row();
 	}
-    public function editDataInformasiUmum( $id_general){
+    public function editDataInformasiUmum( $id_umum){
         
         // ambil detail informasi
-        $ambilInformasiUmum = $this->getInformasiUmum( $id_general );
+        $ambilInformasiUmum = $this->getInformasiUmum( $id_umum );
         
         // upload foto
         $config['upload_path'] = './assets/Gambar/Upload/Informasi/';    
@@ -76,7 +76,7 @@ class informasi_umum_model extends CI_Model {
                 $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> '.$this->upload->display_errors().'</div>';
                 $this->session->set_flashdata('msg', $html);
 
-                redirect('Admin/informasi_umum/edit/'. $id_general);
+                redirect('Admin/informasi_umum/edit/'. $id_umum);
                 
             }  
 
@@ -98,18 +98,18 @@ class informasi_umum_model extends CI_Model {
             'foto'                         => $foto,
 		];
 
-        // update job_vacancy
-        $this->db->where('id_general', $id_general);	
-        $this->db->update('information_general', $dataInformasiUmum);
+        // update loker
+        $this->db->where('id_umum', $id_umum);	
+        $this->db->update('informasi_umum', $dataInformasiUmum);
 
     }
 
 
 
     // porses hapus
-    function prosesHapusInformasiUmum( $id_general ){
+    function prosesHapusInformasiUmum( $id_umum ){
 
-        $this->db->where('id_general', $id_general)->delete('information_general');
+        $this->db->where('id_umum', $id_umum)->delete('informasi_umum');
     }
 }
 

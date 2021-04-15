@@ -9,7 +9,7 @@ class Loker_User extends CI_Controller {
     }
     public function index()
     {
-        $data['job_vacancy'] = $this->sharing_loker_model->tampilDataLoker(); 
+        $data['loker'] = $this->sharing_loker_model->tampilDataLoker(); 
         
         $this->load->view('User/loker', $data);
     }

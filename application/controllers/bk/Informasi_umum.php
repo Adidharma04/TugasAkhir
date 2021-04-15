@@ -26,15 +26,15 @@ class Informasi_umum extends CI_Controller {
         //-- Title Halaman
          $data ['title'] = 'Halaman Informasi Umum | Guru BK';
         //----------------------------
-        $data['information_general'] = $this->informasi_umum_model->tampilDataInformasiUmum(); 
+        $data['informasi_umum'] = $this->informasi_umum_model->tampilDataInformasiUmum(); 
         $this->load->view('Template/Admin/navbar',$data);
         $this->load->view('Template/Admin/sidebar_bk',$data);
         $this->load->view('bk/informasi_umum/index',$data);
         $this->load->view('Template/Admin/footer');
     } 
-    function processVerify( $id_general ) {
+    function processVerify( $id_umum ) {
 
-        $this->informasi_umum_model->prosesKonfirmasiStatus( $id_general );
+        $this->informasi_umum_model->prosesKonfirmasiStatus( $id_umum );
         redirect('bk/informasi_umum', 'refresh');
     }
 }

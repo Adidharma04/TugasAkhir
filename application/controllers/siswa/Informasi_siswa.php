@@ -26,7 +26,7 @@ class Informasi_siswa extends CI_Controller {
         //-- Title Halaman
          $data ['title'] = 'Halaman Informasi Umum | Siswa';
         //----------------------------
-        $data['information_general'] = $this->informasi_umum_model->tampilDataInformasiUmum(); 
+        $data['informasi_umum'] = $this->informasi_umum_model->tampilDataInformasiUmum(); 
         $this->load->view('siswa/informasi',$data);
     } 
 
