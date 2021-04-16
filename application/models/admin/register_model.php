@@ -287,7 +287,7 @@ class Register_model extends CI_Model {
 																		<div style="font-family:Helvetica Neue,Arial,sans-serif;font-size:16px;line-height:22px;text-align:left;color:#555;">
 																			Halo saudara '.$nama_siswa.'
 																			<span style="font-size: 12px">
-																				Lorepisum dolar sit amlet is generator string for developer
+																			Anda telah melakukan verifikasi alumni, dimohon untuk menunggu BK agar segera memproses permintaan anda.
 																				<br>
 																			</span>
 																		</div>
@@ -296,7 +296,7 @@ class Register_model extends CI_Model {
 																<tr>
 																	<td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
 																		<div style="font-size: 12px;font-family:Helvetica Neue,Arial,sans-serif;font-size:14px;line-height:22px;text-align:left;color:#555;">
-																			Anda telah melakukan verifikasi alumni, dimohon untuk menunggu BK agar segera memproses permintaan anda.
+																			Anda akan mendapatkan notifikasi jika anda telah di verifikasi menjadi alumni.
 																		</div>
 																	</td>
 																</tr>

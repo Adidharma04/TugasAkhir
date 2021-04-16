@@ -102,7 +102,7 @@
           </li>
           <li class="nav-header">Track Record</li>
           <li class="nav-item">
-            <a href="<?php echo base_url("bk/record_kuliah")?>" class="nav-link">
+            <a href="<?php echo base_url("bk/tracer_kuliah")?>" class="nav-link">
               <i class="nav-icon fas fa-search"></i>
               <p>
                 Record Kuliah
@@ -110,7 +110,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="<?php echo base_url("bk/record_kerja")?>" class="nav-link">
+            <a href="<?php echo base_url("bk/tracer_kerja")?>" class="nav-link">
               <i class="nav-icon fas fa-search"></i>
               <p>
                 Record Kerja

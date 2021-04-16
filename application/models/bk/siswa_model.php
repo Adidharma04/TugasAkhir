@@ -254,7 +254,7 @@ class siswa_model extends CI_Model {
 																		<div style="font-family:Helvetica Neue,Arial,sans-serif;font-size:16px;line-height:22px;text-align:left;color:#555;">
 																			Halo saudara '.$nama_siswa.'
 																			<span style="font-size: 12px">
-																				Lorepisum dolar sit amlet is generator string for developer
+																				Verifikasi akun anda telah disetujui oleh Guru BK.
 																				<br>
 																			</span>
 																		</div>
@@ -263,7 +263,8 @@ class siswa_model extends CI_Model {
 																<tr>
 																	<td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
 																		<div style="font-size: 12px;font-family:Helvetica Neue,Arial,sans-serif;font-size:14px;line-height:22px;text-align:left;color:#555;">
-																			Anda telah melakukan verifikasi alumni, dimohon untuk menunggu BK agar segera memproses permintaan anda.
+																			Dimohon untuk mengisi record secara berkala, karena merupakan persyaratan pengambilan IJAZAH dan SKHUN. Jika tidak mengisi
+																			record secara berkala, maka IJAZAH dan SKHUN akan kami tahan. Terimakasih.
 																		</div>
 																	</td>
 																</tr>
