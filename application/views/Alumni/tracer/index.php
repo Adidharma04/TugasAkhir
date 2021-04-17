@@ -48,7 +48,6 @@
               </div>
               <!-- /.timeline-label -->
 
-
               <?php if ( count($tracer) > 0 ) { ?>
 
                 <?php foreach ( $tracer as $item ) {
@@ -74,7 +73,7 @@
                         $nama    = $item['data']['nama_perusahaan'];
                         $caption = "Pernah Bekerja";
 
-                        $deskripsi = "Bekerja di salah satu perusahaan ". $item['data']['jenis_perusahaan']. " pada tanggal ".$item['data']['tahun_masuk']." dengan alamat perusahaan di ". ucfirst($item['data']['alamat_perusahaan']);
+                        $deskripsi = "Bekerja di salah satu perusahaan <b>". $item['data']['jenis_perusahaan']. "</b> pada tanggal <b>".$item['data']['tahun_masuk']."</b> dengan alamat perusahaan di <b>". ucfirst($item['data']['alamat_perusahaan'].'</b>');
                         $tanggal_pembuatan = date('d M Y H.i A', strtotime($item['data']['created_at']));
 
                         $color = "bg-blue";
@@ -100,11 +99,7 @@
                       // replace id
                       $id_tracer = $item['data']['id_kuliah'];
                     }
-
-
                 ?>
-
-
                   
                   <!-- Tracer  -->
                   <div>
@@ -121,11 +116,6 @@
                       <div class="timeline-footer">
                         <a href="<?php echo base_url('Alumni/tracer/viewupdatetracer/'. $item['tipe_tracer'].'/'. $id_tracer) ?>" class="btn btn-dark btn-sm">Sunting</a>
                         <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#action-delete-<?php echo $item['tipe_tracer'].'-'.$id_tracer ?>" >Delete</a>
-
-
-
-
-
 
                         <!-- Modal delete -->
                         <div class="modal fade" id="action-delete-<?php echo $item['tipe_tracer'].'-'.$id_tracer ?>">
@@ -219,26 +209,7 @@
                             <!-- /.modal-dialog -->
                           </div>
                           <!-- /.modal -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      </div><!-- /.container-fluid -->
-
-      
+              </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
   </div>

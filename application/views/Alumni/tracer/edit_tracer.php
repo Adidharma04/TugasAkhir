@@ -26,24 +26,23 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Tambah Tracer Kerja</h1>
+              <h1>Edit Tracer Kerja</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Tambah Tracer Kerja</li>
+                <li class="breadcrumb-item active">Edit Tracer Kerja</li>
               </ol>
             </div>
           </div>
         </div><!-- /.container-fluid -->
       </section>
-
       <!-- Main content -->
       <section class="content">
         <!-- Default box -->
         <div class="card">
           <div class="card-header" style="background-color:blanchedalmond">
-            <h3 class="card-title">Form Tambah Tracer Kerja</h3>
+            <h3 class="card-title">Form Edit Tracer Kerja</h3>
 
             <div class="card-tools">
               <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -52,16 +51,15 @@
             </div>
           </div>
           <div class="card-body">
-          <form action="" method="post" enctype="multipart/form-data">
+            <form action="" method="post" enctype="multipart/form-data">
             <div class="row">
-
                   <div class="col-md-4">
                   <label>Nama Perusahaan</label>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-briefcase"></i></span>
                         </div>
-                        <input type="text" class="form-control" id="nama_perusahaan" name="nama_perusahaan" placeholder="Masukkan Perusahaan" value="<?= set_value('nama_perusahaan'); ?>" >
+                        <input type="text" class="form-control" id="nama_perusahaan" name="nama_perusahaan" placeholder="Masukkan namaPerusahaan"  value="<??>" >
                     </div>
                     <?= form_error('nama_perusahaan','<small class="text-danger">','</small>');?>
                   </div>
@@ -72,7 +70,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-building"></i></span>
                         </div>
-                        <input type="text" class="form-control" id="jenis_perusahaan" name="jenis_perusahaan"  placeholder="Masukkan Jenis Perusahaan" value="<?= set_value('jenis_perusahaan'); ?>" >
+                        <input type="text" class="form-control" id="jenis_perusahaan" name="jenis_perusahaan"  placeholder="Masukkan Jenis Perusahaan" value="<??>" >
                     </div>
                     <?= form_error('jenis_perusahaan','<small class="text-danger">','</small>');?>
                   </div>
@@ -83,7 +81,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-building"></i></span>
                         </div>
-                        <input type="text" class="form-control" name="alamat_perusahaan" id="alamat_perusahaan" placeholder="Masukkan Alamat Perusahaan" value="<?= set_value('alamat_perusahaan'); ?>" >
+                        <input type="text" class="form-control" name="alamat_perusahaan" id="alamat_perusahaan" placeholder="Masukkan Alamat Perusahaan" value="<??>" >
                     </div>
                     <?= form_error('alamat_perusahaan','<small class="text-danger">','</small>');?>
                   </div>
@@ -96,7 +94,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-calendar"></i></span>
                         </div>
-                        <input type="date" class="form-control" id="tahun_masuk" name="tahun_masuk" value="<?= set_value('tahun_masuk'); ?>" >
+                        <input type="date" class="form-control" id="tahun_masuk" name="tahun_masuk" value="<??>" >
                     </div>
                     <?= form_error('tahun_masuk','<small class="text-danger">','</small>');?>
                   </div>
@@ -106,7 +104,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-calendar"></i></span>
                         </div>
-                        <input type="date" class="form-control" id="tahun_keluar" name="tahun_keluar"  value="<?= set_value('tahun_keluar'); ?>" >
+                        <input type="date" class="form-control" id="tahun_keluar" name="tahun_keluar"  value="<??>" >
                     </div>
                     <?= form_error('tahun_keluar','<small class="text-danger">','</small>');?>
                   </div>
@@ -118,7 +116,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-building"></i></span>
                             </div>
-                            <input type="text" class="form-control" name="jabatan" id="jabatan" placeholder="Masukkan Jabatan" value="<?= set_value('jabatan'); ?>" >
+                            <input type="text" class="form-control" name="jabatan" id="jabatan" placeholder="Masukkan Jabatan" value="<??>" >
                         </div>
                         <?= form_error('jabatan','<small class="text-danger">','</small>');?>
                     </div>

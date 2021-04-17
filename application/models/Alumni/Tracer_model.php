@@ -50,13 +50,7 @@
                     array_push( $dataTracer, $dataKerja );
                 }
             } 
-
-
-
-
-
             
-
             // @TODO 4 : Mengambil data tracer kuliah
             $this->db->where( $where );
             $ambilDataTracerKuliah = $this->db->get('tracer_kuliah');
@@ -79,17 +73,9 @@
                     array_push( $dataTracer, $dataKuliah );
                 }
             }
-
-
-
             // return
             return $dataTracer;
         }
-        
-
-
-
-
 
         // ambil data edit tracer
         function getDataTracerByTypeAndId( $tipe, $id ) {
@@ -109,7 +95,14 @@
             return $query;
         }
 
+        function editDataTracer ($tipe,$id){
+            if ( $tipe == "kuliah" ) {
+                $this->db->where('id_kuliah', $id);
+            }else if( $tipe == "kerja" ){
+                $this->db->where('id_kerja', $id);
+            }
 
+        }
 
         // delete tracer kuliah / kerja
         function hapusTracer( $tipe, $id ){

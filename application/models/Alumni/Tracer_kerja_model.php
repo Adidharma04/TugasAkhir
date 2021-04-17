@@ -14,10 +14,10 @@ class Tracer_kerja_model extends CI_Model {
             'jabatan'                           => $this->input->post('jabatan', true),
             'alamat_perusahaan'                 => $this->input->post('alamat_perusahaan', true),
             'tahun_masuk'                       => $this->input->post('tahun_masuk', true),
-            'tahun_keluar'                       => $this->input->post('tahun_lulus', true),
+            'tahun_keluar'                       => $this->input->post('tahun_keluar', true),
             'status'                            => $this->input->post('status', true),
         ];
-        $this->db->insert('tracer_kuliah', $tracer_kuliah);
+        $this->db->insert('tracer_kerja', $tracer_kuliah);
     }
     
 
