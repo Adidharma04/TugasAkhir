@@ -74,13 +74,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/charts/chartjs.html" class="nav-link">
+                  <a href="<?php echo base_url('Admin/tracer_kuliah')?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Tracer Kuliah</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/charts/flot.html" class="nav-link">
+              <a href="<?php echo base_url('Admin/tracer_kerja')?>" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Tracer Kerja</p>
                 </a>
