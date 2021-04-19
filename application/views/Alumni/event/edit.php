@@ -101,7 +101,7 @@
                         <input type="file" class="custom-file-input form-control" id="foto" name="foto" value="<?= $event->foto; ?>">
                         <label class="custom-file-label" for="foto" value="">
                           <?php
-                          $img = base_url('assets/Gambar/Website/default_event.png');
+                          $img = base_url('assets/Gambar/Website/default_event_null.png');
                           if ($event->foto == "") : ?>
                             Choose File
                           <?php else : ?>

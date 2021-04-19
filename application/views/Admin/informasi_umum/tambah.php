@@ -74,7 +74,7 @@
                 <!-- Batas Baris -->
                 <div class="form-group">
                     <label for="deskripsi_informasi">Deskripsi Informasi</label>
-                    <textarea type="text" class="form-control" id="deskripsi_informasi" name="deskripsi_informasi" cols="30" rows="6" placeholder="Masukkan Deskripsi Informasi"></textarea>
+                    <textarea type="text" class="form-control" id="deskripsi_informasi" name="deskripsi_informasi" cols="30" rows="6" placeholder="Masukkan Deskripsi Informasi"><?= set_value('deskripsi_informasi'); ?></textarea>
                         <?= form_error('deskripsi_informasi','<small class="text-danger">','</small>');?>
                 </div>
                 <div class="form-group">

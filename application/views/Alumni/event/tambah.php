@@ -80,7 +80,7 @@
                 <!-- Batas Baris -->
                 <div class="form-group">
                     <label for="deskripsi_event">Deskripsi Event</label>
-                    <textarea type="text" class="form-control" id="deskripsi_event" name="deskripsi_event" cols="30" rows="6" placeholder="Masukkan Deskripsi Event"></textarea>
+                    <textarea type="text" class="form-control" id="deskripsi_event" name="deskripsi_event" cols="30" rows="6" placeholder="Masukkan Deskripsi Event"><?= set_value('deskripsi_event'); ?></textarea>
                     <?= form_error('deskripsi_event','<small class="text-danger">','</small>');?>
                 </div>
                 <!-- Batas Baris -->

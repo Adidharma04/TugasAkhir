@@ -189,42 +189,6 @@
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
-                      <label for="alumni">Verifikasi Alumni</label>
-                      <?php if ($profil_siswa->verifikasi_alumni == "null") : ?>
-                          <div class="form-check">
-                            <input type="radio" name="verifikasi_alumni" value="null" checked> Kosong
-                          </div>
-                          <div class="form-check">
-                            <input type="radio" name="verifikasi_alumni" value="pengajuan"> Pengajuan
-                          </div>
-                          <div class="form-check">
-                            <input type="radio" name="verifikasi_alumni" value="diterima"> Diterima
-                          </div>
-                      <?php elseif ($profil_siswa->verifikasi_alumni == "pengajuan") : ?>
-                          <div class="form-check">
-                            <input type="radio" name="verifikasi_alumni" value="null" > Kosong
-                          </div>
-                          <div class="form-check">
-                            <input type="radio" name="verifikasi_alumni" value="pengajuan" checked> Pengajuan
-                          </div>
-                          <div class="form-check">
-                            <input type="radio" name="verifikasi_alumni" value="diterima"> Diterima
-                          </div>
-                      <?php else : ?>
-                          <div class="form-check">
-                            <input type="radio" name="verifikasi_alumni" value="null" > Kosong
-                          </div>
-                          <div class="form-check">
-                            <input type="radio" name="verifikasi_alumni" value="pengajuan"> Pengajuan
-                          </div>
-                          <div class="form-check">
-                            <input type="radio" name="verifikasi_alumni" value="diterima" checked> Diterima
-                          </div>
-                      <?php endif ?>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="form-group">
                     <label for="gender">Jenis Kelamin</label>
                       <?php if ($profil_siswa->jenis_kelamin == "laki") : ?>
                           <div class="form-check">

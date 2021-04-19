@@ -44,14 +44,14 @@
                 <div class="card-body pt-0" style="padding-right:70.7px;">
                   <div class="row">
                     
-                    <div class="col-6 text-center">
+                    <div class="col-md-6" align="center">
 
                       <?php
                       
                         $img = "";
                         $sess_img = $this->session->userdata('sess_foto');
 
-                        if ( !$sess_img == "" ) {
+                        if ( $sess_img == "" ) {
 
                           // foto default 
                           if ( $this->session->userdata('sess_gender') == "laki" ) {
@@ -97,7 +97,7 @@
                     <a href="<?= base_url() . 'alumni/Siswa/index/'. $sess_id_siswa ?>" class="btn btn-sm btn-primary">
                       <i class="fas fa-user"></i> Edit Profile
                     </a>
-                    <a href="<?= base_url() . 'Admin/edit_profile' ?>" class="btn btn-sm btn-primary">
+                    <a href="<?= base_url() . 'Alumni/Password' ?>" class="btn btn-sm btn-primary">
                       <i class="fas fa-key"></i> Change Password
                     </a>
                   </div>

@@ -74,7 +74,7 @@
                               <input type="file" class="custom-file-input form-control" id="foto" name="foto" value="<?= $informasi_umum->foto; ?>">
                               <label class="custom-file-label" for="foto" value="">
                                 <?php
-                                $img = base_url('assets/Gambar/Website/default_info.png');
+                                $img = base_url('assets/Gambar/Website/default_information_null.png');
                                 if ($informasi_umum->foto == "") : ?>
                                   Choose File
                                 <?php else : ?>

@@ -1,6 +1,5 @@
 <?php
 
-
   $uriSegment = $this->uri->segment(2);
 
 ?>
@@ -12,7 +11,7 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="<?= base_url().'Alumni/dashboard_alumni'?>" class="brand-link">
       <img src="<?= base_url().'assets/Gambar/Website/Title_SMA.png'?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">SMA Negeri Ploso</span>
     </a>
@@ -27,7 +26,7 @@
                       $img = "";
                       $sess_img = $this->session->userdata('sess_foto');
 
-                      if ( !$sess_img == "" ) {
+                      if ( $sess_img == "" ) {
 
                         // foto default 
                         if ( $this->session->userdata('sess_gender') == "laki" ) {
@@ -86,7 +85,7 @@
           </li>
           <li class="nav-header">INFORMASI</li>
           <li class="nav-item">
-            <a href="<?= base_url().'Alumni/Event'?>" class="nav-link <?php if ($uriSegment == "Event") echo 'active'; ?>">
+            <a href="<?= base_url().'Alumni/event'?>" class="nav-link <?php if ($uriSegment == "event") echo 'active'; ?>">
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
                 Event
@@ -102,7 +101,7 @@
             </a>
           </li>
           <li class="nav-item">
-          <a href="<?= base_url().'Alumni/Informasi_umum'?>" class="nav-link <?php if ($uriSegment == "Informasi_umum") echo 'active'; ?>">
+          <a href="<?= base_url().'Alumni/informasi_umum'?>" class="nav-link <?php if ($uriSegment == "informasi_umum") echo 'active'; ?>">
               <i class="nav-icon far fa-newspaper-o"></i>
               <p>
                 Informasi Kuliah

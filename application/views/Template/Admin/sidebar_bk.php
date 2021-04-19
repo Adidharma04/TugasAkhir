@@ -1,3 +1,7 @@
+<?php
+  $uriSegment = $this->uri->segment(2);
+?>
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -28,7 +32,7 @@
                with font-awesome or any other icon font library -->
          
           <li class="nav-item">
-            <a href="<?php echo base_url('bk/dashboard_bk')?>" class="nav-link">
+            <a href="<?php echo base_url('bk/dashboard_bk')?>" class="nav-link <?php if ($uriSegment == "dashboard_bk") echo 'active'; ?>">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -36,7 +40,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="<?php echo base_url('bk/penilaian')?>" class="nav-link">
+            <a href="<?php echo base_url('bk/penilaian')?>" class="nav-link <?php if ($uriSegment == "penilaian") echo 'active'; ?>">
               <i class="nav-icon fa fa-comments-o"></i>
               <p>
               Kritik dan Saran
@@ -69,7 +73,7 @@
           </li>
           <li class="nav-header">Validasi</li>
           <li class="nav-item">
-            <a href="<?= base_url().'bk/event'?>" class="nav-link">
+            <a href="<?= base_url().'bk/event'?>" class="nav-link <?php if ($uriSegment == "event") echo 'active'; ?>">
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
                 Event
@@ -77,7 +81,7 @@
             </a>
           </li>
           <li class="nav-item">
-          <a href="<?= base_url().'bk/informasi_umum'?>" class="nav-link">
+          <a href="<?= base_url().'bk/informasi_umum'?>" class="nav-link <?php if ($uriSegment == "informasi_umum") echo 'active'; ?>">
               <i class="nav-icon far fa-newspaper-o"></i>
               <p>
                 Informasi Kuliah
@@ -85,7 +89,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="<?= base_url().'bk/sharing_loker'?>" class="nav-link">
+            <a href="<?= base_url().'bk/sharing_loker'?>" class="nav-link <?php if ($uriSegment == "sharing_loker") echo 'active'; ?>">
               <i class="nav-icon fa fa-briefcase"></i>
               <p>
                 Lowongan Kerja
@@ -93,7 +97,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="<?php echo base_url("bk/siswa")?>" class="nav-link">
+            <a href="<?php echo base_url("bk/siswa")?>" class="nav-link <?php if ($uriSegment == "siswa") echo 'active'; ?>">
               <i class="nav-icon fa fa-Book"></i>
               <p>
                 Registrasi Siswa
@@ -102,7 +106,7 @@
           </li>
           <li class="nav-header">Track Record</li>
           <li class="nav-item">
-            <a href="<?php echo base_url("bk/tracer_kuliah")?>" class="nav-link">
+            <a href="<?php echo base_url("bk/tracer_kuliah")?>" class="nav-link <?php if ($uriSegment == "tracer_kuliah") echo 'active'; ?>">
               <i class="nav-icon fas fa-search"></i>
               <p>
                 Record Kuliah
@@ -110,7 +114,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="<?php echo base_url("bk/tracer_kerja")?>" class="nav-link">
+            <a href="<?php echo base_url("bk/tracer_kerja")?>" class="nav-link <?php if ($uriSegment == "tracer_kerja") echo 'active'; ?>">
               <i class="nav-icon fas fa-search"></i>
               <p>
                 Record Kerja

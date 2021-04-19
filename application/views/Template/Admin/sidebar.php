@@ -1,3 +1,7 @@
+<?php
+  $uriSegment = $this->uri->segment(2);
+?>
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -28,7 +32,7 @@
                with font-awesome or any other icon font library -->
          
           <li class="nav-item">
-            <a href="<?php echo base_url('Admin/dashboard_admin')?>" class="nav-link">
+            <a href="<?php echo base_url('Admin/dashboard_admin')?>" class="nav-link <?php if ($uriSegment == "dashboard_admin") echo 'active'; ?>">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Dashboard
@@ -45,19 +49,19 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<?php echo base_url('Admin/profile')?>" class="nav-link">
+                <a href="<?php echo base_url('Admin/profile')?>" class="nav-link <?php if ($uriSegment == "profile") echo 'active'; ?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Detail Pengguna</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo base_url('Admin/siswa')?>" class="nav-link">
+                <a href="<?php echo base_url('Admin/siswa')?>" class="nav-link <?php if ($uriSegment == "siswa") echo 'active'; ?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Informasi Siswa</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<?php echo base_url('Admin/pegawai')?>" class="nav-link">
+                <a href="<?php echo base_url('Admin/pegawai')?>" class="nav-link <?php if ($uriSegment == "pegawai") echo 'active'; ?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Informasi Pegawai</p>
                 </a>
@@ -74,13 +78,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                  <a href="<?php echo base_url('Admin/tracer_kuliah')?>" class="nav-link">
+                  <a href="<?php echo base_url('Admin/tracer_kuliah')?>" class="nav-link <?php if ($uriSegment == "tracer_kuliah") echo 'active'; ?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Tracer Kuliah</p>
                 </a>
               </li>
               <li class="nav-item">
-              <a href="<?php echo base_url('Admin/tracer_kerja')?>" class="nav-link">
+              <a href="<?php echo base_url('Admin/tracer_kerja')?>" class="nav-link <?php if ($uriSegment == "tracer_kerja") echo 'active'; ?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Tracer Kerja</p>
                 </a>
@@ -88,7 +92,7 @@
             </ul>
           </li>
           <li class="nav-item">
-          <a href="<?= base_url().'Admin/penilaian'?>" class="nav-link">
+          <a href="<?= base_url().'Admin/penilaian'?>" class="nav-link <?php if ($uriSegment == "penilaian") echo 'active'; ?>">
               <i class="nav-icon fa fa-comments-o"></i>
               <p>
                 Kritik dan Saran
@@ -97,7 +101,7 @@
           </li>
           <li class="nav-header">INFORMASI</li>
           <li class="nav-item">
-            <a href="<?= base_url().'Admin/event'?>" class="nav-link">
+            <a href="<?= base_url().'Admin/event'?>" class="nav-link <?php if ($uriSegment == "event") echo 'active'; ?>">
               <i class="nav-icon far fa-calendar-alt"></i>
               <p>
                 Event
@@ -105,7 +109,7 @@
             </a>
           </li>
           <li class="nav-item">
-          <a href="<?= base_url().'Admin/informasi_umum'?>" class="nav-link">
+          <a href="<?= base_url().'Admin/informasi_umum'?>"class="nav-link <?php if ($uriSegment == "informasi_umum") echo 'active'; ?>">
               <i class="nav-icon far fa-newspaper-o"></i>
               <p>
                 Informasi Kuliah
@@ -113,7 +117,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="<?= base_url().'Admin/sharing_loker'?>" class="nav-link">
+            <a href="<?= base_url().'Admin/sharing_loker'?>" class="nav-link <?php if ($uriSegment == "sharing_loker") echo 'active'; ?>">
               <i class="nav-icon fa fa-briefcase"></i>
               <p>
                 Lowongan Kerja
@@ -130,7 +134,7 @@
           </li>
           <li class="nav-header">Registrasi Pengguna</li>
           <li class="nav-item">
-            <a href="<?php echo base_url("Admin/registrasi_pegawai")?>" class="nav-link">
+            <a href="<?php echo base_url("Admin/registrasi_pegawai")?>" class="nav-link <?php if ($uriSegment == "registrasi_pegawai") echo 'active'; ?>">
               <i class="nav-icon fa fa-Book"></i>
               <p>
                 Registrasi Pegawai
@@ -138,7 +142,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="<?php echo base_url("Admin/registrasi_siswa")?>" class="nav-link">
+            <a href="<?php echo base_url("Admin/registrasi_siswa")?>" class="nav-link <?php if ($uriSegment == "registrasi_siswa") echo 'active'; ?>">
               <i class="nav-icon fa fa-Book"></i>
               <p>
                 Registrasi Siswa

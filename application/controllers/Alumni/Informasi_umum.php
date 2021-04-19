@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Informasi_umum extends CI_Controller {
+class informasi_umum extends CI_Controller {
 
 
     function __construct() {
@@ -82,7 +82,6 @@ class Informasi_umum extends CI_Controller {
         $this->form_validation->set_rules('deskripsi_informasi', 'Deskripsi', 'required|trim',[
             'required' => 'Masukkan Deskripsi',
         ]);
-        
         //----------------------------------------------------------------------
         //-- Title Halaman
         $data ['title'] = 'Halaman Admin-Dashboard';
@@ -107,12 +106,12 @@ class Informasi_umum extends CI_Controller {
     }
     // proses hapus siswa
     function onDelete( $id_umum ) {
-
         $this->informasi_umum_model->prosesHapusInformasiUmum( $id_umum );
         $html = '<div class="alert alert-success">
-                     <b>Pemberitahuan</b> <br>
-                     Informasi berhasil terhapus pada tanggal '.date('d F Y H.i A').'
-                     </div>';
+                    <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
+                    <b>Pemberitahuan</b> <br>
+                    Informasi berhasil terhapus pada tanggal '.date('d F Y H.i A').'
+                </div>';
             $this->session->set_flashdata('msg', $html);
             redirect('Alumni/informasi_umum','refresh');
     }

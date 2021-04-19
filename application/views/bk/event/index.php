@@ -68,32 +68,20 @@
                         <td><?= date('d F Y', strtotime($evn->tanggal_event)) ?></td>
                         <td><?= $evn->lokasi ?></td>
                         <td>
-                          
                           <?php
-                          
-                            if( $evn->jenis_event=="pay" ) {
+                            
+                            if( $evn->status=="decline" ) {
 
                               $styleBadge = "badge badge-danger";
-                            } else {
+                            } elseif ( $evn->status=="pending" ){
+
+                              $styleBadge = "badge badge-info";
+                            }
+                            else {
 
                               $styleBadge = "badge badge-success";
                             }
                           ?>
-                        <label class="<?php echo $styleBadge ?>"><?php echo $evn->jenis_event ?></label>
-                        <?php
-                          
-                          if( $evn->status=="decline" ) {
-
-                            $styleBadge = "badge badge-danger";
-                          } elseif ( $evn->status=="pending" ){
-
-                            $styleBadge = "badge badge-info";
-                          }
-                          else {
-
-                            $styleBadge = "badge badge-success";
-                          }
-                        ?>
                         <label class="<?php echo $styleBadge ?>"><?php echo $evn->status ?></label>
                         </td>
                         <td>
@@ -124,7 +112,7 @@
                             ?>
                             <a href="javascript:;" data-toggle="modal" data-target="#konfirmasi-<?php echo $evn->id_event ?>" class="btn <?php echo $colorBtn ?>"><i class="fas fa-eye"></i><?php echo $textBtn ?></a>
                             
-                            <!-- Modal delete -->
+                            <!-- Modal Konfirmasi -->
                             <div class="modal fade" id="konfirmasi-<?php echo $evn->id_event ?>">
                               <div class="modal-dialog">
                                 <div class="modal-content">
@@ -136,7 +124,6 @@
                                   </div>
                                   <div class="modal-body">
                                     <div class="row">
-
                                       <!-- Accept -->
                                       <div class="col-md-6 text-center" style="border-right: 1px solid #e0e0e0">
                                         <?php echo pemanggilanSVG( "accept" ) ?>

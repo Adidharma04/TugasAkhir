@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Event extends CI_Controller {
+class event extends CI_Controller {
 
 
     function __construct() {
@@ -66,9 +66,12 @@ class Event extends CI_Controller {
             if ($upload['result'] == 'success') {
                 $this->event_model->tambahDataEvent($upload);
                 $html = '<div class="alert alert-success">
-                                <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
-                                <b>Pemberitahuan</b> <br>
-                                Data event berhasil di tambah pada tanggal ' . date('d F Y H.i A') . '
+                            <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
+                            <b>Pemberitahuan</b>
+                            <br>
+                            Data Event berhasil <b>Di tambah</b> pada tanggal '.date('d F Y H.i A').'
+                            <br>
+                            <small>Silahkan cek Email '.$this->session->userdata("sess_email").' untuk menunggu konfirmasi dari BK! </small>
                          </div>';
                 $this->session->set_flashdata('msg', $html);
                 redirect('Alumni/event', 'refresh');
@@ -104,10 +107,12 @@ class Event extends CI_Controller {
                 $this->event_model->editDataEvent( $id_event );
                 $html = '<div class="alert alert-success">
                             <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
+                            <b>Pemberitahuan</b>
                             <br>
-                            <b>Pemberitahuan</b> <br>
-                            Data event berhasil di tambah pada tanggal ' . date('d F Y H.i A') . '
-                        </div>';
+                            Data event berhasil <b>Di update</b> pada tanggal ' . date('d F Y H.i A') . '
+                            <br>
+                            <small>Silahkan cek Email '.$this->session->userdata("sess_email").' untuk menunggu konfirmasi dari BK! </small>
+                            </div>';
                 $this->session->set_flashdata('msg', $html);
                 redirect('Alumni/event','refresh');
             }
@@ -117,10 +122,12 @@ class Event extends CI_Controller {
 
         $this->event_model->prosesHapusEvent( $id_event );
         $html = '<div class="alert alert-success">
-                     <b>Pemberitahuan</b> <br>
-                     Data Event berhasil terhapus pada tanggal '.date('d F Y H.i A').'
+                    <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
+                    <b>Pemberitahuan</b>
+                    <br>
+                    Data Event berhasil terhapus pada tanggal '.date('d F Y H.i A').'
                      </div>';
-        $this->session->set_flashdata('msg', $html);
+            $this->session->set_flashdata('msg', $html);
             redirect('Alumni/event','refresh');
     }
 
