@@ -70,18 +70,20 @@
                         <td><?= $ig->deskripsi_informasi ?></td>
                         <td>
                           <?php
+                            
+                            if( $ig->status=="decline" ) {
 
-                          if ($evn->status == "decline") {
+                              $styleBadge = "badge badge-danger";
+                            } elseif ( $ig->status=="pending" ){
 
-                            $styleBadge = "badge badge-danger";
-                          } elseif ($evn->status == "pending") {
+                              $styleBadge = "badge badge-info";
+                            }
+                            else {
 
-                            $styleBadge = "badge badge-info";
-                          } else {
-
-                            $styleBadge = "badge badge-success";
-                          }
+                              $styleBadge = "badge badge-success";
+                            }
                           ?>
+                        <label class="<?php echo $styleBadge ?>"><?php echo $ig->status ?></label>
                         </td>
                         <td>
                           <?php if ($ig->foto == "") : ?>
