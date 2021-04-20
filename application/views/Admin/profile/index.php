@@ -56,7 +56,6 @@
                       <th>Username</th>
                       <th>Level</th>
                       <th>Last logged</th>
-                      <th>Opsi</th>
                     </tr>
                   </thead>
                   <tbody>

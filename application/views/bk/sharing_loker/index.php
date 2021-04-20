@@ -67,7 +67,23 @@
                                                 <td><?= $no++ ?></td>
                                                 <td><?= $job->nama_pekerjaan ?></td>
                                                 <td><?= $job->alamat ?></td>
-                                                <td><?= $job->status ?></td>
+                                                <td>
+                                                  <?php
+                                                    
+                                                    if( $job->status=="decline" ) {
+
+                                                      $styleBadge = "badge badge-danger";
+                                                    } elseif ( $job->status=="pending" ){
+
+                                                      $styleBadge = "badge badge-info";
+                                                    }
+                                                    else {
+
+                                                      $styleBadge = "badge badge-success";
+                                                    }
+                                                  ?>
+                                                <label class="<?php echo $styleBadge ?>"><?php echo $job->status ?></label>
+                                                </td>
                                                 <td>
                                                     <?php if($job->foto == ""): ?>
                                                         <img src="<?= base_url('assets/Gambar/Website/default_job.png')?>" style= "width:70px; height:70px;" >
