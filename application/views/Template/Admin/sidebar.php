@@ -142,7 +142,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="<?php echo base_url("Admin/registrasi_siswa")?>" class="nav-link <?php if ($uriSegment == "registrasi_siswa") echo 'active'; ?>">
+            <a href="<?php echo base_url('Admin/siswa/tambah') ?>" class="nav-link <?php if ($uriSegment == "tambah") echo 'active'; ?>">
               <i class="nav-icon fa fa-Book"></i>
               <p>
                 Registrasi Siswa

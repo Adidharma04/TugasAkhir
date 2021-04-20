@@ -45,9 +45,6 @@
                 <h3 class="card-title">Table Profile</h3>
               </div>
               <!-- /.card-header -->
-              <div class="col-md-3">
-                                <a href='#'><button type="button" class="btn btn-outline-primary btn-block"><i class="fa fa-plus"></i> Tambah</button></a>
-                            </div>
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
@@ -56,7 +53,6 @@
                       <th>Username</th>
                       <th>Level</th>
                       <th>Last logged</th>
-                      <th>Opsi</th>
                     </tr>
                   </thead>
                   <tbody>

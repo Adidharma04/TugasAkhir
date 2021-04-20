@@ -46,10 +46,6 @@
                             <div class="card-header">
                                 <h3 class="card-title">Table Informasi Siswa</h3>
                             </div>
-                            <!-- /.card-header -->
-                            <div class="col-md-3">
-                                <a href='<?php echo base_url('Admin/siswa/tambah') ?>'><button type="button" class="btn btn-outline-primary btn-block"><i class="fa fa-plus"></i> Tambah</button></a>   
-                            </div>
                             <div class="card-body">
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
@@ -58,7 +54,6 @@
                                             <th>Nis</th>
                                             <th>Nama</th>
                                             <th>Alamat</th>
-                                            <th>Foto</th>
                                             <th>Opsi</th>
                                         </tr>
                                     </thead>
@@ -69,13 +64,6 @@
                                                 <td><?= $swa->nis ?></td>
                                                 <td><?= $swa->nama ?></td>
                                                 <td><?= $swa->alamat ?></td>
-                                                <td>
-                                                    <?php if($swa->foto == ""): ?>
-                                                        <img src="<?= base_url('assets/Gambar/Website/default_siswa.jpg')?>" style= "width:70px; height:70px;" >
-                                                    <?php else: ?>
-                                                        <img src="<?= base_url('assets/Gambar/Upload/siswa/') . $swa->foto ?>" style= "width:70px; height:70px;" >
-                                                    <?php endif ?>
-                                                </td>
                                                 <td>
                                                     <a href="<?= base_url().'Admin/siswa/detail/'.$swa->id_siswa ?>" class="btn btn-info"><i class="fas fa-eye"></i> Detail</a>
                                                     <a href="<?= base_url().'Admin/siswa/edit/'.$swa->id_siswa ?>" class="btn btn-success"><i class="fas fa-pencil-square-o"></i>Edit</a>
@@ -119,7 +107,6 @@
                                             <th>Nis</th>
                                             <th>Nama</th>
                                             <th>Alamat</th>
-                                            <th>Foto</th>
                                             <th>Opsi</th>
                                         </tr>
                                     </tfoot>
