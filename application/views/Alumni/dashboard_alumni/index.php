@@ -97,7 +97,7 @@
                     <a href="<?= base_url() . 'alumni/Siswa/index/'. $sess_id_siswa ?>" class="btn btn-sm btn-primary">
                       <i class="fas fa-user"></i> Edit Profile
                     </a>
-                    <a href="<?= base_url() . 'Alumni/Password' ?>" class="btn btn-sm btn-primary">
+                    <a href="<?= base_url() . 'alumni/siswa/password' ?>" class="btn btn-sm btn-primary">
                       <i class="fas fa-key"></i> Change Password
                     </a>
                   </div>

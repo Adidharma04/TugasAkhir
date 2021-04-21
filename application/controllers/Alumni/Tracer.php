@@ -64,7 +64,7 @@
             //-- Title Halaman
             $data ['title'] = 'Halaman Tracer | Alumni';
             $data ['tracer'] =  $ambilDataTracer;
-
+            $data ['tipe']   = $tipe;
 
             if ( $tipe == "kuliah" ) {
                 $this->form_validation->set_rules('nama_kampus', 'Nama Kampus', 'required|trim', [
@@ -91,6 +91,8 @@
                     $this->load->view('Template/Alumni/navbar_alumni',$data);
                     $this->load->view('Template/Alumni/sidebar_alumni',$data);
                     $this->load->view('Alumni/tracer/edit_tracer',$data);
+                    $this->load->view('Alumni/tracer/edit_tracer',$data);
+
                 }else{
                     $this->tracer_mpdel->editDataTracer ($tipe,$id);
                     $html = '<div class="alert alert-success">
@@ -128,9 +130,9 @@
                 if ($this->form_validation->run() == FALSE) {
                  $this->load->view('Template/Alumni/navbar_alumni',$data);
                  $this->load->view('Template/Alumni/sidebar_alumni',$data);
-                 $this->load->view('Alumni/tracer/edit_tracer',$data);
+                 $this->load->view('Alumni/tracer/edit_tracer_kerja',$data);
                 }else{
-                    $this->tracer_mpdel->editDataTracer ($tipe,$id);
+                    $this->Tracer_model->editDataTracer();
                     $html = '<div class="alert alert-success">
                                 <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
                                 <b>Pemberitahuan</b> 

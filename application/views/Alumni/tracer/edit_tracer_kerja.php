@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,6 +53,9 @@
           </div>
           <div class="card-body">
             <form action="" method="post" enctype="multipart/form-data">
+
+            <input type="hidden" name="id" value="<?php echo $tracer['id_kerja'] ?>" />
+            <input type="hidden" name="tipe" value="<?php echo $tipe ?>" />
             <div class="row">
                   <div class="col-md-4">
                   <label>Nama Perusahaan</label>
@@ -59,7 +63,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-briefcase"></i></span>
                         </div>
-                        <input type="text" class="form-control" id="nama_perusahaan" name="nama_perusahaan" placeholder="Masukkan namaPerusahaan"  value="<??>" >
+                        <input type="text" class="form-control" id="nama_perusahaan" name="nama_perusahaan" placeholder="Masukkan namaPerusahaan"  value="<?php echo $tracer['nama_perusahaan']?>" >
                     </div>
                     <?= form_error('nama_perusahaan','<small class="text-danger">','</small>');?>
                   </div>
@@ -70,7 +74,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-building"></i></span>
                         </div>
-                        <input type="text" class="form-control" id="jenis_perusahaan" name="jenis_perusahaan"  placeholder="Masukkan Jenis Perusahaan" value="<??>" >
+                        <input type="text" class="form-control" id="jenis_perusahaan" name="jenis_perusahaan"  placeholder="Masukkan Jenis Perusahaan" value="<?php echo $tracer['jenis_perusahaan']?>" >
                     </div>
                     <?= form_error('jenis_perusahaan','<small class="text-danger">','</small>');?>
                   </div>
@@ -81,7 +85,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-building"></i></span>
                         </div>
-                        <input type="text" class="form-control" name="alamat_perusahaan" id="alamat_perusahaan" placeholder="Masukkan Alamat Perusahaan" value="<??>" >
+                        <input type="text" class="form-control" name="alamat_perusahaan" id="alamat_perusahaan" placeholder="Masukkan Alamat Perusahaan" value="<?php echo $tracer['alamat_perusahaan']?>" >
                     </div>
                     <?= form_error('alamat_perusahaan','<small class="text-danger">','</small>');?>
                   </div>
@@ -94,7 +98,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-calendar"></i></span>
                         </div>
-                        <input type="date" class="form-control" id="tahun_masuk" name="tahun_masuk" value="<??>" >
+                        <input type="number" class="form-control" id="tahun_masuk" name="tahun_masuk" value="<?php echo $tracer['tahun_masuk']?>" >
                     </div>
                     <?= form_error('tahun_masuk','<small class="text-danger">','</small>');?>
                   </div>
@@ -104,7 +108,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-calendar"></i></span>
                         </div>
-                        <input type="date" class="form-control" id="tahun_keluar" name="tahun_keluar"  value="<??>" >
+                        <input type="number" class="form-control" id="tahun_keluar" name="tahun_keluar"  value="<?php echo $tracer['tahun_keluar']?>" >
                     </div>
                     <?= form_error('tahun_keluar','<small class="text-danger">','</small>');?>
                   </div>
@@ -116,17 +120,17 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fas fa-building"></i></span>
                             </div>
-                            <input type="text" class="form-control" name="jabatan" id="jabatan" placeholder="Masukkan Jabatan" value="<??>" >
+                            <input type="text" class="form-control" name="jabatan" id="jabatan" placeholder="Masukkan Jabatan" value="<?php echo $tracer['jabatan']?>" >
                         </div>
                         <?= form_error('jabatan','<small class="text-danger">','</small>');?>
                     </div>
                     <div class="col-md-6">
                         <label for="status">Status Karyawan</label>
                         <div class="form-check">
-                            <input type="radio" name="status" value="active" > Aktif 
+                            <input type="radio" name="status" value="active" <?php if ( $tracer['status'] == "active" ) echo 'checked'; ?>> Aktif 
                         </div>
                         <div class="form-check">
-                            <input type="radio" name="status" value="inactive" > Tidak Aktif
+                            <input type="radio" name="status" value="inactive" <?php if ( $tracer['status'] == "inactive" ) echo 'checked'; ?>> Tidak Aktif
                         </div>
                     </div>
                     <div class="col-md-6">

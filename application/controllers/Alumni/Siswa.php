@@ -92,6 +92,33 @@ class Siswa extends CI_Controller {
 
     }
 
+
+
+
+
+
+
+
+    /** Tampilan ubah password */
+    function password() {
+
+        //-- Title Halaman
+        $data['title'] = 'Halaman Admin-Dashboard';
+
+        $this->load->view('Template/Alumni/navbar_alumni', $data);
+        $this->load->view('Template/Alumni/sidebar_alumni', $data);
+        $this->load->view('Alumni/siswa/ubah_password', $data);
+        $this->load->view('Template/Alumni/footer_alumni');   
+    }
+
+
+
+    // proses ubah password
+    function prosesubahpassword() {
+
+        $this->siswa_model->doUpdatePassword();
+    }
+
 }
 
 /* End of file Siswa.php */

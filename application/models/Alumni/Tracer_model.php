@@ -95,11 +95,39 @@
             return $query;
         }
 
-        function editDataTracer ($tipe,$id){
+        function editDataTracer(){
+
+            /**
+             * 
+             *  @var $id = id yang bersifat universal akan tetapi berdasarkan variabel $tipe 
+             *  @var $tipe = merepresentasikan jenis yang akan di ubah
+            */
+
+            $id   = $this->input->post('id'); 
+            $tipe = $this->input->post('tipe');
+
             if ( $tipe == "kuliah" ) {
+                
+                $data = [];
+
                 $this->db->where('id_kuliah', $id);
+                $this->db->update('tracer_kuliah', $data);
+
             }else if( $tipe == "kerja" ){
+
+                $data = [
+
+                    'nama_perusahaan'                   => $this->input->post('nama_perusahaan', true),
+                    'jenis_perusahaan'                  => $this->input->post('jenis_perusahaan', true),
+                    'jabatan'                           => $this->input->post('jabatan', true),
+                    'alamat_perusahaan'                 => $this->input->post('alamat_perusahaan', true),
+                    'tahun_masuk'                       => $this->input->post('tahun_masuk', true),
+                    'tahun_keluar'                       => $this->input->post('tahun_keluar', true),
+                    'status'                            => $this->input->post('status', true),
+                ];
+
                 $this->db->where('id_kerja', $id);
+                $this->db->update('tracer_kerja', $data);
             }
 
         }

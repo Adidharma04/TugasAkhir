@@ -115,7 +115,7 @@ class Register_model extends CI_Model {
         $config['smtp_host'] = "ssl://smtp.gmail.com";
         $config['smtp_port'] = 465;
         $config['smtp_user'] = "ikawahyufeb@gmail.com";
-        $config['smtp_pass'] = "davitika17";
+        $config['smtp_pass'] = "punyanyaika17";
         $config['smtp_timeout'] = '7';
         $config['charset'] = "utf-8";
         $config['mailtype'] = "html";
@@ -348,7 +348,7 @@ class Register_model extends CI_Model {
 		//return $this->email->print_debugger();
 		$print = $this->email->print_debugger();
 
-		// print_r( $print );
+		print_r( $print );
 
 
 

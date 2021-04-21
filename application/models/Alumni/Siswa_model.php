@@ -87,6 +87,70 @@ class Siswa_model extends CI_Model {
 
     }
 
+
+
+
+
+
+
+
+
+    // ubah kata sandi
+    function doUpdatePassword() {
+
+        $id_profile = $this->session->userdata('sess_id_profile');
+
+        /** 
+         *  To Do List
+         *  1. Pengecekan password lama 
+         *      -> Mengambil tabel profile berdasarkan id_profile (session)
+         * 
+         *  2. Jika password lama valid ? 
+         *      -> Iya lanjut pengubahan 
+         *      -> Tidak ? tampilkan pesan password lama tidak sama (step 3)
+         *  3. Kembali ke halaman ubah password ( + flashdata)
+        */
+
+        // inisialisasi variable old dan new 
+        $oldPassword = $this->input->post('old_password');
+        $newPassword = $this->input->post('new_password');
+
+        // @TODO 1 : Pengecekan password 
+        $this->db->where('id_profile', $id_profile);
+        $ambilDataProfileById = $this->db->get('profile')->row_array();
+
+        // @TODO 2 : Pengecekan password lama 
+        if ( password_verify( $oldPassword, $ambilDataProfileById['password'] ) ) {
+
+            // @TODO 2.1 : Lanjut pengubahan
+            $data = array(
+
+                'password'  => password_hash($newPassword, PASSWORD_DEFAULT)
+            );
+            $this->db->where('id_profile', $id_profile);
+            $this->db->update('profile', $data);
+
+            // element html
+            $html = '<div class="alert alert-success">Pemberitahuan <br> Kata sandi berhasil diperbarui pada '.date('d F Y H.i A').'</div>';
+
+            
+        } else {
+
+            // element html
+            $html = '<div class="alert alert-warning">Pemberitahuan <br> Kata sandi lama yang anda masukkan salah, dimohon untuk memasukkan kembali</div>';                        
+        }
+
+
+        // @TODO 3: Set session flashdata
+        $this->session->set_flashdata('msg', $html);    
+
+        
+
+        // redirect 
+        redirect('alumni/siswa/password');
+        
+    }
+
 }
 
 /* End of file Siswa_model.php */

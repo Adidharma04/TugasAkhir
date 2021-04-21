@@ -23,12 +23,36 @@ class event_model extends CI_Model {
         $this->db->where('id_event', $id_event);
         $this->db->update('event', $data);
 
-        //bingung library emailnya, sama dapet siswa dan emailnya yg mengajukan event
+
+
+
+
+
+
+        /** Notifikasi Email */
+
+		$sql = "SELECT 
+					event.id_event, event.nama_event,
+					profil_siswa.id_profile, profil_siswa.nama, profil_siswa.nis, profil_siswa.email
+				FROM event 
+				JOIN profil_siswa ON profil_siswa.id_profile = event.id_profile
+				
+				WHERE id_event = '$id_event'";
+
+		$getInfoEvent = $this->db->query( $sql )->row();
+
+		// inisialisasi pengirim 
+		$email = $getInfoEvent->email;
+		$nama  = $getInfoEvent->nama;
+		$nama_event = $getInfoEvent->nama_event;
+
+		$this->notifikasiEmail( $email, $nama, $status, $nama_event );
+
     }
 
 
 
-function notifikasiEmail( $email, $nama_siswa, $status ) {
+function notifikasiEmail( $email, $nama_siswa, $status, $nama_event ) {
 
 
 		// load library
@@ -38,7 +62,7 @@ function notifikasiEmail( $email, $nama_siswa, $status ) {
         $config['smtp_host'] = "ssl://smtp.gmail.com";
         $config['smtp_port'] = 465;
         $config['smtp_user'] = "ikawahyufeb@gmail.com";
-        $config['smtp_pass'] = "davitika17";
+        $config['smtp_pass'] = "punyanyaika17";
         $config['smtp_timeout'] = '7';
         $config['charset'] = "utf-8";
         $config['mailtype'] = "html";
@@ -57,7 +81,17 @@ function notifikasiEmail( $email, $nama_siswa, $status ) {
         $this->email->to('"' . $email . '"'); // Email tujuan / penerima
 
         // Subject email
-        $this->email->subject('Verifikasi Pengajuan Event Smanis '. $status);
+        $this->email->subject('Verifikasi Pengajuan Event '. $nama_event);
+
+		// membuat pesan dinamis berdasarkan status
+		$pesan = "";
+		if ( $status == "accept" ) {
+
+			$pesan = "Diterima";
+		} else{
+
+			$pesan = "Ditolak";
+		}
 
 		
 
@@ -210,7 +244,7 @@ function notifikasiEmail( $email, $nama_siswa, $status ) {
 																		<div style="font-family:Helvetica Neue,Arial,sans-serif;font-size:16px;line-height:22px;text-align:left;color:#555;">
 																			Halo saudara '.$nama_siswa.'
 																			<span style="font-size: 12px">
-																				Event yang anda ajukan telah diverifikasi oleh Guru BK, dan akan dibagikan kepada siswa.
+																				'.$pesan.'
 																				<br>
 																			</span>
 																		</div>
