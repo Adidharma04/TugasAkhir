@@ -4,8 +4,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class event_model extends CI_Model {
     public function tampilDataEvent()
     {  
-        $this->db->select('event.*');
-        return $this->db->get('event')->result();
+		$sql = "SELECT 
+		profil_siswa.*,
+		event.id_event, event.nama_event, event.tanggal_event, event.lokasi, event.foto, event.jenis_event,event.status
+		
+	FROM event
+	
+	JOIN profil_siswa 
+	
+	ON profil_siswa.id_profile = event.id_profile";
+
+	return $this->db->query( $sql );
     }
 
 
@@ -22,11 +31,6 @@ class event_model extends CI_Model {
 
         $this->db->where('id_event', $id_event);
         $this->db->update('event', $data);
-
-
-
-
-
 
 
         /** Notifikasi Email */

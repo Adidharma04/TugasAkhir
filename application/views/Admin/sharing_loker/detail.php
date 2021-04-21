@@ -59,7 +59,9 @@
                     <span align="justify"><p><?= $loker->alamat ?></p></span>
                     <br>
                     <li class="small"><span class="fa-li"><i class="fas fa-lg fa-clock-o fa-1x"></i> </span><b><h6>Status</h6></b> </li>
-                    <span align="justify"><p><?= $loker->status ?></p></span>
+                    <span align="justify"><p><?= $loker->status ?></p></span><br>
+                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-calendar fa-1x"></i> </span><b><h6>Tanggal ditambahkan</h6></b> </li>
+                    <span align="justify"><?= date('d F Y', strtotime($loker->created_at)) ?></p></span>
                   </ul>
                 </div>
                 <div class="col-5 text-center">

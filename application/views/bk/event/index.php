@@ -52,18 +52,20 @@
                   <thead>
                     <tr>
                       <th>No</th>
-                      <th>Nama Event</th>
-                      <th>Tanggal Event</th>
+                      <th>Nama Alumni</th>
+                      <th>Event</th>
                       <th>Lokasi</th>
+                      <th>Tanggal Event</th>
                       <th>Status</th>
                       <th>Foto</th>
                       <th>Opsi</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <?php $no = 1; foreach ($event as $evn) : ?>
+                  <?php $no = 1; foreach ($event->result() as $evn) : ?>
                       <tr>
                         <td><?= $no++ ?></td>
+                        <td><a target="_blank" href="<?php echo base_url('bk/siswa/detail/'. $evn->id_siswa) ?>"><?= $evn->nama.' <br> <small>NIS : '. $evn->nis.'</small>' ?></a></td>
                         <td><?= $evn->nama_event ?></td>
                         <td><?= date('d F Y', strtotime($evn->tanggal_event)) ?></td>
                         <td><?= $evn->lokasi ?></td>
@@ -154,10 +156,11 @@
                   </tbody>
                   <tfoot>
                     <tr>
-                      <th>No</th>
-                      <th>Nama Event</th>
-                      <th>Tanggal Event</th>
+                    <th>No</th>
+                      <th>Nama Alumni</th>
+                      <th>Event</th>
                       <th>Lokasi</th>
+                      <th>Tanggal Event</th>
                       <th>Status</th>
                       <th>Foto</th>
                       <th>Opsi</th>

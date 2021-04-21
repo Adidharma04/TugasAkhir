@@ -4,8 +4,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class informasi_umum_model extends CI_Model {
     public function tampilDataInformasiUmum()
     {  
-        $this->db->select('informasi_umum.*');
-        return $this->db->get('informasi_umum')->result();
+        $sql = "SELECT 
+        profil_siswa.*,
+        informasi_umum.id_umum, informasi_umum.nama_informasi, informasi_umum.created_at,informasi_umum.foto, informasi_umum.status
+        
+            FROM informasi_umum
+            
+            JOIN profil_siswa 
+            
+            ON profil_siswa.id_profile = informasi_umum.id_profile";
+
+        return $this->db->query( $sql );
     }
     
     public function tambahDataInformasiUmum($upload){

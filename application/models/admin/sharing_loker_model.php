@@ -4,8 +4,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class sharing_loker_model extends CI_Model {
     public function tampilDataLoker()
     {  
-        $this->db->select('loker.*');
-        return $this->db->get('loker')->result();
+        $sql = "SELECT 
+                profil_siswa.*,
+                loker.id_loker, loker.nama_pekerjaan, loker.alamat, loker.status, loker.foto
+                
+            FROM loker
+            
+            JOIN profil_siswa 
+            
+            ON profil_siswa.id_profile = loker.id_profile";
+
+        return $this->db->query( $sql );
     }
     
     public function tambahDataLoker($upload){

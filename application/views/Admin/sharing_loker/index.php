@@ -55,7 +55,8 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama Pekerjaan</th>
+                                            <th>Nama Alumni</th>
+                                            <th>Pekerjaan</th>
                                             <th>Alamat</th>
                                             <th>Status</th>
                                             <th>Foto</th>
@@ -63,9 +64,10 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php $no = 1; foreach ($loker as $job) : ?>
+                                        <?php $no = 1; foreach ($loker->result() as $job) : ?>
                                         <tr>
                                                 <td><?= $no++ ?></td>
+                                                <td><a target="_blank" href="<?php echo base_url('admin/siswa/detail/'. $job->id_siswa) ?>"><?= $job->nama.' <br> <small>NIS : '. $job->nis.'</small>' ?></a></td>
                                                 <td><?= $job->nama_pekerjaan ?></td>
                                                 <td><?= $job->alamat ?></td>
                                                 <td><?= $job->status ?></td>
@@ -117,7 +119,8 @@
                                     <tfoot>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama Pekerjaan</th>
+                                            <th>Nama Alumni</th>
+                                            <th>Pekerjaan</th>
                                             <th>Alamat</th>
                                             <th>Status</th>
                                             <th>Foto</th>

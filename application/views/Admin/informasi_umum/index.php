@@ -55,16 +55,18 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama Informasi</th>
+                                            <th>Nama Alumni</th>
+                                            <th>Informasi</th>
                                             <th>Status</th>
                                             <th>Foto</th>
                                             <th>Opsi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php $no = 1; foreach ($informasi_umum as $ig) : ?>
+                                    <?php $no = 1; foreach ($informasi_umum->result() as $ig) : ?>
                                         <tr>
                                                 <td><?= $no++ ?></td>
+                                                <td><a target="_blank" href="<?php echo base_url('admin/siswa/detail/'. $ig->id_siswa) ?>"><?= $ig->nama.' <br> <small>NIS : '. $ig->nis.'</small>' ?></a></td>
                                                 <td><?= $ig->nama_informasi ?></td>
                                                 <td><?= $ig->status ?></td>
                                                 <td>
@@ -114,8 +116,9 @@
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <th>No</th>
-                                            <th>Nama Informasi</th>
+                                        <th>No</th>
+                                            <th>Nama Alumni</th>
+                                            <th>Informasi</th>
                                             <th>Status</th>
                                             <th>Foto</th>
                                             <th>Opsi</th>

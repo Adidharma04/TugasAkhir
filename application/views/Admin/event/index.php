@@ -53,35 +53,22 @@
                   <thead>
                     <tr>
                       <th>No</th>
-                      <th>Nama Event</th>
+                      <th>Nama Alumni</th>
+                      <th>Event</th>
                       <th>Tanggal Event</th>
                       <th>Lokasi</th>
-                      <th>Jenis Event</th>
                       <th>Foto</th>
                       <th>Opsi</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <?php $no = 1; foreach ($event as $evn) : ?>
+                  <?php $no = 1; foreach ($event->result() as $evn) : ?>
                       <tr>
                         <td><?= $no++ ?></td>
+                        <td><a target="_blank" href="<?php echo base_url('admin/siswa/detail/'. $evn->id_siswa) ?>"><?= $evn->nama.' <br> <small>NIS : '. $evn->nis.'</small>' ?></a></td>
                         <td><?= $evn->nama_event ?></td>
                         <td><?= date('d F Y', strtotime($evn->tanggal_event)) ?></td>
                         <td><?= $evn->lokasi ?></td>
-                        <td>
-                          <?php
-                          
-                            if( $evn->jenis_event=="pay" ) {
-
-                              $styleBadge = "badge badge-danger";
-                            } else {
-
-                              $styleBadge = "badge badge-success";
-                            }
-                          ?>
-                        <label class="<?php echo $styleBadge ?>"><?php echo $evn->jenis_event ?></label>
-
-                        </td>
                         <td>
                           <?php if ($evn->foto == "") : ?>
                             <img src="<?= base_url('assets/Gambar/Website/default_event.png') ?>" style="width:70px; height:70px;">
@@ -130,10 +117,10 @@
                   <tfoot>
                     <tr>
                       <th>No</th>
-                      <th>Nama Event</th>
+                      <th>Nama Alumni</th>
+                      <th>Event</th>
                       <th>Tanggal Event</th>
                       <th>Lokasi</th>
-                      <th>Jenis Event</th>
                       <th>Foto</th>
                       <th>Opsi</th>
                     </tr>
