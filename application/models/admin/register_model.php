@@ -348,7 +348,7 @@ class Register_model extends CI_Model {
 		//return $this->email->print_debugger();
 		$print = $this->email->print_debugger();
 
-		print_r( $print );
+		// print_r( $print );
 
 
 

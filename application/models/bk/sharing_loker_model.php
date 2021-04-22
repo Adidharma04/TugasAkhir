@@ -29,10 +29,29 @@ class sharing_loker_model extends CI_Model {
         $this->db->where('id_loker', $id_loker);
         $this->db->update('loker', $data);
 
-        //bingung library emailnya, sama dapet email dr siswa yang mengajukan
+         /** Notifikasi Email */
+
+		$sql = "SELECT 
+
+		loker.id_loker, loker.nama_pekerjaan, 
+		profil_siswa.id_profile, profil_siswa.nama, profil_siswa.nis, profil_siswa.email
+
+			FROM loker
+			JOIN profil_siswa ON profil_siswa.id_profile = loker.id_profile
+			
+			WHERE id_loker = '$id_loker'";
+
+			$getInfoLoker = $this->db->query( $sql )->row();
+
+			// inisialisasi pengirim 
+			$email = $getInfoLoker->email;
+			$nama  = $getInfoLoker->nama;
+			$nama_pekerjaan = $getInfoLoker->nama_pekerjaan;
+
+			$this->notifikasiEmail( $email, $nama, $status, $nama_pekerjaan );
     }
 
-    function notifikasiEmail( $email, $nama_siswa, $status ) {
+    function notifikasiEmail( $email, $nama_siswa, $status, $nama_pekerjaan ) {
 
 
 		// load library
@@ -61,7 +80,17 @@ class sharing_loker_model extends CI_Model {
         $this->email->to('"' . $email . '"'); // Email tujuan / penerima
 
         // Subject email
-        $this->email->subject('Verifikasi Sharing Loker Smanis '. $status);
+        $this->email->subject('Verifikasi Sharing Loker '. $nama_pekerjaan);
+
+		// membuat pesan dinamis berdasarkan status
+		$pesan = "";
+		if ( $status == "accept" ) {
+
+			$pesan = " telah kami setujui, dan akan segera dibagikan ke siswa.";
+		} else{
+
+			$pesan = " ditolak, karena tidak layak untuk dibagikan.";
+		}
 
 		
 
@@ -205,25 +234,24 @@ class sharing_loker_model extends CI_Model {
 																		<img src="http://www.smanegeriploso.sch.id/wp-content/uploads/2020/06/Logo.png" style="width: 100px; display: block" title="Logo" alt="Logo">
 																		<div style="font-family:sans-serif;font-size:20px;font-weight:bold;line-height:1;text-align:left;color:#555; margin-top: 20px">
 																			SMA Negeri Ploso
-																			<div style="color:#555; font-size: 12px; margin-top: 5px">Informasi Pengajuan Menjadi Alumni.</div>
+																			<div style="color:#555; font-size: 12px; margin-top: 5px">Persetujuan Sharing Loker</div>
 																		</div>
 																	</td>
 																</tr>
 																<tr>
 																	<td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
 																		<div style="font-family:Helvetica Neue,Arial,sans-serif;font-size:16px;line-height:22px;text-align:left;color:#555;">
-																			Halo saudara '.$nama_siswa.'
-																			<span style="font-size: 12px">
-																				Lowongan Kerja yang anda bagikan telah disetujui oleh Guru BK, dan akan dibagikan di halaman utama.
-																				<br>
-																			</span>
+																		Halo saudara '.$nama_siswa.',
+																		<br>
+																		Lowongan Pekerjaan '.$nama_pekerjaan.' yang ingin anda bagikan' .$pesan.'
 																		</div>
 																	</td>
 																</tr>
 																<tr>
 																	<td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
 																		<div style="font-size: 12px;font-family:Helvetica Neue,Arial,sans-serif;font-size:14px;line-height:22px;text-align:left;color:#555;">
-																			Terima Kasih atas pastisipasi anda.
+																		Terimakasih atas partisipasi Anda.
+																		<br>Kami mengharapkan lebih banyak lowongan pekerjaan baik dari perusahaan BUMN maupun BUMS yang bisa anda bagikan di Smanis Tracer Study.
 																		</div>
 																	</td>
 																</tr>

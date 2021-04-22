@@ -30,10 +30,29 @@ class informasi_umum_model extends CI_Model {
         $this->db->where('id_umum', $id_umum);
         $this->db->update('informasi_umum', $data);
 
-        //bingung library informasi umum sama dapet email dari siswanya
+          /** Notifikasi Email */
+
+		$sql = "SELECT 
+
+		informasi_umum.id_umum, informasi_umum.nama_informasi, 
+		profil_siswa.id_profile, profil_siswa.nama, profil_siswa.nis, profil_siswa.email
+
+			FROM informasi_umum
+			JOIN profil_siswa ON profil_siswa.id_profile = informasi_umum.id_profile
+			
+			WHERE id_umum = '$id_umum'";
+
+			$getInfoUmum = $this->db->query( $sql )->row();
+
+			// inisialisasi pengirim 
+			$email = $getInfoUmum->email;
+			$nama  = $getInfoUmum->nama;
+			$nama_informasi = $getInfoUmum->nama_informasi;
+
+			$this->notifikasiEmail( $email, $nama, $status, $nama_informasi );
     }
 
-    function notifikasiEmail( $email, $nama_siswa, $status ) {
+    function notifikasiEmail( $email, $nama_siswa, $status, $nama_informasi ) {
 
 
 		// load library
@@ -62,9 +81,17 @@ class informasi_umum_model extends CI_Model {
         $this->email->to('"' . $email . '"'); // Email tujuan / penerima
 
         // Subject email
-        $this->email->subject('Verifikasi Informasi Kuliah Smanis '. $status);
+        $this->email->subject('Verifikasi Informasi Kuliah '. $nama_informasi);
 
-		
+		// membuat pesan dinamis berdasarkan status
+		$pesan = "";
+		if ( $status == "accept" ) {
+
+			$pesan = " telah kami setujui, dan akan segera dibagikan ke siswa.";
+		} else{
+
+			$pesan = " ditolak, karena tidak layak untuk dibagikan.";
+		}
 
 		$htmlContent = '
 		<!doctype html>
@@ -206,25 +233,24 @@ class informasi_umum_model extends CI_Model {
 																		<img src="http://www.smanegeriploso.sch.id/wp-content/uploads/2020/06/Logo.png" style="width: 100px; display: block" title="Logo" alt="Logo">
 																		<div style="font-family:sans-serif;font-size:20px;font-weight:bold;line-height:1;text-align:left;color:#555; margin-top: 20px">
 																			SMA Negeri Ploso
-																			<div style="color:#555; font-size: 12px; margin-top: 5px">Informasi Pengajuan Menjadi Alumni.</div>
+																			<div style="color:#555; font-size: 12px; margin-top: 5px">Persetujuan Informasi</div>
 																		</div>
 																	</td>
 																</tr>
 																<tr>
 																	<td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
 																		<div style="font-family:Helvetica Neue,Arial,sans-serif;font-size:16px;line-height:22px;text-align:left;color:#555;">
-																			Halo saudara '.$nama_siswa.'
-																			<span style="font-size: 12px">
-																				Informasi yang anda bagikan telah di verifikasi Guru Bk, dan dibagikan ke siswa.
-																				<br>
-																			</span>
+																		Halo saudara '.$nama_siswa.',
+																		<br>
+																		Informasi  '.$nama_informasi.' yang ingin anda bagikan' .$pesan.'
 																		</div>
 																	</td>
 																</tr>
 																<tr>
 																	<td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
 																		<div style="font-size: 12px;font-family:Helvetica Neue,Arial,sans-serif;font-size:14px;line-height:22px;text-align:left;color:#555;">
-																			Terima Kasih atas pastisipasi anda.
+																		Terimakasih atas partisipasi Anda.
+																		<br>Kami mengharapkan lebih banyak informasi seputar dunia perkuliahan, pendaftaran POLRI/TNI, ikatan dinas, dan banyak informasi lain yang dapat anda bagikan untuk Smanis Tracer Study.
 																		</div>
 																	</td>
 																</tr>
