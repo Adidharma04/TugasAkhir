@@ -108,7 +108,14 @@
 
             if ( $tipe == "kuliah" ) {
                 
-                $data = [];
+                $data = [
+                    'nama_kampus'                   => $this->input->post('nama_kampus', true),
+                    'program_studi'                 => $this->input->post('program_studi', true),
+                    'jurusan'                       => $this->input->post('jurusan', true),
+                    'tahun_masuk'                   => $this->input->post('tahun_masuk', true),
+                    'tahun_lulus'                   => $this->input->post('tahun_lulus', true),
+                    'jalur_penerimaan'              => $this->input->post('jalur_penerimaan', true),
+                ];
 
                 $this->db->where('id_kuliah', $id);
                 $this->db->update('tracer_kuliah', $data);

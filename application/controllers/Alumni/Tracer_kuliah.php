@@ -40,6 +40,9 @@ class Tracer_kuliah extends CI_Controller {
         $this->form_validation->set_rules('tahun_lulus', 'Tahun Lulus', 'required|trim',[
             'required' => 'Masukkan Tahun Lulus',
         ]);
+        $this->form_validation->set_rules('jalur_penerimaan', 'Jalur_penerimaan', 'required|trim',[
+            'required' => 'Masukkan Jalur Penerimaan',
+        ]);
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('Template/Alumni/navbar_alumni',$data);
             $this->load->view('Template/Alumni/sidebar_alumni',$data);

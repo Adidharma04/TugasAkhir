@@ -108,7 +108,6 @@
                         </div>
                         <input type="date" class="form-control" id="tahun_keluar" name="tahun_keluar"  value="<?= set_value('tahun_keluar'); ?>" >
                     </div>
-                    <?= form_error('tahun_keluar','<small class="text-danger">','</small>');?>
                   </div>
               </div>
               <div class="row">
@@ -130,6 +129,7 @@
                         <div class="form-check">
                             <input type="radio" name="status" value="inactive" > Tidak Aktif
                         </div>
+                        <?= form_error('status','<small class="text-danger">','</small>');?>
                     </div>
                     <div class="col-md-6">
                     </div>

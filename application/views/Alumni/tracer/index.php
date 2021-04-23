@@ -37,7 +37,7 @@
         <!-- Timelime example  -->
         <div class="row">
           <div class="col-md-12">
-
+          <?php echo $this->session->flashdata('msg') ?>
             <hr>
 
             <!-- The time line -->

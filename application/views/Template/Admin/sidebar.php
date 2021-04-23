@@ -134,7 +134,7 @@
           </li>
           <li class="nav-header">Registrasi Pengguna</li>
           <li class="nav-item">
-            <a href="<?php echo base_url("Admin/registrasi_pegawai")?>" class="nav-link <?php if ($uriSegment == "registrasi_pegawai") echo 'active'; ?>">
+            <a href="<?php echo base_url("Admin/pegawai/tambah")?>" class="nav-link <?php if ($uriSegment == "registrasi_pegawai") echo 'active'; ?>">
               <i class="nav-icon fa fa-Book"></i>
               <p>
                 Registrasi Pegawai

@@ -48,9 +48,6 @@
             // $this->load->view('Template/Alumni/footer_alumni');
         }
 
-
-
-
         // proses hapus
         function proseshapustracer( $tipe, $id ) {
 
@@ -90,11 +87,10 @@
                 if ($this->form_validation->run() == FALSE) {
                     $this->load->view('Template/Alumni/navbar_alumni',$data);
                     $this->load->view('Template/Alumni/sidebar_alumni',$data);
-                    $this->load->view('Alumni/tracer/edit_tracer',$data);
-                    $this->load->view('Alumni/tracer/edit_tracer',$data);
+                    $this->load->view('Alumni/tracer/edit_tracer_kuliah',$data);
 
                 }else{
-                    $this->tracer_mpdel->editDataTracer ($tipe,$id);
+                    $this->Tracer_model->editDataTracer ($tipe,$id);
                     $html = '<div class="alert alert-success">
                                 <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
                                 <b>Pemberitahuan</b> 
@@ -118,9 +114,7 @@
                 $this->form_validation->set_rules('tahun_masuk', 'Tahun Masuk', 'required|trim', [
                     'required' => 'Masukkan Tahun Masuk',
                 ]); 
-                $this->form_validation->set_rules('tahun_keluar', 'Tahun Keluar', 'required|trim', [
-                    'required' => 'Masukkan Tahun Keluar',
-                ]);
+
                 $this->form_validation->set_rules('alamat_perusahaan', 'Alamat Perusahaan', 'required|trim', [
                     'required' => 'Masukkan Alamat Perusahaan',
                 ]);

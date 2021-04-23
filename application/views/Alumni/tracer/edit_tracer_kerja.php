@@ -63,7 +63,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-briefcase"></i></span>
                         </div>
-                        <input type="text" class="form-control" id="nama_perusahaan" name="nama_perusahaan" placeholder="Masukkan namaPerusahaan"  value="<?php echo $tracer['nama_perusahaan']?>" >
+                        <input type="text" class="form-control" id="nama_perusahaan" name="nama_perusahaan" placeholder="Masukkan Nama Perusahaan"  value="<?php echo $tracer['nama_perusahaan']?>" >
                     </div>
                     <?= form_error('nama_perusahaan','<small class="text-danger">','</small>');?>
                   </div>
@@ -110,7 +110,6 @@
                         </div>
                         <input type="number" class="form-control" id="tahun_keluar" name="tahun_keluar"  value="<?php echo $tracer['tahun_keluar']?>" >
                     </div>
-                    <?= form_error('tahun_keluar','<small class="text-danger">','</small>');?>
                   </div>
               </div>
               <div class="row">

@@ -133,6 +133,7 @@
                     <div class="form-check">
                         <input type="radio" name="jalur_penerimaan" value="kedinasan" > Kedinasan
                     </div>
+                    <?= form_error('jalur_penerimaan','<small class="text-danger">','</small>');?>
                 </div>
               <div class="row">
                   <div class="col-md-2">

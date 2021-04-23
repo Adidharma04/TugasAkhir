@@ -46,8 +46,8 @@ class Tracer_kerja extends CI_Controller {
         $this->form_validation->set_rules('tahun_masuk', 'Tahun Masuk', 'required|trim',[
             'required' => 'Masukkan Tahun Masuk',
         ]);
-        $this->form_validation->set_rules('tahun_keluar', 'Tahun Keluar', 'required|trim',[
-            'required' => 'Masukkan Tahun Keluar',
+        $this->form_validation->set_rules('status', 'Status ', 'required|trim',[
+            'required' => 'Masukkan Status Karyawan',
         ]);
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('Template/Alumni/navbar_alumni',$data);
