@@ -125,7 +125,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/gallery.html" class="nav-link">
+            <a href="<?= base_url().'Admin/forum_diskusi'?>" class="nav-link">
               <i class="nav-icon fa fa-comments"></i>
               <p>
                 Forum Diskusi
