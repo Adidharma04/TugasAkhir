@@ -5,7 +5,7 @@ class Loker_siswa extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Admin/sharing_loker_model');
+        $this->load->model('siswa/sharing_loker_model');
         if ( empty( $this->session->userdata('sess_id_profile') ) ) {
             $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> <br> 
                         <small>Anda harus login terlebih dahulu !</small>

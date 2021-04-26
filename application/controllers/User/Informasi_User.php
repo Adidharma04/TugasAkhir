@@ -6,7 +6,7 @@ class Informasi_User extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Admin/informasi_umum_model');
+        $this->load->model('siswa/informasi_umum_model');
     }
     public function index()
     {
