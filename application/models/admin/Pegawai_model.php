@@ -10,20 +10,11 @@ class Pegawai_model extends CI_Model {
     }
     public function tambahDataPegawai(){
         $no_induk = $this->input->post('no_induk', true);
-        $level = $this->input->post('level', true);
-        if($level=="staff"){
             $profile = [
                 'username'  => $no_induk,
-                'password'  => password_hash("staffsmanis", PASSWORD_DEFAULT),
-                'level'     => "staff"
-            ];
-        }if($level=="bk"){
-            $profile = [
-                'username'  => $no_induk,
-                'password'  => password_hash("bksmanis", PASSWORD_DEFAULT),
+                'password'  => password_hash("bk".$no_induk, PASSWORD_DEFAULT),
                 'level'     => "bk"
             ];
-        }
         
         $this->db->insert('profile', $profile);
         $last_id_profile = $this->db->insert_id();
@@ -44,6 +35,13 @@ class Pegawai_model extends CI_Model {
     public function getPegawai($id_pegawai){
         return $this->db->get_where('profil_pegawai',['id_pegawai'=>$id_pegawai])->row();
 	}
+
+    // porses hapus
+    function prosesHapusPegawai( $id_profile ){
+
+        $this->db->where('id_profile', $id_profile)->delete('profil_pegawai');
+        $this->db->where('id_profile', $id_profile)->delete('profile');
+    }
     
 }
 

@@ -79,7 +79,7 @@
                                                             </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <label for="">NIS : <span class="text-bold"><?php echo $pgw->no_induk ?></span></label> <br>
+                                                                <label for="">NIK : <span class="text-bold"><?php echo $pgw->no_induk ?></span></label> <br>
                                                                 <label for="">NAMA : <span class="text-bold"><?php echo $pgw->nama ?></span></label>
                                                                 <hr>
                                                                 <label>

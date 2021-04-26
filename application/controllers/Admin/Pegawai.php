@@ -37,8 +37,13 @@ class Pegawai extends CI_Controller {
 
     public function tambah(){
         //-- rule--//
+        $this->form_validation->set_rules('no_induk', 'No Induk', 'required|trim|is_unique[profil_pegawai.no_induk]',[
+            'required'  => 'Masukkan No Induk Pegawai',
+            'is_unique' => 'No Induk Pegawai telah terdaftar',
+        ]);
+
         $this->form_validation->set_rules('nama', 'Nama', 'required|trim',[
-            'required'  => 'Masukkan Nama',
+            'required'  => 'Masukkan Nama Pegawai',
         ]);
 
         $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|is_unique[profil_pegawai.email]',[
@@ -66,9 +71,6 @@ class Pegawai extends CI_Controller {
         $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim',[
             'required'  => 'Masukkan Alamat',
         ]);
-        $this->form_validation->set_rules('level', 'Level', 'required|trim',[
-            'required'  => 'Masukkan Level',
-        ]);
         //------------------------------------------------//
         
         //-- Title Halaman
@@ -90,6 +92,18 @@ class Pegawai extends CI_Controller {
                 redirect('Admin/pegawai', 'refresh');
         }    
     }
+     // proses hapus siswa
+     function onDelete($id_profile)
+     {
+         $this->Pegawai_model->prosesHapusPegawai($id_profile);
+         $html = '<div class="alert alert-success">
+                     <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
+                     <b>Pemberitahuan</b> <br>
+                     Data Pegawai berhasil terhapus pada tanggal ' . date('d F Y H.i A') . '
+                  </div>';
+         $this->session->set_flashdata('msg', $html);
+         redirect('Admin/pegawai', 'refresh');
+     }
 
 }
 

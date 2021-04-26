@@ -152,8 +152,6 @@ class siswa_model extends CI_Model {
 
         $this->db->where('id_profile', $id_profile)->delete('profil_siswa');
         $this->db->where('id_profile', $id_profile)->delete('profile');
-
-
     }
 }
 

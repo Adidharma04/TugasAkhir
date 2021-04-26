@@ -56,13 +56,14 @@
 
               <div class="row">
                 <div class="col-md-6">
-                  <label>No Induk(Opsional)</label>
+                  <label>No Induk</label>
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-id-card"></i></span>
                     </div>
                     <input type="text" class="form-control" name="no_induk" id="no_induk" placeholder="Masukkan No Induk Pegawai" value="<?= set_value('no_induk'); ?>" >
                   </div>
+                  <?= form_error('no_induk', '<small class="text-danger">', '</small>'); ?>
                 </div>
                 <div class="col-md-6">
                   <label for="nama">Nama</label>
@@ -130,17 +131,6 @@
               <!-- Batas Baris -->
               <!-- Batas Baris -->
               <div class="row">
-                <div class="col-md-4">
-                  <div class="form-group">
-                      <label for="level">Level Pegawai</label>
-                      <div class="form-check">
-                        <input type="radio" name="level" value="staff" <?= set_value('level')=="staff" ? "checked" : "" ?>  > Staff IT
-                      </div>
-                      <div class="form-check">
-                        <input type="radio" name="level" value="bk" <?= set_value('level')=="bk" ? "checked" : "" ?> > Guru BK
-                      </div>
-                  </div>
-                </div>
                 <div class="col-md-4">
                   <div class="form-group">
                     <label for="gender">Jenis Kelamin</label>
