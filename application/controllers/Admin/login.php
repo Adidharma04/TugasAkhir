@@ -72,12 +72,13 @@ class Login extends CI_Controller {
                     $id_profile = $kolom['id_profile'];
                     $getDataInformationEmployee = $this->login_model->getDataEmployeeBy_IdLogin( $id_profile );
 
-                    $kolomEmployee = $getDataInformationEmployee->row_array();
                     if ( $getDataInformationEmployee->num_rows() == 0 ) {
                         
                         $this->session->set_userdata('sess_name', $kolom['username']);
                         $this->session->set_userdata('sess_tanggal_lahir', $kolom['id_profile']);
                     } else {
+
+                        $kolomEmployee = $getDataInformationEmployee->row_array();
 
                         $this->session->set_userdata('sess_name', $kolomEmployee['nama']);
                         $this->session->set_userdata('sess_tanggal_lahir', $kolomEmployee['tanggal_lahir']);
@@ -112,13 +113,13 @@ class Login extends CI_Controller {
                     $id_profile = $kolom['id_profile'];
                     $getDataInformationAlumni = $this->login_model->getDataAlumniBy_IdLogin( $id_profile );
 
-                    $kolomAlumni = $getDataInformationAlumni->row_array();
                     if ( $getDataInformationAlumni->num_rows() == 0 ) {
                         
                         $this->session->set_userdata('sess_name', $kolom['username']);
                         $this->session->set_userdata('sess_tanggal_lahir', $kolom['id_profile']);
                     } else {
 
+                        $kolomAlumni = $getDataInformationAlumni->row_array();
                         $this->session->set_userdata('sess_name', $kolomAlumni['nama']);
                         $this->session->set_userdata('sess_nis', $kolomAlumni['nis']);
                         $this->session->set_userdata('sess_id_siswa', $kolomAlumni['id_siswa']);
@@ -136,13 +137,14 @@ class Login extends CI_Controller {
                     $id_profile = $kolom['id_profile'];
                     $getDataInformationSiswa = $this->login_model->getDataSiswaBy_IdLogin( $id_profile );
 
-                    $kolomSiswa = $getDataInformationSiswa->row_array();
+                    
                     if ( $getDataInformationSiswa->num_rows() == 0 ) {
                         
                         $this->session->set_userdata('sess_name', $kolom['username']);
                         $this->session->set_userdata('sess_tanggal_lahir', $kolom['id_profile']);
                     } else {
 
+                        $kolomSiswa = $getDataInformationSiswa->row_array();
                         $this->session->set_userdata('sess_name', $kolomSiswa['nama']);
                         $this->session->set_userdata('sess_tanggal_lahir', $kolomSiswa['tanggal_lahir']);
                         $this->session->set_userdata('sess_alamat', $kolomSiswa['alamat']);

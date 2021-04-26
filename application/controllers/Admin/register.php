@@ -80,11 +80,11 @@ class Register extends CI_Controller {
 
     function test() {
 
-        $email = "masukkan emailmu";
+        $email = "dwinuchy@gmail.com";
         echo "mau mentesting gmail dari ". $email;
 
 
-        $this->register_model->notifikasiEmail( $email );
+        $this->register_model->notifikasiEmail( $email, "Dwi Nur" );
     }
 
 }

@@ -5,7 +5,8 @@ class Forum_diskusi extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
-        // $this->load->model('Admin/forum_diskusi_model');
+        
+        
         if ( empty( $this->session->userdata('sess_id_profile') ) ) {
             $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> <br> 
                         <small>Anda harus login terlebih dahulu !</small>
@@ -20,12 +21,21 @@ class Forum_diskusi extends CI_Controller {
             $this->session->sess_destroy();
             redirect('Admin/login', 'refresh');
         }
+
+
+
+        $this->load->model('Admin/forum_diskusi_model');
     }
     public function index()
     {
         //-- Title Halaman
          $data ['title'] = 'Halaman Forum diskusi | Admin';
         //----------------------------
+
+        $data['topik'] = $this->forum_diskusi_model->getDataTopic();
+        $data['forum'] = $this->forum_diskusi_model->getDataForum();
+
+
         // $data['informasi_umum'] = $this->informasi_umum_model->tampilDataInformasiUmum(); 
         $this->load->view('Template/Admin/navbar',$data);
         $this->load->view('Template/Admin/sidebar',$data);
@@ -43,6 +53,35 @@ class Forum_diskusi extends CI_Controller {
         $this->load->view('Admin/forum_diskusi/tambah',$data);
         $this->load->view('Template/Admin/footer');
     }
+
+
+
+
+
+    // proses tamba
+    function prosestambah() {
+
+        $this->forum_diskusi_model->onInsertDataTopic();
+    }
+
+
+
+
+    // detail forum
+    function discuss( $id_forum ) {
+
+        //-- Title Halaman
+        $data ['title'] = 'Halaman Forum Detail | Admin';
+        $data['detail'] = $this->forum_diskusi_model->getDataForumById( $id_forum );
+        $data['diskusi'] = $this->forum_diskusi_model->getDataForumDetail( $id_forum );
+        //----------------------------
+        // $data['informasi_umum'] = $this->informasi_umum_model->tampilDataInformasiUmum(); 
+        $this->load->view('Template/Admin/navbar',$data);
+        $this->load->view('Template/Admin/sidebar',$data);
+        $this->load->view('Admin/forum_diskusi/forum_detail',$data);
+        $this->load->view('Template/Admin/footer');
+    }
+
 
 }
 

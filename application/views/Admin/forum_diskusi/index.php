@@ -37,57 +37,123 @@
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
-                <!-- Default box -->
-                <div class="card">
-                    <div class="card-header" style="background-color:blanchedalmond">
-                        <h3 class="card-title">Form Forum Diskusi</h3>
+                
+                <?php echo $this->session->flashdata('msg') ?>
 
-                        <div class="card-tools">
-                            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                                <i class="fas fa-minus"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <!-- Post -->
-                        <div class="post">
-                            <div class="user-block">
-                                <img class="img-circle img-bordered-sm" src="<?= base_url() . 'assets/Gambar/Website/admin.png' ?>" alt="user image">
-                                <span class="username">
-                                    <a href="#">Jonathan Burke Jr.</a>
-                                </span>
-                                <span class="description">Shared publicly - 7:30 PM today</span>
+                <div class="row">
+                
+                    <div class="col-md-4">
+
+                        <a href="javascript:;" data-toggle="modal" data-target="#tambah-topik" class="btn btn-primary">Tambah Topik</a>
+
+                         <!-- Modal delete -->
+                        <div class="modal fade" id="tambah-topik">
+                            <div class="modal-dialog modal-sm">
+                            <div class="modal-content">
+
+                                <form action="<?php echo base_url('admin/forum_diskusi/prosestambah') ?>" method="POST">
+                                <div class="modal-body">
+                                    <h3 style="margin: 0px">Tambah topik baru</h3> 
+                                    <small>Isi form topik baru dibawah ini</small> <br><br>
+
+                                    <div class="form-group">
+                                        <label for="">Nama Topik Baru</label>
+                                        <textarea name="topik" id="" class="form-control" placeholder="Masukkan topik baru . . ." required=""></textarea>
+                                    </div>
+
+                                </div>
+                                <div class="modal-footer justify-content-between">
+                                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Batal</button>
+                                    <button class="btn btn-warning btn-sm"><i class="fa fa-power-off"></i> Simpan</button>
+                                </div>
+                                </form>
                             </div>
-                            <!-- /.user-block -->
-                            <p>
-                                Lorem ipsum represents a long-held tradition for designers,
-                                typographers and the like. Some people hate it and argue for
-                                its demise, but others ignore the hate as they create awesome
-                                tools to help create filler text for everyone from bacon lovers
-                                to Charlie Sheen fans.
-                            </p>
-
-                            <p>
-                                <span class="float-right">
-                                    <a href="<?= base_url().'Admin/forum_diskusi/tambah'?>" class="link-black text-sm">
-                                        <i class="far fa-comments mr-1"></i> Comments (5)
-                                    </a>
-                                </span>
-                            </p>
-
-                            <input class="form-control form-control-sm" type="text" placeholder="Type a comment">
+                            <!-- /.modal-content -->
+                            </div>
+                            <!-- /.modal-dialog -->
                         </div>
-                        <!-- /.post -->
+                        <!-- /.modal -->
+
+
+                        <hr>
+                        <ul>
+                            <?php foreach ( $topik->result_array() AS $row ) : ?>
+                            <li style="border-bottom: 1px solid #e0e0e0; padding: 5px"><?php echo $row['nama'] ?> <br> <small>Pembuatan <?php echo date('d M Y H.i A', strtotime( $row['created_at'] )) ?></small></li>
+                            <?php endforeach; ?>
+                        </ul>
+
                     </div>
-                    <!-- /.card-body -->
-                    <!-- /.card-footer-->
-                </div>
-                <!-- /.card -->
+
+                    <div class="col-md-8">
+                            
+                        <div class="row">
+                                
+
+                            <div class="col-md-10">
+                            
+                                <h4>Daftar Forum Terkini</h4>
+                                <span for="">Lihat forum berdasarkan : <label for="">Keseluruhan</label></span> <br>
+                            
+                            </div>
+
+                            <div class="col-md-2">
+                            
+                                <button class="btn btn-xs btn-secondary">Tambahkan Forum</button>
+                            </div>
+                        
+                        </div>
+
+                        
+
+                        <hr>
+                        
+                        <?php foreach ( $forum->result_array() as $row ) { ?>
+                        <a href="<?php echo base_url('admin/forum_diskusi/discuss/'. $row['id_forum']) ?>">
+                            <div class="card" style="padding: 5px">
+                                <div class="row">
+                                
+                                    <div class="col-md-9">
+                                        <div for="" style="font-weight: bold; color: #000"><?php echo $row['nama_forum'] ?></div>
+                                        <div class="text-sm text-muted" style="margin: 0px">
+                                            <marquee behavior="" direction="">Forum dibuka pada <?php echo date('d F Y H.i A', strtotime( $row['tanggal_forum'] )) ?> &emsp;|&emsp; dibuat oleh <label for=""><?php echo $row['username'] ?></label></marquee>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div>
+                                            <span for="" class="badge badge-danger">Kedinasan</span><br>
+                                            <small class="text-muted">Terdapat 10 Partisipan</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <?php } ?>
+                    
+                    </div>
+                </div>                                
+
             </div>
             <!-- /.container-fluid -->
         </section>
         <!-- /.content -->
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <!-- /.content-wrapper -->
     <!-- jQuery -->
     <script src="<?= base_url("assets/Template/Admin/plugins/jquery/jquery.min.js") ?>"></script>
