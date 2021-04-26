@@ -5,7 +5,7 @@ class Loker_User extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Admin/sharing_loker_model');
+        $this->load->model('siswa/sharing_loker_model');
     }
     public function index()
     {

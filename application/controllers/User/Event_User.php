@@ -5,7 +5,7 @@ class Event_user extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Admin/event_model');
+        $this->load->model('siswa/event_model');
     }
     public function index()
     {
