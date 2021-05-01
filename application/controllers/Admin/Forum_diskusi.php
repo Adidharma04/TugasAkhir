@@ -63,7 +63,7 @@ class Forum_diskusi extends CI_Controller {
             $this->load->view('Admin/forum_diskusi/tambah',$data);
             $this->load->view('Template/Admin/footer');
         }else{
-                $this->Forum_diskusi_model->tambahDataForum();
+                $this->forum_diskusi_model->tambahDataForum();
                 $html = '<div class="alert alert-success">
                             <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
                             <b>Pemberitahuan</b> <br>
@@ -94,7 +94,7 @@ class Forum_diskusi extends CI_Controller {
             $this->load->view('Admin/forum_diskusi/tambah_detail',$data);
             $this->load->view('Template/Admin/footer');
         }else{
-                $this->Forum_diskusi_model->tambahDataDetailForum();
+                $this->forum_diskusi_model->tambahDataDetailForum();
                 $html = '<div class="alert alert-success">
                             <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
                             <b>Pemberitahuan</b> <br>
