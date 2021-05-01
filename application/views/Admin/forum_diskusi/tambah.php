@@ -70,7 +70,12 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="fas fa-id-card"></i></span>
                     </div>
-                    <input type="text" class="form-control" name="id_topik" id="id_topik" placeholder="Masukkan Id Topik" value="<?= set_value('id_topik'); ?>">
+                    <!-- <input type="text" class="form-control" name="id_topik" id="id_topik" placeholder="Masukkan Id Topik" value="<?= set_value('id_topik'); ?>"> -->
+                    <select name="id_topik" class="form-control">
+                      <?php foreach ( $topik->result_array() AS $row ) : ?>
+                      <option value="<?php echo $row['id_topik'] ?>"><?php echo $row['nama'] ?></option>
+                      <?php endforeach; ?>
+                    </select>
                   </div>
                   <?= form_error('id_topik', '<small class="text-danger">', '</small>'); ?>
                 </div>

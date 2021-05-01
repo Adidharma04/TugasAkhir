@@ -1,3 +1,15 @@
+<?php
+
+    $topik_aktif = "keseluruhan";
+
+    if ( $this->input->get('tipe') ) {
+
+        $topik_aktif = $this->input->get('tipe');
+    }
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +35,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Forum Diskusi</h1>
+                        <h1 class="m-0">Forum Diskusi jenis <?php echo $topik_aktif ?></h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -103,10 +115,12 @@
                             <div class="card-header d-flex p-0">
                                 <h3 class="card-title p-3">Forum Diskusi</h3>
                                 <ul class="nav nav-pills ml-auto p-2">
-                                    <li class="nav-item"><a class="nav-link active" href="#tab_1" data-toggle="tab">Semua Forum Diskusi</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="#tab_2" data-toggle="tab">Info Kuliah</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="#tab_3" data-toggle="tab">Info Kerja</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="#tab_4" data-toggle="tab">Info Event</a></li>
+                                    <li class="nav-item"><a class="nav-link <?php if ( $topik_aktif == "keseluruhan" ) echo 'active'; ?>" href="?tipe=keseluruhan">Semua Forum Diskusi</a></li>
+                                    
+                                    <?php foreach ($topik->result_array() as $row) : ?>
+                                    <li class="nav-item"><a class="nav-link <?php if ( $topik_aktif == $row['nama'] ) echo 'active'; ?>" href="?tipe=<?php echo $row['nama'] ?>"><?php echo $row['nama'] ?></a></li>
+                                    <?php endforeach; ?>
+                                    
                                 </ul>
                             </div><!-- /.card-header -->
                             <br>
@@ -121,14 +135,78 @@
                             </div>
                             <div class="card-body">
                                 <div class="tab-content">
-                                    <div class="tab-pane active" id="tab_1">
-                                        <?php foreach ($forum->result_array() as $row) { ?>
+                                    <div class="tab-pane active">
+
+                                        <?php
+
+                                            $id_profile = $this->session->userdata('sess_id_profile');
+                                            $level      = $this->session->userdata('sess_level');
+                                        
+                                        ?>
+
+                                        <?php 
+
+                                            $nilaiyangmuncul = array();
+
+                                            // filter 
+                                            foreach ( $forum->result_array() AS $rowF ) {
+
+                                                if ( $topik_aktif == "keseluruhan" ) {
+
+                                                    array_push( $nilaiyangmuncul, $rowF );
+
+                                                } else if ( $rowF['nama'] == $topik_aktif ){
+
+                                                    array_push( $nilaiyangmuncul, $rowF );
+                                                }
+                                            }
+
+                                            
+                                        
+                                        
+                                        
+                                        
+                                        foreach ($nilaiyangmuncul as $row) { ?>
                                             <a href="<?php echo base_url('admin/forum_diskusi/discuss/' . $row['id_forum']) ?>">
                                                 <div class="card" style="padding: 5px">
                                                     <div class="row">
 
                                                         <div class="col-md-9">
-                                                            <div for="" style="font-weight: bold; color: #000"><?php echo $row['nama_forum'] ?></div>
+                                                            <div for="" style="font-weight: bold; color: #000">
+                                                                <?php echo $row['nama_forum'] ?>
+                                                            </div>
+
+                                                            <?php 
+                                                            
+                                                            if ( $level == "staff" || $level == "bk" ) {
+
+                                                                
+                                                                echo '
+                                                                <div class="text-sm">
+                                                                    <a href="'.$row['id_forum'].'">Sunting</a> &emsp;
+                                                                    <a href="">Hapus</a>
+                                                                </div>
+                                                                ';
+                                                                
+                                                            } else {
+
+                                                                if ( $row['id_profile'] == $id_profile ) {
+
+                                                                    // tampilkan button
+                                                                    echo '
+                                                                        <div class="text-sm">
+                                                                            <a href="">Sunting</a> &emsp;
+                                                                            <a href="">Hapus</a>
+                                                                        </div>';
+                                                                }
+                                                            }
+                                                                
+                                                            ?>
+                                                            
+                                                            <!-- End Button -->
+
+
+
                                                             <div class="text-sm text-muted" style="margin: 0px">
                                                                 <marquee behavior="" direction="">Forum dibuka pada <?php echo date('d F Y H.i A', strtotime($row['tanggal_forum'])) ?> &emsp;|&emsp; dibuat oleh <label for=""><?php echo $row['username'] ?></label></marquee>
                                                             </div>
@@ -136,7 +214,21 @@
 
                                                         <div class="col-md-3">
                                                             <div>
-                                                                <span for="" class="badge badge-danger">Kedinasan</span><br>
+
+                                                                <?php
+
+                                                                    $color = "badge badge-danger";
+                                                                    
+                                                                    if ( $row['id_topik'] != 1)  {
+
+                                                                        if ( ($row['id_topik'] % 2) == 0 ) {
+
+                                                                            $color = "badge badge-warning";
+                                                                        }
+                                                                    }
+                                                                ?>
+
+                                                                <span for="" class="<?php echo $color ?>"><?php echo $row['nama'] ?></span><br>
                                                                 <small class="text-muted">Terdapat 10 Partisipan</small>
                                                             </div>
                                                         </div>
@@ -145,27 +237,6 @@
                                             </a>
                                         <?php } ?>
                                     </div>
-                                    <!-- /.tab-pane -->
-                                    <div class="tab-pane" id="tab_2">
-                                        The European languages are members of the same family. Their separate existence is a myth.
-                                        For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ
-                                        in their grammar, their pronunciation and their most common words. Everyone realizes why a
-                                        new common language would be desirable: one could refuse to pay expensive translators. To
-                                        achieve this, it would be necessary to have uniform grammar, pronunciation and more common
-                                        words. If several languages coalesce, the grammar of the resulting language is more simple
-                                        and regular than that of the individual languages.
-                                    </div>
-                                    <!-- /.tab-pane -->
-                                    <div class="tab-pane" id="tab_3">
-                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                                        when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                                        It has survived not only five centuries, but also the leap into electronic typesetting,
-                                        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
-                                        sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
-                                        like Aldus PageMaker including versions of Lorem Ipsum.
-                                    </div>
-                                    <!-- /.tab-pane -->
                                 </div>
                                 <!-- /.tab-content -->
                             </div><!-- /.card-body -->

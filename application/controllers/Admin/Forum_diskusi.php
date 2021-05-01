@@ -56,6 +56,7 @@ class Forum_diskusi extends CI_Controller {
 
         //-- Title Halaman
         $data ['title'] = 'Halaman Forum tambah diskusi | Admin';
+        $data['topik'] = $this->forum_diskusi_model->getDataTopic();
         //----------------------------
         if( $this->form_validation->run() == FALSE ){
             $this->load->view('Template/Admin/navbar',$data);
@@ -77,32 +78,17 @@ class Forum_diskusi extends CI_Controller {
     // proses tambah
     public function tambahDetailForum()
     {   
-        //rule
-        $this->form_validation->set_rules('id_forum', 'Id Forum', 'required|trim',[
-            'required' => 'Masukkan Forum',
-        ]);
-        $this->form_validation->set_rules('notes', 'Notes', 'required|trim',[
-            'required' => 'Masukkan Catatan Forum',
-        ]);
 
-        //-- Title Halaman
-        $data ['title'] = 'Halaman Forum tambah diskusi | Admin';
-        //----------------------------
-        if( $this->form_validation->run() == FALSE ){
-            $this->load->view('Template/Admin/navbar',$data);
-            $this->load->view('Template/Admin/sidebar',$data);
-            $this->load->view('Admin/forum_diskusi/tambah_detail',$data);
-            $this->load->view('Template/Admin/footer');
-        }else{
-                $this->forum_diskusi_model->tambahDataDetailForum();
+        $id_forum = $this->input->post('id_forum');
+
+        $this->forum_diskusi_model->tambahDataDetailForum();
                 $html = '<div class="alert alert-success">
                             <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
                             <b>Pemberitahuan</b> <br>
                             Tambah Data Forum berhasil di tambah pada tanggal ' . date('d F Y H.i A') . '
                         </div>';
-                $this->session->set_flashdata('msg', $html);
-                redirect('Admin/Forum_diskusi', 'refresh');
-        }    
+                // $this->session->set_flashdata('msg', $html);
+                redirect('admin/forum_diskusi/discuss/'. $id_forum);  
     }
 
     // proses tambah topik

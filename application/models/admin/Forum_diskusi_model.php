@@ -85,10 +85,10 @@
             $forumDetail = array(
                 'id_profile'        => $id_profile,
                 'id_forum'          => $this->input->post('id_forum'),
-                'notes'        => $this->input->post('notes'),
+                'notes'             => $this->input->post('notes'),
                 
             );
-            $this->db->insert('forum', $forumDetail);
+            $this->db->insert('forum_detail', $forumDetail);
         }
     }
     

@@ -62,6 +62,32 @@
                         <div class="card card-body">
 
 
+                            <div class="row" style="border-bottom: 2px solid #e0e0e0">
+                            
+                                <div class="col-md-10">
+
+                                    <form action="<?php echo base_url('admin/forum_diskusi/tambahDetailForum') ?>" method="POST">
+
+                                    <h5>Komentar</h5>
+                                    <div class="form-group">
+                                        <input type="hidden" name="id_forum" value="<?php echo $detail->id_forum ?>">
+                                        <textarea name="notes" id="" class="form-control" placeholder="Pertanyaan, Informasi detail atau lainnya . . ."></textarea>
+                                        <small>Komentari forum diatas</small>
+                                    </div>
+
+                                    <div class="form-group text-right">
+                                    
+                                        <button class="btn btn-primary btn-xs">Tambahkan Komentar</button>
+                                    </div>
+
+                                    </form>
+
+
+                                </div>
+
+                            </div>
+
+
                             <?php foreach ($diskusi->result_array() as $row) { ?>
                                 <div class="row" style="border-bottom: 1px solid #e0e0e0; padding: 5px">
                                     <div class="col-md-8">

@@ -20,17 +20,46 @@ class event_model extends CI_Model {
 
         $id_profile = $this->session->userdata('sess_id_profile');
 
+        $tanggal_evt = $this->input->post('tanggal_event', true);
         $event =[
             'id_profile'            => $id_profile,
             'nama_event'            => $this->input->post('nama_event', true),
             'deskripsi_event'       => $this->input->post('deskripsi_event', true),
-            'tanggal_event'         => $this->input->post('tanggal_event', true),
+            'tanggal_event'         => $tanggal_evt,
             'foto'                  => $upload['file']['file_name'],
             'lokasi'                => $this->input->post('lokasi', true),
             'jenis_event'           => $this->input->post('jenis_event', true),
             'status'                => $this->input->post('status', true),
         ];
-        $this->db->insert('event', $event);
+
+        $tanggal_sekarang = date('Y-m-d');
+
+        if ( strtotime( $tanggal_evt ) < strtotime($tanggal_sekarang ) ){
+
+            // maaf masukkan tanggal yang valid
+            $html = '<div class="alert alert-danger">
+                                <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
+                                <br>
+                                <b>Pemberitahuan</b> <br>
+                                Data event tidak berhasil di tambah pada tanggal ' . date('d F Y H.i A') . '
+                         </div>';
+                $this->session->set_flashdata('msg', $html);
+                redirect('Admin/event/tambah', 'refresh');
+        } else {
+
+            $this->db->insert('event', $event);
+
+            $html = '<div class="alert alert-success">
+                                <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
+                                <br>
+                                <b>Pemberitahuan</b> <br>
+                                Data event berhasil di tambah pada tanggal ' . date('d F Y H.i A') . '
+                         </div>';
+                $this->session->set_flashdata('msg', $html);
+            redirect('Admin/event', 'refresh');
+        }
+
+        
     }
     public function upload(){    
         $config['upload_path'] = './assets/Gambar/Upload/Event/';    
