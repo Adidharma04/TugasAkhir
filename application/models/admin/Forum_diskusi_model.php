@@ -13,7 +13,6 @@
         }
 
 
-
         function getDataForum( $id_forum = null ) {
 
             $SQL = "SELECT forum_topik.*, forum.*, profile.username FROM forum
@@ -35,8 +34,6 @@
             return $this->db->query( $SQL )->row();
         }
 
-
-
         function getDataForumDetail( $id_forum ) {
 
             $SQL = "SELECT forum_topik.*, forum.*, forum_detail.*, profile.username FROM forum_detail
@@ -49,7 +46,6 @@
             return $this->db->query( $SQL );
         }
 
-        
         // proses tambah 
         function onInsertDataTopic() {
 
@@ -64,7 +60,35 @@
             $this->session->set_flashdata('msg', $html);
 
             // redirect
-            redirect('admin/forum_diskusi');
+            redirect('admin/Forum_diskusi');
+        }
+
+        // proses tambah Data Forum
+        function tambahDataForum() {
+            $id_profile = $this->session->userdata('sess_id_profile');
+
+            $forum = array(
+                'id_profile'        => $id_profile,
+                'id_topik'          => $this->input->post('id_topik'),
+                'nama_forum'        => $this->input->post('nama_forum'),
+                'deskripsi'         => $this->input->post('deskripsi'),
+                'tanggal_forum'     => $this->input->post('tanggal_forum'),
+                
+            );
+            $this->db->insert('forum', $forum);
+        }
+
+        // proses tambah Data Detail Forum
+        function tambahDataDetailForum() {
+            $id_profile = $this->session->userdata('sess_id_profile');
+
+            $forumDetail = array(
+                'id_profile'        => $id_profile,
+                'id_forum'          => $this->input->post('id_forum'),
+                'notes'        => $this->input->post('notes'),
+                
+            );
+            $this->db->insert('forum', $forumDetail);
         }
     }
     

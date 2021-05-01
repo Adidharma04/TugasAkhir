@@ -46,7 +46,7 @@
               </div>
               <!-- /.card-header -->
               <div class="col-md-3">
-                  <a href='<?php echo base_url('Admin/event/tambah') ?>'><button type="button" class="btn btn-outline-primary btn-block"><i class="fa fa-plus"></i> Tambah</button></a>
+                <a href='<?php echo base_url('Admin/event/tambah') ?>'><button type="button" class="btn btn-outline-primary btn-block"><i class="fa fa-plus"></i> Tambah</button></a>
               </div>
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
@@ -57,24 +57,34 @@
                       <th>Event</th>
                       <th>Tanggal Event</th>
                       <th>Lokasi</th>
-                      <th>Foto</th>
+                      <th>Status</th>
                       <th>Opsi</th>
                     </tr>
                   </thead>
                   <tbody>
-                  <?php $no = 1; foreach ($event->result() as $evn) : ?>
+                    <?php $no = 1;
+                    foreach ($event->result() as $evn) : ?>
                       <tr>
                         <td><?= $no++ ?></td>
-                        <td><a target="_blank" href="<?php echo base_url('admin/siswa/detail/'. $evn->id_siswa) ?>"><?= $evn->nama.' <br> <small>NIS : '. $evn->nis.'</small>' ?></a></td>
+                        <td><a target="_blank" href="<?php echo base_url('admin/siswa/detail/' . $evn->id_siswa) ?>"><?= $evn->nama . ' <br> <small>NIS : ' . $evn->nis . '</small>' ?></a></td>
                         <td><?= $evn->nama_event ?></td>
                         <td><?= date('d F Y', strtotime($evn->tanggal_event)) ?></td>
                         <td><?= $evn->lokasi ?></td>
                         <td>
-                          <?php if ($evn->foto == "") : ?>
-                            <img src="<?= base_url('assets/Gambar/Website/default_event.png') ?>" style="width:70px; height:70px;">
-                          <?php else : ?>
-                            <img src="<?= base_url('assets/Gambar/Upload/event/') . $evn->foto ?>" style="width:70px; height:70px;">
-                          <?php endif ?>
+                            <?php
+
+                            if ($evn->status == "decline") {
+
+                              $styleBadge = "badge badge-danger";
+                            } elseif ($evn->status == "pending") {
+
+                              $styleBadge = "badge badge-info";
+                            } else {
+
+                              $styleBadge = "badge badge-success";
+                            }
+                            ?>
+                            <label class="<?php echo $styleBadge ?>"><?php echo $evn->status ?></label>
                         </td>
                         <td>
                           <a href="<?= base_url() . 'Admin/event/detail/' . $evn->id_event ?>" class="btn btn-info"><i class="fa fa-eye"></i> Detail</a>

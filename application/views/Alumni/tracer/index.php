@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><?= $title ?></title>
- 
+
 </head>
+
 <body class="hold-transition sidebar-mini layout-fixed" data-panel-auto-height-mode="height">
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
@@ -21,7 +23,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="<?php echo base_url('Alumni/dashboard_alumni')?>">Home</a></li>
+              <li class="breadcrumb-item"><a href="<?php echo base_url('Alumni/dashboard_alumni') ?>">Home</a></li>
               <li class="breadcrumb-item active">Tracer </li>
             </ol>
           </div><!-- /.col -->
@@ -37,7 +39,7 @@
         <!-- Timelime example  -->
         <div class="row">
           <div class="col-md-12">
-          <?php echo $this->session->flashdata('msg') ?>
+            <?php echo $this->session->flashdata('msg') ?>
             <hr>
 
             <!-- The time line -->
@@ -48,77 +50,75 @@
               </div>
               <!-- /.timeline-label -->
 
-              <?php if ( count($tracer) > 0 ) { ?>
+              <?php if (count($tracer) > 0) { ?>
 
-                <?php foreach ( $tracer as $item ) {
-                  
-                  
-                    $nama = "";
-                    $caption = "";
-                    $deskripsi = "";
-                    $tanggal_pembuatan = "";
+                <?php foreach ($tracer as $item) {
 
 
-                    // style 
-                    $color = "";
-                    $icon  = "";
+                  $nama = "";
+                  $caption = "";
+                  $deskripsi = "";
+                  $tanggal_pembuatan = "";
 
 
-                    // menampung segala jenis id baik {kerja, kuliah}
-                    $id_tracer = "";
+                  // style 
+                  $color = "";
+                  $icon  = "";
 
 
-                    if ( $item['tipe_tracer'] == "kerja" ) {
-                      
-                        $nama    = $item['data']['nama_perusahaan'];
-                        $caption = "Pernah Bekerja";
-
-                        $deskripsi = "Bekerja di salah satu perusahaan <b>". $item['data']['jenis_perusahaan']. "</b> pada tanggal <b>".$item['data']['tahun_masuk']."</b> dengan alamat perusahaan di <b>". ucfirst($item['data']['alamat_perusahaan'].'</b>');
-                        $tanggal_pembuatan = date('d M Y H.i A', strtotime($item['data']['created_at']));
-
-                        $color = "bg-blue";
-                        $icon  = "fas fa-briefcase";
+                  // menampung segala jenis id baik {kerja, kuliah}
+                  $id_tracer = "";
 
 
-                        // replace id
-                        $id_tracer = $item['data']['id_kerja'];
-                    
-                    
-                    } else if ( $item['tipe_tracer'] == "kuliah" ) {
+                  if ($item['tipe_tracer'] == "kerja") {
 
-                      $nama = $item['data']['nama_kampus'];
-                      $caption = "Menempuh Pendidikan";
+                    $nama    = $item['data']['nama_perusahaan'];
+                    $caption = "Pernah Bekerja";
 
-                      $deskripsi = "Melanjukan Studi di <b>".ucfirst($nama)."</b> jurusan <b>". $item['data']['jurusan'].'</b> dengan keahlian atau program studi <b>'.$item['data']['program_studi'].'</b> Diterima jalur';
+                    $deskripsi = "Bekerja di salah satu perusahaan <b>" . $item['data']['jenis_perusahaan'] . "</b> pada tanggal <b>" . $item['data']['tahun_masuk'] . "</b> dengan alamat perusahaan di <b>" . ucfirst($item['data']['alamat_perusahaan'] . '</b>');
+                    $tanggal_pembuatan = date('d M Y H.i A', strtotime($item['data']['created_at']));
 
-                      $tanggal_pembuatan = date('d M Y H.i A', strtotime($item['data']['created_at']));
+                    $color = "bg-blue";
+                    $icon  = "fas fa-briefcase";
 
-                      $color = "bg-yellow";
-                      $icon = "fas fa-graduation-cap";
 
-                      // replace id
-                      $id_tracer = $item['data']['id_kuliah'];
-                    }
+                    // replace id
+                    $id_tracer = $item['data']['id_kerja'];
+                  } else if ($item['tipe_tracer'] == "kuliah") {
+
+                    $nama = $item['data']['nama_kampus'];
+                    $caption = "Menempuh Pendidikan";
+
+                    $deskripsi = "Melanjukan Studi di <b>" . ucfirst($nama) . "</b> jurusan <b>" . $item['data']['jurusan'] . '</b> dengan keahlian atau program studi <b>' . $item['data']['program_studi'] . '</b> Diterima jalur';
+
+                    $tanggal_pembuatan = date('d M Y H.i A', strtotime($item['data']['created_at']));
+
+                    $color = "bg-yellow";
+                    $icon = "fas fa-graduation-cap";
+
+                    // replace id
+                    $id_tracer = $item['data']['id_kuliah'];
+                  }
                 ?>
-                  
+
                   <!-- Tracer  -->
                   <div>
-                    <i class="<?php echo $icon.' '.$color ?>"></i>
+                    <i class="<?php echo $icon . ' ' . $color ?>"></i>
                     <div class="timeline-item">
-                      <span class="time"><i class="fas fa-clock"></i> dibuat pada  <?php echo $tanggal_pembuatan ?></span>
-                        <h3 class="timeline-header"> <?php echo $caption ?> - di <a href="#"><?php echo ucfirst($nama) ?></a></h3>
+                      <span class="time"><i class="fas fa-clock"></i> dibuat pada <?php echo $tanggal_pembuatan ?></span>
+                      <h3 class="timeline-header"> <?php echo $caption ?> - di <a href="#"><?php echo ucfirst($nama) ?></a></h3>
                       <div class="timeline-body">
                         <?php echo $deskripsi ?>
-                        <?php if ( $item['tipe_tracer'] == "kuliah" ){ ?>
+                        <?php if ($item['tipe_tracer'] == "kuliah") { ?>
                           <label class="badge badge-success"><?php echo ucfirst($item['data']['jalur_penerimaan']) ?></label>
-                        <?php }?>
+                        <?php } ?>
                       </div>
                       <div class="timeline-footer">
-                        <a href="<?php echo base_url('Alumni/tracer/viewupdatetracer/'. $item['tipe_tracer'].'/'. $id_tracer) ?>" class="btn btn-dark btn-sm">Sunting</a>
-                        <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#action-delete-<?php echo $item['tipe_tracer'].'-'.$id_tracer ?>" >Delete</a>
+                        <a href="<?php echo base_url('Alumni/tracer/viewupdatetracer/' . $item['tipe_tracer'] . '/' . $id_tracer) ?>" class="btn btn-dark btn-sm">Sunting</a>
+                        <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#action-delete-<?php echo $item['tipe_tracer'] . '-' . $id_tracer ?>">Delete</a>
 
                         <!-- Modal delete -->
-                        <div class="modal fade" id="action-delete-<?php echo $item['tipe_tracer'].'-'.$id_tracer ?>">
+                        <div class="modal fade" id="action-delete-<?php echo $item['tipe_tracer'] . '-' . $id_tracer ?>">
                           <div class="modal-dialog">
                             <div class="modal-content">
                               <div class="modal-header">
@@ -135,7 +135,7 @@
                               </div>
                               <div class="modal-footer justify-content-between">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                                <a href="<?php echo base_url('Alumni/tracer/proseshapustracer/'. $item['tipe_tracer'].'/'. $id_tracer) ?>" class="btn btn-danger"><i class="fa fa-trash"></i> Logout</a>
+                                <a href="<?php echo base_url('Alumni/tracer/proseshapustracer/' . $item['tipe_tracer'] . '/' . $id_tracer) ?>" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</a>
                               </div>
                             </div>
                             <!-- /.modal-content -->
@@ -150,7 +150,8 @@
 
 
 
-                <?php } // end foreach ?>
+                <?php } // end foreach 
+                ?>
               <?php } ?>
               <!-- timeline item -->
               <!-- <div>
@@ -161,8 +162,8 @@
                 </div>
               </div> -->
               <!-- END timeline item -->
-              
-              
+
+
               <div>
                 <i class="fas fa-clock bg-gray"></i>
               </div>
@@ -173,46 +174,47 @@
       </div>
       <!-- /.timeline -->
 
-                          <!-- Modal delete -->
-                          <div class="modal fade" id="konfirmasi">
-                            <div class="modal-dialog">
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                    <b>Tracer Study</b>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                      <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                <div class="row">
+      <!-- Modal delete -->
+      <div class="modal fade" id="konfirmasi">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <b>Tracer Study</b>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="row">
 
-                                    <!-- Accept -->
-                                    <div class="col-md-6 text-center" style="border-right: 1px solid #e0e0e0">
-                                    <img style="width: 210px" src="<?= base_url('assets/Gambar/Website/tracer_graduation.png')?>">
-                                      <h6><b>Tambah Data Kuliah</b></h6>
-                                      <small>Klik tombol dibawah ini untuk menambahkan kuliah</small> <br><br>
-                                      <a href="<?php echo base_url('Alumni/tracer_kuliah/index') ?>" class="btn btn-success btn-sm">Kuliah</a>
-                                    </div>
+                <!-- Accept -->
+                <div class="col-md-6 text-center" style="border-right: 1px solid #e0e0e0">
+                  <img style="width: 210px" src="<?= base_url('assets/Gambar/Website/tracer_graduation.png') ?>">
+                  <h6><b>Tambah Data Kuliah</b></h6>
+                  <small>Klik tombol dibawah ini untuk menambahkan kuliah</small> <br><br>
+                  <a href="<?php echo base_url('Alumni/tracer_kuliah/index') ?>" class="btn btn-success btn-sm">Kuliah</a>
+                </div>
 
-                                    <!-- Ditolak -->
-                                    <div class="col-md-6 text-center" style="border-right: 1px solid #e0e0e0">
-                                    <img style="width: 210px" src="<?= base_url('assets/Gambar/Website/tracer_work.png')?>">
-                                      <h6><b>Tambah Data Kerja</b></h6>
-                                      <small>Klik tombol dibawah ini untuk menambah kerja</small> <br><br>
-                                      <a href="<?php echo base_url('alumni/tracer_kerja/index') ?>" class="btn btn-success btn-sm">Kerja</a>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                              <!-- /.modal-content -->
-                            </div>
-                            <!-- /.modal-dialog -->
-                          </div>
-                          <!-- /.modal -->
-              </div><!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
+                <!-- Ditolak -->
+                <div class="col-md-6 text-center" style="border-right: 1px solid #e0e0e0">
+                  <img style="width: 210px" src="<?= base_url('assets/Gambar/Website/tracer_work.png') ?>">
+                  <h6><b>Tambah Data Kerja</b></h6>
+                  <small>Klik tombol dibawah ini untuk menambah kerja</small> <br><br>
+                  <a href="<?php echo base_url('alumni/tracer_kerja/index') ?>" class="btn btn-success btn-sm">Kerja</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+      </div>
+      <!-- /.modal -->
+  </div><!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
 </body>
+
 </html>

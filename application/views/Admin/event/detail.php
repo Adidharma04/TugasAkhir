@@ -70,7 +70,7 @@
                 </div>
                 <div class="col-5 text-center">
                     <?php if ($event->foto == "") : ?>
-                      <img src="<?= base_url('assets/Gambar/Website/default_event.png') ?>" style="width:230px; height:300px;">
+                      <img src="<?= base_url('assets/Gambar/Website/default_event_null.png') ?>" style="width:330px; height:300px;">
                     <?php else : ?>
                       <img src="<?= base_url('assets/Gambar/Upload/Event/') . $event->foto ?>" style="width:300px; height:300px;">
                     <?php endif ?>

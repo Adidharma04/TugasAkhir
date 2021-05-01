@@ -26,12 +26,12 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Tambah Forum Diskusi</h1>
+              <h1>Tambah Detail Forum Diskusi</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Tambah Forum</li>
+                <li class="breadcrumb-item active">Tambah Detail Forum</li>
               </ol>
             </div>
           </div>
@@ -43,7 +43,7 @@
         <!-- Default box -->
         <div class="card">
           <div class="card-header" style="background-color:blanchedalmond">
-            <h3 class="card-title">Form Tambah Forum Diskusi</h3>
+            <h3 class="card-title">Form Tambah Detail Forum Diskusi</h3>
 
             <div class="card-tools">
               <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -55,41 +55,22 @@
             <form action="" method="post" enctype="multipart/form-data">
               <div div class="row">
                 <div class="col-md-6">
-                  <label for="nama_informasi">Nama Forum</label>
+                  <label for="id_forum">Id Forum</label>
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="fas fa-id-card"></i></span>
                     </div>
-                    <input type="text" class="form-control" name="nama_forum" id="nama_forum" placeholder="Masukkan Nama Forum" value="<?= set_value('nama_forum'); ?>">
+                    <input type="text" class="form-control" name="id_forum" id="id_forum" placeholder="Masukkan Id Forum" value="<?= set_value('nama_forum'); ?>">
                   </div>
-                  <?= form_error('nama_forum', '<small class="text-danger">', '</small>'); ?>
-                </div>
-                <div class="col-md-6">
-                  <label for="nama_informasi">Topik Forum</label>
-                  <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="fas fa-id-card"></i></span>
-                    </div>
-                    <input type="text" class="form-control" name="id_topik" id="id_topik" placeholder="Masukkan Id Topik" value="<?= set_value('id_topik'); ?>">
-                  </div>
-                  <?= form_error('id_topik', '<small class="text-danger">', '</small>'); ?>
+                  <?= form_error('id_forum', '<small class="text-danger">', '</small>'); ?>
                 </div>
               </div>
               <!-- Batas Baris -->
               <div class="row">
                 <div class="col-md-12">
-                  <label for="deskripsi">Deskripsi Forum</label>
-                  <textarea type="text" class="form-control" id="deskripsi" name="deskripsi" cols="30" rows="6" placeholder="Masukkan Deskripsi Forum Diskusi"><?= set_value('deskripsi'); ?></textarea>
-                  <?= form_error('deskripsi', '<small class="text-danger">', '</small>'); ?>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <label>Tanggal Forum</label>
-                    <input type="date" class="form-control" id="tanggal_forum" name="tanggal_forum" value="<?= set_value('tanggal_forum') ?>">
-                    <?= form_error('tanggal_forum', '<small class="text-danger">', '</small>'); ?>
-                  </div>
+                  <label for="notes">Notes Forum</label>
+                  <textarea type="text" class="form-control" id="notes" name="notes" cols="30" rows="6" placeholder="Masukkan Notes Forum Diskusi"><?= set_value('notes'); ?></textarea>
+                  <?= form_error('notes', '<small class="text-danger">', '</small>'); ?>
                 </div>
               </div>
               <div class="row">

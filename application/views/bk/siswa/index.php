@@ -87,18 +87,16 @@
                               $textBtn = "";
                               if ( ($swa->verifikasi_alumni == "diterima") ) {
 
-                                echo '<small>Telah dikonfirmasi</small>';
+                                echo '<span class="badge badge-success">Telah dikonfirmasi</span>';
 
-                                $colorBtn = "btn-primary";
-                                $textBtn  = "Konfirmasi Ulang";
                               } else {
 
                                 echo '<small>Mohon dikonfirmasi</small>';
-                                $colorBtn = "btn-default";
+                                $colorBtn = "btn-primary";
                                 $textBtn  = "Konfirmasi Alumni";
                               }
                             ?>
-                            <a href="javascript:;" data-toggle="modal" data-target="#konfirmasi-<?php echo $swa->id_siswa ?>" class="btn <?php echo $colorBtn ?>"><i class="fas fa-eye"></i><?php echo $textBtn ?></a>
+                            <a href="javascript:;" data-toggle="modal" data-target="#konfirmasi-<?php echo $swa->id_siswa ?>" class="btn <?php echo $colorBtn ?>"><?php echo $textBtn ?></a>
                             
                             <!-- Modal delete -->
                             <div class="modal fade" id="konfirmasi-<?php echo $swa->id_siswa ?>">

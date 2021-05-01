@@ -37,121 +37,149 @@
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
-                
-                <?php echo $this->session->flashdata('msg') ?>
-
+                <!-- /.card -->
                 <div class="row">
-                
                     <div class="col-md-4">
+                        <!-- DIRECT CHAT -->
+                        <div class="card direct-chat direct-chat-warning">
+                            <div class="card-header">
+                                <h3 class="card-title">Topik Forum Diskusi</h3>
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- /.card-header -->
 
-                        <a href="javascript:;" data-toggle="modal" data-target="#tambah-topik" class="btn btn-primary">Tambah Topik</a>
+                            <div class="card-body">
+                                <!-- Conversations are loaded here -->
+                                <div class="direct-chat-messages">
+                                    <a href="javascript:;" data-toggle="modal" data-target="#tambah-topik" class="btn btn-primary">Tambah Topik</a>
+                                    <hr>
+                                    <ul>
+                                        <?php foreach ($topik->result_array() as $row) : ?>
+                                            <li style="border-bottom: 1px solid #e0e0e0; padding: 5px"><?php echo $row['nama'] ?> <br> <small>Pembuatan <?php echo date('d M Y H.i A', strtotime($row['created_at'])) ?></small></li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                </div><!-- /.chat Message -->
+                            </div><!-- /.card body -->
 
-                         <!-- Modal delete -->
-                        <div class="modal fade" id="tambah-topik">
-                            <div class="modal-dialog modal-sm">
-                            <div class="modal-content">
+                            <!-- Modal tambah topik -->
+                            <div class="modal fade" id="tambah-topik">
+                                <div class="modal-dialog modal-sm">
+                                    <div class="modal-content">
 
-                                <form action="<?php echo base_url('admin/forum_diskusi/prosestambah') ?>" method="POST">
-                                <div class="modal-body">
-                                    <h3 style="margin: 0px">Tambah topik baru</h3> 
-                                    <small>Isi form topik baru dibawah ini</small> <br><br>
+                                        <form action="<?php echo base_url('admin/forum_diskusi/prosestambah') ?>" method="POST">
+                                            <div class="modal-body">
+                                                <h3 style="margin: 0px">Tambah topik baru</h3>
+                                                <small>Isi form topik baru dibawah ini</small> <br><br>
 
-                                    <div class="form-group">
-                                        <label for="">Nama Topik Baru</label>
-                                        <textarea name="topik" id="" class="form-control" placeholder="Masukkan topik baru . . ." required=""></textarea>
+                                                <div class="form-group">
+                                                    <label for="">Nama Topik Baru</label>
+                                                    <textarea name="topik" id="" class="form-control" placeholder="Masukkan topik baru . . ." required=""></textarea>
+                                                </div>
+
+                                            </div>
+                                            <div class="modal-footer justify-content-between">
+                                                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Batal</button>
+                                                <button class="btn btn-warning btn-sm"><i class="fa fa-power-off"></i> Simpan</button>
+                                            </div>
+                                        </form>
                                     </div>
-
+                                    <!-- /.modal-content -->
                                 </div>
-                                <div class="modal-footer justify-content-between">
-                                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Batal</button>
-                                    <button class="btn btn-warning btn-sm"><i class="fa fa-power-off"></i> Simpan</button>
-                                </div>
-                                </form>
+                                <!-- /.modal-dialog -->
                             </div>
-                            <!-- /.modal-content -->
-                            </div>
-                            <!-- /.modal-dialog -->
-                        </div>
-                        <!-- /.modal -->
+                            <!-- /.modal -->
 
-
-                        <hr>
-                        <ul>
-                            <?php foreach ( $topik->result_array() AS $row ) : ?>
-                            <li style="border-bottom: 1px solid #e0e0e0; padding: 5px"><?php echo $row['nama'] ?> <br> <small>Pembuatan <?php echo date('d M Y H.i A', strtotime( $row['created_at'] )) ?></small></li>
-                            <?php endforeach; ?>
-                        </ul>
-
+                        </div><!-- /.direct chat -->
                     </div>
+                    <!-- /.col -->
 
                     <div class="col-md-8">
-                            
-                        <div class="row">
-                                
-
-                            <div class="col-md-10">
-                            
-                                <h4>Daftar Forum Terkini</h4>
-                                <span for="">Lihat forum berdasarkan : <label for="">Keseluruhan</label></span> <br>
-                            
-                            </div>
-
-                            <div class="col-md-2">
-                            
-                                <button class="btn btn-xs btn-secondary">Tambahkan Forum</button>
-                            </div>
-                        
-                        </div>
-
-                        
-
-                        <hr>
-                        
-                        <?php foreach ( $forum->result_array() as $row ) { ?>
-                        <a href="<?php echo base_url('admin/forum_diskusi/discuss/'. $row['id_forum']) ?>">
-                            <div class="card" style="padding: 5px">
-                                <div class="row">
-                                
-                                    <div class="col-md-9">
-                                        <div for="" style="font-weight: bold; color: #000"><?php echo $row['nama_forum'] ?></div>
-                                        <div class="text-sm text-muted" style="margin: 0px">
-                                            <marquee behavior="" direction="">Forum dibuka pada <?php echo date('d F Y H.i A', strtotime( $row['tanggal_forum'] )) ?> &emsp;|&emsp; dibuat oleh <label for=""><?php echo $row['username'] ?></label></marquee>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-3">
-                                        <div>
-                                            <span for="" class="badge badge-danger">Kedinasan</span><br>
-                                            <small class="text-muted">Terdapat 10 Partisipan</small>
-                                        </div>
-                                    </div>
+                        <!-- Custom Tabs -->
+                        <div class="card">
+                            <div class="card-header d-flex p-0">
+                                <h3 class="card-title p-3">Forum Diskusi</h3>
+                                <ul class="nav nav-pills ml-auto p-2">
+                                    <li class="nav-item"><a class="nav-link active" href="#tab_1" data-toggle="tab">Semua Forum Diskusi</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#tab_2" data-toggle="tab">Info Kuliah</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#tab_3" data-toggle="tab">Info Kerja</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="#tab_4" data-toggle="tab">Info Event</a></li>
+                                </ul>
+                            </div><!-- /.card-header -->
+                            <br>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <a href="<?php echo base_url('admin/Forum_diskusi/tambahForum/') ?>">
+                                        <button class="btn btn-primary" style="margin-left: 20px;">
+                                            Tambahkan Forum
+                                        </button>
+                                    </a>
                                 </div>
                             </div>
-                        </a>
-                        <?php } ?>
-                    
-                    </div>
-                </div>                                
+                            <div class="card-body">
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="tab_1">
+                                        <?php foreach ($forum->result_array() as $row) { ?>
+                                            <a href="<?php echo base_url('admin/forum_diskusi/discuss/' . $row['id_forum']) ?>">
+                                                <div class="card" style="padding: 5px">
+                                                    <div class="row">
 
+                                                        <div class="col-md-9">
+                                                            <div for="" style="font-weight: bold; color: #000"><?php echo $row['nama_forum'] ?></div>
+                                                            <div class="text-sm text-muted" style="margin: 0px">
+                                                                <marquee behavior="" direction="">Forum dibuka pada <?php echo date('d F Y H.i A', strtotime($row['tanggal_forum'])) ?> &emsp;|&emsp; dibuat oleh <label for=""><?php echo $row['username'] ?></label></marquee>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-md-3">
+                                                            <div>
+                                                                <span for="" class="badge badge-danger">Kedinasan</span><br>
+                                                                <small class="text-muted">Terdapat 10 Partisipan</small>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        <?php } ?>
+                                    </div>
+                                    <!-- /.tab-pane -->
+                                    <div class="tab-pane" id="tab_2">
+                                        The European languages are members of the same family. Their separate existence is a myth.
+                                        For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ
+                                        in their grammar, their pronunciation and their most common words. Everyone realizes why a
+                                        new common language would be desirable: one could refuse to pay expensive translators. To
+                                        achieve this, it would be necessary to have uniform grammar, pronunciation and more common
+                                        words. If several languages coalesce, the grammar of the resulting language is more simple
+                                        and regular than that of the individual languages.
+                                    </div>
+                                    <!-- /.tab-pane -->
+                                    <div class="tab-pane" id="tab_3">
+                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                                        when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                                        It has survived not only five centuries, but also the leap into electronic typesetting,
+                                        remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset
+                                        sheets containing Lorem Ipsum passages, and more recently with desktop publishing software
+                                        like Aldus PageMaker including versions of Lorem Ipsum.
+                                    </div>
+                                    <!-- /.tab-pane -->
+                                </div>
+                                <!-- /.tab-content -->
+                            </div><!-- /.card-body -->
+                        </div>
+                        <!-- ./card -->
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
             </div>
             <!-- /.container-fluid -->
         </section>
         <!-- /.content -->
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     <!-- /.content-wrapper -->

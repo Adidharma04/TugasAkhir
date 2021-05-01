@@ -101,18 +101,15 @@
                               $textBtn = "";
                               if ( ($job->status == "accept") || ($job->status == "decline") ) {
 
-                                echo '<small>Telah dikonfirmasi</small>';
-
-                                $colorBtn = "btn-primary";
-                                $textBtn  = "Konfirmasi Ulang";
+                                echo '<span class="badge badge-success">Telah dikonfirmasi</span>';
                               } else {
 
                                 echo '<small>Mohon dikonfirmasi</small>';
-                                $colorBtn = "btn-default";
+                                $colorBtn = "btn-primary";
                                 $textBtn  = "Konfirmasi Loker";
                               }
                             ?>
-                            <a href="javascript:;" data-toggle="modal" data-target="#konfirmasi-<?php echo $job->id_loker ?>" class="btn <?php echo $colorBtn ?>"><i class="fas fa-eye"></i><?php echo $textBtn ?></a>
+                            <a href="javascript:;" data-toggle="modal" data-target="#konfirmasi-<?php echo $job->id_loker ?>" class="btn <?php echo $colorBtn ?>"></i><?php echo $textBtn ?></a>
                             
                             <!-- Modal delete -->
                             <div class="modal fade" id="konfirmasi-<?php echo $job->id_loker ?>">

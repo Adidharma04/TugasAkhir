@@ -99,20 +99,18 @@
 
                           $colorBtn = "";
                           $textBtn = "";
+
                           if (($ig->status == "accept") || ($ig->status == "decline")) {
 
-                            echo '<small>Telah dikonfirmasi</small>';
-
-                            $colorBtn = "btn-primary";
-                            $textBtn  = "Konfirmasi Ulang";
+                            echo '<span class="badge badge-success">Telah dikonfirmasi</span>';
                           } else {
 
                             echo '<small>Mohon dikonfirmasi</small>';
-                            $colorBtn = "btn-default";
+                            $colorBtn = "btn-primary";
                             $textBtn  = "Konfirmasi Informasi";
                           }
                           ?>
-                          <a href="javascript:;" data-toggle="modal" data-target="#konfirmasi-<?php echo $ig->id_umum ?>" class="btn <?php echo $colorBtn ?>"><i class="fas fa-eye"></i><?php echo $textBtn ?></a>
+                          <a href="javascript:;" data-toggle="modal" data-target="#konfirmasi-<?php echo $ig->id_umum ?>" class="btn <?php echo $colorBtn ?>"><?php echo $textBtn ?></a>
 
                           <!-- Modal delete -->
                           <div class="modal fade" id="konfirmasi-<?php echo $ig->id_umum ?>">

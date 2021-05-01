@@ -22,8 +22,6 @@ class Forum_diskusi extends CI_Controller {
             redirect('Admin/login', 'refresh');
         }
 
-
-
         $this->load->model('Admin/forum_diskusi_model');
     }
     public function index()
@@ -42,30 +40,75 @@ class Forum_diskusi extends CI_Controller {
         $this->load->view('Admin/forum_diskusi/index',$data);
         $this->load->view('Template/Admin/footer');
     } 
-    public function tambah()
-    {
+
+    public function tambahForum()
+    {   
+        //rule
+        $this->form_validation->set_rules('nama_forum', 'Nama Forum', 'required|trim',[
+            'required' => 'Masukkan Nama Forum',
+        ]);
+        $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required|trim',[
+            'required' => 'Masukkan Deskripsi Forum',
+        ]);
+        $this->form_validation->set_rules('tanggal_forum', 'Tanggal Forum', 'required|trim',[
+            'required' => 'Masukkan Tanggal Forum',
+        ]);
+
         //-- Title Halaman
-         $data ['title'] = 'Halaman Forum tambah diskusi | Admin';
+        $data ['title'] = 'Halaman Forum tambah diskusi | Admin';
         //----------------------------
-        // $data['informasi_umum'] = $this->informasi_umum_model->tampilDataInformasiUmum(); 
-        $this->load->view('Template/Admin/navbar',$data);
-        $this->load->view('Template/Admin/sidebar',$data);
-        $this->load->view('Admin/forum_diskusi/tambah',$data);
-        $this->load->view('Template/Admin/footer');
+        if( $this->form_validation->run() == FALSE ){
+            $this->load->view('Template/Admin/navbar',$data);
+            $this->load->view('Template/Admin/sidebar',$data);
+            $this->load->view('Admin/forum_diskusi/tambah',$data);
+            $this->load->view('Template/Admin/footer');
+        }else{
+                $this->Forum_diskusi_model->tambahDataForum();
+                $html = '<div class="alert alert-success">
+                            <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
+                            <b>Pemberitahuan</b> <br>
+                            Tambah Data Forum berhasil di tambah pada tanggal ' . date('d F Y H.i A') . '
+                        </div>';
+                $this->session->set_flashdata('msg', $html);
+                redirect('Admin/Forum_diskusi', 'refresh');
+        }    
     }
 
+    // proses tambah
+    public function tambahDetailForum()
+    {   
+        //rule
+        $this->form_validation->set_rules('id_forum', 'Id Forum', 'required|trim',[
+            'required' => 'Masukkan Forum',
+        ]);
+        $this->form_validation->set_rules('notes', 'Notes', 'required|trim',[
+            'required' => 'Masukkan Catatan Forum',
+        ]);
 
+        //-- Title Halaman
+        $data ['title'] = 'Halaman Forum tambah diskusi | Admin';
+        //----------------------------
+        if( $this->form_validation->run() == FALSE ){
+            $this->load->view('Template/Admin/navbar',$data);
+            $this->load->view('Template/Admin/sidebar',$data);
+            $this->load->view('Admin/forum_diskusi/tambah_detail',$data);
+            $this->load->view('Template/Admin/footer');
+        }else{
+                $this->Forum_diskusi_model->tambahDataDetailForum();
+                $html = '<div class="alert alert-success">
+                            <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
+                            <b>Pemberitahuan</b> <br>
+                            Tambah Data Forum berhasil di tambah pada tanggal ' . date('d F Y H.i A') . '
+                        </div>';
+                $this->session->set_flashdata('msg', $html);
+                redirect('Admin/Forum_diskusi', 'refresh');
+        }    
+    }
 
-
-
-    // proses tamba
+    // proses tambah topik
     function prosestambah() {
-
         $this->forum_diskusi_model->onInsertDataTopic();
     }
-
-
-
 
     // detail forum
     function discuss( $id_forum ) {
