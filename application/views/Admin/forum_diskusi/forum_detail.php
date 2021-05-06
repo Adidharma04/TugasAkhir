@@ -35,20 +35,14 @@
             </div><!-- /.container-fluid -->
         </div>
         <!-- Main content -->
+
         <section class="content">
             <div class="container-fluid">
 
                 <?php echo $this->session->flashdata('msg') ?>
 
                 <div class="row justify-content-center">
-
                     <div class="col-md-9">
-                        <a href="<?php echo base_url('admin/Forum_diskusi/tambahDetailForum/') ?>">
-                            <button class="btn btn-primary">
-                                Tambahkan Detail
-                            </button>
-                        </a>
-                        <br>
                         <div class="card card-body">
                             <h3 style="margin: 0px"><?php echo $detail->nama_forum ?></h3>
                             <p class="text-sm text-muted">
@@ -63,41 +57,41 @@
 
 
                             <div class="row" style="border-bottom: 2px solid #e0e0e0">
-                            
+
                                 <div class="col-md-10">
 
                                     <form action="<?php echo base_url('admin/forum_diskusi/tambahDetailForum') ?>" method="POST">
+                                        <h5>Komentar</h5>
+                                        <div class="form-group">
+                                            <input type="hidden" name="id_forum" value="<?php echo $detail->id_forum ?>">
+                                            <textarea name="notes" id="" class="form-control" placeholder="Pertanyaan, Informasi detail atau lainnya . . ."></textarea>
+                                            <small>Komentari forum diatas</small>
+                                        </div>
 
-                                    <h5>Komentar</h5>
-                                    <div class="form-group">
-                                        <input type="hidden" name="id_forum" value="<?php echo $detail->id_forum ?>">
-                                        <textarea name="notes" id="" class="form-control" placeholder="Pertanyaan, Informasi detail atau lainnya . . ."></textarea>
-                                        <small>Komentari forum diatas</small>
-                                    </div>
+                                        <div class="form-group text-right">
 
-                                    <div class="form-group text-right">
-                                    
-                                        <button class="btn btn-primary btn-xs">Tambahkan Komentar</button>
-                                    </div>
+                                            <button class="btn btn-primary btn-xs">Tambahkan Komentar</button>
+                                        </div>
 
                                     </form>
-
-
                                 </div>
 
                             </div>
-
-
+                            
                             <?php foreach ($diskusi->result_array() as $row) { ?>
                                 <div class="row" style="border-bottom: 1px solid #e0e0e0; padding: 5px">
-                                    <div class="col-md-8">
+                                    <div class="col-md-6">
 
                                         <div for="" style="margin: 0px"><label for=""><?php echo $row['username'] ?></label></div>
                                         <small>"<?php echo $row['notes'] ?>"</small>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-3">
                                         <small>pada </small><br>
                                         <?php echo date('d M Y H.i A', strtotime($row['created_at'])) ?>
+                                    </div>
+                                    <div class="col-md-3">
+                                            <a href="'.base_url('Admin/forum_diskusi/editForum/').$row['id_forum'].'" class="btn btn-primary"><i class="fa fa-pencil"> Sunting</i></a> &nbsp;
+                                            <a href="'.base_url('Admin/forum_diskusi/hapusForum/').$row['id_forum'].'" class="btn btn-danger"><i class="fa fa-trash"> Hapus</i></a>
                                     </div>
                                 </div>
                             <?php } ?>

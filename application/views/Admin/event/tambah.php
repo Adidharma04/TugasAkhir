@@ -94,9 +94,14 @@
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label for="foto">Foto</label>
-                      <input type="file" class="form-control" id="foto" name="foto">
-                      <small>Tambahkan Foto jika ada!</small>
+                      <label>Foto Event</label>
+                      <div class="input-group">
+                        <div class="custom-file">
+                          <input type="file" class="custom-file-input form-control" id="foto" name="foto" value="">
+                          <label class="custom-file-label" for="foto" value="">Choose file</label>
+                        </div>
+                      </div>
+                      <small>Tambahkan foto apabila dibutuhkan</small>
                     </div>
                   </div>
                 </div>
@@ -145,6 +150,12 @@
       <!-- /.content -->
     </div>
 </body>
+<script>
+$('.custom-file-input').on('change', function() {
+    let fileName = $(this).val().split('\\').pop();
+    $(this).next('.custom-file-label').addClass("selected").html(fileName);
+});
+</script>
 <!-- Select2 -->
 <script src="<?= base_url('assets/Template/Admin/plugins/select2/js/select2.full.min.js') ?>"></script>
 <!-- Bootstrap4 Duallistbox -->

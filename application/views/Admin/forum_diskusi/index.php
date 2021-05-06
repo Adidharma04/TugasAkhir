@@ -50,6 +50,7 @@
         <section class="content">
             <div class="container-fluid">
                 <!-- /.card -->
+                <?php echo $this->session->flashdata('msg') ?>
                 <div class="row">
                     <div class="col-md-4">
                         <!-- DIRECT CHAT -->
@@ -161,11 +162,6 @@
                                                 }
                                             }
 
-                                            
-                                        
-                                        
-                                        
-                                        
                                         foreach ($nilaiyangmuncul as $row) { ?>
                                             <a href="<?php echo base_url('admin/forum_diskusi/discuss/' . $row['id_forum']) ?>">
                                                 <div class="card" style="padding: 5px">
@@ -180,12 +176,12 @@
                                                             
                                                             if ( $level == "staff" || $level == "bk" ) {
 
-                                                                
                                                                 echo '
-                                                                <div class="text-sm">
-                                                                    <a href="'.$row['id_forum'].'">Sunting</a> &emsp;
-                                                                    <a href="">Hapus</a>
-                                                                </div>
+                                                                    <div class="text-sm">
+                                                                    <a href="'.base_url('Admin/forum_diskusi/editForum/').$row['id_forum'].'" class="btn btn-primary"><i class="fa fa-pencil"> Sunting</i></a> &nbsp;
+                                                                    <a href="'.base_url('Admin/forum_diskusi/hapusForum/').$row['id_forum'].'" class="btn btn-danger"><i class="fa fa-trash"> Hapus</i></a>
+                                                                    </div>
+
                                                                 ';
                                                                 
                                                             } else {
@@ -205,8 +201,6 @@
                                                             
                                                             <!-- End Button -->
 
-
-
                                                             <div class="text-sm text-muted" style="margin: 0px">
                                                                 <marquee behavior="" direction="">Forum dibuka pada <?php echo date('d F Y H.i A', strtotime($row['tanggal_forum'])) ?> &emsp;|&emsp; dibuat oleh <label for=""><?php echo $row['username'] ?></label></marquee>
                                                             </div>
@@ -217,7 +211,7 @@
 
                                                                 <?php
 
-                                                                    $color = "badge badge-danger";
+                                                                    $color = "badge badge-primary";
                                                                     
                                                                     if ( $row['id_topik'] != 1)  {
 
@@ -225,6 +219,14 @@
 
                                                                             $color = "badge badge-warning";
                                                                         }
+                                                                            if ( ($row['id_topik'] % 3) == 0 ) {
+
+                                                                                $color = "badge badge-info";
+                                                                            }
+                                                                                if ( ($row['id_topik'] % 4) == 0 ) {
+
+                                                                                    $color = "badge badge-success";
+                                                                                }
                                                                     }
                                                                 ?>
 
@@ -232,6 +234,8 @@
                                                                 <small class="text-muted">Terdapat 10 Partisipan</small>
                                                             </div>
                                                         </div>
+
+
                                                     </div>
                                                 </div>
                                             </a>

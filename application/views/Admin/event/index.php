@@ -66,7 +66,8 @@
                     foreach ($event->result() as $evn) : ?>
                       <tr>
                         <td><?= $no++ ?></td>
-                        <td><a target="_blank" href="<?php echo base_url('admin/siswa/detail/' . $evn->id_siswa) ?>"><?= $evn->nama . ' <br> <small>NIS : ' . $evn->nis . '</small>' ?></a></td>
+                        <td>
+                          <a target="_blank" href="<?php echo base_url('admin/siswa/detail/' . $evn->id_siswa) ?>"><?= $evn->nama . ' <br> <small>NIS : ' . $evn->nis . '</small>' ?></a></td>
                         <td><?= $evn->nama_event ?></td>
                         <td><?= date('d F Y', strtotime($evn->tanggal_event)) ?></td>
                         <td><?= $evn->lokasi ?></td>

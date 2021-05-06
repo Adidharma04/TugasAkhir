@@ -86,7 +86,6 @@
                 $query = $this->db->get('tracer_kuliah');
 
             } else {
-
                 $this->db->where('id_kerja', $id);
                 $query = $this->db->get('tracer_kerja');
             }

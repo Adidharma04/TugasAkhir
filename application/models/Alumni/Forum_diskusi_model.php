@@ -81,11 +81,10 @@
             $this->db->insert('forum', $forum);
         }
 
-        // proses Edit Data Forum
+        // proses tambah Data Forum
         function editDataForum() {
-            $id_forum   = $this->input->post('id_forum');
             $id_profile = $this->session->userdata('sess_id_profile');
-            
+
             $forum = array(
                 'id_profile'        => $id_profile,
                 'id_topik'          => $this->input->post('id_topik'),
@@ -94,15 +93,7 @@
                 'tanggal_forum'     => $this->input->post('tanggal_forum'),
                 
             );
-            $this->db->where('id_forum', $id_forum);
-            $this->db->update('forum', $forum);
-        }
-
-         // porses hapus
-        function prosesHapusForum( $id_forum ){
-
-            $this->db->where('id_forum', $id_forum)->delete('forum');
-            $this->db->where('id_forum', $id_forum)->delete('forum_detail');
+            $this->db->insert('forum', $forum);
         }
 
         // proses tambah Data Detail Forum

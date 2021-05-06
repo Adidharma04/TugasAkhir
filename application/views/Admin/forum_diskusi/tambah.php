@@ -72,8 +72,8 @@
                     </div>
                     <!-- <input type="text" class="form-control" name="id_topik" id="id_topik" placeholder="Masukkan Id Topik" value="<?= set_value('id_topik'); ?>"> -->
                     <select name="id_topik" class="form-control">
-                      <?php foreach ( $topik->result_array() AS $row ) : ?>
-                      <option value="<?php echo $row['id_topik'] ?>"><?php echo $row['nama'] ?></option>
+                      <?php foreach ($topik->result_array() as $row) : ?>
+                        <option value="<?php echo $row['id_topik'] ?>"><?php echo $row['nama'] ?></option>
                       <?php endforeach; ?>
                     </select>
                   </div>
@@ -96,7 +96,20 @@
                     <?= form_error('tanggal_forum', '<small class="text-danger">', '</small>'); ?>
                   </div>
                 </div>
+                <div class="col-md-8">
+                  <div class="form-group">
+                    <label>Foto Event</label>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input form-control" id="foto" name="foto" value="">
+                        <label class="custom-file-label" for="foto" value="">Choose file</label>
+                      </div>
+                    </div>
+                    <small>Tambahkan foto apabila dibutuhkan</small>
+                  </div>
+                </div>
               </div>
+
               <div class="row">
                 <div class="col-md-4">
                   <button type="submit" class="btn btn-primary">Submit</button>
@@ -115,6 +128,12 @@
       <!-- /.content -->
     </div>
 </body>
+<script>
+$('.custom-file-input').on('change', function() {
+    let fileName = $(this).val().split('\\').pop();
+    $(this).next('.custom-file-label').addClass("selected").html(fileName);
+});
+</script>
 <!-- Select2 -->
 <script src="<?= base_url('assets/Template/Admin/plugins/select2/js/select2.full.min.js') ?>"></script>
 <!-- Bootstrap4 Duallistbox -->
