@@ -65,8 +65,8 @@ function notifikasiEmail( $email, $nama_siswa, $status, $nama_event) {
 		$config['protocol'] = "smtp";
         $config['smtp_host'] = "ssl://smtp.gmail.com";
         $config['smtp_port'] = 465;
-        $config['smtp_user'] = "ikawahyufeb@gmail.com";
-        $config['smtp_pass'] = "punyanyaika17";
+        $config['smtp_user'] = "smanistracerstudy@gmail.com";
+        $config['smtp_pass'] = "smanis123";
         $config['smtp_timeout'] = '7';
         $config['charset'] = "utf-8";
         $config['mailtype'] = "html";

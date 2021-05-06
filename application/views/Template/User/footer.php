@@ -24,55 +24,40 @@
                     <!-- Footer Widget Area -->
                     <div class="col-12 col-sm-6 col-lg-3">
                         <div class="footer-widget mb-100">
-                            <div class="widget-title">
-                            <h6>Tracer Study Smanis</h6>
-                            </div>
-                            <p style="text-align:justify;">Bertujuan untuk mempermudah siswa dan 
-                            alumni untuk berbagi informasi mengenai perkuliahan dan dunia kerja</p>
-                        </div>
-                    </div>
-                    <!-- Footer Widget Area -->
-                    <div class="col-12 col-sm-6 col-lg-3">
-                        <div class="footer-widget mb-100">
-                            <div class="widget-title">
-                                <h6>Visi & Misi</h6>
-                            </div>
-                            <p>Visi : Berimtaq, berprestasi tertib santun dan disiplin adalah jiwaku.</p>
-                            <p>Misi : <br>
-                            Meningkatkan keimanan dan ketaqwaan<br>
-                            Meningkatkan prestasi akademis dan non akademis<br>
-                            Membentuk kultur serkolah yang tertib santun dan disiplin.</p>
-                        </div>
-                    </div>
-                    <!-- Footer Widget Area -->
-                    <div class="col-12 col-sm-6 col-lg-3">
-                        <div class="footer-widget mb-100">
-                            <div class="widget-title">
-                            <h6>History</h6>
-                            </div>
-                            <p style="text-align:justify;">SMAN Ploso Jombang berdiri sejak tahun 1983, 
-                            yang semula hanya memiliki 3 kelas sekarang telah memiliki 
-                            21 lokal ruang belajar. Dengan 8 kali pergantian kepala sekolah. 
-                            Memiliki kurang lebih 600 siswa-siswi.</p>
-                        </div>
-                    </div>
-                    <!-- Footer Widget Area -->
-                    <div class="col-12 col-sm-6 col-lg-3">
-                        <div class="footer-widget mb-100">
-                            <div class="widget-title">
-                                <h6>Contact</h6>
-                            </div>
-                            <div class="single-contact d-flex mb-30">
+                        <div class="single-contact d-flex mb-30">
                                 <i class="icon-placeholder"></i>
                                 <p>Jl. Raya Ploso No. 230 Ploso Jombang</p>
                             </div>
-                            <div class="single-contact d-flex mb-30">
+                        </div>
+                    </div>
+                    <!-- Footer Widget Area -->
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="footer-widget mb-100">
+                        <div class="single-contact d-flex mb-30">
                                 <i class="icon-telephone-1"></i>
                                 <p>Telephone: 0321-888814 <br>Fax: 0321-888814</p>
                             </div>
-                            <div class="single-contact d-flex">
+                        </div>
+                    </div>
+                    <!-- Footer Widget Area -->
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="footer-widget mb-100">
+                        <div class="single-contact d-flex">
                                 <i class="icon-contract"></i>
-                                <p>smanegeri_ploso@yahoo.co.id</p>
+                                <p>smanegeri_ploso@yahoo.co.id <br> smanistracerstudy@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Footer Widget Area -->
+                    <div class="col-12 col-sm-6 col-lg-3">
+                        <div class="footer-widget mb-100">
+                        <div class="single-contact d-flex">
+                                <i class="fa fa-dribbble"></i>
+                                <a target="_blank" href="http://www.smanegeriploso.sch.id/"><p>www.smanegeriploso.sch.id/</p></a>
+                            </div>
+                            <div class="single-contact d-flex mb-30">
+                            <i class="fa fa-instagram"></i>
+                            <a target="_blank" href="https://www.instagram.com/sman_ploso/"><p>sman_ploso</p></a>
                             </div>
                         </div>
                     </div>
