@@ -69,9 +69,16 @@ class Forum_diskusi extends CI_Controller {
             $this->load->view('Admin/forum_diskusi/tambah',$data);
             $this->load->view('Template/Admin/footer');
         }else{
-            $upload = $this->event_model->upload();
+            $upload = $this->forum_diskusi_model->upload();
             if ($upload['result'] == 'success') {
-                $this->event_model->tambahDataEvent($upload);
+                $this->forum_diskusi_model->tambahDataForum($upload);
+                $html = '<div class="alert alert-success">
+                                <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
+                                <b>Pemberitahuan</b> <br>
+                                Forum berhasil di tambah pada tanggal ' . date('d F Y H.i A') . '
+                         </div>';
+                $this->session->set_flashdata('msg', $html);
+                redirect('Admin/forum_diskusi', 'refresh');
                 
             } else {
                 echo $upload['error'];
@@ -81,8 +88,9 @@ class Forum_diskusi extends CI_Controller {
 
     public function editForum($id_forum)
     {   
-        $getDataEventById = $this->forum_diskusi_model->getForum($id_forum);
+        $getDataForumById = $this->forum_diskusi_model->getForum($id_forum);
         $data['topik'] = $this->forum_diskusi_model->getDataTopic();
+
         //rule
         $this->form_validation->set_rules('nama_forum', 'Nama Forum', 'required|trim',[
             'required' => 'Masukkan Nama Forum',
@@ -96,7 +104,7 @@ class Forum_diskusi extends CI_Controller {
 
         //-- Title Halaman
         $data ['title'] = 'Halaman Forum tambah diskusi | Admin';
-        $data['forum'] = $getDataEventById;
+        $data['forum'] = $getDataForumById;
         //----------------------------
         if( $this->form_validation->run() == FALSE ){
             $this->load->view('Template/Admin/navbar',$data);
@@ -134,17 +142,32 @@ class Forum_diskusi extends CI_Controller {
 
         $id_forum = $this->input->post('id_forum');
 
-        $this->forum_diskusi_model->tambahDataDetailForum();
-                $html = '<div class="alert alert-success">
-                            <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
-                            <b>Pemberitahuan</b> <br>
-                            Tambah Data Forum berhasil di tambah pada tanggal ' . date('d F Y H.i A') . '
-                        </div>';
-                // $this->session->set_flashdata('msg', $html);
-                redirect('admin/forum_diskusi/discuss/'. $id_forum);  
-    }
+         //-- Title Halaman
+         $data ['title'] = 'Halaman Forum Detail | Admin';
+         $data['detail'] = $this->forum_diskusi_model->getDataForumById( $id_forum );
+         $data['diskusi'] = $this->forum_diskusi_model->getDataForumDetail( $id_forum );
+         //----------------------------
 
-    
+        $this->form_validation->set_rules('notes', 'Notes', 'required|trim',[
+            'required' => ' (Masukkan Komentar untuk Forum)',
+        ]);
+
+        if( $this->form_validation->run() == FALSE ){
+            $this->load->view('Template/Admin/navbar',$data);
+            $this->load->view('Template/Admin/sidebar',$data);
+            $this->load->view('Admin/forum_diskusi/forum_detail',$data);
+        }else{
+            $this->forum_diskusi_model->tambahDataDetailForum();
+            $html = '<div class="alert alert-success">
+                        <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
+                        <b>Pemberitahuan</b> <br>
+                        Tambah Data Forum berhasil di tambah pada tanggal ' . date('d F Y H.i A') . '
+                    </div>';
+            $this->session->set_flashdata('msg', $html);
+            redirect('admin/forum_diskusi/discuss/'. $id_forum);  
+        }
+   
+    }
 
     // detail forum
     function discuss( $id_forum ) {
@@ -153,11 +176,10 @@ class Forum_diskusi extends CI_Controller {
         $data['detail'] = $this->forum_diskusi_model->getDataForumById( $id_forum );
         $data['diskusi'] = $this->forum_diskusi_model->getDataForumDetail( $id_forum );
         //----------------------------
-        // $data['informasi_umum'] = $this->informasi_umum_model->tampilDataInformasiUmum(); 
-        $this->load->view('Template/Admin/navbar',$data);
-        $this->load->view('Template/Admin/sidebar',$data);
-        $this->load->view('Admin/forum_diskusi/forum_detail',$data);
-        $this->load->view('Template/Admin/footer');
+            $this->load->view('Template/Admin/navbar',$data);
+            $this->load->view('Template/Admin/sidebar',$data);
+            $this->load->view('Admin/forum_diskusi/forum_detail',$data);
+       
     }
 
 

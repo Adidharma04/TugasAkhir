@@ -42,9 +42,9 @@
       <section class="content">
         <!-- Default box -->
         <div class="card">
+        <?php echo $this->session->flashdata('msg') ?>
           <div class="card-header" style="background-color:blanchedalmond">
             <h3 class="card-title">Form Tambah Event</h3>
-
             <div class="card-tools">
               <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                 <i class="fas fa-minus"></i>

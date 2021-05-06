@@ -50,7 +50,26 @@
                                 &emsp;|&emsp;
                                 <i class="fas fa-user"></i> &nbsp;<?php echo $detail->username ?>
                             </p>
+
+                            <div class="card card-body">
+                                <p class="text-sm text-muted">
+                                    <?php
+                                    $gambar = "";
+                                        if ($detail->foto) {
+            
+                                        $gambar = base_url('assets/Gambar/Upload/Forum/' . $detail->foto);
+                                        } else {
+                                        // default
+                                        $gambar = base_url('assets/Gambar/Website/default_forum_null.png');
+                                        }
+                                    ?>
+                                    <img src="<?php echo $gambar ?>" alt="" style="width: 50%; border: 1.5px solid #e0e0e0; border-radius: 5px">
+                                    <hr>
+                                    <?php echo $detail->deskripsi ?>
+                                </p>
+                            </div>
                         </div>
+
 
                         <h5 class="text-muted">Diskusi</h5>
                         <div class="card card-body">
@@ -64,8 +83,9 @@
                                         <h5>Komentar</h5>
                                         <div class="form-group">
                                             <input type="hidden" name="id_forum" value="<?php echo $detail->id_forum ?>">
-                                            <textarea name="notes" id="" class="form-control" placeholder="Pertanyaan, Informasi detail atau lainnya . . ."></textarea>
+                                            <textarea name="notes" id="notes" class="form-control" placeholder="Pertanyaan, Informasi detail atau lainnya . . ." value="<?= set_value('notes'); ?>"></textarea>
                                             <small>Komentari forum diatas</small>
+                                            <?= form_error('notes', '<small class="text-danger">', '</small>'); ?>
                                         </div>
 
                                         <div class="form-group text-right">
@@ -77,7 +97,7 @@
                                 </div>
 
                             </div>
-                            
+
                             <?php foreach ($diskusi->result_array() as $row) { ?>
                                 <div class="row" style="border-bottom: 1px solid #e0e0e0; padding: 5px">
                                     <div class="col-md-6">
@@ -90,8 +110,8 @@
                                         <?php echo date('d M Y H.i A', strtotime($row['created_at'])) ?>
                                     </div>
                                     <div class="col-md-3">
-                                            <a href="'.base_url('Admin/forum_diskusi/editForum/').$row['id_forum'].'" class="btn btn-primary"><i class="fa fa-pencil"> Sunting</i></a> &nbsp;
-                                            <a href="'.base_url('Admin/forum_diskusi/hapusForum/').$row['id_forum'].'" class="btn btn-danger"><i class="fa fa-trash"> Hapus</i></a>
+                                        <a href="'.base_url('Admin/forum_diskusi/editForum/').$row['id_forum'].'" class="btn btn-primary"><i class="fa fa-pencil"> Sunting</i></a> &nbsp;
+                                        <a href="'.base_url('Admin/forum_diskusi/hapusForum/').$row['id_forum'].'" class="btn btn-danger"><i class="fa fa-trash"> Hapus</i></a>
                                     </div>
                                 </div>
                             <?php } ?>

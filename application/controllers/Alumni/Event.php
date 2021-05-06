@@ -65,16 +65,6 @@ class event extends CI_Controller {
             $upload = $this->event_model->upload();
             if ($upload['result'] == 'success') {
                 $this->event_model->tambahDataEvent($upload);
-                $html = '<div class="alert alert-success">
-                            <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
-                            <b>Pemberitahuan</b>
-                            <br>
-                            Data Event berhasil <b>Di tambah</b> pada tanggal '.date('d F Y H.i A').'
-                            <br>
-                            <small>Silahkan cek Email '.$this->session->userdata("sess_email").' untuk menunggu konfirmasi dari BK! </small>
-                         </div>';
-                $this->session->set_flashdata('msg', $html);
-                redirect('Alumni/event', 'refresh');
             } else {
                 echo $upload['error'];
             }

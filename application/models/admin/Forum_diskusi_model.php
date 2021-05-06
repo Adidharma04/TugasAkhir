@@ -49,7 +49,7 @@
             return $this->db->query( $SQL );
         }
 
-        // proses tambah 
+        // proses tambah topik
         function onInsertDataTopic() {
 
             $data = array(
@@ -66,8 +66,31 @@
             redirect('admin/Forum_diskusi');
         }
 
+        // Khusus Forum-----------------------------------------------------------------------------------------
+        
+        // Upload topik
+        public function upload(){    
+            $config['upload_path'] = './assets/Gambar/Upload/Forum/';    
+            $config['allowed_types'] = 'jpg|png|jpeg';
+            $this->load->library('upload', $config);
+    
+            if ( empty( $_FILES['foto']['name'] ) ) {
+    
+                return array('result' => 'success', 'file' => ['file_name' => ""]);
+            } else {
+    
+                if($this->upload->do_upload('foto')){
+                    $return = array('result' => 'success', 'file' => $this->upload->data(), 'error' => '');      
+                    return $return;
+                }else{    
+                    $return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors());return $return;   
+                }  
+            }
+        }
+
         // proses tambah Data Forum
-        function tambahDataForum() {
+        function tambahDataForum($upload) {
+
             $id_profile = $this->session->userdata('sess_id_profile');
 
             $forum = array(
@@ -76,6 +99,7 @@
                 'nama_forum'        => $this->input->post('nama_forum'),
                 'deskripsi'         => $this->input->post('deskripsi'),
                 'tanggal_forum'     => $this->input->post('tanggal_forum'),
+                'foto'              => $upload['file']['file_name'],
                 
             );
             $this->db->insert('forum', $forum);
@@ -104,6 +128,11 @@
             $this->db->where('id_forum', $id_forum)->delete('forum');
             $this->db->where('id_forum', $id_forum)->delete('forum_detail');
         }
+        
+        // Khusus Forum-----------------------------------------------------------------------------------------
+
+        
+        // Khusus Detail Forum-----------------------------------------------------------------------------------------
 
         // proses tambah Data Detail Forum
         function tambahDataDetailForum() {

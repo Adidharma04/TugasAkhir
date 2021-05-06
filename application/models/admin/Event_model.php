@@ -10,7 +10,7 @@ class event_model extends CI_Model {
                     
                 FROM event
                 
-                JOIN profil_siswa 
+                LEFT JOIN profil_siswa 
                 
                 ON profil_siswa.id_profile = event.id_profile";
 

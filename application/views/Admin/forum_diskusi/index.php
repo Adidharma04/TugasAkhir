@@ -142,7 +142,6 @@
 
                                             $id_profile = $this->session->userdata('sess_id_profile');
                                             $level      = $this->session->userdata('sess_level');
-                                        
                                         ?>
 
                                         <?php 
@@ -231,7 +230,7 @@
                                                                 ?>
 
                                                                 <span for="" class="<?php echo $color ?>"><?php echo $row['nama'] ?></span><br>
-                                                                <small class="text-muted">Terdapat 10 Partisipan</small>
+                                                                <small class="text-muted">Terdapat Komen</small>
                                                             </div>
                                                         </div>
 
