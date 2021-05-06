@@ -75,7 +75,7 @@
                     </div>
                     <select name="id_topik" class="form-control">
                       <?php foreach ( $topik->result_array() AS $row ) : ?>
-                      <option value="<?php echo $row['id_topik'] ?>"><?php echo $row['nama'] ?></option>
+                      <option value="<?php echo $row['id_topik'] ?>" <?php if ( $forum->id_topik == $row['id_topik'] ) { echo 'selected="selected"'; } ?> ><?php echo $row['nama'] ?></option>
                       <?php endforeach; ?>
                     </select>
                   </div>
@@ -95,7 +95,7 @@
                 <div class="col-md-4">
                   <div class="form-group">
                     <label>Tanggal Forum</label>
-                    <input type="date" class="form-control" id="tanggal_forum" name="tanggal_forum" value="<?= $forum->tanggal_forum; ?>">
+                    <input type="date" class="form-control" id="tanggal_forum" name="tanggal_forum" value="<?= date('Y-m-d', strtotime($forum->tanggal_forum)) ?>">
                     <?= form_error('tanggal_forum', '<small class="text-danger">', '</small>'); ?>
                   </div>
                 </div>

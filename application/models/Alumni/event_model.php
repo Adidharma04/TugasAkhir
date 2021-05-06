@@ -11,13 +11,24 @@ class Event_model extends CI_Model {
     }
     public function tambahDataEvent($upload){
 
+
         $id_profile = $this->session->userdata('sess_id_profile');
 
+		$getDataSiswaById = $this->db->where('id_profile', $id_profile)->get('profil_siswa')->row();
+		
+		
+		$sqlProfileBK  = "SELECT profile.id_profile, profile.level, profil_pegawai.email FROM profile 
+						 JOIN profil_pegawai ON profil_pegawai.id_profile = profile.id_profile 
+						 
+						 WHERE level = 'bk'";
+		$getDataBKByLevel = $this->db->query( $sqlProfileBK )->row();
+
         $tanggal_evt = $this->input->post('tanggal_event', true);
+		$nama_evt    = $this->input->post('nama_event', true);
 
         $event =[
             'id_profile'            => $id_profile,
-            'nama_event'            => $this->input->post('nama_event', true),
+            'nama_event'            => $nama_evt,
             'deskripsi_event'       => $this->input->post('deskripsi_event', true),
             'tanggal_event'         => $tanggal_evt,
             'foto'                  => $upload['file']['file_name'],
@@ -52,6 +63,11 @@ class Event_model extends CI_Model {
             } else {
                 $this->db->insert('event', $event);
             }
+
+
+			// notifikasi
+
+			$this->notifikasiEmail( $getDataBKByLevel->email, $getDataSiswaById->nama, $nama_evt );
 
             $html = '<div class="alert alert-success">
                                 <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
@@ -173,7 +189,7 @@ class Event_model extends CI_Model {
 
 
 
-    function notifikasiEmail( $email, $nama_siswa, $status, $nama_event) {
+    function notifikasiEmail( $email, $nama_siswa, $nama_event) {
 
 
 		// load library
@@ -206,13 +222,7 @@ class Event_model extends CI_Model {
 
 		// membuat pesan dinamis berdasarkan status
 		$pesan = "";
-		if ( $status == "accept" ) {
-
-			$pesan = " telah kami setujui, dan akan segera dibagikan";
-		} else{
-
-			$pesan = " ditolak, karena tidak layak untuk dibagikan";
-		}
+		
 
 		
 

@@ -171,15 +171,47 @@
                                                                 <?php echo $row['nama_forum'] ?>
                                                             </div>
 
+                                                            
+
                                                             <?php 
                                                             
                                                             if ( $level == "staff" || $level == "bk" ) {
 
                                                                 echo '
                                                                     <div class="text-sm">
-                                                                    <a href="'.base_url('Admin/forum_diskusi/editForum/').$row['id_forum'].'" class="btn btn-primary"><i class="fa fa-pencil"> Sunting</i></a> &nbsp;
-                                                                    <a href="'.base_url('Admin/forum_diskusi/hapusForum/').$row['id_forum'].'" class="btn btn-danger"><i class="fa fa-trash"> Hapus</i></a>
+                                                                    <a href="'.base_url('Admin/forum_diskusi/editForum/').$row['id_forum'].'" class="btn btn-primary btn-xs"><i class="fa fa-pencil"> </i>Sunting</a> &nbsp;
+                                                                    <a href="#" data-toggle="modal" data-target="#action-hapus-'.$row['id_forum'].'" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i>Hapus</a>
                                                                     </div>
+
+
+
+
+                                                                    <!-- Modal delete -->
+                                                                    <div class="modal fade" id="action-hapus-'.$row['id_forum'].'">
+                                                                        <div class="modal-dialog">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                            <b>Logout</b>
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                                <span aria-hidden="true">&times;</span>
+                                                                            </button>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                            <label>
+                                                                                Apakah anda ingin keluar dari halaman ini?
+                                                                            </label> <br>
+                                                                            <small>Yakin ingin keluar.</small>
+                                                                            </div>
+                                                                            <div class="modal-footer justify-content-between">
+                                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                                                                            <a href="'.base_url('Admin/forum_diskusi/hapusForum/').$row['id_forum'].'" class="btn btn-warning"><i class="fa fa-power-off"></i> Hapus</a>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!-- /.modal-content -->
+                                                                        </div>
+                                                                        <!-- /.modal-dialog -->
+                                                                    </div>
+                                                                    <!-- /.modal -->
 
                                                                 ';
                                                                 
