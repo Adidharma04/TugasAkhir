@@ -64,11 +64,7 @@
                             <div class="classynav">
                                 <ul>
                                     <li><a href="<?php echo base_url("User/dashboard_user");?>">Home</a></li>
-                                    <li><a href="#">Tracking</a>
-                                        <ul class="dropdown">
-                                            <li><a href="<?php echo base_url("User/record_kuliah_user");?>">Record Kuliah</a></li>
-                                            <li><a href="<?php echo base_url("User/record_kerja_user");?>">Record Kerja</a></li>
-                                        </ul>
+                                    <li><a href="<?php echo base_url("User/record_user");?>">Tracer</a></li>
                                     </li>
                                     <li><a href="#">Informasi</a>
                                         <ul class="dropdown">

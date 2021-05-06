@@ -1,7 +1,8 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Record_Kerja_siswa extends CI_Controller {
+class Record_Siswa extends CI_Controller {
+
     public function __construct()
     {
         parent::__construct();
@@ -20,10 +21,9 @@ class Record_Kerja_siswa extends CI_Controller {
             redirect('Admin/login', 'refresh');
         }
     }
-
     public function index()
     {
-        $this->load->view('siswa/record_kerja');
+        $this->load->view('siswa/record_siswa');
     }
 }
 ?>
