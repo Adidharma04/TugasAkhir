@@ -105,17 +105,6 @@
                     </div>
                   </div>
                 </div>
-                <!-- Batas Baris -->
-                <div class="form-group">
-                    <label for="jenis_event">Jenis Kegiatan</label>
-                    <div class="form-check">
-                    <input type="radio" name="jenis_event" value="pay" > Bayar
-                    </div>
-                    <div class="form-check">
-                    <input type="radio" name="jenis_event" value="free" > Gratis
-                    </div>
-                </div>
-                <!-- Batas Baris -->
                 <div class="form-group">
                     <label for="status">Status Kegiatan</label>
                     <div class="form-check">

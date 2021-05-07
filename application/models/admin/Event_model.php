@@ -6,7 +6,7 @@ class event_model extends CI_Model {
     {  
         $sql = "SELECT 
                     profil_siswa.*,
-                    event.id_event, event.nama_event, event.tanggal_event, event.lokasi, event.foto, event.jenis_event, event.status
+                    event.id_event, event.nama_event, event.tanggal_event, event.lokasi, event.foto, event.status
                     
                 FROM event
                 
@@ -29,7 +29,6 @@ class event_model extends CI_Model {
             'tanggal_event'         => $tanggal_evt,
             'foto'                  => $upload['file']['file_name'],
             'lokasi'                => $this->input->post('lokasi', true),
-            'jenis_event'           => $this->input->post('jenis_event', true),
             'status'                => $this->input->post('status', true),
         ];
 
@@ -140,7 +139,6 @@ class event_model extends CI_Model {
             'tanggal_event'         => $this->input->post('tanggal_event', true),
             'foto'                  => $foto,
             'lokasi'                => $this->input->post('lokasi', true),
-            'jenis_event'           => $this->input->post('jenis_event', true),
             'status'                => $this->input->post('status', true),
 		];
 

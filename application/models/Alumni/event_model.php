@@ -33,7 +33,6 @@ class Event_model extends CI_Model {
             'tanggal_event'         => $tanggal_evt,
             'foto'                  => $upload['file']['file_name'],
             'lokasi'                => $this->input->post('lokasi', true),
-            'jenis_event'           => $this->input->post('jenis_event', true),
             'status'                => "pending",
         ];
 
@@ -159,7 +158,6 @@ class Event_model extends CI_Model {
             'tanggal_event'         => $this->input->post('tanggal_event', true),
             'foto'                  => $foto,
             'lokasi'                => $this->input->post('lokasi', true),
-            'jenis_event'           => $this->input->post('jenis_event', true),
             'status'                => 'pending',
 		];
 
@@ -218,7 +216,7 @@ class Event_model extends CI_Model {
         $this->email->to('"' . $email . '"'); // Email tujuan / penerima
 
         // Subject email
-        $this->email->subject('Verifikasi Pengajuan Event '. $nama_event);
+        $this->email->subject('Pengajuan Event '. $nama_event);
 
 		// membuat pesan dinamis berdasarkan status
 		$pesan = "";
@@ -373,17 +371,17 @@ class Event_model extends CI_Model {
 																<tr>
 																	<td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
 																		<div style="font-family:Helvetica Neue,Arial,sans-serif;font-size:16px;line-height:22px;text-align:left;color:#555;">
-																			Halo saudara '.$nama_siswa.',
+																			Saudara, '.$nama_siswa.'
 																			<br>
-																			Event  '.$nama_event.' yang anda ajukan' .$pesan.'
+																			Telah melakukan pengajuan event  '.$nama_event.' untuk dibagikan di Smanis Tracer Study.' .$pesan.'
 																		</div>
 																	</td>
 																</tr>
 																<tr>
 																	<td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
 																		<div style="font-size: 12px;font-family:Helvetica Neue,Arial,sans-serif;font-size:14px;line-height:22px;text-align:left;color:#555;">
-																			Terimakasih atas partisipasi Anda.
-																			<br>Kami mengharapkan lebih banyak event yang dapat anda bagikan untuk Smanis Tracer Study.
+																			Dimohon untuk segera mengakses website Smanis Tracer Study.
+																			<br>Untuk melakukan validasi event yang telah diajukan oleh alumni.
 																		</div>
 																	</td>
 																</tr>

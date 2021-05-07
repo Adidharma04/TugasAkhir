@@ -64,7 +64,6 @@
                     <li class="small"><span class="fa-li"><i class="fas fa-lg fa-clock-o fa-1x"></i> </span><b><h6>Status</h6></b> </li>
                     <span align="justify"><p><?= $event->status ?></p></span>
                     <li class="small"><span class="fa-li"><i class="fas fa-lg fa-envelope fa-1x"></i> </span><b><h6>Jenis Event</h6></b></li>
-                    <span align="justify"> <p ><?= $event->jenis_event ?></p></span>
                     <br>
                   </ul>
                 </div>

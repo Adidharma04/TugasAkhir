@@ -118,26 +118,6 @@
                   <img src="<?php echo $img ?>" alt="preview" style="width: 30%; border-radius: 5px; border: 2px solid #e0e0e0">
                 </div>
               </div>
-              <!-- Batas Baris -->
-              <div class="form-group">
-                <label for="jenis_event">Jenis Kegiatan</label>
-                <?php if ($event->jenis_event == "pay") : ?>
-                  <div class="form-check">
-                    <input type="radio" name="jenis_event" value="pay" checked> Bayar
-                  </div>
-                  <div class="form-check">
-                    <input type="radio" name="jenis_event" value="free"> Gratis
-                  </div>
-                <?php else : ?>
-                  <div class="form-check">
-                    <input type="radio" name="jenis_event" value="pay"> Bayar
-                  </div>
-                  <div class="form-check">
-                    <input type="radio" name="jenis_event" value="free" checked> Gratis
-                  </div>
-                <?php endif ?>
-              </div>
-              <!-- Batas Baris -->
               <div class="form-group">
                 <label for="status">Status Kegiatan</label>
                 <?php if ($event->status == "accept") : ?>

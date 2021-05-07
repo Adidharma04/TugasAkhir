@@ -6,7 +6,7 @@ class event_model extends CI_Model {
     {  
 		$sql = "SELECT 
 		profil_siswa.*,
-		event.id_event, event.nama_event, event.tanggal_event, event.lokasi, event.foto, event.jenis_event,event.status
+		event.id_event, event.nama_event, event.tanggal_event, event.lokasi, event.foto,event.status
 		
 	FROM event
 	
