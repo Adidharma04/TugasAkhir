@@ -42,7 +42,6 @@
       <section class="content">
         <!-- Default box -->
         <div class="card">
-        <?php echo $this->session->flashdata('msg') ?>
           <div class="card-header" style="background-color:blanchedalmond">
             <h3 class="card-title">Form Tambah Event</h3>
             <div class="card-tools">
@@ -51,10 +50,10 @@
               </button>
             </div>
           </div>
+          <?php echo $this->session->flashdata('msg') ?>
           <div class="card-body">
             <form action="" method="post" enctype="multipart/form-data">
                 <div div class="row">
-
                   <div class="col-md-6">
                     <label for="nama_event">Nama Event</label>
                     <div class="input-group mb-3">

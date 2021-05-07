@@ -53,9 +53,6 @@ class event extends CI_Controller {
         $this->form_validation->set_rules('lokasi', 'Lokasi Event', 'required|trim',[
             'required' => 'Masukkan Lokasi Event',
         ]);
-        $this->form_validation->set_rules('jenis_event', 'Jenis Event', 'required|trim',[
-            'required' => 'Masukkan Jenis Event',
-        ]);
         if ($this->form_validation->run() == FALSE) {
             $this->load->view('Template/Alumni/navbar_alumni',$data);
             $this->load->view('Template/Alumni/sidebar_alumni',$data);

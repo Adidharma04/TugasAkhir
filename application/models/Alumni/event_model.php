@@ -77,8 +77,6 @@ class Event_model extends CI_Model {
                 $this->session->set_flashdata('msg', $html);
             redirect('Alumni/event', 'refresh');
         }
-       
-
     }
     public function upload(){    
         $config['upload_path'] = './assets/Gambar/Upload/Event/';    
@@ -150,20 +148,46 @@ class Event_model extends CI_Model {
             }
         }
         
+        $tanggal_evt = $this->input->post('tanggal_event', true);
         // data informasi siswa
         $dataInformationEvent =[
 
             'nama_event'            => $this->input->post('nama_event', true),
             'deskripsi_event'       => $this->input->post('deskripsi_event', true),
-            'tanggal_event'         => $this->input->post('tanggal_event', true),
+            'tanggal_event'         => $tanggal_evt,
             'foto'                  => $foto,
             'lokasi'                => $this->input->post('lokasi', true),
             'status'                => 'pending',
 		];
+        $tanggal_sekarang = date('Y-m-d');
 
-        // // update information_event
-        $this->db->where('id_event', $id_event);	
-        $this->db->update('event', $dataInformationEvent);
+        if ( strtotime( $tanggal_evt ) < strtotime($tanggal_sekarang ) ){
+
+            // maaf masukkan tanggal yang valid
+            $html = '<div class="alert alert-danger">
+                                <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
+                                <br>
+                                <b>Pemberitahuan</b> <br>
+                                Data event tidak berhasil di tambah pada tanggal ' . date('d F Y H.i A') . '
+                         </div>';
+                $this->session->set_flashdata('msg', $html);
+                redirect('Alumni/event/tambah', 'refresh');
+        } else {
+
+            // update information_event
+            $this->db->where('id_event', $id_event);	
+            $this->db->update('event', $dataInformationEvent);
+            
+            $html = '<div class="alert alert-success">
+                                <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
+                                <br>
+                                <b>Pemberitahuan</b> <br>
+                                Data event berhasil di tambah pada tanggal ' . date('d F Y H.i A') . '
+                         </div>';
+                $this->session->set_flashdata('msg', $html);
+            redirect('Alumni/event', 'refresh');
+        }
+        
 
     }
      // porses hapus
