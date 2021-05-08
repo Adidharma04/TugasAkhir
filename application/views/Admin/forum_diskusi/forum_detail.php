@@ -55,13 +55,13 @@
                                 <p class="text-sm text-muted">
                                     <?php
                                     $gambar = "";
-                                        if ($detail->foto) {
-            
+                                    if ($detail->foto) {
+
                                         $gambar = base_url('assets/Gambar/Upload/Forum/' . $detail->foto);
-                                        } else {
+                                    } else {
                                         // default
                                         $gambar = base_url('assets/Gambar/Website/default_forum_null.png');
-                                        }
+                                    }
                                     ?>
                                     <img src="<?php echo $gambar ?>" alt="" style="width: 50%; border: 1.5px solid #e0e0e0; border-radius: 5px">
                                     <hr>
@@ -79,7 +79,7 @@
 
                                 <div class="col-md-10">
 
-                                    <form action="<?php echo base_url('admin/forum_diskusi/tambahDetailForum') ?>" method="POST">
+                                    <form action="<?php echo base_url('admin/forum_diskusi/tambahDetailForum')?>" method="POST">
                                         <h5>Komentar</h5>
                                         <div class="form-group">
                                             <input type="hidden" name="id_forum" value="<?php echo $detail->id_forum ?>">
@@ -110,10 +110,76 @@
                                         <?php echo date('d M Y H.i A', strtotime($row['created_at'])) ?>
                                     </div>
                                     <div class="col-md-3">
-                                        <a href="'.base_url('Admin/forum_diskusi/editForum/').$row['id_forum'].'" class="btn btn-primary"><i class="fa fa-pencil"> Sunting</i></a> &nbsp;
-                                        <a href="'.base_url('Admin/forum_diskusi/hapusForum/').$row['id_forum'].'" class="btn btn-danger"><i class="fa fa-trash"> Hapus</i></a>
+                                        <a href="#" data-toggle="modal" data-target="#action-edit-<?php echo $row['id_forum'] ?>" class="btn btn-primary"><i class="fa fa-pencil"> Sunting</i></a> &nbsp;
+                                        <a href="#" data-toggle="modal" data-target="#action-delete-<?php echo $row['id_forum'] ?>" class="btn btn-danger"><i class="fa fa-trash"> Hapus</i></a>
                                     </div>
                                 </div>
+
+                                <!-- Modal edit -->
+                                <div class="modal fade" id="action-edit-<?php echo $row['id_forum'] ?>">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                        <form action="" method="POST" enctype="multipart/form-data">
+                                            <div class="modal-header">
+                                                <b>Edit Komentar</b>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <input type="hidden" name="id_forum" value="<?php echo $row['id_forum']?>" />
+                                                <label>
+                                                    Komentar
+                                                </label>
+                                                <i class="fa fa-book"></i>
+                                                <textarea type="text" class="form-control" id="notes" name="notes" cols="10" rows="6" placeholder="Masukkan Komentar"><?= $row['notes'] ?></textarea>
+                                                <small>Masukkan Komentar </small>
+                                            </div>
+                                            <div class="modal-footer justify-content-between">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                                                <a href="<?php base_url('admin/forum_diskusi/editDetailForum/').$row['id_forum']?>" class="btn btn-primary">Simpan</a>
+                                            </div>
+                                        </form>
+                                        </div>
+                                        <!-- /.modal-content -->
+                                    </div>
+                                    <!-- /.modal-dialog -->
+                                </div>
+                                <!-- /.modal -->
+
+
+                                <!-- Modal delete -->
+                                <div class="modal fade" id="action-delete-<?php echo $row['id_forum'] ?>">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <b>Hapus Komentar</b>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <label>
+                                                    Apakah anda yakin ingin menghapus komentar
+                                                    <br>
+                                                    <?php echo " ' ".$row['notes']." ' "?>
+                                                </label> 
+                                                <br>
+                                                <small>From<?php echo " : ".$row['username']?> </small>
+                                                <br>
+                                                <br>
+                                                <small> <b>Yakin tetap ingin menghapus ?</b> </small>
+                                            </div>
+                                            <div class="modal-footer justify-content-between">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                                                <a href="<?= base_url('admin/forum_diskusi/hapusDetailForum/').$row['id_forum']?>" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>
+                                            </div>
+                                        </div>
+                                        <!-- /.modal-content -->
+                                    </div>
+                                    <!-- /.modal-dialog -->
+                                </div>
+                                <!-- /.modal -->
                             <?php } ?>
                         </div>
                     </div>

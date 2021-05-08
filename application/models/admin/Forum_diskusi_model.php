@@ -122,7 +122,7 @@
             $this->db->update('forum', $forum);
         }
 
-         // porses hapus
+        // porses hapus
         function prosesHapusForum( $id_forum ){
 
             $this->db->where('id_forum', $id_forum)->delete('forum');
@@ -145,6 +145,26 @@
                 
             );
             $this->db->insert('forum_detail', $forumDetail);
+        }
+
+        // proses tambah Data Detail Forum
+        function editDataDetailForum($id_forum) {
+            $id_profile = $this->session->userdata('sess_id_profile');
+            $id_forum   = $this->input->post('id_forum');
+
+            $forumDetail = array(
+                'id_profile'        => $id_profile,
+                'id_forum'          => $id_forum,
+                'notes'             => $this->input->post('notes'),
+                
+            );
+            $this->db->where('id_forum', $id_forum)->update('forum_detail', $forumDetail);
+        }
+        
+
+        // porses hapus Data Detail Forum
+        function prosesHapusDetailForum( $id_forum ){
+            $this->db->where('id_forum', $id_forum)->delete('forum_detail');
         }
     }
     

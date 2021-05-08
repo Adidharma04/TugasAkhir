@@ -135,8 +135,23 @@ class Forum_diskusi extends CI_Controller {
             redirect('Admin/forum_diskusi','refresh');
     }
 
+    // Khusus Detail Forum-----------------------------------------------------------------------------------------
 
-    // proses tambah
+
+    // detail forum
+    public function discuss( $id_forum ) {
+        //-- Title Halaman
+        $data ['title'] = 'Halaman Forum Detail | Admin';
+        $data['detail'] = $this->forum_diskusi_model->getDataForumById( $id_forum );
+        $data['diskusi'] = $this->forum_diskusi_model->getDataForumDetail( $id_forum );
+        //----------------------------
+            $this->load->view('Template/Admin/navbar',$data);
+            $this->load->view('Template/Admin/sidebar',$data);
+            $this->load->view('Admin/forum_diskusi/forum_detail',$data);
+       
+    }
+
+    // proses tambah detail forum
     public function tambahDetailForum()
     {   
 
@@ -166,21 +181,39 @@ class Forum_diskusi extends CI_Controller {
             $this->session->set_flashdata('msg', $html);
             redirect('admin/forum_diskusi/discuss/'. $id_forum);  
         }
-   
     }
 
-    // detail forum
-    function discuss( $id_forum ) {
-        //-- Title Halaman
-        $data ['title'] = 'Halaman Forum Detail | Admin';
-        $data['detail'] = $this->forum_diskusi_model->getDataForumById( $id_forum );
-        $data['diskusi'] = $this->forum_diskusi_model->getDataForumDetail( $id_forum );
-        //----------------------------
-            $this->load->view('Template/Admin/navbar',$data);
-            $this->load->view('Template/Admin/sidebar',$data);
-            $this->load->view('Admin/forum_diskusi/forum_detail',$data);
-       
+    // proses edit detail forum
+    public function editDetailForum($id_forum){
+
+
+        $this->forum_diskusi_model->editDataDetailForum($id_forum);
+
+        $html = '<div class="alert alert-success">
+                    <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
+                    <b>Pemberitahuan</b> <br>
+                    Data Detail Forum berhasil di edit pada tanggal '.date('d F Y H.i A').'
+                 </div>';
+            $this->session->set_flashdata('msg', $html);
+            redirect('Admin/forum_diskusi/discuss/'.$id_forum);
     }
+
+
+    // proses hapus
+    function hapusDetailForum( $id_forum ) {
+
+        $this->forum_diskusi_model->prosesHapusDetailForum( $id_forum );
+        $html = '<div class="alert alert-success">
+                    <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
+                    <b>Pemberitahuan</b> <br>
+                    Data Detail Forum berhasil terhapus pada tanggal '.date('d F Y H.i A').'
+                 </div>';
+            $this->session->set_flashdata('msg', $html);
+            redirect('Admin/forum_diskusi/discuss/'.$id_forum);
+    }
+
+
+
 
 
 }
