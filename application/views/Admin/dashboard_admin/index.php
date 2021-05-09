@@ -140,9 +140,11 @@
                                 $percentase_kuliah = intval( $record['total_kuliah']/$alumni * 100 );
                                 $percentase_kerjakuliah = intval( $record['total_kerjakuliah']/$alumni * 100 );
                             ?>
-                            <p class="text-center">
-                                <strong>Rincian Lebih Lanjut</strong>
+                            <p class="">
+                                <strong>Rincian Lebih Lanjut</strong> <br>
+                                <small>Histori kerja, kuliah, dan dilakukan dua-duanya</small>
                             </p>
+                            
 
                             <div class="progress-group">
                             Kerja
