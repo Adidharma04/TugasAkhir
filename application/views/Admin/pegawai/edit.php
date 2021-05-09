@@ -26,12 +26,12 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Registrasi Pegawai</h1>
+              <h1>Edit Data Pegawai</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Registrasi Pegawai</li>
+                <li class="breadcrumb-item active">Edit Data Pegawai</li>
               </ol>
             </div>
           </div>
@@ -43,7 +43,7 @@
         <!-- Default box -->
         <div class="card">
           <div class="card-header" style="background-color:blanchedalmond">
-            <h3 class="card-title">Form Registrasi Pegawai</h3>
+            <h3 class="card-title">Form Edit Pegawai</h3>
 
             <div class="card-tools">
               <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -53,7 +53,7 @@
           </div>
           <div class="card-body">
             <form action="" method="post" enctype="multipart/form-data">
-
+            <input type="hidden" name="id_pegawai" value="<?php echo $profil_pegawai->id_pegawai?>" />
               <div class="row">
                 <div class="col-md-6">
                   <label>No Induk</label>
@@ -61,7 +61,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-id-card"></i></span>
                     </div>
-                    <input type="text" class="form-control" name="no_induk" id="no_induk" placeholder="Masukkan No Induk Pegawai" value="<?= set_value('no_induk'); ?>" >
+                    <input type="text" class="form-control" name="no_induk" id="no_induk" placeholder="Masukkan No Induk Pegawai" value="<?= $profil_pegawai->no_induk;  ?>" >
                   </div>
                   <?= form_error('no_induk', '<small class="text-danger">', '</small>'); ?>
                 </div>
@@ -71,7 +71,7 @@
                       <div class="input-group-prepend">
                           <span class="input-group-text"><i class="fas fa-user"></i></span>
                       </div>
-                      <input type="text" class="form-control" name="nama" id="nama" placeholder="Masukkan Nama" value="<?= set_value('nama'); ?>" >
+                      <input type="text" class="form-control" name="nama" id="nama" placeholder="Masukkan Nama" value="<?= $profil_pegawai->nama; ?>" >
                   </div>
                   <?= form_error('nama', '<small class="text-danger">', '</small>'); ?>
                 </div>
@@ -81,7 +81,7 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for="alamat">Alamat</label>
-                    <textarea class="form-control" name="alamat" id="alamat" cols="30" rows="6" placeholder="Masukkan Alamat" ><?= set_value("alamat")?></textarea>
+                    <textarea class="form-control" name="alamat" id="alamat" cols="30" rows="6" placeholder="Masukkan Alamat" ><?= $profil_pegawai->alamat?></textarea>
                     <?= form_error('alamat', '<small class="text-danger">', '</small>'); ?>
                   </div>
                 </div>
@@ -91,7 +91,7 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label>Tanggal lahir:(Month/Day/Year)</label>
-                    <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="<?= set_value('tanggal_lahir') ?>">
+                    <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="<?= $profil_pegawai->tanggal_lahir ?>">
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -100,7 +100,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
                     </div>
-                    <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" placeholder="Masukkan Tempat Lahir" value="<?= set_value('tempat_lahir'); ?>">
+                    <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" placeholder="Masukkan Tempat Lahir" value="<?= $profil_pegawai->tempat_lahir ?>">
                   </div>
                   <?= form_error('tempat_lahir', '<small class="text-danger">', '</small>'); ?>
                 </div>
@@ -113,7 +113,7 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                           </div>
-                          <input type="text" class="form-control" name="email" id="email" placeholder="Example@gmail.com" value="<?= set_value('email'); ?>" >
+                          <input type="text" class="form-control" name="email" id="email" placeholder="Example@gmail.com" value="<?= $profil_pegawai->email?>" >
                       </div>
                       <?= form_error('email', '<small class="text-danger">', '</small>'); ?>
                   </div>
@@ -123,7 +123,7 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-phone"></i></span>
                           </div>
-                        <input type="number" class="form-control" id="no_telfon" name="no_telfon" placeholder="08xxxxxxx" value="<?= set_value('no_telfon') ?>" >
+                        <input type="number" class="form-control" id="no_telfon" name="no_telfon" placeholder="08xxxxxxx" value="<?= $profil_pegawai->no_telfon ?>" >
                       </div>
                       <?= form_error('no_telfon', '<small class="text-danger">', '</small>'); ?>
                   </div>
@@ -134,12 +134,21 @@
                 <div class="col-md-4">
                   <div class="form-group">
                     <label for="gender">Jenis Kelamin</label>
-                    <div class="form-check">
-                      <input type="radio" name="jenis_kelamin" value="l" <?= set_value('jenis_kelamin') == "l" ? "checked" : "" ?>> Laki-Laki
-                    </div>
-                    <div class="form-check">
-                      <input type="radio" name="jenis_kelamin" value="p" <?= set_value('jenis_kelamin') == "p" ? "checked" : "" ?>> Perempuan
-                    </div>
+                    <?php if ($profil_pegawai->jenis_kelamin == "l") : ?>
+                      <div class="form-check">
+                        <input type="radio" name="jenis_kelamin" value="l" checked> Laki-Laki
+                      </div>
+                      <div class="form-check">
+                        <input type="radio" name="jenis_kelamin" value="p"> Perempuan
+                      </div>
+                    <?php else : ?>
+                      <div class="form-check">
+                        <input type="radio" name="jenis_kelamin" value="l"> Laki-Laki
+                      </div>
+                      <div class="form-check">
+                        <input type="radio" name="jenis_kelamin" value="p" checked> Perempuan
+                      </div>
+                    <?php endif ?>
                   </div>
                 </div>
               </div>

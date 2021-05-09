@@ -3,11 +3,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Pegawai_model extends CI_Model {
 
+    // porses Tampil Pegawai
     public function tampilDataPegawai()
     {  
         $this->db->select('profil_pegawai.*');
         return $this->db->get('profil_pegawai')->result();
     }
+
+    // porses Get Data Pegawai
+    public function getPegawai($id_pegawai){
+        return $this->db->get_where('profil_pegawai',['id_pegawai'=>$id_pegawai])->row();
+	}
+
+    // porses Tambah Pegawai
     public function tambahDataPegawai(){
         $no_induk = $this->input->post('no_induk', true);
             $profile = [
@@ -27,14 +35,49 @@ class Pegawai_model extends CI_Model {
             'tanggal_lahir'         => $this->input->post('tanggal_lahir', true),
             'tempat_lahir'          => $this->input->post('tempat_lahir', true),
             'no_telfon'             => $this->input->post('no_telfon', true),
-            'no_induk'              => $no_induk,
             'alamat'                => $this->input->post('alamat', true),
+            'no_induk'              => $no_induk,
         ];
         $this->db->insert('profil_pegawai', $informasi_pegawai);
     }
-    public function getPegawai($id_pegawai){
-        return $this->db->get_where('profil_pegawai',['id_pegawai'=>$id_pegawai])->row();
-	}
+
+    // porses Edit Pegawai
+    public function editDataPegawai( $id_pegawai ){
+        
+        // ambil detail informasi siswa
+        $ambilInformasiPegawai = $this->getPegawai( $id_pegawai );
+        
+        $no_induk = $this->input->post('no_induk', true);
+
+        // data profile
+        $dataProfile = array    (
+
+            'username'  => $no_induk,
+            'password'  => password_hash("bk".$no_induk,PASSWORD_DEFAULT),
+        );
+        
+        // data informasi pegawai
+        $dataInformationEmployee =[
+            'nama'                  =>  $this->input->post('nama', true),
+            'email'                 =>  $this->input->post('email', true),
+            'jenis_kelamin'         =>  $this->input->post('jenis_kelamin', true),
+            'tanggal_lahir'         =>  $this->input->post('tanggal_lahir', true),
+            'tempat_lahir'          =>  $this->input->post('tempat_lahir', true),
+            'no_telfon'             =>  $this->input->post('no_telfon', true),
+            'alamat'                =>  $this->input->post('alamat', true),
+            'no_induk'              =>  $no_induk,
+		];
+
+        // update profil_pegawai
+        $this->db->where('id_pegawai', $id_pegawai);	
+        $this->db->update('profil_pegawai', $dataInformationEmployee);
+
+        // update profile
+        $this->db->where('id_profile', $ambilInformasiPegawai->id_profile);	
+        $this->db->update('profile', $dataProfile);
+
+
+    }
 
     // porses hapus
     function prosesHapusPegawai( $id_profile ){

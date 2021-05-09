@@ -26,12 +26,12 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Registrasi Pegawai</h1>
+              <h1>Detail Pegawai</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Registrasi Pegawai</li>
+                <li class="breadcrumb-item active">Detail Pegawai</li>
               </ol>
             </div>
           </div>
@@ -41,121 +41,50 @@
       <!-- Main content -->
       <section class="content">
         <!-- Default box -->
-        <div class="card">
-          <div class="card-header" style="background-color:blanchedalmond">
-            <h3 class="card-title">Form Registrasi Pegawai</h3>
 
-            <div class="card-tools">
-              <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                <i class="fas fa-minus"></i>
-              </button>
+        <div class="col-19 col-lg-7 d-flex align-items-stretch" >
+          <div class="card bg-light">
+            <div class="card-header text-muted border-bottom-0">
+              <h2><?= $profil_pegawai->nama ?><h2>
+              <hr>
+            </div>
+            <div class="card-body pt-0" style="padding-right:100.7px;">
+              <div class="row">
+                <div class="col-7">
+                  <h4 class="lead"><b> <?= $profil_pegawai->no_induk ?></b></h4>
+                  <p class="text-muted text-sm"><b>Tanggal Lahir: </b> <?= $profil_pegawai->tanggal_lahir ?> </p>
+                  <ul class="ml-4 mb-0 fa-ul text-muted">
+                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> <b>Alamat : </b> <?= $profil_pegawai->alamat ?></li>
+                    <br>
+                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> <b>No telfon : </b> <?= $profil_pegawai->no_telfon ?></li>
+                    <br>
+                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-envelope"></i></span> <b>Emai : </b> <?= $profil_pegawai->email ?></li>
+                    <br>
+                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-venus"></i></span> <b>Jenis Kelamin : </b> 
+                    <?php if($profil_pegawai->jenis_kelamin=="l"):
+                      echo "laki-laki";
+                    ?>
+                    <?php else: 
+                      echo"perempuan"
+                    ?>
+                    <?php endif ?>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-5 text-center">
+                      <img src="<?= base_url('assets/Gambar/Website/admin.png') ?>" style="width:180px; height:200px;">
+                </div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <div class="text-right">
+                <a href="<?= base_url() . 'Admin/pegawai' ?>" class="btn btn-sm btn-primary">
+                  <i class="fas fa-arrow-left"></i> Kembali
+                </a>
+              </div>
             </div>
           </div>
-          <div class="card-body">
-            <form action="" method="post" enctype="multipart/form-data">
-
-              <div class="row">
-                <div class="col-md-6">
-                  <label>No Induk</label>
-                  <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fas fa-id-card"></i></span>
-                    </div>
-                    <input type="text" class="form-control" name="no_induk" id="no_induk" placeholder="Masukkan No Induk Pegawai" value="<?= set_value('no_induk'); ?>" >
-                  </div>
-                  <?= form_error('no_induk', '<small class="text-danger">', '</small>'); ?>
-                </div>
-                <div class="col-md-6">
-                  <label for="nama">Nama</label>
-                  <div class="input-group mb-3">
-                      <div class="input-group-prepend">
-                          <span class="input-group-text"><i class="fas fa-user"></i></span>
-                      </div>
-                      <input type="text" class="form-control" name="nama" id="nama" placeholder="Masukkan Nama" value="<?= set_value('nama'); ?>" >
-                  </div>
-                  <?= form_error('nama', '<small class="text-danger">', '</small>'); ?>
-                </div>
-              </div>
-              <!-- Batas Baris -->
-              <div class="row">
-                <div class="col-md-12">
-                  <div class="form-group">
-                    <label for="alamat">Alamat</label>
-                    <textarea class="form-control" name="alamat" id="alamat" cols="30" rows="6" placeholder="Masukkan Alamat" ><?= set_value("alamat")?></textarea>
-                    <?= form_error('alamat', '<small class="text-danger">', '</small>'); ?>
-                  </div>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label>Tanggal lahir:(Month/Day/Year)</label>
-                    <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="<?= set_value('tanggal_lahir') ?>">
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <label>Tempat lahir:</label>
-                  <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
-                    </div>
-                    <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" placeholder="Masukkan Tempat Lahir" value="<?= set_value('tempat_lahir'); ?>">
-                  </div>
-                  <?= form_error('tempat_lahir', '<small class="text-danger">', '</small>'); ?>
-                </div>
-              </div>
-              <!-- Batas Baris -->
-              <div class="row">
-                  <div class="col-md-6">
-                      <label>Email:</label>
-                      <div class="input-group mb-3">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                          </div>
-                          <input type="text" class="form-control" name="email" id="email" placeholder="Example@gmail.com" value="<?= set_value('email'); ?>" >
-                      </div>
-                      <?= form_error('email', '<small class="text-danger">', '</small>'); ?>
-                  </div>
-                  <div class="col-md-6">
-                      <label>No Telfon</label>
-                      <div class="input-group">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-phone"></i></span>
-                          </div>
-                        <input type="number" class="form-control" id="no_telfon" name="no_telfon" placeholder="08xxxxxxx" value="<?= set_value('no_telfon') ?>" >
-                      </div>
-                      <?= form_error('no_telfon', '<small class="text-danger">', '</small>'); ?>
-                  </div>
-              </div>
-              <!-- Batas Baris -->
-              <!-- Batas Baris -->
-              <div class="row">
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <label for="gender">Jenis Kelamin</label>
-                    <div class="form-check">
-                      <input type="radio" name="jenis_kelamin" value="l" <?= set_value('jenis_kelamin') == "l" ? "checked" : "" ?>> Laki-Laki
-                    </div>
-                    <div class="form-check">
-                      <input type="radio" name="jenis_kelamin" value="p" <?= set_value('jenis_kelamin') == "p" ? "checked" : "" ?>> Perempuan
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <button type="submit" class="btn btn-primary">Submit</button>
-                <span> <a href="<?= base_url("Admin/pegawai")?>" class="btn btn-danger">Cancel</a></span>
-              </div>
-            </form>
-          </div>
-          <!-- /.card-body -->
-          <div class="card-footer">
-            SMAN 1 PLOSO JOMBANG
-          </div>
-          <!-- /.card-footer-->
         </div>
-        <!-- /.card -->
 
       </section>
       <!-- /.content -->
@@ -167,9 +96,6 @@
 <script src="<?= base_url('assets/Template/Admin/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js') ?>"></script>
 <!-- Tempusdominus Bootstrap 4 -->
 <script src="<?= base_url('assets/Template/Admin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') ?>"></script>
-<!-- InputMask -->
-<script src="../../plugins/moment/moment.min.js"></script>
-<script src="../../plugins/inputmask/jquery.inputmask.min.js"></script>
 <script>
   $(function() {
     //Initialize Select2 Elements

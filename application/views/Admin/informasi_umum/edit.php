@@ -52,7 +52,6 @@
             </div>
           </div>
           <div class="card-body">
-
             <?php echo $this->session->flashdata('msg') ?>
             <form action="" method="post" enctype="multipart/form-data">
                   <div div class="row">

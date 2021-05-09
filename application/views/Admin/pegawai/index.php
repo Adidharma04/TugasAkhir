@@ -65,15 +65,15 @@
                                                 <td><?= $pgw->nama ?></td>
                                                 <td><?= $pgw->alamat ?></td>
                                                 <td>
-                                                    <a href="<?= base_url().'Admin/siswa/detail/'.$pgw->id_pegawai ?>" class="btn btn-info"><i class="fas fa-eye"></i> Detail</a>
-                                                    <a href="<?= base_url().'Admin/siswa/edit/'.$pgw->id_pegawai ?>" class="btn btn-success"><i class="fas fa-pencil-square-o"></i>Edit</a>
+                                                    <a href="<?= base_url().'Admin/pegawai/detail/'.$pgw->id_pegawai ?>" class="btn btn-info"><i class="fas fa-eye"></i> Detail</a>
+                                                    <a href="<?= base_url().'Admin/pegawai/edit/'.$pgw->id_pegawai ?>" class="btn btn-success"><i class="fas fa-pencil-square-o"></i>Edit</a>
                                                     <a href="#"  data-toggle="modal" data-target="#action-delete-<?php echo $pgw->id_pegawai ?>" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>
                                                     <!-- Modal delete -->
                                                     <div class="modal fade" id="action-delete-<?php echo $pgw->id_pegawai ?>">
                                                         <div class="modal-dialog">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                            
+                                                            <b>Hapus data Pegawai</b>
                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
                                                             </button>
@@ -83,9 +83,9 @@
                                                                 <label for="">NAMA : <span class="text-bold"><?php echo $pgw->nama ?></span></label>
                                                                 <hr>
                                                                 <label>
-                                                                    Apakah anda yakin ingin menghapus siswa atas nama <?php echo $pgw->nama ?> ? 
+                                                                    Apakah anda yakin ingin menghapus pegawai atas nama <?php echo $pgw->nama ?> ? 
                                                                 </label> <br>
-                                                                <small>Siswa yang telah dihapus tidak dapat dipulihkan kembali.</small>
+                                                                <small>Pegawai yang telah dihapus tidak dapat dipulihkan kembali.</small>
                                                             </div>
                                                             <div class="modal-footer justify-content-between">
                                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>

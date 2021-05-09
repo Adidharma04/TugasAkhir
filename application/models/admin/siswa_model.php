@@ -115,7 +115,8 @@ class siswa_model extends CI_Model {
         // data profile
         $dataProfile = array    (
 
-            'username'  => $nis
+            'username'  => $nis, 
+            'password'  => password_hash($nis, PASSWORD_DEFAULT),
         );
         
         // data informasi siswa
