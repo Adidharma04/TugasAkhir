@@ -23,10 +23,12 @@ class event_model extends CI_Model {
 
 
         $status =  $this->input->get('status');
+		$alasan = $this->input->post('alasan');
 
         $data = [
 
-            'status'    => $status
+            'status'    		=> $status,
+			'pesan_ditolak'		=> $alasan
         ];
 
         $this->db->where('id_event', $id_event);
@@ -50,13 +52,13 @@ class event_model extends CI_Model {
 		$nama  = $getInfoEvent->nama;
 		$nama_event = $getInfoEvent->nama_event;
 		
-		$this->notifikasiEmail( $email, $nama, $status, $nama_event );
+		$this->notifikasiEmail( $email, $nama, $status, $nama_event, $alasan );
 
     }
 
 
 
-function notifikasiEmail( $email, $nama_siswa, $status, $nama_event) {
+function notifikasiEmail( $email, $nama_siswa, $status, $nama_event, $alasan) {
 
 
 		// load library
@@ -248,7 +250,7 @@ function notifikasiEmail( $email, $nama_siswa, $status, $nama_event) {
 																		<div style="font-family:Helvetica Neue,Arial,sans-serif;font-size:16px;line-height:22px;text-align:left;color:#555;">
 																			Halo saudara '.$nama_siswa.',
 																			<br>
-																			Event  '.$nama_event.' yang anda ajukan' .$pesan.'
+																			Event  '.$nama_event.' yang anda ajukan' .$pesan.' dikarenakan "'.$alasan.'"
 																		</div>
 																	</td>
 																</tr>

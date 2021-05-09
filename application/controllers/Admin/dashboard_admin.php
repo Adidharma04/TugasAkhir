@@ -22,12 +22,19 @@ class Dashboard_admin extends CI_Controller {
             $this->session->sess_destroy();
             redirect('Admin/login', 'refresh');
         }
+
+
+
+        $this->load->model('M_dashboard');
     }
 
     public function index()
     {
          //-- Title Halaman
          $data ['title'] = 'Halaman Dashboard | Admin';
+         $data['tracer'] = $this->M_dashboard->ambilDataStatistik_kerjaKuliah();
+         $data['record'] = $this->M_dashboard->ambilDataTracer();
+         $data['header'] = $this->M_dashboard->ambilJumlah();
          //----------------------------
 
         $this->load->view('Template/Admin/navbar',$data);

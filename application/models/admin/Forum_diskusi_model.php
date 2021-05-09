@@ -148,23 +148,18 @@
         }
 
         // proses tambah Data Detail Forum
-        function editDataDetailForum($id_forum) {
-            $id_profile = $this->session->userdata('sess_id_profile');
-            $id_forum   = $this->input->post('id_forum');
+        function editDataDetailForum($id_detail_forum) {
 
             $forumDetail = array(
-                'id_profile'        => $id_profile,
-                'id_forum'          => $id_forum,
                 'notes'             => $this->input->post('notes'),
-                
             );
-            $this->db->where('id_forum', $id_forum)->update('forum_detail', $forumDetail);
+            $this->db->where('id_detail_forum', $id_detail_forum)->update('forum_detail', $forumDetail);
         }
         
 
         // porses hapus Data Detail Forum
-        function prosesHapusDetailForum( $id_forum ){
-            $this->db->where('id_forum', $id_forum)->delete('forum_detail');
+        function prosesHapusDetailForum( $id_detail_forum ){
+            $this->db->where('id_detail_forum', $id_detail_forum)->delete('forum_detail');
         }
     }
     
