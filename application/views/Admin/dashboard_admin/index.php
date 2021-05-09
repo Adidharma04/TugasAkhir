@@ -35,118 +35,151 @@
   <!-- Main content -->
   <section class="content">
       <div class="container-fluid">
+        
+        <!-- bagian jumlah -->
         <div class="row">
-          <div class="col-md-6">
-           <!-- profil -->
-           <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Profile Akun <?php echo ucfirst($this->session->userdata('sess_level')) ?></h3>
+          
 
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                    <i class="fas fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-tool" data-card-widget="remove">
-                    <i class="fas fa-times"></i>
-                  </button>
-                </div>
+            <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box">
+              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Jumlah Pegawai</span>
+                <span class="info-box-number">
+                  <?php echo $header['pegawai'] ?>
+                  <small>%</small>
+                </span>
               </div>
-              <div class="card-body">
-              <h4 class="lead"><b><?php echo ucfirst($this->session->userdata('sess_name')) ?></b></h4>
-                      
-                      <p class="text-muted text-sm"><b>Tanggal Lahir: </b> <?php echo ucfirst($this->session->userdata('sess_tanggal_lahir')) ?></p>
-                      <ul class="ml-4 mb-0 fa-ul text-muted">
-                          <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building fa-1x"></i> </span><h6><b>Alamat</b><h6></li>
-                          <span align="justify"> <p ><?php echo ucfirst($this->session->userdata('sess_alamat')) ?></p></span>
-                          
-                          <li class="small"><span class="fa-li"><i class="fas fa-lg fa-envelope fa-1x"></i> </span><h6><b>Email</b><h6></li>
-                          <span align="justify"> <p ><?php echo ucfirst($this->session->userdata('sess_email')) ?></p></span>
-                          
-                          <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone fa-1x"></i> </span><h6><b>No telfon</b><h6></li>
-                          <span align="justify"> <p ><?php echo ucfirst($this->session->userdata('sess_telfon')) ?></p></span>
-                      </ul>
-              </div>
-              <!-- /.card-body -->
+              <!-- /.info-box-content -->
             </div>
-            <!-- /.card -->
-
-            <!-- Jumlah Siswa -->
-            <div class="card card-danger">
-              <div class="card-header">
-                <h3 class="card-title">Jumlah Siswa</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                    <i class="fas fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-tool" data-card-widget="remove">
-                    <i class="fas fa-times"></i>
-                  </button>
-                </div>
-              </div>
-              <div class="card-body">
-                <canvas id="stackedBarChart1" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-
+            <!-- /.info-box -->
           </div>
-          <!-- /.col (LEFT) -->
-          <div class="col-md-6">
-            <!-- Statistik Alumni Kuliah -->
-            <div class="card card-info">
-              <div class="card-header">
-                <h3 class="card-title">Statistik Alumni Kuliah</h3>
+          <!-- /.col -->
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
 
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                    <i class="fas fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-tool" data-card-widget="remove">
-                    <i class="fas fa-times"></i>
-                  </button>
-                </div>
+              <div class="info-box-content">
+                <span class="info-box-text">Jumlah Event</span>
+                <span class="info-box-number"><?php echo $header['event'] ?></span>
               </div>
-              <div class="card-body">
-                <div class="chart">
-                  <canvas id="stackedBarChart2" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-                </div>
-              </div>
-              <br>
-              <!-- /.card-body -->
+              <!-- /.info-box-content -->
             </div>
-            
-            <!-- /.card -->
-
-
-            <!-- Statistik Alumni Kerja -->
-            <div class="card card-success">
-              <div class="card-header">
-                <h3 class="card-title">Statistik Alumni Kerja</h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                    <i class="fas fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-tool" data-card-widget="remove">
-                    <i class="fas fa-times"></i>
-                  </button>
-                </div>
-              </div>
-              <div class="card-body">
-                <div class="chart">
-                  <canvas id="stackedBarChart3" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
-                </div>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-
+            <!-- /.info-box -->
           </div>
-          <!-- /.col (RIGHT) -->
+          <!-- /.col -->
+
+          <!-- fix for small devices only -->
+          <div class="clearfix hidden-md-up"></div>
+
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-success elevation-1"><i class="fas fa-shopping-cart"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Jumlah Loker</span>
+                <span class="info-box-number"><?php echo $header['lowongan'] ?></span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-warning elevation-1"><i class="fas fa-users"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Jumlah Alumni</span>
+                <span class="info-box-number"><?php echo $record['total_alumni'] ?></span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+
+
         </div>
         <!-- /.row -->
+
+        
+        <!-- bagian statistik -->
+        <div class="row">
+            <div class="col-12 col-sm-12 col-md-12">
+
+                <div class="card card-body">
+                    <!-- Bagian -->
+                    <div class="row">
+                    
+                        <div class="col-12 col-sm-12 col-md-7">
+                            <h3>Alumni</h3>
+                            <small>Statistik Terkini</small> <br><br>
+
+                            <div class="position-relative mb-4">
+                                <canvas id="tracer-chart" height="200"></canvas>
+                            </div>
+
+                            <div class="d-flex flex-row justify-content-end">
+                                <span class="mr-2">
+                                    <i class="fas fa-square text-primary"></i> Kerja
+                                </span>
+
+                                <span>
+                                    <i class="fas fa-square text-gray"></i> Kuliah
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-5">
+
+                            <?php
+                            
+                                $alumni = $record['total_alumni'];
+                                $percentase_kerja = intval( $record['total_kerja']/$alumni * 100 );
+                                $percentase_kuliah = intval( $record['total_kuliah']/$alumni * 100 );
+                                $percentase_kerjakuliah = intval( $record['total_kerjakuliah']/$alumni * 100 );
+                            ?>
+                            <p class="">
+                                <strong>Rincian Lebih Lanjut</strong> <br>
+                                <small>Histori kerja, kuliah, dan dilakukan dua-duanya</small>
+                            </p>
+                            
+
+                            <div class="progress-group">
+                            Kerja
+                            <span class="float-right"><b><?php echo $record['total_kerja'] ?></b>/<?php echo $alumni ?></span>
+                            <div class="progress progress-sm">
+                                <div class="progress-bar bg-success" style="width: <?php echo $percentase_kerja ?>%"></div>
+                            </div>
+                            </div>
+                            <!-- /.progress-group -->
+                            
+                            <div class="progress-group">
+                            Kuliah
+                            <span class="float-right"><b><?php echo $record['total_kuliah'] ?></b>/<?php echo $alumni ?></span>
+                            <div class="progress progress-sm">
+                                <div class="progress-bar bg-warning" style="width: <?php echo $percentase_kuliah ?>%"></div>
+                            </div>
+                            </div>
+                            <!-- /.progress-group -->
+
+                            <div class="progress-group">
+                            Kerja dan Kuliah
+                            <span class="float-right"><b><?php echo $record['total_kerjakuliah'] ?></b>/<?php echo $alumni ?></span>
+                            <div class="progress progress-sm">
+                                <div class="progress-bar bg-info" style="width: <?php echo $percentase_kerjakuliah ?>%"></div>
+                            </div>
+                            </div>
+
+                        </div>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
@@ -163,151 +196,120 @@
 <!-- AdminLTE for demo purposes -->
 <script src="<?= base_url("assets/Template/Admin/dist/js/demo.js")?>"></script>
 <!-- Page specific script -->
+
+
+
+
+
+
 <script>
-  $(function () {
-    /* ChartJS
-     * -------
-     * Here we will create a few charts using ChartJS
-     */
 
-    //--------------
-    //- AREA CHART -
-    //--------------
+$(function () {
+  'use strict'
 
-    // Get context with jQuery - using jQuery's .get() method.
-    var areaChartCanvas = $('#areaChart').get(0).getContext('2d')
+  var ticksStyle = {
+    fontColor: '#495057',
+    fontStyle: 'bold'
+  }
 
-    var areaChartData = {
-      labels  : ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+  var mode      = 'index'
+  var intersect = true
+
+  var $tracer = $('#tracer-chart')
+  var tracerChart  = new Chart($tracer, {
+    type   : 'bar',
+    data   : {
+      labels  : [
+          <?php
+            
+            foreach ( $tracer AS $data ) {
+
+                echo $data['tahun'].',';
+            }
+        ?>
+      ],
       datasets: [
         {
-          label               : 'Digital Goods',
-          backgroundColor     : 'rgba(60,141,188,0.9)',
-          borderColor         : 'rgba(60,141,188,0.8)',
-          pointRadius          : false,
-          pointColor          : '#3b8bba',
-          pointStrokeColor    : 'rgba(60,141,188,1)',
-          pointHighlightFill  : '#fff',
-          pointHighlightStroke: 'rgba(60,141,188,1)',
-          data                : [28, 48, 40, 19, 86, 27, 90]
+          backgroundColor: '#007bff',
+          borderColor    : '#007bff',
+          data           : [
+
+            <?php
+            
+                foreach ( $tracer AS $data ) {
+
+                    echo $data['kerja'].',';
+                }
+            ?>
+
+          ]
         },
         {
-          label               : 'Electronics',
-          backgroundColor     : 'rgba(210, 214, 222, 1)',
-          borderColor         : 'rgba(210, 214, 222, 1)',
-          pointRadius         : false,
-          pointColor          : 'rgba(210, 214, 222, 1)',
-          pointStrokeColor    : '#c1c7d1',
-          pointHighlightFill  : '#fff',
-          pointHighlightStroke: 'rgba(220,220,220,1)',
-          data                : [65, 59, 80, 81, 56, 55, 40]
-        },
-      ]
-    }
+          backgroundColor: '#ced4da',
+          borderColor    : '#ced4da',
+          data           : [
 
-    var areaChartOptions = {
-      maintainAspectRatio : false,
-      responsive : true,
-      legend: {
+
+            <?php
+            
+                foreach ( $tracer AS $data ) {
+
+                    echo $data['kuliah'].',';
+                }
+            ?>
+
+          ]
+        }
+      ]
+    },
+    options: {
+      maintainAspectRatio: false,
+      tooltips           : {
+        mode     : mode,
+        intersect: intersect
+      },
+      hover              : {
+        mode     : mode,
+        intersect: intersect
+      },
+      legend             : {
         display: false
       },
-      scales: {
-        xAxes: [{
-          gridLines : {
-            display : false,
-          }
-        }],
+      scales             : {
         yAxes: [{
-          gridLines : {
-            display : false,
-          }
+          // display: false,
+          gridLines: {
+            display      : true,
+            lineWidth    : '4px',
+            color        : 'rgba(0, 0, 0, .2)',
+            zeroLineColor: 'transparent'
+          },
+          ticks    : $.extend({
+            beginAtZero: true,
+
+            // Include a dollar sign in the ticks
+            callback: function (value, index, values) {
+              if (value >= 1000) {
+                value /= 1000
+                value += 'k'
+              }
+              return value
+            }
+          }, ticksStyle)
+        }],
+        xAxes: [{
+          display  : true,
+          gridLines: {
+            display: false
+          },
+          ticks    : ticksStyle
         }]
       }
     }
-
-    // This will get the first returned node in the jQuery collection.
-    var areaChart       = new Chart(areaChartCanvas, {
-      type: 'line',
-      data: areaChartData,
-      options: areaChartOptions
-    })
-
-    //---------------------
-    //- STACKED BAR CHART -
-    //---------------------
-    var stackedBarChartCanvas = $('#stackedBarChart1').get(0).getContext('2d')
-    var stackedBarChartData = $.extend(true, {}, barChartData)
-
-    var stackedBarChartOptions = {
-      responsive              : true,
-      maintainAspectRatio     : false,
-      scales: {
-        xAxes: [{
-          stacked: true,
-        }],
-        yAxes: [{
-          stacked: true
-        }]
-      }
-    }
-
-    var stackedBarChart = new Chart(stackedBarChartCanvas, {
-      type: 'bar',
-      data: stackedBarChartData,
-      options: stackedBarChartOptions
-    })
-
-    //---------------------
-    //- STACKED BAR CHART -
-    //---------------------
-    var stackedBarChartCanvas = $('#stackedBarChart2').get(0).getContext('2d')
-    var stackedBarChartData = $.extend(true, {}, barChartData)
-
-    var stackedBarChartOptions = {
-      responsive              : true,
-      maintainAspectRatio     : false,
-      scales: {
-        xAxes: [{
-          stacked: true,
-        }],
-        yAxes: [{
-          stacked: true
-        }]
-      }
-    }
-
-    var stackedBarChart = new Chart(stackedBarChartCanvas, {
-      type: 'bar',
-      data: stackedBarChartData,
-      options: stackedBarChartOptions
-    })
-
-    //---------------------
-    //- STACKED BAR CHART -
-    //---------------------
-    var stackedBarChartCanvas = $('#stackedBarChart3').get(0).getContext('2d')
-    var stackedBarChartData = $.extend(true, {}, barChartData)
-
-    var stackedBarChartOptions = {
-      responsive              : true,
-      maintainAspectRatio     : false,
-      scales: {
-        xAxes: [{
-          stacked: true,
-        }],
-        yAxes: [{
-          stacked: true
-        }]
-      }
-    }
-
-    var stackedBarChart = new Chart(stackedBarChartCanvas, {
-      type: 'bar',
-      data: stackedBarChartData,
-      options: stackedBarChartOptions
-    })
-
   })
+})
+
+
 </script>
 </body>
 </html>

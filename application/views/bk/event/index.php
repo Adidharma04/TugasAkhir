@@ -133,8 +133,14 @@
                                     <div class="col-md-6 text-center" style="border-right: 1px solid #e0e0e0">
                                       <?php echo pemanggilanSVG("decline") ?>
                                       <h6><b>Event Ditolak</b></h6>
-                                      <small>Klik tombol dibawah ini untuk menolak event</small> <br><br>
-                                      <a href="<?php echo base_url('bk/event/processVerify/' . $evn->id_event . '?status=decline') ?>" class="btn btn-danger btn-sm">Ditolak</a>
+
+                                      <form action="<?php echo base_url('bk/event/processVerify/' . $evn->id_event . '?status=decline') ?>" method="POST">
+                                      <textarea name="alasan" class="form-control" placeholder="Masukkan alasan"></textarea>
+                                      <div class="text-left">
+                                        <small>Klik tombol dibawah ini untuk menolak event</small>
+                                      </div> <br>
+                                      <button class="btn btn-danger btn-sm">Ditolak</button>
+                                      </form>
                                     </div>
 
                                   </div>

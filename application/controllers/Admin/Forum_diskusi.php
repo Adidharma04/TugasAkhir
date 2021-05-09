@@ -184,10 +184,10 @@ class Forum_diskusi extends CI_Controller {
     }
 
     // proses edit detail forum
-    public function editDetailForum($id_forum){
+    public function editDetailForum($id_detail_forum){
 
-
-        $this->forum_diskusi_model->editDataDetailForum($id_forum);
+        $id_forum = $this->input->post('id_forum');
+        $this->forum_diskusi_model->editDataDetailForum($id_detail_forum);
 
         $html = '<div class="alert alert-success">
                     <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
@@ -200,9 +200,9 @@ class Forum_diskusi extends CI_Controller {
 
 
     // proses hapus
-    function hapusDetailForum( $id_forum ) {
+    function hapusDetailForum( $id_detail_forum, $id_forum ) {
 
-        $this->forum_diskusi_model->prosesHapusDetailForum( $id_forum );
+        $this->forum_diskusi_model->prosesHapusDetailForum( $id_detail_forum );
         $html = '<div class="alert alert-success">
                     <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
                     <b>Pemberitahuan</b> <br>

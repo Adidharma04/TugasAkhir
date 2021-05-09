@@ -111,7 +111,7 @@
                                     </div>
                                     <div class="col-md-3">
                                         <a href="#" data-toggle="modal" data-target="#action-edit-<?php echo $row['id_forum'] ?>" class="btn btn-primary"><i class="fa fa-pencil"> Sunting</i></a> &nbsp;
-                                        <a href="#" data-toggle="modal" data-target="#action-delete-<?php echo $row['id_forum'] ?>" class="btn btn-danger"><i class="fa fa-trash"> Hapus</i></a>
+                                        <a href="#" data-toggle="modal" data-target="#action-delete-<?php echo $row['id_detail_forum'] ?>" class="btn btn-danger"><i class="fa fa-trash"> Hapus</i></a>
                                     </div>
                                 </div>
 
@@ -119,7 +119,7 @@
                                 <div class="modal fade" id="action-edit-<?php echo $row['id_forum'] ?>">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
-                                        <form action="" method="POST" enctype="multipart/form-data">
+                                        <form action="<?php echo base_url('admin/forum_diskusi/editDetailForum/'. $row['id_detail_forum']) ?>" method="POST" enctype="multipart/form-data">
                                             <div class="modal-header">
                                                 <b>Edit Komentar</b>
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -137,7 +137,7 @@
                                             </div>
                                             <div class="modal-footer justify-content-between">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                                                <a href="<?php base_url('admin/forum_diskusi/editDetailForum/').$row['id_forum']?>" class="btn btn-primary">Simpan</a>
+                                                <button class="btn btn-primary">Simpan</button>
                                             </div>
                                         </form>
                                         </div>
@@ -149,7 +149,7 @@
 
 
                                 <!-- Modal delete -->
-                                <div class="modal fade" id="action-delete-<?php echo $row['id_forum'] ?>">
+                                <div class="modal fade" id="action-delete-<?php echo $row['id_detail_forum'] ?>">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -172,7 +172,7 @@
                                             </div>
                                             <div class="modal-footer justify-content-between">
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                                                <a href="<?= base_url('admin/forum_diskusi/hapusDetailForum/').$row['id_forum']?>" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>
+                                                <a href="<?= base_url('admin/forum_diskusi/hapusDetailForum/').$row['id_detail_forum'].'/'.$row['id_forum']?>" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>
                                             </div>
                                         </div>
                                         <!-- /.modal-content -->
