@@ -20,11 +20,14 @@ class informasi_umum_model extends CI_Model {
     function prosesKonfirmasiStatus( $id_umum ){
 
 
-        $status =  $this->input->get('status');
+		$status =  $this->input->get('status');
+		$alasan = $this->input->post('alasan');
 
         $data = [
 
-            'status'    => $status
+           
+            'status'    		=> $status,
+			'pesan_ditolak'		=> $alasan
         ];
 
         $this->db->where('id_umum', $id_umum);
@@ -49,10 +52,10 @@ class informasi_umum_model extends CI_Model {
 			$nama  = $getInfoUmum->nama;
 			$nama_informasi = $getInfoUmum->nama_informasi;
 
-			$this->notifikasiEmail( $email, $nama, $status, $nama_informasi );
+			$this->notifikasiEmail( $email, $nama, $status, $nama_informasi, $alasan );
     }
 
-    function notifikasiEmail( $email, $nama_siswa, $status, $nama_informasi ) {
+    function notifikasiEmail( $email, $nama_siswa, $status, $nama_informasi, $alasan ) {
 
 
 		// load library
@@ -90,7 +93,7 @@ class informasi_umum_model extends CI_Model {
 			$pesan = " telah kami setujui, dan akan segera dibagikan ke siswa.";
 		} else{
 
-			$pesan = " ditolak, karena tidak layak untuk dibagikan.";
+			$pesan = " tidak dapat kami terima.";
 		}
 
 		$htmlContent = '
@@ -242,14 +245,14 @@ class informasi_umum_model extends CI_Model {
 																		<div style="font-family:Helvetica Neue,Arial,sans-serif;font-size:16px;line-height:22px;text-align:left;color:#555;">
 																		Halo saudara '.$nama_siswa.',
 																		<br>
-																		Informasi  '.$nama_informasi.' yang ingin anda bagikan' .$pesan.'
+																		Informasi  '.$nama_informasi.' yang ingin anda bagikan' .$pesan.'  dikarenakan "'.$alasan.'"
 																		</div>
 																	</td>
 																</tr>
 																<tr>
 																	<td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
 																		<div style="font-size: 12px;font-family:Helvetica Neue,Arial,sans-serif;font-size:14px;line-height:22px;text-align:left;color:#555;">
-																		Terimakasih atas partisipasi Anda.
+																		Terimakasih atas partisipasi Anda.<br>
 																		<br>Kami mengharapkan lebih banyak informasi seputar dunia perkuliahan, pendaftaran POLRI/TNI, ikatan dinas, dan banyak informasi lain yang dapat anda bagikan untuk Smanis Tracer Study.
 																		</div>
 																	</td>
