@@ -2,6 +2,20 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class siswa_model extends CI_Model {
+
+
+    function tampilDataAlumni() {
+
+        $sql = "SELECT profile.*, profil_siswa.* FROM profile 
+                INNER JOIN profil_siswa ON profil_siswa.id_profile = profile.id_profile 
+                
+                WHERE profile.level = 'alumni'";
+
+        $query = $this->db->query( $sql );
+        return $query;
+    }
+
+
     public function tampilDataSiswa()
     {  
         $this->db->select('profil_siswa.*');
@@ -43,9 +57,10 @@ class siswa_model extends CI_Model {
          *  3. ynag tersimpan hanya di tabel profile
          */
     }
-    public function upload(){    
+    public function upload( $nis ){    
         $config['upload_path'] = './assets/Gambar/Upload/Siswa/';    
         $config['allowed_types'] = 'jpg|png|jpeg';
+        $config['file_name']   = $nis;
         $this->load->library('upload', $config);
 
         if ( empty( $_FILES['foto']['name'] ) ) {

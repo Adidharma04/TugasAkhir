@@ -89,7 +89,9 @@ class siswa extends CI_Controller
             $this->load->view('Admin/siswa/tambah', $data);
             $this->load->view('Template/Admin/footer',$data);
         } else {
-            $upload = $this->siswa_model->upload();
+
+            $nis = $this->input->post('nis');
+            $upload = $this->siswa_model->upload( $nis );
             if ($upload['result'] == 'success') {
                 $this->siswa_model->tambahDataSiswa($upload);
                 $html = '<div class="alert alert-success">

@@ -37,7 +37,7 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama Alumni</th>
+                                            <th>Pembuatan</th>
                                             <th>Informasi</th>
                                             <th>Status</th>
                                             <th>Foto</th>
@@ -49,7 +49,18 @@
                                         foreach ($informasi_umum->result() as $ig) : ?>
                                             <tr>
                                                 <td><?= $no++ ?></td>
-                                                <td><a target="_blank" href="<?php echo base_url('admin/siswa/detail/' . $ig->id_siswa) ?>"><?= $ig->nama . ' <br> <small>NIS : ' . $ig->nis . '</small>' ?></a></td>
+                                                <td>
+                                                    <?php if ( $ig->level == "staff" ) { ?>
+                                                    
+                                                    <small>Dibuat oleh : </small> <br>
+                                                    <span for=""><?php echo $ig->username ?></span>
+
+                                                    <?php } else { ?>
+                                                
+                                                    <a target="_blank" href="<?php echo base_url('admin/siswa/detail/' . $ig->id_siswa) ?>"><?= $ig->nama . ' <br> <small>NIS : ' . $ig->nis . '</small>' ?></a>
+
+                                                    <?php } ?>
+                                                </td>
                                                 <td><?= $ig->nama_informasi ?></td>
                                                 <td>
                                                     <?php

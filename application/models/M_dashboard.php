@@ -18,7 +18,7 @@
 
             // lowongan 
             $event = $this->db->get_where('event', ['status' => "accept"])->num_rows();
-            $event = $this->db->get_where('loker', ['status' => "accept"])->num_rows();
+            $lowongan = $this->db->get_where('loker', ['status' => "accept"])->num_rows();
 
 
             return array(

@@ -4,7 +4,24 @@
     defined('BASEPATH') OR exit('No direct script access allowed');
     
     class Tracer_model extends CI_Model {
-    
+        
+
+        // hitung tracer kerja
+        function hitungTracerKerja( $id_profile ) {
+
+            $where = ['id_profile' => $id_profile];
+            return $this->db->get_where('tracer_kerja', $where);
+        }
+
+
+        // hitung tracer kerja
+        function hitungTracerKuliah( $id_profile ) {
+
+            $where = ['id_profile' => $id_profile];
+            return $this->db->get_where('tracer_kuliah', $where);
+        }
+
+
         // ambil keseluruhan kerja + kuliah
         function getDataTracer() {
 
