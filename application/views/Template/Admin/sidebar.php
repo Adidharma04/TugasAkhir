@@ -1,3 +1,8 @@
+
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed" >
+<!-- Wrapper -->
+<div class="wrapper">
+
 <?php
   $uriSegment = $this->uri->segment(2);
 ?>
@@ -22,8 +27,6 @@
           <a href="#" class="d-block"><?php echo ucfirst($this->session->userdata('sess_name')) ?></a>
         </div>
       </div>
-
-      
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
@@ -154,20 +157,5 @@
     </div>
     <!-- /.sidebar -->
   </aside>
+
   
-<!-- jQuery -->
-<script src="<?= base_url("assets/Template/Admin/plugins/jquery/jquery.min.js")?>"></script>
-<!-- jQuery UI 1.11.4 -->
-<script src="<?= base_url("assets/Template/Admin/plugins/jquery-ui/jquery-ui.min.js")?>"></script>
-<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-<script>
-  $.widget.bridge('uibutton', $.ui.button)
-</script>
-<!-- Bootstrap 4 -->
-<script src="<?= base_url("assets/Template/Admin/plugins/bootstrap/js/bootstrap.bundle.min.js")?>"></script>
-<!-- overlayScrollbars -->
-<script src="<?= base_url("assets/Template/Admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js")?>"></script>
-<!-- AdminLTE App -->
-<script src="<?= base_url("assets/Template/Admin/dist/js/adminlte.js")?>"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="<?= base_url("assets/Template/Admin/dist/js/demo.js")?>"></script>

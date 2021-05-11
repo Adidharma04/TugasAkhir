@@ -10791,7 +10791,7 @@ body.sidebar-collapse:not(.sidebar-mini-md):not(.sidebar-mini) .content-wrapper,
 }
 
 .main-footer {
-    background-color: #fff;
+    background-color: #343a40;
     border-top: 1px solid #dee2e6;
     color: #869099;
     padding: 1rem

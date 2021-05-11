@@ -29,6 +29,7 @@ class siswa extends CI_Controller
         $data['title'] = 'Halaman Siswa | Admin';
         //----------------------------
         $data['profil_siswa'] = $this->siswa_model->tampilDataSiswa();
+        
         $this->load->view('Template/Admin/navbar', $data);
         $this->load->view('Template/Admin/sidebar', $data);
         $this->load->view('Admin/siswa/index', $data);
@@ -86,7 +87,7 @@ class siswa extends CI_Controller
             $this->load->view('Template/Admin/navbar', $data);
             $this->load->view('Template/Admin/sidebar', $data);
             $this->load->view('Admin/siswa/tambah', $data);
-            $this->load->view('Template/Admin/footer');
+            $this->load->view('Template/Admin/footer',$data);
         } else {
             $upload = $this->siswa_model->upload();
             if ($upload['result'] == 'success') {
