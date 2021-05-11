@@ -49,7 +49,7 @@
             return $this->db->query( $SQL );
         }
 
-        // proses tambah 
+        // proses tambah topik
         function onInsertDataTopic() {
 
             $data = array(
@@ -66,8 +66,31 @@
             redirect('admin/Forum_diskusi');
         }
 
+        // Khusus Forum-----------------------------------------------------------------------------------------
+        
+        // Upload topik
+        public function upload(){    
+            $config['upload_path'] = './assets/Gambar/Upload/Forum/';    
+            $config['allowed_types'] = 'jpg|png|jpeg';
+            $this->load->library('upload', $config);
+    
+            if ( empty( $_FILES['foto']['name'] ) ) {
+    
+                return array('result' => 'success', 'file' => ['file_name' => ""]);
+            } else {
+    
+                if($this->upload->do_upload('foto')){
+                    $return = array('result' => 'success', 'file' => $this->upload->data(), 'error' => '');      
+                    return $return;
+                }else{    
+                    $return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors());return $return;   
+                }  
+            }
+        }
+
         // proses tambah Data Forum
-        function tambahDataForum() {
+        function tambahDataForum($upload) {
+
             $id_profile = $this->session->userdata('sess_id_profile');
 
             $forum = array(
@@ -76,15 +99,17 @@
                 'nama_forum'        => $this->input->post('nama_forum'),
                 'deskripsi'         => $this->input->post('deskripsi'),
                 'tanggal_forum'     => $this->input->post('tanggal_forum'),
+                'foto'              => $upload['file']['file_name'],
                 
             );
             $this->db->insert('forum', $forum);
         }
 
-        // proses tambah Data Forum
+        // proses Edit Data Forum
         function editDataForum() {
+            $id_forum   = $this->input->post('id_forum');
             $id_profile = $this->session->userdata('sess_id_profile');
-
+            
             $forum = array(
                 'id_profile'        => $id_profile,
                 'id_topik'          => $this->input->post('id_topik'),
@@ -93,8 +118,21 @@
                 'tanggal_forum'     => $this->input->post('tanggal_forum'),
                 
             );
-            $this->db->insert('forum', $forum);
+            $this->db->where('id_forum', $id_forum);
+            $this->db->update('forum', $forum);
         }
+
+        // porses hapus
+        function prosesHapusForum( $id_forum ){
+
+            $this->db->where('id_forum', $id_forum)->delete('forum');
+            $this->db->where('id_forum', $id_forum)->delete('forum_detail');
+        }
+        
+        // Khusus Forum-----------------------------------------------------------------------------------------
+
+        
+        // Khusus Detail Forum-----------------------------------------------------------------------------------------
 
         // proses tambah Data Detail Forum
         function tambahDataDetailForum() {
@@ -107,6 +145,21 @@
                 
             );
             $this->db->insert('forum_detail', $forumDetail);
+        }
+
+        // proses tambah Data Detail Forum
+        function editDataDetailForum($id_detail_forum) {
+
+            $forumDetail = array(
+                'notes'             => $this->input->post('notes'),
+            );
+            $this->db->where('id_detail_forum', $id_detail_forum)->update('forum_detail', $forumDetail);
+        }
+        
+
+        // porses hapus Data Detail Forum
+        function prosesHapusDetailForum( $id_detail_forum ){
+            $this->db->where('id_detail_forum', $id_detail_forum)->delete('forum_detail');
         }
     }
     

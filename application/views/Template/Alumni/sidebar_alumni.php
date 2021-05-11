@@ -5,7 +5,9 @@
 ?>
 
 
-
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed" >
+<!-- Wrapper -->
+<div class="wrapper">
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
 <!-- Main Sidebar Container -->
@@ -65,7 +67,17 @@
               </p>
             </a>
           </li>
-          
+
+          <li class="nav-header">Diskusi</li>
+          <li class="nav-item">
+            <a href="<?= base_url().'Alumni/forum_diskusi'?>" class="nav-link <?php if ($uriSegment == "forum_diskusi") echo 'active'; ?>">
+              <i class="nav-icon far fa-comments"></i>
+              <p>
+                Forum Diskusi
+              </p>
+            </a>
+          </li>
+
           <li class="nav-header">Tracer History</li>
           <!-- <li class="nav-item">
             <a href="<?= base_url('Alumni/tracer?type=kuliah').''?>" class="nav-link">
