@@ -49,27 +49,12 @@
           </li>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon far fa-envelope"></i>
+            <a href="<?= base_url().'bk/forum_diskusi'?>" class="nav-link <?php if ($uriSegment == "forum_diskusi") echo 'active'; ?>" >
+              <i class="nav-icon fa fa-comments"></i>
               <p>
-                Pesan
-                <i class="fas fa-angle-left right"></i>
+                Forum Diskusi
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="pages/mailbox/mailbox.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Forum Diskusi</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="pages/mailbox/compose.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Kirim Notifikasi</p>
-                </a>
-              </li>
-            </ul>
           </li>
           <li class="nav-header">Validasi</li>
           <li class="nav-item">

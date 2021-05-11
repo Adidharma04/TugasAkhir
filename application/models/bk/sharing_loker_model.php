@@ -20,10 +20,13 @@ class sharing_loker_model extends CI_Model {
 
 
         $status =  $this->input->get('status');
+		$alasan = $this->input->post('alasan');
 
         $data = [
 
-            'status'    => $status
+           
+            'status'    		=> $status,
+			'pesan_ditolak'		=> $alasan
         ];
 
         $this->db->where('id_loker', $id_loker);
@@ -48,10 +51,10 @@ class sharing_loker_model extends CI_Model {
 			$nama  = $getInfoLoker->nama;
 			$nama_pekerjaan = $getInfoLoker->nama_pekerjaan;
 
-			$this->notifikasiEmail( $email, $nama, $status, $nama_pekerjaan );
+			$this->notifikasiEmail( $email, $nama, $status, $nama_pekerjaan, $alasan );
     }
 
-    function notifikasiEmail( $email, $nama_siswa, $status, $nama_pekerjaan ) {
+    function notifikasiEmail( $email, $nama_siswa, $status, $nama_pekerjaan, $alasan ) {
 
 
 		// load library
@@ -89,7 +92,7 @@ class sharing_loker_model extends CI_Model {
 			$pesan = " telah kami setujui, dan akan segera dibagikan ke siswa.";
 		} else{
 
-			$pesan = " ditolak, karena tidak layak untuk dibagikan.";
+			$pesan = " tidak dapat kami terima.";
 		}
 
 		
@@ -243,14 +246,14 @@ class sharing_loker_model extends CI_Model {
 																		<div style="font-family:Helvetica Neue,Arial,sans-serif;font-size:16px;line-height:22px;text-align:left;color:#555;">
 																		Halo saudara '.$nama_siswa.',
 																		<br>
-																		Lowongan Pekerjaan '.$nama_pekerjaan.' yang ingin anda bagikan' .$pesan.'
+																		Lowongan Pekerjaan '.$nama_pekerjaan.' yang ingin anda bagikan' .$pesan.'  dikarenakan "'.$alasan.'"
 																		</div>
 																	</td>
 																</tr>
 																<tr>
 																	<td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
 																		<div style="font-size: 12px;font-family:Helvetica Neue,Arial,sans-serif;font-size:14px;line-height:22px;text-align:left;color:#555;">
-																		Terimakasih atas partisipasi Anda.
+																		Terimakasih atas partisipasi Anda.<br>
 																		<br>Kami mengharapkan lebih banyak lowongan pekerjaan baik dari perusahaan BUMN maupun BUMS yang bisa anda bagikan di Smanis Tracer Study.
 																		</div>
 																	</td>
