@@ -98,7 +98,6 @@
                 'id_topik'          => $this->input->post('id_topik'),
                 'nama_forum'        => $this->input->post('nama_forum'),
                 'deskripsi'         => $this->input->post('deskripsi'),
-                'tanggal_forum'     => $this->input->post('tanggal_forum'),
                 'foto'              => $upload['file']['file_name'],
                 
             );
@@ -115,7 +114,6 @@
                 'id_topik'          => $this->input->post('id_topik'),
                 'nama_forum'        => $this->input->post('nama_forum'),
                 'deskripsi'         => $this->input->post('deskripsi'),
-                'tanggal_forum'     => $this->input->post('tanggal_forum'),
                 
             );
             $this->db->where('id_forum', $id_forum);
