@@ -35,7 +35,7 @@
                   <thead>
                     <tr>
                       <th>No</th>
-                      <th>Nama Alumni</th>
+                      <th>Dibuat oleh</th>
                       <th>Event</th>
                       <th>Tanggal Event</th>
                       <th>Lokasi</th>
@@ -49,7 +49,14 @@
                       <tr>
                         <td><?= $no++ ?></td>
                         <td>
+                        <?php if ( $evn->level == "staff" ) { ?>                          
+                        
+                         <small>Dibuat oleh : </small> <br>
+                            <span for=""><?php echo $evn->username ?></span>
+                          <?php } else { ?>
                           <a target="_blank" href="<?php echo base_url('admin/siswa/detail/' . $evn->id_siswa) ?>"><?= $evn->nama . ' <br> <small>NIS : ' . $evn->nis . '</small>' ?></a></td>
+                          <?php } ?>
+
                         <td><?= $evn->nama_event ?></td>
                         <td><?= date('d F Y', strtotime($evn->tanggal_event)) ?></td>
                         <td><?= $evn->lokasi ?></td>
@@ -110,7 +117,7 @@
                   <tfoot>
                     <tr>
                       <th>No</th>
-                      <th>Nama Alumni</th>
+                      <th>Dibuat oleh</th>
                       <th>Event</th>
                       <th>Tanggal Event</th>
                       <th>Lokasi</th>

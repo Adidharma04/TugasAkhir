@@ -52,7 +52,7 @@
                                     
 									<br>
 									<br>
-                                    <p>Don't have account ?<a href="<?= base_url().'Admin/register';?>" class="signup-image-link"> Create Account</a></p>
+                                    <p>Registrasi Alumni<a href="<?= base_url().'Admin/register';?>" class="signup-image-link"> Klik disini !</a></p>
                                 </div>
 
                             </form>

@@ -37,7 +37,7 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Pembuatan</th>
+                                            <th>Dibuat oleh</th>
                                             <th>Informasi</th>
                                             <th>Status</th>
                                             <th>Foto</th>
@@ -125,7 +125,7 @@
                                     <tfoot>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama Alumni</th>
+                                            <th>Dibuat oleh</th>
                                             <th>Informasi</th>
                                             <th>Status</th>
                                             <th>Foto</th>

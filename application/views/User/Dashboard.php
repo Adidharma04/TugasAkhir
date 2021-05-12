@@ -122,7 +122,7 @@
                             <i class="icon-worldwide"></i>
                         </div>
                         <div class="course-content">
-                            <p>Mempermudah alumni berbagi infrormasi</p>
+                            <p>Mempermudah alumni berbagi informasi</p>
                         </div>
                     </div>
                 </div>

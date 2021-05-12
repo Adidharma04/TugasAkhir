@@ -79,7 +79,7 @@ class event extends CI_Controller {
         ]);
 
         //-- Title Halaman
-        $data ['title'] = 'Halaman Edit Event | Admin';
+        $data ['title'] = 'Halaman Edit Event | Alumni';
         //----------------------------
         $data ['event'] = $getDataEventById;
         

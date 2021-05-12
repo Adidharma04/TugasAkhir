@@ -83,7 +83,7 @@
                               $textBtn = "";
                               if ( ($job->status == "accept") || ($job->status == "decline") ) {
 
-                                echo '<span class="badge badge-success">Telah dikonfirmasi</span>';
+                                echo '<span class="badge badge-warning">Telah dikonfirmasi</span>';
                               } else {
 
                                 echo '<small>Mohon dikonfirmasi</small>';

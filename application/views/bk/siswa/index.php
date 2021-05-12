@@ -105,13 +105,19 @@
                                       <div class="col-md-6 text-center" style="border-right: 1px solid #e0e0e0">
                                         <?php echo pemanggilanSVG( "pengajuan" ) ?>
                                         <h6><b>Ditolak</b></h6>
-                                        <small>Klik tombol dibawah ini untuk menolak registrasi siswa</small> <br><br>
-                                        <a href="<?php echo base_url('bk/siswa/processVerify/'. $swa->id_siswa.'?verifikasi_alumni=pengajuan') ?>" class="btn btn-danger btn-sm">Ditolak</a>
-                                      </div>
-
+                                <form action="<?php echo base_url('bk/siswa/processVerify/' .  $swa->id_siswa.'?verifikasi_alumni=pengajuan') ?>" method="POST">
+                                      <textarea name="alasan" class="form-control" placeholder="Masukkan alasan"></textarea>
+                                      <div class="text-left">
+                                        <small>Klik tombol dibawah ini untuk menolak registrasi siswa</small>
+                                      </div> <br>
+                                      <button class="btn btn-danger btn-sm">Ditolak</button>
+                                      </form>
                                     </div>
+
                                   </div>
                                 </div>
+                              </div>
+
                                 <!-- /.modal-content -->
                               </div>
                               <!-- /.modal-dialog -->
