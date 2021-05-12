@@ -92,7 +92,7 @@ class sharing_loker_model extends CI_Model {
 			$pesan = " telah kami setujui, dan akan segera dibagikan ke siswa.";
 		} else{
 
-			$pesan = " tidak dapat kami terima.";
+			$pesan = " tidak dapat kami terima dikarenakan $alasan ";
 		}
 
 		
@@ -244,8 +244,9 @@ class sharing_loker_model extends CI_Model {
 																<tr>
 																	<td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
 																		<div style="font-family:Helvetica Neue,Arial,sans-serif;font-size:16px;line-height:22px;text-align:left;color:#555;">
-																		Halo saudara '.$nama_siswa.',
-																		<br>
+																		Halo saudara
+																			<br>'.$nama_siswa.',
+																			<br><br>
 																		Lowongan Pekerjaan '.$nama_pekerjaan.' yang ingin anda bagikan' .$pesan.'  dikarenakan "'.$alasan.'"
 																		</div>
 																	</td>

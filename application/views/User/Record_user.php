@@ -36,7 +36,7 @@
      <!-- ##### Breadcumb Area Start ##### -->
      <div class="breadcumb-area bg-img" style="background-image: url(<?php echo base_url().'assets/Gambar/Website/Dashboard/bgkuliah.jpg';?>);">
         <div class="bradcumbContent">
-            <h2>Track Record Kuliah</h2>
+            <h2>Track Record</h2>
         </div>
     </div>
     <!-- ##### Breadcumb Area End ##### -->
@@ -271,14 +271,11 @@
 
                             <img src="<?php echo $foto;?>" alt="" style="width: 250px; height: 300px; object-fit: cover">
                         </div>
-                        <!-- Meta Info -->
-                        <div class="teachers-info mt-30">
+                       <!-- Meta Info -->
+                       <div class="teachers-info mt-30">
                             <h5><?php echo $row['nama'] ?></h5>
-                            <span>D3 Akutansi</span><br>
-                            <span>Politeknik Keuangan Negara STAN</span><br>
-                            <span>Tahun Masuk : <?php echo $row['tahun_lulus'] ?></span><br>
-                            <span>Tahun Lulus :2021</span><br>
-                            <span>KEDINASAN</span>
+                            <span>Tahun Lulus : <?php echo $row['tahun_lulus'] ?></span><br>
+                            <a href="#" class="btn btn-primary">Record</a>
                         </div>
                     </div>
                 </div>
@@ -297,14 +294,6 @@
 
 
                 <?php } ?>
-            </div>
-
-            <div class="row">
-                <div class="col-12">
-                    <div class="view-all text-center wow fadeInUp" data-wow-delay="800ms">
-                        <a href="#" class="btn academy-btn">All Record</a>
-                    </div>
-                </div>
             </div>
         </div>
     </section>

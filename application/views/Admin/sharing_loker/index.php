@@ -38,7 +38,7 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama Alumni</th>
+                                            <th>Dibuat oleh</th>
                                             <th>Pekerjaan</th>
                                             <th>Alamat</th>
                                             <th>Status</th>
@@ -51,7 +51,16 @@
                                         foreach ($loker->result() as $job) : ?>
                                             <tr>
                                                 <td><?= $no++ ?></td>
-                                                <td><a target="_blank" href="<?php echo base_url('admin/siswa/detail/' . $job->id_siswa) ?>"><?= $job->nama . ' <br> <small>NIS : ' . $job->nis . '</small>' ?></a></td>
+                                                <td>
+                                                    <?php if ( $job->level == "staff" ) { ?>
+                                                    
+                                                    <small>Dibuat oleh : </small> <br>
+                                                    <span for=""><?php echo $job->username ?></span>
+
+                                                    <?php } else { ?>
+                                                <a target="_blank" href="<?php echo base_url('admin/siswa/detail/' . $job->id_siswa) ?>"><?= $job->nama . ' <br> <small>NIS : ' . $job->nis . '</small>' ?></a></td>
+                                                <?php } ?>
+                                                </td>
                                                 <td><?= $job->nama_pekerjaan ?></td>
                                                 <td><?= $job->alamat ?></td>
                                                 <td>
@@ -117,7 +126,7 @@
                                     <tfoot>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama Alumni</th>
+                                            <th>Dibuat oleh</th>
                                             <th>Pekerjaan</th>
                                             <th>Alamat</th>
                                             <th>Status</th>

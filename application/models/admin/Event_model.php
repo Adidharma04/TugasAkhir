@@ -5,14 +5,17 @@ class event_model extends CI_Model {
     public function tampilDataEvent()
     {  
         $sql = "SELECT 
+                    profile.*, 
                     profil_siswa.*,
                     event.id_event, event.nama_event, event.tanggal_event, event.lokasi, event.foto, event.status
                     
                 FROM event
                 
                 LEFT JOIN profil_siswa 
-                
-                ON profil_siswa.id_profile = event.id_profile";
+                ON profil_siswa.id_profile = event.id_profile
+
+                INNER JOIN profile 
+                ON profile.id_profile = event.id_profile";
 
         return $this->db->query( $sql );
     }

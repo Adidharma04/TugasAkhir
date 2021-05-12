@@ -25,11 +25,13 @@ class siswa_model extends CI_Model {
 
         $verifikasi_alumni =  $this->input->get('verifikasi_alumni');
         $getDataInformationStudent = $this->getSiswa( $id_siswa );
+		$alasan = $this->input->post('alasan');
 
 
         $data = [
 
-            'verifikasi_alumni'    => $verifikasi_alumni
+            'verifikasi_alumni'    => $verifikasi_alumni,
+			'pesan_ditolak'		=> $alasan
         ];
 
         // apabila status pengajuan diterima
@@ -59,7 +61,7 @@ class siswa_model extends CI_Model {
 
 
         /** Library Email */
-        $this->notifikasiEmail( $getDataInformationStudent->email, $getDataInformationStudent->nama, $statusPesan );
+        $this->notifikasiEmail( $getDataInformationStudent->email, $getDataInformationStudent->nama, $statusPesan, $alasan,  $verifikasi_alumni );
 
     }
 
@@ -72,7 +74,7 @@ class siswa_model extends CI_Model {
 
     // function notifikasi email
     // notifikasi email
-	function notifikasiEmail( $email, $nama_siswa, $statusPesan ) {
+	function notifikasiEmail( $email, $nama_siswa, $statusPesan, $alasan,  $verifikasi_alumni ) {
 
 
 		// load library
@@ -102,6 +104,18 @@ class siswa_model extends CI_Model {
 
         // Subject email
         $this->email->subject('Registrasi Alumni SMA Negeri Ploso '. $statusPesan);
+
+		
+		// membuat pesan dinamis berdasarkan status
+		$pesan = "";
+		if ( $verifikasi_alumni == "diterima" ) {
+
+			$pesan = " telah kami setujui. NIS anda terdaftar !";
+		} else{
+
+			$pesan = " tidak dapat kami setujui, dikarenakan $alasan ";
+		}
+
 
 		
 
@@ -252,9 +266,11 @@ class siswa_model extends CI_Model {
 																<tr>
 																	<td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
 																		<div style="font-family:Helvetica Neue,Arial,sans-serif;font-size:16px;line-height:22px;text-align:left;color:#555;">
-																			Halo saudara '.$nama_siswa.'
+																			Halo saudara,
+																			<br> '.$nama_siswa.'
+																			<br><br>
 																			<span style="font-size: 12px">
-																				Verifikasi akun anda telah disetujui oleh Guru BK.
+																				Verifikasi akun anda' .$pesan.' 
 																				<br>
 																			</span>
 																		</div>
@@ -263,7 +279,7 @@ class siswa_model extends CI_Model {
 																<tr>
 																	<td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
 																		<div style="font-size: 12px;font-family:Helvetica Neue,Arial,sans-serif;font-size:14px;line-height:22px;text-align:left;color:#555;">
-																			Dimohon untuk mengisi record secara berkala, karena merupakan persyaratan pengambilan IJAZAH dan SKHUN. Jika tidak mengisi
+																			Jika registrasi anda sudah diverifikasi, dimohon untuk mengisi record secara berkala karena merupakan persyaratan pengambilan IJAZAH dan SKHUN. Jika tidak mengisi
 																			record secara berkala, maka IJAZAH dan SKHUN akan kami tahan. Terimakasih.
 																		</div>
 																	</td>

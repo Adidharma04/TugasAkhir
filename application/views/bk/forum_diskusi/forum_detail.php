@@ -110,13 +110,13 @@
                                         <?php echo date('d M Y H.i A', strtotime($row['created_at'])) ?>
                                     </div>
                                     <div class="col-md-3">
-                                        <a href="#" data-toggle="modal" data-target="#action-edit-<?php echo $row['id_forum'] ?>" class="btn btn-primary"><i class="fa fa-pencil"> Sunting</i></a> &nbsp;
+                                        <a href="#" data-toggle="modal" data-target="#action-edit-<?php echo $row['id_detail_forum'] ?>" class="btn btn-primary"><i class="fa fa-pencil"> Sunting</i></a> &nbsp;
                                         <a href="#" data-toggle="modal" data-target="#action-delete-<?php echo $row['id_detail_forum'] ?>" class="btn btn-danger"><i class="fa fa-trash"> Hapus</i></a>
                                     </div>
                                 </div>
 
                                 <!-- Modal edit -->
-                                <div class="modal fade" id="action-edit-<?php echo $row['id_forum'] ?>">
+                                <div class="modal fade" id="action-edit-<?php echo $row['id_detail_forum'] ?>">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                         <form action="<?php echo base_url('bk/forum_diskusi/editDetailForum/'. $row['id_detail_forum']) ?>" method="POST" enctype="multipart/form-data">

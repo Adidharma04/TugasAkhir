@@ -96,7 +96,7 @@ function notifikasiEmail( $email, $nama_siswa, $status, $nama_event, $alasan) {
 			$pesan = " telah kami setujui, dan akan segera dibagikan";
 		} else{
 
-			$pesan = " tidak dapat kami terima.";
+			$pesan = " tidak dapat kami terima dikarenakan $alasan ";
 		}
 
 		
@@ -248,9 +248,10 @@ function notifikasiEmail( $email, $nama_siswa, $status, $nama_event, $alasan) {
 																<tr>
 																	<td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
 																		<div style="font-family:Helvetica Neue,Arial,sans-serif;font-size:16px;line-height:22px;text-align:left;color:#555;">
-																			Halo saudara '.$nama_siswa.',
-																			<br>
-																			Event  '.$nama_event.' yang anda ajukan' .$pesan.' dikarenakan "'.$alasan.'"
+																			Halo saudara,
+																			<br>'.$nama_siswa.'
+																			<br><br>
+																			Event  '.$nama_event.' yang anda ajukan' .$pesan.' 
 																		</div>
 																	</td>
 																</tr>

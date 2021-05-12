@@ -5,14 +5,17 @@ class sharing_loker_model extends CI_Model {
     public function tampilDataLoker()
     {  
         $sql = "SELECT 
+                profile.*, 
                 profil_siswa.*,
                 loker.id_loker, loker.nama_pekerjaan, loker.alamat, loker.status, loker.foto
                 
             FROM loker
             
-            JOIN profil_siswa 
-            
-            ON profil_siswa.id_profile = loker.id_profile";
+            LEFT JOIN profil_siswa 
+            ON profil_siswa.id_profile = loker.id_profile
+
+            INNER JOIN profile 
+            ON profile.id_profile = loker.id_profile";
 
         return $this->db->query( $sql );
     }
