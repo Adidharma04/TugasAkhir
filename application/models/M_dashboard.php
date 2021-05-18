@@ -11,6 +11,7 @@
             $pegawai = 0; 
             $event   = 0;
             $lowongan= 0;
+            $informasi= 0;
 
             $sql_pegawai = "SELECT * FROM profile WHERE level IN('staff', 'bk')";
             $pegawai = $this->db->query($sql_pegawai)->num_rows();
@@ -19,12 +20,14 @@
             // lowongan 
             $event = $this->db->get_where('event', ['status' => "accept"])->num_rows();
             $lowongan = $this->db->get_where('loker', ['status' => "accept"])->num_rows();
+            $informasi = $this->db->get_where('informasi_umum', ['status' => "accept"])->num_rows();
 
 
             return array(
 
                 'pegawai'   => $pegawai,
                 'event'     => $event,
+                'informasi'     => $informasi,
                 'lowongan'  => $lowongan
             );
         }

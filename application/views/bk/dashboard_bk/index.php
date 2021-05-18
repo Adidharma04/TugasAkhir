@@ -45,9 +45,9 @@
               <span class="info-box-icon bg-info elevation-1"><i class="fas fa-cog"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Jumlah Pegawai</span>
+                <span class="info-box-text">Jumlah Informasi</span>
                 <span class="info-box-number">
-                  <?php echo $header['pegawai'] ?>
+                  <?php echo $header['informasi'] ?>
                 </span>
               </div>
               <!-- /.info-box-content -->
