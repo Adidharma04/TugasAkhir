@@ -34,33 +34,27 @@
                   <thead>
                     <tr>
                       <th>No</th>
-                      <th>Alumni</th>
-                      <th>Nama Kampus</th>
-                      <th>Program Studi</th>
-                      <th>Tahun Masuk</th>
-                      <th>Dibuat pada</th>
+                      <th>Nama Alumni</th>
+                      <th>NIS</th>
+                      <th>Tahun Lulus</th>
                     </tr>
                   </thead>
                   <tbody>
                     <?php $no = 1; foreach ($tracer_kuliah->result() as $tkul) : ?>
                       <tr>
                         <td><?= $no++ ?></td>
-                        <td><a target="_blank" href="<?php echo base_url('admin/siswa/detail/'. $tkul->id_siswa) ?>"><?= $tkul->nama.' <br> <small>NIS : '. $tkul->nis.'</small>' ?></a></td>
-                        <td><?= $tkul->nama_kampus ?></td>
-                        <td><?= $tkul->program_studi ?></td>
-                        <td><?= $tkul->tahun_masuk ?></td>
-                        <td><?= date('d F Y H.i A', strtotime($tkul->created_at)) ?></td>
+                        <td><a target="_blank" href="<?php echo base_url('admin/siswa/detail/'. $tkul->id_siswa) ?>"><?= $tkul->nama ?></a></td>
+                        <td><?= $tkul->nis ?></td>
+                        <td><?= $tkul->tahun_lulus?></td>
                                         </tr>
                                         <?php endforeach ?>
                                     </tbody>
                                     <tfoot>
                                         <tr>
                                         <th>No</th>
-                                        <th>Alumni</th>
-                                        <th>Nama Kampus</th>
-                                        <th>Program Studi</th>
-                                        <th>Tahun Masuk</th>
-                                        <th>Dibuat pada</th>
+                                        <th>Nama Alumni</th>
+                                        <th>NIS</th>
+                                        <th>Tahun Lulus</th>
                                         </tr>
                                     </tfoot>
                                 </table>

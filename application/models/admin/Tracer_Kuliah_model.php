@@ -13,7 +13,8 @@ class Tracer_Kuliah_model extends CI_Model {
                 
                 JOIN profil_siswa 
                 
-                ON profil_siswa.id_profile = tracer_kuliah.id_profile";
+                ON profil_siswa.id_profile = tracer_kuliah.id_profile
+                GROUP BY id_profile";
 
         return $this->db->query( $sql );
     }

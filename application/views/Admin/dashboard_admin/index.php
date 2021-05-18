@@ -48,7 +48,6 @@
                 <span class="info-box-text">Jumlah Pegawai</span>
                 <span class="info-box-number">
                   <?php echo $header['pegawai'] ?>
-                  <small>%</small>
                 </span>
               </div>
               <!-- /.info-box-content -->

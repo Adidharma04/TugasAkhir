@@ -17,8 +17,7 @@
         <div class="row mb-2">
           <div class="col-sm-6">
 
-            <h1 class="m-0">Halaman Informasi Tracer</h1>
-            <p>Deskripsi penjelasan event</p>
+            <h1 class="m-0">Halaman Informasi Tracer</h1><br>
             <a href="javascript:;" data-toggle="modal" data-target="#konfirmasi" class="btn btn-primary"><i class="fas fa-plus"></i>Tambah Tracer Baru</a>
           </div><!-- /.col -->
           <div class="col-sm-6">
@@ -75,7 +74,7 @@
                     $nama    = $item['data']['nama_perusahaan'];
                     $caption = "Pernah Bekerja";
 
-                    $deskripsi = "Bekerja di salah satu perusahaan <b>" . $item['data']['jenis_perusahaan'] . "</b> pada tanggal <b>" . $item['data']['tahun_masuk'] . "</b> dengan alamat perusahaan di <b>" . ucfirst($item['data']['alamat_perusahaan'] . '</b>');
+                    $deskripsi = "Bekerja di salah satu perusahaan <b>" . $item['data']['jenis_perusahaan'] . "</b> pada <b>" . $item['data']['tahun_masuk'] . "</b> dengan alamat perusahaan di <b>" . ucfirst($item['data']['alamat_perusahaan'] . '</b>');
                     $tanggal_pembuatan = date('d M Y H.i A', strtotime($item['data']['created_at']));
 
                     $color = "bg-blue";
