@@ -23,6 +23,7 @@
         <div class="row">
           <div class="col-12">
             <div class="card">
+            <?php echo $this->session->flashdata('msg') ?>
               <div class="card-header">
                 <h3 class="card-title">Table Event</h3>
               </div>

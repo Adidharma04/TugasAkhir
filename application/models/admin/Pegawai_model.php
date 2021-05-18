@@ -3,19 +3,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Pegawai_model extends CI_Model {
 
-    // porses Tampil Pegawai
+    // proses Tampil Pegawai
     public function tampilDataPegawai()
     {  
         $this->db->select('profil_pegawai.*');
         return $this->db->get('profil_pegawai')->result();
     }
 
-    // porses Get Data Pegawai
+    // proses Get Data Pegawai
     public function getPegawai($id_pegawai){
         return $this->db->get_where('profil_pegawai',['id_pegawai'=>$id_pegawai])->row();
 	}
 
-    // porses Tambah Pegawai
+    // proses Tambah Pegawai
     public function tambahDataPegawai(){
         $no_induk = $this->input->post('no_induk', true);
             $profile = [
@@ -41,10 +41,10 @@ class Pegawai_model extends CI_Model {
         $this->db->insert('profil_pegawai', $informasi_pegawai);
     }
 
-    // porses Edit Pegawai
+    // proses Edit Pegawai
     public function editDataPegawai( $id_pegawai ){
         
-        // ambil detail informasi siswa
+        // ambil detail informasi Pegawai
         $ambilInformasiPegawai = $this->getPegawai( $id_pegawai );
         
         $no_induk = $this->input->post('no_induk', true);
@@ -75,11 +75,9 @@ class Pegawai_model extends CI_Model {
         // update profile
         $this->db->where('id_profile', $ambilInformasiPegawai->id_profile);	
         $this->db->update('profile', $dataProfile);
-
-
     }
 
-    // porses hapus
+    // porses hapus data Pegawai
     function prosesHapusPegawai( $id_profile ){
 
         $this->db->where('id_profile', $id_profile)->delete('profil_pegawai');

@@ -23,6 +23,7 @@ class Pegawai extends CI_Controller {
         }
     }
 
+    // Proses Tampil data Pegawai
     public function index()
     {
         //-- Title Halaman
@@ -35,6 +36,7 @@ class Pegawai extends CI_Controller {
         $this->load->view('Template/Admin/footer');
     }
 
+    // Proses Tambah data Pegawai
     public function tambah(){
         //-- rule--//
         $this->form_validation->set_rules('no_induk', 'No Induk', 'required|trim|is_unique[profil_pegawai.no_induk]',[
@@ -93,7 +95,7 @@ class Pegawai extends CI_Controller {
         }    
     }
 
-    // proses Edit Pegawai
+    // Proses Edit data Pegawai
     public function edit($id_pegawai)
     {
         $getDataPegawaiById = $this->Pegawai_model->getPegawai($id_pegawai);
@@ -173,6 +175,7 @@ class Pegawai extends CI_Controller {
         }
     }
 
+    // Proses Tampil Detail data Pegawai
     public function detail($id_pegawai)
     {
         //-- Title Halaman
@@ -186,7 +189,7 @@ class Pegawai extends CI_Controller {
         $this->load->view('Template/Admin/footer');
     }
 
-     // proses Hapus Pewgawai
+     // proses Hapus data Pewgawai
      function onDelete($id_profile)
      {
          $this->Pegawai_model->prosesHapusPegawai($id_profile);

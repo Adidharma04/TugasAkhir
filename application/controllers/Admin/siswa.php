@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class siswa extends CI_Controller
+class Siswa extends CI_Controller
 {
     public function __construct()
     {
@@ -69,9 +69,6 @@ class siswa extends CI_Controller
         ]);
         $this->form_validation->set_rules('no_telfon', 'No Telpon', 'required|trim', [
             'required' => 'Masukkan No Telpon Siswa',
-        ]);
-        $this->form_validation->set_rules('verifikasi_alumni', 'Verifikasi Alumni', 'required|trim', [
-            'required' => 'Masukkan Verifikasi Alumni',
         ]);
 
         $this->form_validation->set_rules('tahun_lulus', 'Tahun Lulus', 'required|trim', [

@@ -1,13 +1,13 @@
 
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed" >
 <!-- Wrapper -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
 <div class="wrapper">
 
 <?php
   $uriSegment = $this->uri->segment(2);
 ?>
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
@@ -138,7 +138,7 @@
           <li class="nav-header">Registrasi Pengguna</li>
           <li class="nav-item">
             <a href="<?php echo base_url("Admin/pegawai/tambah")?>" class="nav-link <?php if ($uriSegment == "registrasi_pegawai") echo 'active'; ?>">
-              <i class="nav-icon fa fa-Book"></i>
+              <i class="nav-icon fa fa-book"></i>
               <p>
                 Registrasi Pegawai
               </p>
@@ -146,7 +146,7 @@
           </li>
           <li class="nav-item">
             <a href="<?php echo base_url('Admin/siswa/tambah') ?>" class="nav-link <?php if ($uriSegment == "tambah") echo 'active'; ?>">
-              <i class="nav-icon fa fa-Book"></i>
+              <i class="nav-icon fa fa-book"></i>
               <p>
                 Registrasi Siswa
               </p>

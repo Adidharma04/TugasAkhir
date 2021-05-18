@@ -1,7 +1,7 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class siswa_model extends CI_Model {
+class Siswa_model extends CI_Model {
 
 
     function tampilDataAlumni() {
@@ -15,13 +15,22 @@ class siswa_model extends CI_Model {
         return $query;
     }
 
-
+    // porses tampil Data Siswa
     public function tampilDataSiswa()
     {  
         $this->db->select('profil_siswa.*');
         return $this->db->get('profil_siswa')->result();
     }
+
+    // porses tambah Data Siswa
     public function tambahDataSiswa($upload){
+        // insert (ISSUE)
+        /** 
+         *  1. Ketika insert memiliki nis + email yang sama maka validasi bekerja
+         *  2. Ketika sudah dibenarkan (nis + email) yang berbeda
+         *  3. ynag tersimpan hanya di tabel profile
+         */
+
         $nis = $this->input->post('nis', true);
         $profile = [
             'username'  => $nis,
@@ -44,18 +53,10 @@ class siswa_model extends CI_Model {
             'foto'                  => $upload['file']['file_name'],
             'nis'                   => $nis,
             'tahun_lulus'           => $this->input->post('tahun_lulus', true),
-            'verifikasi_alumni'     => $this->input->post('verifikasi_alumni', true),
+            'verifikasi_alumni'     => "null",
             'jenis_kelamin'         => $this->input->post('jenis_kelamin', true),
         ];
         $this->db->insert('profil_siswa', $informasi_siswa);
-
-
-        // insert (ISSUE)
-        /** 
-         *  1. Ketika insert memiliki nis + email yang sama maka validasi bekerja
-         *  2. Ketika sudah dibenarkan (nis + email) yang berbeda
-         *  3. ynag tersimpan hanya di tabel profile
-         */
     }
     public function upload( $nis ){    
         $config['upload_path'] = './assets/Gambar/Upload/Siswa/';    
@@ -76,10 +77,13 @@ class siswa_model extends CI_Model {
             }  
         }
     }
+
+    // porses Ambil Data Siswa
     public function getSiswa($id_siswa){
-		// return $this->db->get_where('profil_siswa',['id_siswa'=>$id_siswa])->result();
         return $this->db->get_where('profil_siswa',['id_siswa'=>$id_siswa])->row();
 	}
+
+    // porses edit Data Siswa
     public function editDataSiswa( $id_siswa ){
         
         // ambil detail informasi siswa
@@ -161,9 +165,7 @@ class siswa_model extends CI_Model {
 
     }
 
-
-
-    // porses hapus
+    // porses hapus Data Siswa
     function prosesHapusSiswa( $id_profile ){
 
         $this->db->where('id_profile', $id_profile)->delete('profil_siswa');

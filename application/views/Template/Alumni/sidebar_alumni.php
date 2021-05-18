@@ -3,7 +3,8 @@
   $uriSegment = $this->uri->segment(2);
 
 ?>
-
+<!-- Font Awesome -->
+<link rel="stylesheet" href="<?= base_url() . 'assets/Template/Admin/plugins/fontawesome-free/css/all.min.css' ?>">
 
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed" >
 <!-- Wrapper -->
@@ -79,14 +80,6 @@
           </li>
 
           <li class="nav-header">Tracer History</li>
-          <!-- <li class="nav-item">
-            <a href="<?= base_url('Alumni/tracer?type=kuliah').''?>" class="nav-link">
-              <i class="nav-icon fa fa-graduation-cap"></i>
-              <p>
-                Tracer Kuliah
-              </p>
-            </a>
-          </li> -->
           <li class="nav-item">
             <a href="<?= base_url('Alumni/tracer').''?>" class="nav-link <?php if ($uriSegment == "tracer") echo 'active'; ?>">
               <i class="nav-icon fa fa-briefcase"></i>

@@ -72,7 +72,7 @@
                 <div class="row">
                   <div class="col-md-6">
                     <label for="no_induk">(<font color="red"><b>*</b> </font>)No Induk Pegawai :</label>
-                    <div class="input-group mb-3">
+                    <div class="input-group ">
                       <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-id-card"></i></span>
                       </div>
@@ -83,7 +83,7 @@
 
                   <div class="col-md-6">
                     <label for="nama"> (<font color="red"><b>*</b></font>) Nama :</label>
-                    <div class="input-group mb-3">
+                    <div class="input-group ">
                       <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-user"></i></span>
                       </div>
@@ -114,10 +114,11 @@
                       <label for="tanggal_lahir">(<font color="red"><b>*</b></font>) Tanggal lahir :(Bulan/Hari/Tahun)</label>
                       <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="<?= set_value('tanggal_lahir') ?>">
                     </div>
+                    <?= form_error('tanggal_lahir', '<small class="text-danger">', '</small>'); ?>
                   </div>
                   <div class="col-md-6">
                     <label for="tempat_lahir"> (<font color="red"><b>*</b></font>)Tempat lahir :</label>
-                    <div class="input-group mb-3">
+                    <div class="input-group ">
                       <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-globe"></i></span>
                       </div>
@@ -132,7 +133,7 @@
                 <div class="row">
                   <div class="col-md-6">
                     <label>(<font color="red"><b>*</b></font>) Email :</label>
-                    <div class="input-group mb-3">
+                    <div class="input-group ">
                       <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                       </div>
@@ -167,19 +168,18 @@
                         <label for="p" class="custom-control-label">Perempuan</label>
                       </div>
                     </div>
+                    <?= form_error('jenis_kelamin', '<small class="text-danger">', '</small>'); ?>
                   </div>
                 </div>
                 <!-- Batas Baris -->
                 <hr>
-                <div class="form-group">
-                <span> <a href="<?= base_url("Admin/pegawai") ?>" class="btn btn-warning"><i class="fa fa-chevron-circle-left"> Cancel</i></a></span>
-                &nbsp;
-                <span> <input type="reset" class="btn btn-danger" value="Reset" ></input></span>
-                </div>
-                <hr>
                 <!-- Batas Baris -->
                 <div class="form-group">
                   <button type="submit" class="btn btn-primary"><i class="fa fa-save"> Submit</i></button>
+                  &nbsp;
+                  <span> <input type="reset" class="btn btn-danger" value="Reset" ></input></span>
+                  &nbsp;
+                  <span> <a href="<?= base_url("Admin/pegawai/tambah") ?>" class="btn btn-warning"><i class="fa fa-chevron-circle-left"> Cancel</i></a></span>
                 </div>
 
               </form>

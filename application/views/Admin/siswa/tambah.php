@@ -50,7 +50,9 @@
               <li>Ukuran Foto 3x4 cm</li>
               <li>Nama file berupa Nis (contoh: 123456.jpg)</li>
               <li>Tanda (<font color="red"><b>*</b></font>) Wajib untuk di isi! </li>
-
+              <b> Notes : </b>
+              Penjelasan Verifikasi Alumni :
+              
             </p>
           </div>
           <form action="" method="post" enctype="multipart/form-data">
@@ -59,7 +61,7 @@
             <div class="row">
               <div class="col-md-6">
                 <label for="nis">(<font color="red"><b>*</b></font>) No Induk Siswa :</label>
-                <div class="input-group mb-3">
+                <div class="input-group">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-id-card"></i></span>
                   </div>
@@ -69,10 +71,10 @@
               </div>
               <div class="col-md-6">
                 <label for="nama">(<font color="red"><b>*</b></font>) Nama :</label>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fas fa-user"></i></span>
-                  </div>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    </div>
                   <input type="text" class="form-control" name="nama" id="nama" placeholder="Masukkan Nama" value="<?= set_value('nama'); ?>">
                 </div>
                 <?= form_error('nama', '<small class="text-danger">', '</small>'); ?>
@@ -86,6 +88,7 @@
                 <div class="form-group">
                   <label>(<font color="red"><b>*</b></font>) Tanggal lahir :(Bulan/Hari/Tahun)</label>
                   <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="<?= set_value('tanggal_lahir') ?>">
+                  <?= form_error('tanggal_lahir', '<small class="text-danger">', '</small>'); ?>
                 </div>
               </div>
               <div class="col-md-6">
@@ -105,7 +108,7 @@
             <div class="row">
               <div class="col-md-6">
                 <label>(<font color="red"><b>*</b></font>) Email :</label>
-                <div class="input-group mb-3">
+                <div class="input-group ">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                   </div>
@@ -114,7 +117,7 @@
                 <?= form_error('email', '<small class="text-danger">', '</small>'); ?>
               </div>
               <div class="col-md-6">
-                <label>(<font color="red"><b>*</b></font>) Nomer Telfon</label>
+                <label>(<font color="red"><b>*</b></font>) Nomer Telfon :</label>
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-phone"></i></span>
@@ -131,7 +134,7 @@
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for="alamat">Alamat</label>
-                    <textarea class="form-control" name="alamat" id="alamat" cols="30" rows="6" placeholder="Masukkan Alamat" ></textarea>
+                    <textarea class="form-control" name="alamat" id="alamat" cols="30" rows="6" placeholder="Masukkan Alamat" ><?= set_value('alamat') ?></textarea>
                     <?= form_error('alamat', '<small class="text-danger">', '</small>'); ?>
                   </div>
                 </div>
@@ -148,7 +151,7 @@
                     </div>
               </div>
               <div class="col-md-4">
-                <label>Tahun Lulus</label>
+                <label>Tahun Lulus :</label>
                 <div class="input-group mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-calendar"></i></span>
@@ -188,36 +191,17 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-4">
-                <label>(<font color="red"><b>*</b></font>) Verifikasi Alumni</label>
-                <div class="form-group ">
-                  <div class="custom-control custom-radio">
-                    <input class="custom-control-input custom-control-input-danger custom-control-input-outline" type="radio" name="verifikasi_alumni" value="null" <?= set_value('verifikasi_alumni') == "null" ? "checked" : "" ?> id="null">
-                    <label for="null" class="custom-control-label">Kosong</label>
-                  </div>
-                  <div class="custom-control custom-radio">
-                    <input class="custom-control-input custom-control-input-danger custom-control-input-outline" type="radio" name="verifikasi_alumni" value="pengajuan" <?= set_value('verifikasi_alumni') == "pengajuan" ? "checked" : "" ?> disabled id="pengajuan">
-                    <label for="pengajuan" class="custom-control-label">Pengajuan</label>
-                  </div>
-                  <div class="custom-control custom-radio">
-                    <input class="custom-control-input custom-control-input-danger custom-control-input-outline" type="radio" name="verifikasi_alumni" value="diterima" <?= set_value('verifikasi_alumni') == "diterima" ? "checked" : "" ?> disabled id="diterima">
-                    <label for="diterima" class="custom-control-label">Di terima</label>
-                  </div>
-                </div>
-              </div>
             </div>
-              
+            <!-- Batas Baris -->
             <hr>
-                <div class="form-group">
-                <span> <a href="<?= base_url("Admin/siswa") ?>" class="btn btn-warning"><i class="fa fa-chevron-circle-left"> Cancel</i></a></span>
+            <!-- Batas Baris -->
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary"><i class="fa fa-save"> Submit</i></button>
                 &nbsp;
                 <span> <input type="reset" class="btn btn-danger" value="Reset" ></input></span>
-                </div>
-            <hr>
-                <!-- Batas Baris -->
-                <div class="form-group">
-                  <button type="submit" class="btn btn-primary"><i class="fa fa-save"> Submit</i></button>
-                </div>
+                &nbsp;
+                <span> <a href="<?= base_url("Admin/siswa/tambah") ?>" class="btn btn-warning"><i class="fa fa-chevron-circle-left"> Cancel</i></a></span>
+            </div>
 
           </form>
         </div>

@@ -41,11 +41,11 @@ class event_model extends CI_Model {
 
             // maaf masukkan tanggal yang valid
             $html = '<div class="alert alert-danger">
-                                <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
-                                <br>
-                                <b>Pemberitahuan</b> <br>
-                                Data event tidak berhasil di tambah pada tanggal ' . date('d F Y H.i A') . '
-                         </div>';
+                        <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
+                        <br>
+                        <b>Pemberitahuan</b> <br>
+                        Tanggal event harus hari ini ' . date('d F Y H.i A') . ' atau lebih dari hari ini
+                     </div>';
                 $this->session->set_flashdata('msg', $html);
                 redirect('Admin/event/tambah', 'refresh');
         } else {

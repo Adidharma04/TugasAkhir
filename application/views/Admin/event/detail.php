@@ -55,20 +55,17 @@
                   <ul class="ml-5 mb-0 fa-ul text-muted">
                     <li class="small"><span class="fa-li"><i class="fas fa-lg fa-envelope fa-1x"></i> </span><b><h6>Deskripsi Kegiatan</h6></b></li>
                     <span align="justify"> <p ><?= $event->deskripsi_event ?></p></span>
-                    <br>
                     <li class="small"><span class="fa-li"><i class="fas fa-lg fa-calendar fa-1x"></i> </span><b><h6>Tanggal Kegiatan</h6></b></li>
                     <span align="justify"><p><?= $event->tanggal_event ?></p></span>
-                    <br>
                     <li class="small"><span class="fa-li"><i class="fas fa-lg fa-map-marker fa-1x"></i> </span><b><h6>Lokasi</h6></b> </li>
                     <span align="justify"><p><?= $event->lokasi ?></p></span>
-                    <br>
                     <li class="small"><span class="fa-li"><i class="fas fa-lg fa-clock-o fa-1x"></i> </span><b><h6>Status</h6></b> </li>
                     <span align="justify"><p><?= $event->status ?></p></span>
                     <li class="small"><span class="fa-li"><i class="fas fa-lg fa-envelope fa-1x"></i> </span><b><h6>Jenis Event</h6></b></li>
                     <br>
                   </ul>
                 </div>
-                <div class="col-5 text-center">
+                <div class="col-4 ">
                     <?php if ($event->foto == "") : ?>
                       <img src="<?= base_url('assets/Gambar/Website/default_event_null.png') ?>" style="width:330px; height:300px;">
                     <?php else : ?>

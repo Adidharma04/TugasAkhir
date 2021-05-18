@@ -49,7 +49,7 @@ class Event_model extends CI_Model {
                                 <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
                                 <br>
                                 <b>Pemberitahuan</b> <br>
-                                Data event tidak berhasil di tambah pada tanggal ' . date('d F Y H.i A') . '
+                                Tanggal event harus hari ini ' . date('d F Y H.i A') . ' atau lebih dari hari ini
                          </div>';
                 $this->session->set_flashdata('msg', $html);
                 redirect('Alumni/event/tambah', 'refresh');

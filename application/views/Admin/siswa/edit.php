@@ -1,24 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title><?= $title ?></title>
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
-  <!-- daterange picker -->
-  <link rel="stylesheet" href="<?= base_url() . 'assets/Template/Admin//plugins/daterangepicker/daterangepicker.css' ?>">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="<?= base_url() . 'assets/Template/Admin/dist/css/adminlte.min.css' ?>">
-  <!-- Select2 -->
-  <link rel="stylesheet" href="<?= base_url() . 'assets/Template/Admin/plugins/select2/css/select2.min.css' ?>">
-  <link rel="stylesheet" href="<?= base_url() . 'assets/Template/Admin/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css' ?>">
-</head>
-
-<body class="hold-transition sidebar-mini layout-fixed" data-panel-auto-height-mode="height">
-  <!-- Site wrapper -->
-  <div class="wrapper">
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
@@ -41,10 +21,10 @@
       <!-- Main content -->
       <section class="content">
         <!-- Default box -->
+        <?php echo $this->session->flashdata('msg') ?>
         <div class="card">
-          <div class="card-header" style="background-color:blanchedalmond">
+          <div class="card-header alert-warning" >
             <h3 class="card-title">Form Edit Siswa</h3>
-
             <div class="card-tools">
               <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                 <i class="fas fa-minus"></i>
@@ -52,54 +32,71 @@
             </div>
           </div>
           <div class="card-body">
-            <?php echo $this->session->flashdata('msg') ?>
-
+            <div class="alert " style="background-color:blanchedalmond">
+              <h5><i class="icon fas fa-info"></i>Ketentuan Pengisian Data</h5>
+              <p>
+                <li>Isi data dengan benar</li>
+                <li>Ukuran Foto 3x4 cm</li>
+                <li>Nama file berupa Nis (contoh: 123456.jpg)</li>
+                <li>Tanda (<font color="red"><b>*</b></font>) Wajib untuk di isi! </li>
+                <b> Notes : </b>
+                <p> Penjelasan Verifikasi Alumni :</p>
+                <li>Kosong    &emsp; : Masih menjadi siswa </li>  
+                <li>Pengajuan : Mengajukan Menjadi Aumni </li> 
+                <li>Di Terima &nbsp; : Sudah Menjadi Alumni </li>
+              </p>
+            </div>
             <form action="" method="post" enctype="multipart/form-data">
+
               <div class="row">
                 <div class="col-md-6">
-                  <label>Nis</label>
+                  <label>(<font color="red"><b>*</b></font>)Nis</label>
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="fas fa-id-card"></i></span>
                     </div>
                     <input type="text" class="form-control" id="nis" name="nis" placeholder="Masukkan Nomer Induk Siswa" value="<?= $profil_siswa->nis; ?>">
-                    <?= form_error('nis', '<small class="text-danger">', '</small>'); ?>
                   </div>
+                  <?= form_error('nis', '<small class="text-danger">', '</small>'); ?>
                 </div>
                 <div class="col-md-6">
-                  <label for="nama">Nama</label>
+                  <label for="nama">(<font color="red"><b>*</b></font>)Nama</label>
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="fas fa-user"></i></span>
                     </div>
                     <input type="text" class="form-control" name="nama" id="nama" placeholder="Masukkan Nama" value="<?= $profil_siswa->nama; ?>">
-                    <?= form_error('nama', '<small class="text-danger">', '</small>'); ?>
                   </div>
+                  <?= form_error('nama', '<small class="text-danger">', '</small>'); ?>
                 </div>
               </div>
+              <!-- Batas Baris -->
+              <hr>
               <!-- Batas Baris -->
               <div class="row">
                 <div class="col-md-12">
                   <div class="form-group">
-                    <label for="alamat">Alamat</label>
+                    <label for="alamat">(<font color="red"><b>*</b></font>)Alamat</label>
                     <textarea class="form-control" name="alamat" id="alamat" cols="30" rows="6" placeholder="Masukkan Alamat"> <?= $profil_siswa->alamat; ?></textarea>
-                    <?= form_error('alamat', '<small class="text-danger">', '</small>'); ?>
                   </div>
+                  <?= form_error('alamat', '<small class="text-danger">', '</small>'); ?>
                 </div>
               </div>
+              <!-- Batas Baris -->
+              <hr>
               <!-- Batas Baris -->
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label>Tanggal lahir:(Month/Day/Year)</label>
+                    <label>(<font color="red"><b>*</b></font>)Tanggal lahir:(Month/Day/Year)</label>
                     <input type="date" class="form-control" id="tanggal_lahir" name="tanggal_lahir" value="<?= $profil_siswa->tanggal_lahir; ?>">
                   </div>
                 </div>
                 <div class="col-md-6">
-                  <label>Tempat lahir:</label>
+                  <label>(<font color="red"><b>*</b></font>)Tempat lahir:</label>
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
+                      <span class="input-group-text"><i class="fas fa-globe"></i></span>
                     </div>
                     <input type="text" class="form-control" id="tempat_lahir" name="tempat_lahir" placeholder="Masukkan Tempat Lahir" value="<?= $profil_siswa->tempat_lahir; ?>">
                     <?= form_error('tempat_lahir', '<small class="text-danger">', '</small>'); ?>
@@ -109,7 +106,7 @@
               <!-- Batas Baris -->
               <div class="row">
                   <div class="col-md-4">
-                      <label>Email:</label>
+                      <label>(<font color="red"><b>*</b></font>)Email:</label>
                       <div class="input-group mb-3">
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-envelope"></i></span>
@@ -119,7 +116,7 @@
                       </div>
                   </div>
                   <div class="col-md-4">
-                      <label>No Telfon</label>
+                      <label>(<font color="red"><b>*</b></font>)No Telfon</label>
                       <div class="input-group">
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-phone"></i></span>
@@ -128,7 +125,7 @@
                       </div>
                   </div>
                   <div class="col-md-4">
-                    <label>Tahun Lulus</label>
+                    <label>(<font color="red"><b>*</b></font>)Tahun Lulus</label>
                     <div class="input-group mb-3">
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-calendar"></i></span>
@@ -138,6 +135,8 @@
                     </div>
                   </div>
                </div>
+               <!-- Batas Baris -->
+              <hr>
               <!-- Batas Baris -->
               <div class="row">
                 <div class="col-md-8">
@@ -166,10 +165,12 @@
                 </div>
               </div>
               <!-- Batas Baris -->
+              <hr>
+              <!-- Batas Baris -->
               <div class="row">
                 <div class="col-md-4">
                   <div class="form-group">
-                    <label for="jurusan">Jurusan</label>
+                    <label for="jurusan">(<font color="red"><b>*</b></font>)Jurusan</label>
                     <?php if ($profil_siswa->jurusan == "ipa") : ?>
                       <div class="form-check">
                         <input type="radio" name="jurusan" value="ipa" checked> Ipa
@@ -189,7 +190,7 @@
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
-                      <label for="alumni">Verifikasi Alumni</label>
+                      <label for="alumni">(<font color="red"><b>*</b></font>)Verifikasi Alumni</label>
                       <?php if ($profil_siswa->verifikasi_alumni == "null") : ?>
                           <div class="form-check">
                             <input type="radio" name="verifikasi_alumni" value="null" checked> Kosong
@@ -225,7 +226,7 @@
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
-                    <label for="gender">Jenis Kelamin</label>
+                    <label for="gender">(<font color="red"><b>*</b></font>)Jenis Kelamin</label>
                       <?php if ($profil_siswa->jenis_kelamin == "laki") : ?>
                           <div class="form-check">
                             <input type="radio" name="jenis_kelamin" value="laki" checked> Laki-Laki
@@ -247,8 +248,11 @@
               </div>
               <!-- Batas Baris -->
               <div class="form-group">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary"><i class="fa fa-save"> Submit</i></button>
+                &nbsp;
+                <span> <a href="<?= base_url("Admin/siswa") ?>" class="btn btn-warning"><i class="fa fa-chevron-circle-left"> Cancel</i></a></span>
               </div>
+
             </form>
           </div>
           <!-- /.card-body -->
@@ -262,147 +266,3 @@
       </section>
       <!-- /.content -->
     </div>
-</body>
-<!-- Select2 -->
-<script src="<?= base_url('assets/Template/Admin/plugins/select2/js/select2.full.min.js') ?>"></script>
-<!-- Bootstrap4 Duallistbox -->
-<script src="<?= base_url('assets/Template/Admin/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js') ?>"></script>
-<!-- Tempusdominus Bootstrap 4 -->
-<script src="<?= base_url('assets/Template/Admin/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') ?>"></script>
-<script>
-  $(function() {
-    //Initialize Select2 Elements
-    $('.select2').select2()
-
-    //Initialize Select2 Elements
-    $('.select2bs4').select2({
-      theme: 'bootstrap4'
-    })
-
-    //Datemask dd/mm/yyyy
-    $('#datemask').inputmask('dd/mm/yyyy', {
-      'placeholder': 'dd/mm/yyyy'
-    })
-    //Datemask2 mm/dd/yyyy
-    $('#datemask2').inputmask('mm/dd/yyyy', {
-      'placeholder': 'mm/dd/yyyy'
-    })
-    //Money Euro
-    $('[data-mask]').inputmask()
-
-    //Date range picker
-    $('#reservationdate').datetimepicker({
-      format: 'L'
-    });
-    //Date range picker
-    $('#reservation').daterangepicker()
-    //Date range picker with time picker
-    $('#reservationtime').daterangepicker({
-      timePicker: true,
-      timePickerIncrement: 30,
-      locale: {
-        format: 'MM/DD/YYYY hh:mm A'
-      }
-    })
-    //Date range as a button
-    $('#daterange-btn').daterangepicker({
-        ranges: {
-          'Today': [moment(), moment()],
-          'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-          'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-          'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-          'This Month': [moment().startOf('month'), moment().endOf('month')],
-          'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-        },
-        startDate: moment().subtract(29, 'days'),
-        endDate: moment()
-      },
-      function(start, end) {
-        $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'))
-      }
-    )
-
-    //Timepicker
-    $('#timepicker').datetimepicker({
-      format: 'LT'
-    })
-
-    //Bootstrap Duallistbox
-    $('.duallistbox').bootstrapDualListbox()
-
-    //Colorpicker
-    $('.my-colorpicker1').colorpicker()
-    //color picker with addon
-    $('.my-colorpicker2').colorpicker()
-
-    $('.my-colorpicker2').on('colorpickerChange', function(event) {
-      $('.my-colorpicker2 .fa-square').css('color', event.color.toString());
-    });
-
-    $("input[data-bootstrap-switch]").each(function() {
-      $(this).bootstrapSwitch('state', $(this).prop('checked'));
-    });
-
-  })
-  // BS-Stepper Init
-  document.addEventListener('DOMContentLoaded', function() {
-    window.stepper = new Stepper(document.querySelector('.bs-stepper'))
-  });
-
-  // DropzoneJS Demo Code Start
-  Dropzone.autoDiscover = false;
-
-  // Get the template HTML and remove it from the doumenthe template HTML and remove it from the doument
-  var previewNode = document.querySelector("#template");
-  previewNode.id = "";
-  var previewTemplate = previewNode.parentNode.innerHTML;
-  previewNode.parentNode.removeChild(previewNode);
-
-  var myDropzone = new Dropzone(document.body, { // Make the whole body a dropzone
-    url: "/target-url", // Set the url
-    thumbnailWidth: 80,
-    thumbnailHeight: 80,
-    parallelUploads: 20,
-    previewTemplate: previewTemplate,
-    autoQueue: false, // Make sure the files aren't queued until manually added
-    previewsContainer: "#previews", // Define the container to display the previews
-    clickable: ".fileinput-button" // Define the element that should be used as click trigger to select files.
-  });
-
-  myDropzone.on("addedfile", function(file) {
-    // Hookup the start button
-    file.previewElement.querySelector(".start").onclick = function() {
-      myDropzone.enqueueFile(file);
-    };
-  });
-
-  // Update the total progress bar
-  myDropzone.on("totaluploadprogress", function(progress) {
-    document.querySelector("#total-progress .progress-bar").style.width = progress + "%";
-  });
-
-  myDropzone.on("sending", function(file) {
-    // Show the total progress bar when upload starts
-    document.querySelector("#total-progress").style.opacity = "1";
-    // And disable the start button
-    file.previewElement.querySelector(".start").setAttribute("disabled", "disabled");
-  });
-
-  // Hide the total progress bar when nothing's uploading anymore
-  myDropzone.on("queuecomplete", function(progress) {
-    document.querySelector("#total-progress").style.opacity = "0";
-  });
-
-  // Setup the buttons for all transfers
-  // The "add files" button doesn't need to be setup because the config
-  // `clickable` has already been specified.
-  document.querySelector("#actions .start").onclick = function() {
-    myDropzone.enqueueFiles(myDropzone.getFilesWithStatus(Dropzone.ADDED));
-  };
-  document.querySelector("#actions .cancel").onclick = function() {
-    myDropzone.removeAllFiles(true);
-  };
-  // DropzoneJS Demo Code End
-</script>
-
-</html>
