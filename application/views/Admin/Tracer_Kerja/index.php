@@ -44,7 +44,7 @@
                     <?php $no = 1; foreach ($tracer_kerja->result() as $tker) : ?>
                       <tr>
                         <td><?= $no++ ?></td>
-                        <td><a target="_blank" href="<?php echo base_url('admin/siswa/detail/'. $tker->id_siswa) ?>"><?= $tker->nama.' <br> <small>NIS : '. $tker->nis.'</small>' ?></a></td>
+                        <td><a target="_blank" href="<?php echo base_url('admin/tracer_kuliah/detail/'. $tker->id_profile) ?>"><?= $tker->nama.' <br> <small>NIS : '. $tker->nis.'</small>' ?></a></td>
                         <td><?= $tker->nama_perusahaan ?></td>
                         <td><?= $tker->jabatan ?></td>
                         <td><?= $tker->tahun_masuk ?></td>

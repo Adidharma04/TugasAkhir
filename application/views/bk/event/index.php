@@ -83,14 +83,18 @@
                           $textBtn = "";
                           if (($evn->status == "accept") || ($evn->status == "decline")) {
                             echo '<span class="badge badge-warning">Telah dikonfirmasi</span>';
+                          
                           } else {
 
                             echo '<small>Mohon dikonfirmasi</small>';
                             $colorBtn = "btn-primary";
                             $textBtn  = "Konfirmasi Event";
-                          }
+
                           ?>
                           <a href="javascript:;" data-toggle="modal" data-target="#konfirmasi-<?php echo $evn->id_event ?>" class="btn <?php echo $colorBtn ?>"><?php echo $textBtn ?></a>
+                          
+                          <?php } ?>
+                          
                           <!-- Modal Konfirmasi -->
                           <div class="modal fade" id="konfirmasi-<?php echo $evn->id_event ?>">
                             <div class="modal-dialog">

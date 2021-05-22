@@ -15,6 +15,35 @@ class Siswa_model extends CI_Model {
         return $query;
     }
 
+
+
+    
+	// query pencarian 
+	function filter_datasiswa_tahunlulus( $tahun ) {
+
+		$SQL = "SELECT * FROM profil_siswa WHERE tahun_lulus = '$tahun'";
+		return $this->db->query( $SQL );
+	}
+
+	function filter_datasiswa_nama( $nama ) {
+
+		$SQL = "SELECT * FROM profil_siswa WHERE nama LIKE '%$nama%'";
+		$query = $this->db->query( $SQL );
+        
+        return $query;
+	}
+
+
+	function filter_datasiswa_nama_tahunlulus( $tahun, $nama ) {
+
+		$SQL = "SELECT * FROM profil_siswa WHERE tahun_lulus = '$tahun' AND nama LIKE '%$nama%'";
+		return $this->db->query( $SQL );
+	}
+
+
+
+
+
     // porses tampil Data Siswa
     public function tampilDataSiswa()
     {  

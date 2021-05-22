@@ -16,6 +16,8 @@ class siswa_model extends CI_Model {
 
     }
 
+
+
     public function getSiswa($id_siswa){
 		// return $this->db->get_where('profil_siswa',['id_siswa'=>$id_siswa])->result();
         return $this->db->get_where('profil_siswa',['id_siswa'=>$id_siswa])->row();

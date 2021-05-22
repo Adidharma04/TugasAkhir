@@ -181,74 +181,7 @@
                 $nomor = 1;
                 foreach ( $alumni->result_array() AS $row ) :
                 
-                    $status_tampil = false;
 
-                    // cek apakah user melakukan filter
-                    if ( $filter_tahun ) {
-
-
-                        // apakah user melakukan filter nama ?
-                        if ( $nama_alumni ) {
-
-
-                            // jika user melakuan filter maka pencocokan tahun lulus dengan filter tahun
-                            if ( ($filter_tahun == $row['tahun_lulus']) && (strtolower($nama_alumni) == strtolower($row['nama'])) ) {
-
-                                // jika iya : true
-                                $status_tampil = true;
-                            } else {
-
-                                $status_tampil = false;
-
-                            }
-
-                        } else {
-
-
-                            // jika user melakuan filter maka pencocokan tahun lulus dengan filter tahun
-                            if ( $filter_tahun == $row['tahun_lulus'] ) {
-
-                                // jika iya : true
-                                $status_tampil = true;
-                            } else {
-
-                                $status_tampil = false;
-
-                            }
-                        }
-                        
-                    } else {
-
-                         // apakah user melakukan filter nama ?
-                         if ( $nama_alumni ) {
-
-
-                            // jika user melakuan filter maka pencocokan tahun lulus dengan filter tahun
-                            if ( (strtolower($nama_alumni) == strtolower($row['nama'])) ) {
-
-                                // jika iya : true
-                                $status_tampil = true;
-                            } else {
-
-                                $status_tampil = false;
-
-                            }
-                        } else {
-
-
-                            // selalu true dikarenakan user tidak melkukan filter apapun
-                            $status_tampil = true;
-
-                        }
-
-                    }
-                    
-
-
-
-                    // cek kondisi tampil
-                    if ( $status_tampil == true ) {
-                
                 ?>
                 <!-- Single Teachers -->
                 <div class="col-12 col-sm-6 col-lg-3">
@@ -280,7 +213,7 @@
                     </div>
                 </div>
 
-                <?php }
+                <?php 
             
                 $nomor++;
                 endforeach; ?>

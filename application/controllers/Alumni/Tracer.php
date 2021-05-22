@@ -38,8 +38,11 @@
         public function index(){
             
             //-- Title Halaman
+            // session 
+            $id_profile = $this->session->userdata('sess_id_profile');
+
             $data ['title'] = 'Halaman Tracer | Alumni';
-            $data['tracer'] =  $this->Tracer_model->getDataTracer();
+            $data['tracer'] =  $this->Tracer_model->getDataTracer( $id_profile );
             //----------------------------
 
             $this->load->view('Template/Alumni/navbar_alumni',$data);

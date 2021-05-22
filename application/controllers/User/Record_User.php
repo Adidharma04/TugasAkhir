@@ -1,3 +1,4 @@
+
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -14,6 +15,8 @@ class Record_User extends CI_Controller {
 
     public function index()
     {
+
+        // nilai awal
         $dataAlumni = $this->siswa_model->tampilDataAlumni();
 
         // init nilai 
@@ -40,14 +43,59 @@ class Record_User extends CI_Controller {
 
             }
         }
-            
-        $data['alumni'] = $dataAlumni;
-        
+
         $data['total_alumni'] = $dataAlumni->num_rows();
         $data['total_kerja']  = $total_kerja;
         $data['total_kuliah'] = $total_kuliah;
         $data['total_lainnya'] = $total_lainnya;
 
+
+
+
+        // ----------------------------------------
+
+
+
+
+
+
+
+
+
+
+        // GET DATA FILTER
+        $filter_tahun = $this->input->get('tahun');
+        $filter_nama_alumni  = $this->input->get('nama');
+
+        if ( (!empty($filter_tahun)) && ( !empty($filter_nama_alumni) ) ) {
+
+            // filter keduanya
+            $dataAlumni = $this->siswa_model->filter_datasiswa_nama_tahunlulus( $filter_tahun, $filter_nama_alumni );
+
+        } else if ( $filter_tahun ) {
+
+
+            // hanya filter tahun
+            $dataAlumni = $this->siswa_model->filter_datasiswa_tahunlulus( $filter_tahun );
+
+
+        } else if ( $filter_nama_alumni ) {
+
+            // hanya filter nama
+            $dataAlumni = $this->siswa_model->filter_datasiswa_nama( $filter_nama_alumni );
+
+
+        } else {
+
+            // tanpa filter
+            $dataAlumni = $this->siswa_model->tampilDataAlumni();
+
+        }
+        
+
+        
+            
+        $data['alumni'] = $dataAlumni;
 
 
         $this->load->view('User/record_user', $data);

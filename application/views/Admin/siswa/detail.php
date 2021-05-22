@@ -50,7 +50,7 @@
                     <?php if ($profil_siswa->foto == "") : ?>
                       <img src="<?= base_url('assets/Gambar/Website/default_siswa.jpg') ?>" style="width:180px; height:200px;">
                     <?php else : ?>
-                      <img src="<?= base_url('assets/Gambar/Upload/siswa/') . $profil_siswa->foto ?>" style="width:180px; height:200px;">
+                      <img src="<?= base_url('assets/Gambar/Upload/siswa/') . $profil_siswa->foto ?>" style="width:180px; height:200px; object-fit: cover">
                     <?php endif ?>
                 </div>
               </div>

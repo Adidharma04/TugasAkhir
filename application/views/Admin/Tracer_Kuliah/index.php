@@ -43,7 +43,7 @@
                     <?php $no = 1; foreach ($tracer_kuliah->result() as $tkul) : ?>
                       <tr>
                         <td><?= $no++ ?></td>
-                        <td><a target="_blank" href="<?php echo base_url('admin/siswa/detail/'. $tkul->id_siswa) ?>"><?= $tkul->nama ?></a></td>
+                        <td><a target="_blank" href="<?php echo base_url('admin/tracer_kuliah/detail/'. $tkul->id_profile) ?>"><?= $tkul->nama ?></a></td>
                         <td><?= $tkul->nis ?></td>
                         <td><?= $tkul->tahun_lulus?></td>
                                         </tr>

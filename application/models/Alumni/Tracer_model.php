@@ -23,10 +23,9 @@
 
 
         // ambil keseluruhan kerja + kuliah
-        function getDataTracer() {
+        function getDataTracer( $id_profile ) {
 
-            // session 
-            $id_profile = $this->session->userdata('sess_id_profile');
+            
             $where = ['id_profile' => $id_profile];
 
             // menyiapkan data tracer kuliah + kerja

@@ -9,6 +9,10 @@ class Tracer_Kuliah extends CI_Controller {
     {
         parent::__construct();
         $this->load->model('Admin/Tracer_Kuliah_model');
+        $this->load->model('Alumni/Tracer_model');
+
+
+
         if ( empty( $this->session->userdata('sess_id_profile') ) ) {
             
             $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> <br> 
@@ -36,6 +40,47 @@ class Tracer_Kuliah extends CI_Controller {
         $this->load->view('Template/Admin/sidebar',$data);
         $this->load->view('Admin/Tracer_Kuliah/index',$data);
         $this->load->view('Template/Admin/footer');
+    }
+
+
+
+
+    // tracer detail
+    function detail( $id_profile = null ) {
+
+
+        if ( $id_profile ) {
+
+            $data ['title'] = 'Halaman Tracer | Alumni';
+            $data['tracer'] =  $this->Tracer_model->getDataTracer( $id_profile );
+            //----------------------------
+
+            foreach ( $data['tracer'] as $row ) {
+
+                // echo $row['data']['nama_perusahaan'].' '; 
+
+                $nama = "";
+                if ( $row['tipe_tracer'] == "kuliah" ) {
+
+                    $nama = $row['data']['nama_kampus'];
+                } else {
+
+                    $nama = $row['data']['nama_perusahaan'];
+                }
+                echo $nama.' ';
+                echo $row['tipe_tracer'].'<hr>';
+            }
+
+            // $this->load->view('Template/Admin/navbar',$data);
+            // $this->load->view('Template/Admin/sidebar',$data);
+            // $this->load->view('Alumni/tracer/index',$data);
+            // $this->load->view('Template/Admin/footer');
+        } else {
+
+            // page not found
+            show_404();
+        }
+        
     }
 
 }
