@@ -90,10 +90,10 @@
                             echo '<small>Mohon dikonfirmasi</small>';
                             $colorBtn = "btn-primary";
                             $textBtn  = "Konfirmasi Informasi";
-                          }
+                          
                           ?>
                           <a href="javascript:;" data-toggle="modal" data-target="#konfirmasi-<?php echo $ig->id_umum ?>" class="btn <?php echo $colorBtn ?>"><?php echo $textBtn ?></a>
-
+                          <?php } ?>
                           <!-- Modal delete -->
                           <div class="modal fade" id="konfirmasi-<?php echo $ig->id_umum ?>">
                             <div class="modal-dialog">

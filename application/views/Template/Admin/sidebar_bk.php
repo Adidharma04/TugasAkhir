@@ -83,7 +83,7 @@
           </li>
           <li class="nav-item">
             <a href="<?php echo base_url("bk/siswa")?>" class="nav-link <?php if ($uriSegment == "siswa") echo 'active'; ?>">
-              <i class="nav-icon fa fa-Book"></i>
+              <i class="nav-icon fa fa-book"></i>
               <p>
                 Registrasi Siswa
               </p>

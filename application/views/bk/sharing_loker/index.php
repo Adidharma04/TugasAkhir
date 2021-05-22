@@ -89,10 +89,10 @@
                                 echo '<small>Mohon dikonfirmasi</small>';
                                 $colorBtn = "btn-primary";
                                 $textBtn  = "Konfirmasi Loker";
-                              }
+                              
                             ?>
                             <a href="javascript:;" data-toggle="modal" data-target="#konfirmasi-<?php echo $job->id_loker ?>" class="btn <?php echo $colorBtn ?>"></i><?php echo $textBtn ?></a>
-                            
+                            <?php } ?>
                             <!-- Modal delete -->
                             <div class="modal fade" id="konfirmasi-<?php echo $job->id_loker ?>">
                               <div class="modal-dialog">
