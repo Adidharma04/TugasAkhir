@@ -1,3 +1,4 @@
+
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -5,12 +6,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Tracer Kuliah</h1>
+            <h1>Rekap Data Tracer Alumni</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="<?php echo base_url('Admin/dashboard_admin') ?>">Home</a></li>
-              <li class="breadcrumb-item active">Tracer Kuliah</li>
+              <li class="breadcrumb-item"><a href="<?php echo base_url('bk/dashboard_bk') ?>">Home</a></li>
+              <li class="breadcrumb-item active">Tracer Alumni</li>
             </ol>
           </div>
         </div>
@@ -25,7 +26,7 @@
             <div class="card">
             <?php echo $this->session->flashdata('msg') ?>
               <div class="card-header">
-                <h3 class="card-title">Tracer Kuliah</h3>
+                <h3 class="card-title">Tracer Alumni</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -33,33 +34,27 @@
                   <thead>
                     <tr>
                       <th>No</th>
-                      <th>Alumni</th>
-                      <th>Nama Kampus</th>
-                      <th>Program Studi</th>
-                      <th>Tahun Masuk</th>
-                      <th>Dibuat pada</th>
+                      <th>Nama Alumni</th>
+                      <th>NIS</th>
+                      <th>Tahun Lulus</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <?php $no = 1; foreach ($tracer_kuliah->result() as $tkul) : ?>
+                    <?php $no = 1; foreach ($tracer_alumni->result() as $tkul) : ?>
                       <tr>
                         <td><?= $no++ ?></td>
-                        <td><a target="_blank" href="<?php echo base_url('bk/siswa/detail/'. $tkul->id_siswa) ?>"><?= $tkul->nama.' <br> <small>NIS : '. $tkul->nis.'</small>' ?></a></td>
-                        <td><?= $tkul->nama_kampus ?></td>
-                        <td><?= $tkul->program_studi ?></td>
-                        <td><?= $tkul->tahun_masuk ?></td>
-                        <td><?= date('d F Y H.i A', strtotime($tkul->created_at)) ?></td>
+                        <td><a target="_blank" href="<?php echo base_url('bk/tracer_alumni/detail/'. $tkul->id_profile) ?>"><?= $tkul->nama ?></a></td>
+                        <td><?= $tkul->nis ?></td>
+                        <td><?= $tkul->tahun_lulus?></td>
                                         </tr>
                                         <?php endforeach ?>
                                     </tbody>
                                     <tfoot>
                                         <tr>
                                         <th>No</th>
-                                        <th>Alumni</th>
-                                        <th>Nama Kampus</th>
-                                        <th>Program Studi</th>
-                                        <th>Tahun Masuk</th>
-                                        <th>Dibuat pada</th>
+                                        <th>Nama Alumni</th>
+                                        <th>NIS</th>
+                                        <th>Tahun Lulus</th>
                                         </tr>
                                     </tfoot>
                                 </table>

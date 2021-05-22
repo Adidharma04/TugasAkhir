@@ -8,7 +8,7 @@ class Tracer_Alumni extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Admin/Tracer_Alumni_model');
+        $this->load->model('bk/Tracer_Alumni_model');
         $this->load->model('Alumni/Tracer_model');
 
 
@@ -20,9 +20,9 @@ class Tracer_Alumni extends CI_Controller {
                     </div>';
             $this->session->set_flashdata('msg', $html);
             redirect("Admin/login");
-        }if($this->session->userdata('sess_level') != "staff"){
+        }if($this->session->userdata('sess_level') != "bk"){
             $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> <br> 
-                    <small>Anda Bukan Staff!</small>
+                    <small>Anda Bukan Guru BK!</small>
                 </div>';
             $this->session->set_flashdata('msg', $html);
             $this->session->sess_destroy();
@@ -33,12 +33,12 @@ class Tracer_Alumni extends CI_Controller {
     public function index()
     {
          //-- Title Halaman
-         $data ['title'] = 'Halaman Tracer Alumni | Admin';
+         $data ['title'] = 'Halaman Tracer Alumni | Guru BK';
          //----------------------------
         $data['tracer_alumni'] = $this->Tracer_Alumni_model->tampilDataTracerKuliah(); 
         $this->load->view('Template/Admin/navbar',$data);
-        $this->load->view('Template/Admin/sidebar',$data);
-        $this->load->view('Admin/Tracer_Alumni/index',$data);
+        $this->load->view('Template/Admin/sidebar_bk',$data);
+        $this->load->view('bk/Tracer_Alumni/index',$data);
         $this->load->view('Template/Admin/footer');
     }
 
@@ -70,8 +70,8 @@ class Tracer_Alumni extends CI_Controller {
             }
 
             $this->load->view('Template/Admin/navbar',$data);
-            $this->load->view('Template/Admin/sidebar',$data);
-            $this->load->view('Admin/tracer_alumni/detail',$data);
+            $this->load->view('Template/Admin/sidebar_bk',$data);
+            $this->load->view('bk/tracer_alumni/detail',$data);
             $this->load->view('Template/Admin/footer');
         } else {
 

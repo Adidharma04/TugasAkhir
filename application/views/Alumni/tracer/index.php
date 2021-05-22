@@ -72,7 +72,7 @@
                   if ($item['tipe_tracer'] == "kerja") {
 
                     $nama    = $item['data']['nama_perusahaan'];
-                    $caption = "Pernah Bekerja";
+                    $caption = "Bekerja";
 
                     $deskripsi = "Bekerja di salah satu perusahaan <b>" . $item['data']['jenis_perusahaan'] . "</b> pada <b>" . $item['data']['tahun_masuk'] . "</b> dengan alamat perusahaan di <b>" . ucfirst($item['data']['alamat_perusahaan'] . '</b>');
                     $tanggal_pembuatan = date('d M Y H.i A', strtotime($item['data']['created_at']));
@@ -86,9 +86,9 @@
                   } else if ($item['tipe_tracer'] == "kuliah") {
 
                     $nama = $item['data']['nama_kampus'];
-                    $caption = "Menempuh Pendidikan";
+                    $caption = "Pendidikan";
 
-                    $deskripsi = "Melanjukan Studi di <b>" . ucfirst($nama) . "</b> jurusan <b>" . $item['data']['jurusan'] . '</b> dengan keahlian atau program studi <b>' . $item['data']['program_studi'] . '</b> Diterima jalur';
+                    $deskripsi = "Kuliah di <b>" . ucfirst($nama) . "</b> jurusan <b>" .  $item['data']['jurusan'] . "</b> pada <b>" . $item['data']['tahun_masuk'] .  '</b> dengan keahlian atau program studi <b>' . $item['data']['program_studi'] . '</b> Diterima jalur';
 
                     $tanggal_pembuatan = date('d M Y H.i A', strtotime($item['data']['created_at']));
 
