@@ -106,7 +106,7 @@
         }
 
         // proses Edit Data Forum
-        function editDataForum() {
+        function editDataForum($upload) {
             $id_forum   = $this->input->post('id_forum');
             $id_profile = $this->session->userdata('sess_id_profile');
             
@@ -116,6 +116,7 @@
                 'nama_forum'        => $this->input->post('nama_forum'),
                 'deskripsi'         => $this->input->post('deskripsi'),
                 'tanggal_forum'     => $this->input->post('tanggal_forum'),
+                'foto'              => $upload['file']['file_name'],
                 
             );
             $this->db->where('id_forum', $id_forum);

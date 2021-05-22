@@ -89,16 +89,9 @@
                 </div>
               </div>
               <div class="row">
-                <div class="col-md-4">
-                  <div class="form-group">
-                    <label>Tanggal Forum</label>
-                    <input type="date" class="form-control" id="tanggal_forum" name="tanggal_forum" value="<?= set_value('tanggal_forum') ?>">
-                    <?= form_error('tanggal_forum', '<small class="text-danger">', '</small>'); ?>
-                  </div>
-                </div>
                 <div class="col-md-8">
                   <div class="form-group">
-                    <label>Foto Event</label>
+                    <label>Foto Forum</label>
                     <div class="input-group">
                       <div class="custom-file">
                         <input type="file" class="custom-file-input form-control" id="foto" name="foto" value="">

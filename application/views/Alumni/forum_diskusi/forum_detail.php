@@ -116,7 +116,7 @@
                                                             </button>
                                                         </div>
                                                         <div class="modal-body">
-                                                            <input type="hidden" name="id_forum" value=" ' . $row['id_forum'] . '" />
+                                                            <input type="hidden" name="id_forum" value="' . $row['id_forum'] . '" />
                                                             <label>
                                                                 Komentar
                                                             </label>

@@ -152,8 +152,6 @@
                                                                 <?php echo $row['nama_forum'] ?>
                                                             </div>
 
-                                                            
-
                                                             <?php 
                                                             
                                                             if ( $level == "staff" || $level == "bk" ) {
@@ -164,28 +162,26 @@
                                                                     <a href="#" data-toggle="modal" data-target="#action-hapus-'.$row['id_forum'].'" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i>Hapus</a>
                                                                     </div>
 
-
-
-
                                                                     <!-- Modal delete -->
                                                                     <div class="modal fade" id="action-hapus-'.$row['id_forum'].'">
                                                                         <div class="modal-dialog">
                                                                         <div class="modal-content">
                                                                             <div class="modal-header">
-                                                                            <b>Logout</b>
+                                                                            <b>Hapus</b>
                                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                                 <span aria-hidden="true">&times;</span>
                                                                             </button>
                                                                             </div>
                                                                             <div class="modal-body">
                                                                             <label>
-                                                                                Apakah anda ingin keluar dari halaman ini?
+                                                                                Apakah anda yakin ingin menghapus forum ?
+                                                                                <br>- '.$row['nama_forum'].'
                                                                             </label> <br>
-                                                                            <small>Yakin ingin keluar.</small>
+                                                                            <small>Data yang di hapus tidak bisa di kembalikan.</small>
                                                                             </div>
                                                                             <div class="modal-footer justify-content-between">
                                                                             <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                                                                            <a href="'.base_url('Admin/forum_diskusi/hapusForum/').$row['id_forum'].'" class="btn btn-warning"><i class="fa fa-power-off"></i> Hapus</a>
+                                                                            <a href="'.base_url('Admin/forum_diskusi/hapusForum/').$row['id_forum'].'" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>
                                                                             </div>
                                                                         </div>
                                                                         <!-- /.modal-content -->

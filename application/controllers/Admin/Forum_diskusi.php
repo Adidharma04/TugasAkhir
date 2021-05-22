@@ -24,6 +24,7 @@ class Forum_diskusi extends CI_Controller {
 
         $this->load->model('Admin/forum_diskusi_model');
     }
+
     public function index()
     {
         //-- Title Halaman
@@ -54,9 +55,6 @@ class Forum_diskusi extends CI_Controller {
         ]);
         $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required|trim',[
             'required' => 'Masukkan Deskripsi Forum',
-        ]);
-        $this->form_validation->set_rules('tanggal_forum', 'Tanggal Forum', 'required|trim',[
-            'required' => 'Masukkan Tanggal Forum',
         ]);
 
         //-- Title Halaman
@@ -98,9 +96,6 @@ class Forum_diskusi extends CI_Controller {
         $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required|trim',[
             'required' => 'Masukkan Deskripsi Forum',
         ]);
-        $this->form_validation->set_rules('tanggal_forum', 'Tanggal Forum', 'required|trim',[
-            'required' => 'Masukkan Tanggal Forum',
-        ]);
 
         //-- Title Halaman
         $data ['title'] = 'Halaman Forum tambah diskusi | Admin';
@@ -112,14 +107,20 @@ class Forum_diskusi extends CI_Controller {
             $this->load->view('Admin/forum_diskusi/edit_forum',$data);
             $this->load->view('Template/Admin/footer');
         }else{
-                $this->forum_diskusi_model->editDataForum();
+            $upload = $this->forum_diskusi_model->upload();
+            if ($upload['result'] == 'success') {
+                $this->forum_diskusi_model->editDataForum($upload);
                 $html = '<div class="alert alert-success">
-                            <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
-                            <b>Pemberitahuan</b> <br>
-                            Edit Data Forum berhasil di tambah pada tanggal ' . date('d F Y H.i A') . '
-                        </div>';
+                                <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
+                                <b>Pemberitahuan</b> <br>
+                                Forum berhasil di edit pada tanggal ' . date('d F Y H.i A') . '
+                         </div>';
                 $this->session->set_flashdata('msg', $html);
-                redirect('Admin/Forum_diskusi', 'refresh');
+                redirect('Admin/forum_diskusi', 'refresh');
+                
+            } else {
+                echo $upload['error'];
+            }
         }    
     }
     
@@ -154,7 +155,6 @@ class Forum_diskusi extends CI_Controller {
     // proses tambah detail forum
     public function tambahDetailForum()
     {   
-
         $id_forum = $this->input->post('id_forum');
 
          //-- Title Halaman
