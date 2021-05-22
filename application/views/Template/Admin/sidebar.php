@@ -72,27 +72,12 @@
             </ul>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+          <a href="<?= base_url().'Admin/tracer_alumni'?>" class="nav-link <?php if ($uriSegment == "tracer_alumni") echo 'active'; ?>">
               <i class="nav-icon fas fa-search"></i>
               <p>
-                Tracer
-                <i class="right fas fa-angle-left"></i>
+                Tracer Alumni
               </p>
             </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                  <a href="<?php echo base_url('Admin/tracer_kuliah')?>" class="nav-link <?php if ($uriSegment == "tracer_kuliah") echo 'active'; ?>">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Tracer Kuliah</p>
-                </a>
-              </li>
-              <li class="nav-item">
-              <a href="<?php echo base_url('Admin/tracer_kerja')?>" class="nav-link <?php if ($uriSegment == "tracer_kerja") echo 'active'; ?>">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Tracer Kerja</p>
-                </a>
-              </li>
-            </ul>
           </li>
           <li class="nav-item">
           <a href="<?= base_url().'Admin/penilaian'?>" class="nav-link <?php if ($uriSegment == "penilaian") echo 'active'; ?>">

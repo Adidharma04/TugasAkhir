@@ -2,13 +2,13 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Tracer_Kuliah extends CI_Controller {
+class Tracer_Alumni extends CI_Controller {
 
 
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Admin/Tracer_Kuliah_model');
+        $this->load->model('Admin/Tracer_Alumni_model');
         $this->load->model('Alumni/Tracer_model');
 
 
@@ -33,12 +33,12 @@ class Tracer_Kuliah extends CI_Controller {
     public function index()
     {
          //-- Title Halaman
-         $data ['title'] = 'Halaman Kritik Saran | Admin';
+         $data ['title'] = 'Halaman Tracer Alumni | Admin';
          //----------------------------
-        $data['tracer_kuliah'] = $this->Tracer_Kuliah_model->tampilDataTracerKuliah(); 
+        $data['tracer_alumni'] = $this->Tracer_Alumni_model->tampilDataTracerKuliah(); 
         $this->load->view('Template/Admin/navbar',$data);
         $this->load->view('Template/Admin/sidebar',$data);
-        $this->load->view('Admin/Tracer_Kuliah/index',$data);
+        $this->load->view('Admin/Tracer_Alumni/index',$data);
         $this->load->view('Template/Admin/footer');
     }
 
@@ -67,14 +67,12 @@ class Tracer_Kuliah extends CI_Controller {
 
                     $nama = $row['data']['nama_perusahaan'];
                 }
-                echo $nama.' ';
-                echo $row['tipe_tracer'].'<hr>';
             }
 
-            // $this->load->view('Template/Admin/navbar',$data);
-            // $this->load->view('Template/Admin/sidebar',$data);
-            // $this->load->view('Alumni/tracer/index',$data);
-            // $this->load->view('Template/Admin/footer');
+            $this->load->view('Template/Admin/navbar',$data);
+            $this->load->view('Template/Admin/sidebar',$data);
+            $this->load->view('Admin/tracer_alumni/detail',$data);
+            $this->load->view('Template/Admin/footer');
         } else {
 
             // page not found
