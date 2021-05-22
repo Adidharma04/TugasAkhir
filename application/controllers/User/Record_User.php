@@ -54,15 +54,6 @@ class Record_User extends CI_Controller {
 
         // ----------------------------------------
 
-
-
-
-
-
-
-
-
-
         // GET DATA FILTER
         $filter_tahun = $this->input->get('tahun');
         $filter_nama_alumni  = $this->input->get('nama');
@@ -92,13 +83,49 @@ class Record_User extends CI_Controller {
 
         }
         
-
-        
             
         $data['alumni'] = $dataAlumni;
 
 
         $this->load->view('User/record_user', $data);
     }
+
+
+    // tracer detail
+    function detail( $id_profile = null ) {
+
+
+        if ( $id_profile ) {
+
+            $data ['title'] = 'Halaman Tracer | User';
+            $data['tracer'] =  $this->Tracer_model->getDataTracer( $id_profile );
+            //----------------------------
+
+            foreach ( $data['tracer'] as $row ) {
+
+                // echo $row['data']['nama_perusahaan'].' '; 
+
+                $nama = "";
+                if ( $row['tipe_tracer'] == "kuliah" ) {
+
+                    $nama = $row['data']['nama_kampus'];
+                } else {
+
+                    $nama = $row['data']['nama_perusahaan'];
+                }
+            }
+            $this->load->view('User/detail_record',$data);
+        } else {
+
+            // page not found
+            show_404();
+        }
+        
+    }
+
+
+
+
+    
 }
 ?>
