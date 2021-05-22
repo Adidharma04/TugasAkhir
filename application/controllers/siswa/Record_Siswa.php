@@ -1,11 +1,13 @@
+
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Record_Siswa extends CI_Controller {
 
-    public function __construct()
-    {
+    function __construct() {
+
         parent::__construct();
+
         // load siswa model
         $this->load->model('admin/siswa_model');
         $this->load->model('Alumni/Tracer_model');
@@ -24,8 +26,11 @@ class Record_Siswa extends CI_Controller {
             redirect('Admin/login', 'refresh');
         }
     }
+
     public function index()
     {
+
+        // nilai awal
         $dataAlumni = $this->siswa_model->tampilDataAlumni();
 
         // init nilai 
@@ -52,9 +57,7 @@ class Record_Siswa extends CI_Controller {
 
             }
         }
-            
-        $data['alumni'] = $dataAlumni;
-        
+
         $data['total_alumni'] = $dataAlumni->num_rows();
         $data['total_kerja']  = $total_kerja;
         $data['total_kuliah'] = $total_kuliah;
@@ -62,7 +65,81 @@ class Record_Siswa extends CI_Controller {
 
 
 
+
+        // ----------------------------------------
+
+        // GET DATA FILTER
+        $filter_tahun = $this->input->get('tahun');
+        $filter_nama_alumni  = $this->input->get('nama');
+
+        if ( (!empty($filter_tahun)) && ( !empty($filter_nama_alumni) ) ) {
+
+            // filter keduanya
+            $dataAlumni = $this->siswa_model->filter_datasiswa_nama_tahunlulus( $filter_tahun, $filter_nama_alumni );
+
+        } else if ( $filter_tahun ) {
+
+
+            // hanya filter tahun
+            $dataAlumni = $this->siswa_model->filter_datasiswa_tahunlulus( $filter_tahun );
+
+
+        } else if ( $filter_nama_alumni ) {
+
+            // hanya filter nama
+            $dataAlumni = $this->siswa_model->filter_datasiswa_nama( $filter_nama_alumni );
+
+
+        } else {
+
+            // tanpa filter
+            $dataAlumni = $this->siswa_model->tampilDataAlumni();
+
+        }
+        
+            
+        $data['alumni'] = $dataAlumni;
+
+
         $this->load->view('siswa/record_siswa', $data);
     }
+
+
+    // tracer detail
+    function detail( $id_profile = null ) {
+
+
+        if ( $id_profile ) {
+
+            $data ['title'] = 'Halaman Tracer | Siswa';
+            $data['tracer'] =  $this->Tracer_model->getDataTracer( $id_profile );
+            //----------------------------
+
+            foreach ( $data['tracer'] as $row ) {
+
+                // echo $row['data']['nama_perusahaan'].' '; 
+
+                $nama = "";
+                if ( $row['tipe_tracer'] == "kuliah" ) {
+
+                    $nama = $row['data']['nama_kampus'];
+                } else {
+
+                    $nama = $row['data']['nama_perusahaan'];
+                }
+            }
+            $this->load->view('siswa/detail_record',$data);
+        } else {
+
+            // page not found
+            show_404();
+        }
+        
+    }
+
+
+
+
+    
 }
 ?>
