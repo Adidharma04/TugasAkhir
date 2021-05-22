@@ -56,6 +56,14 @@
               </p>
             </a>
           </li>
+          <li class="nav-item">
+          <a href="<?= base_url().'bk/tracer_alumni'?>" class="nav-link <?php if ($uriSegment == "tracer_alumni") echo 'active'; ?>">
+              <i class="nav-icon fas fa-search"></i>
+              <p>
+                Tracer Alumni
+              </p>
+            </a>
+          </li>
           <li class="nav-header">Validasi</li>
           <li class="nav-item">
             <a href="<?= base_url().'bk/event'?>" class="nav-link <?php if ($uriSegment == "event") echo 'active'; ?>">
@@ -83,30 +91,12 @@
           </li>
           <li class="nav-item">
             <a href="<?php echo base_url("bk/siswa")?>" class="nav-link <?php if ($uriSegment == "siswa") echo 'active'; ?>">
-              <i class="nav-icon fa fa-Book"></i>
+              <i class="nav-icon fa fa-book"></i>
               <p>
                 Registrasi Siswa
               </p>
             </a>
           </li>
-          <li class="nav-header">Track Record</li>
-          <li class="nav-item">
-            <a href="<?php echo base_url("bk/tracer_kuliah")?>" class="nav-link <?php if ($uriSegment == "tracer_kuliah") echo 'active'; ?>">
-              <i class="nav-icon fas fa-search"></i>
-              <p>
-                Record Kuliah
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="<?php echo base_url("bk/tracer_kerja")?>" class="nav-link <?php if ($uriSegment == "tracer_kerja") echo 'active'; ?>">
-              <i class="nav-icon fas fa-search"></i>
-              <p>
-                Record Kerja
-              </p>
-            </a>
-          </li>
-         
       </nav>
       <!-- /.sidebar-menu -->
     </div>

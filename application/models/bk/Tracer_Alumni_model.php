@@ -1,7 +1,7 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Tracer_Kuliah_model extends CI_Model {
+class Tracer_Alumni_model extends CI_Model {
     public function tampilDataTracerKuliah()
     {  
 
@@ -13,7 +13,8 @@ class Tracer_Kuliah_model extends CI_Model {
                 
                 JOIN profil_siswa 
                 
-                ON profil_siswa.id_profile = tracer_kuliah.id_profile";
+                ON profil_siswa.id_profile = tracer_kuliah.id_profile
+                GROUP BY id_profile";
 
         return $this->db->query( $sql );
     }

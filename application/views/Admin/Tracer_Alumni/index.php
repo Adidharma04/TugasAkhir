@@ -6,12 +6,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Tracer Kuliah</h1>
+            <h1>Rekap Data Tracer Alumni</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="<?php echo base_url('Admin/dashboard_admin') ?>">Home</a></li>
-              <li class="breadcrumb-item active">Tracer Kuliah</li>
+              <li class="breadcrumb-item active">Tracer Alumni</li>
             </ol>
           </div>
         </div>
@@ -26,7 +26,7 @@
             <div class="card">
             <?php echo $this->session->flashdata('msg') ?>
               <div class="card-header">
-                <h3 class="card-title">Tracer Kuliah</h3>
+                <h3 class="card-title">Tracer Alumni</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
