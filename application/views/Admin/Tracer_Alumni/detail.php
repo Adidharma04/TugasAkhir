@@ -73,7 +73,7 @@
                     $nama    = $item['data']['nama_perusahaan'];
                     $caption = "Bekerja";
 
-                    $deskripsi = "Bekerja di salah satu perusahaan <b>" . $item['data']['jenis_perusahaan'] . "</b> pada <b>" . $item['data']['tahun_masuk'] . "</b> dengan alamat perusahaan di <b>" . ucfirst($item['data']['alamat_perusahaan'] . '</b>');
+                    $deskripsi = "Bekerja sebagai  <b>" . $item['data']['jabatan'] . "</b> pada <b>" . $item['data']['tahun_masuk'] . "</b> dengan alamat <b>" . ucfirst($item['data']['alamat_perusahaan'] . '</b>');
                     $tanggal_pembuatan = date('d M Y H.i A', strtotime($item['data']['created_at']));
 
                     $color = "bg-blue";

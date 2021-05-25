@@ -285,7 +285,7 @@
                         $nama    = $item['data']['nama_perusahaan'];
                         $caption = "Bekerja";
 
-                        $deskripsi = "Bekerja di salah satu perusahaan <b>" . $item['data']['jenis_perusahaan'] . "</b> pada tahun<b>" . $item['data']['tahun_masuk'] . "</b> dengan alamat perusahaan di <b>" . ucfirst($item['data']['alamat_perusahaan'] . '</b>');
+                        $deskripsi = "Bekerja sebagai  <b>" . $item['data']['jabatan'] . "</b> pada <b>" . $item['data']['tahun_masuk'] . "</b> dengan alamat <b>" . ucfirst($item['data']['alamat_perusahaan'] . '</b>');
                         $tanggal_pembuatan = date('d M Y H.i A', strtotime($item['data']['created_at']));
 
                         $color = "bg-blue";
@@ -299,7 +299,7 @@
                         $nama = $item['data']['nama_kampus'];
                         $caption = "Pendidikan";
 
-                        $deskripsi = "Kuliah di <b>" . ucfirst($nama) . "</b> jurusan <b>" . $item['data']['jurusan'] ."</b> pada tahun<b>" . $item['data']['tahun_masuk'] . '</b> dengan keahlian atau program studi <b>' . $item['data']['program_studi'] . '</b> Diterima jalur';
+                        $deskripsi = "Kuliah di <b>" . ucfirst($nama) . "</b> jurusan <b>" . $item['data']['jurusan'] ."</b> pada tahun <b>" . $item['data']['tahun_masuk'] . '</b> dengan keahlian atau program studi <b>' . $item['data']['program_studi'] . '</b> Diterima jalur';
 
                         $tanggal_pembuatan = date('d M Y H.i A', strtotime($item['data']['created_at']));
 

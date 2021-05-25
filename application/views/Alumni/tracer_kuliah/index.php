@@ -125,7 +125,7 @@
                         <input type="radio" name="jalur_penerimaan" value="sbmpn" > SBMPN
                     </div>
                     <div class="form-check">
-                        <input type="radio" name="jalur_penerimaan" value="mandiri" > SBMPN
+                        <input type="radio" name="jalur_penerimaan" value="mandiri" > Mandiri
                     </div>
                     <div class="form-check">
                         <input type="radio" name="jalur_penerimaan" value="ikatan_dinas" > Ikatan Dinas

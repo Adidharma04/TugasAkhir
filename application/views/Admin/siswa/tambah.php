@@ -112,7 +112,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-envelope"></i></span>
                   </div>
-                  <input type="email" class="form-control" id="email" name="email" placeholder="Examample@gmail.com" value="<?= set_value('email') ?>">
+                  <input type="email" class="form-control" id="email" name="email" placeholder="Example@gmail.com" value="<?= set_value('email') ?>">
                 </div>
                 <?= form_error('email', '<small class="text-danger">', '</small>'); ?>
               </div>

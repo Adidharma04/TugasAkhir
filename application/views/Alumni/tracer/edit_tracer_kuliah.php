@@ -129,7 +129,7 @@
                         <input type="radio" name="jalur_penerimaan" value="sbmpn" <?php if ( $tracer['jalur_penerimaan'] == "sbmpn" ) echo 'checked'; ?>> SBMPN
                     </div>
                     <div class="form-check">
-                        <input type="radio" name="jalur_penerimaan" value="mandiri" <?php if ( $tracer['jalur_penerimaan'] == "mandiri" ) echo 'checked'; ?>> SBMPN
+                        <input type="radio" name="jalur_penerimaan" value="mandiri" <?php if ( $tracer['jalur_penerimaan'] == "mandiri" ) echo 'checked'; ?>> Mandiri
                     </div>
                     <div class="form-check">
                         <input type="radio" name="jalur_penerimaan" value="ikatan_dinas" <?php if ( $tracer['jalur_penerimaan'] == "ikatan_dinas" ) echo 'checked'; ?>> Ikatan Dinas
