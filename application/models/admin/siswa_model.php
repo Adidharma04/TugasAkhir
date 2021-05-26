@@ -4,14 +4,39 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Siswa_model extends CI_Model {
 
 
-    function tampilDataAlumni() {
+    function tampilDataAlumni( $key = null ) {
 
-        $sql = "SELECT profile.*, profil_siswa.* FROM profile 
+        if ( $key == true ) {
+
+            $per_page = $key['per_page'];
+            $from     = $key['from'];
+
+
+            $this->db->select('profile.*, profil_siswa.*')->from('profile');
+            $this->db->join('profil_siswa', 'profil_siswa.id_profile = profile.id_profile');
+            $this->db->where('profile.level', "alumni");
+            $this->db->limit( $per_page, $from );
+
+            $query = $this->db->get();
+            // $sql = 'SELECT profile.*, profil_siswa.* FROM profile 
+            //     INNER JOIN profil_siswa ON profil_siswa.id_profile = profile.id_profile 
+                
+            //     WHERE profile.level = "alumni" LIMIT '. $per_page .' OFFSET '. $from;
+
+        } else {
+
+            $sql = "SELECT profile.*, profil_siswa.* FROM profile 
                 INNER JOIN profil_siswa ON profil_siswa.id_profile = profile.id_profile 
                 
                 WHERE profile.level = 'alumni'";
 
-        $query = $this->db->query( $sql );
+            $query = $this->db->query( $sql );
+        }
+        
+
+        
+
+        // print_r( $this->db->error() );
         return $query;
     }
 

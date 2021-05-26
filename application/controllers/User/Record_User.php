@@ -16,9 +16,13 @@ class Record_User extends CI_Controller {
     public function index()
     {
 
+        // load library pagination
+        $this->load->library('pagination');
+        
         // nilai awal
         $dataAlumni = $this->siswa_model->tampilDataAlumni();
 
+    
         // init nilai 
         $total_kerja = 0;
         $total_kuliah = 0;
@@ -54,6 +58,48 @@ class Record_User extends CI_Controller {
 
         // ----------------------------------------
 
+
+        $uri = $this->uri->segment(4);
+        $from = 0;
+
+        if ( !empty($uri) )  {
+
+            $from = $uri;
+        }
+
+
+        $config['base_url'] = base_url().'User/record_user/index/';
+        $config['total_rows'] = $dataAlumni->num_rows();
+        $config['per_page'] = 2;
+        
+        $config['full_tag_open'] = '<ul class="pagination modal-1">';
+        $config['full_tag_close'] = '</ul>';
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        $config['cur_tag_open'] = '<li class=""><a href="#" style="background-color: #61ba6d; color : #f5f5f5">';
+        $config['cur_tag_close'] = '</a></li>';
+        $config['prev_tag_open'] = '<li>';
+        $config['prev_tag_close'] = '</li>';
+        $config['next_tag_open'] = '<li>';
+        $config['next_tag_close'] = '</li>';
+        $config['last_tag_open'] = '<li>';
+        $config['last_tag_open'] = '<li>';
+        $config['first_tag_open'] = '<li>';
+        $config['first_tag_open'] = '<li>';
+        
+
+        // init 
+        $this->pagination->initialize($config);	
+
+        $key = [
+
+            'per_page'  => $config['per_page'],
+            'from'      => $from
+        ];
+
+        
+        
+
         // GET DATA FILTER
         $filter_tahun = $this->input->get('tahun');
         $filter_nama_alumni  = $this->input->get('nama');
@@ -79,14 +125,12 @@ class Record_User extends CI_Controller {
         } else {
 
             // tanpa filter
-            $dataAlumni = $this->siswa_model->tampilDataAlumni();
-
-        }
+            $dataAlumni = $this->siswa_model->tampilDataAlumni( $key );
+            
+        }   
         
             
         $data['alumni'] = $dataAlumni;
-
-
         $this->load->view('User/record_user', $data);
     }
 
