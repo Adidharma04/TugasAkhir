@@ -22,6 +22,9 @@
             }
             action();
         </script>
+
+
+    <link rel="stylesheet" href="<?php echo base_url('assets/Template/Pagination/style.css') ?>" />
 </head>
 <body>
     <!-- ##### Preloader ##### -->
@@ -214,7 +217,15 @@
                 <?php 
             
                 $nomor++;
-                endforeach; ?>
+
+
+                
+                endforeach;
+                
+                echo '<div class="col-md-12">'.$this->pagination->create_links().'</div>';                
+                ?>
+
+                
 
                 <?php } else { ?>
 
