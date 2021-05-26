@@ -102,7 +102,7 @@
                 <!-- Batas Baris -->
                 <div class="row">
                     <div class="col-md-4">
-                      <label>(<font color="red"><b>*</b></font>) Jenis Kelamin</label>
+                      <label>(<font color="red"><b>*</b></font>) Jenis Event</label>
                       <div class="form-group ">
                         <div class="custom-control custom-radio">
                           <input class="custom-control-input custom-control-input-danger custom-control-input-outline" type="radio" name="status" value="pending" <?= set_value('status') == "pending" ? "checked" : "" ?> id="pending">

@@ -11,7 +11,7 @@
 <!-- Main Sidebar Container -->
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="<?= base_url('Admin/dashboard_admin')?>" class="brand-link">
       <img src="<?= base_url().'assets/Gambar/Website/Title_SMA.png'?>" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light">SMA Negeri Ploso</span>
     </a>
@@ -24,7 +24,7 @@
           <img src="<?= base_url().'assets/Gambar/Website/admin.png'?>">
         </div>
         <div class="info">
-          <a href="#" class="d-block"><?php echo ucfirst($this->session->userdata('sess_name')) ?></a>
+          <a href="<?= base_url('Admin/dashboard_admin')?>" class="d-block"><?php echo ucfirst($this->session->userdata('sess_name')) ?></a>
         </div>
       </div>
 
@@ -54,7 +54,7 @@
               <li class="nav-item">
                 <a href="<?php echo base_url('Admin/profile')?>" class="nav-link <?php if ($uriSegment == "profile") echo 'active'; ?>">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Detail Pengguna</p>
+                  <p>Informasi Pengguna</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -122,7 +122,7 @@
           </li>
           <li class="nav-header">Registrasi Pengguna</li>
           <li class="nav-item">
-            <a href="<?php echo base_url("Admin/pegawai/tambah")?>" class="nav-link <?php if ($uriSegment == "registrasi_pegawai") echo 'active'; ?>">
+            <a href="<?php echo base_url("Admin/pegawai/tambah")?>" class="nav-link <?php if ($uriSegment == "pegawai") echo 'active'; ?>">
               <i class="nav-icon fa fa-book"></i>
               <p>
                 Registrasi Pegawai
@@ -130,7 +130,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="<?php echo base_url('Admin/siswa/tambah') ?>" class="nav-link <?php if ($uriSegment == "tambah") echo 'active'; ?>">
+            <a href="<?php echo base_url('Admin/siswa/tambah') ?>" class="nav-link <?php if ($uriSegment == "siswa") echo 'active'; ?>">
               <i class="nav-icon fa fa-book"></i>
               <p>
                 Registrasi Siswa

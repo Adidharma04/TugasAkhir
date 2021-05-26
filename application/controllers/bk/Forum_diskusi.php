@@ -55,9 +55,6 @@ class Forum_diskusi extends CI_Controller {
         $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required|trim',[
             'required' => 'Masukkan Deskripsi Forum',
         ]);
-        $this->form_validation->set_rules('tanggal_forum', 'Tanggal Forum', 'required|trim',[
-            'required' => 'Masukkan Tanggal Forum',
-        ]);
 
         //-- Title Halaman
         $data ['title'] = 'Halaman Forum tambah diskusi | Guru BK';
@@ -97,9 +94,6 @@ class Forum_diskusi extends CI_Controller {
         ]);
         $this->form_validation->set_rules('deskripsi', 'Deskripsi', 'required|trim',[
             'required' => 'Masukkan Deskripsi Forum',
-        ]);
-        $this->form_validation->set_rules('tanggal_forum', 'Tanggal Forum', 'required|trim',[
-            'required' => 'Masukkan Tanggal Forum',
         ]);
 
         //-- Title Halaman
