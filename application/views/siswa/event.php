@@ -47,7 +47,7 @@
                 <div class="col-12">
                     <div class="section-heading text-center mx-auto wow fadeInUp" data-wow-delay="300ms">
                         <span>Event</span>
-                        <h3>Will be held</h3>
+                        <h3>Yang diadakan : </h3>
                     </div>
                 </div>
             </div>
@@ -86,7 +86,7 @@
                 <h5>[KIPRAH ALUMNI SMANIS]</h5>
                 <p>Percayalah Setiap ada Kemauan pasti ada jalan. Tetap berusaha dengan maksimal dan selalu berdoa kepada Tuhan Yang Maha Esa.</p>
             </div>
-            <div class="popular-course-thumb bg-img" style="background-image: url(<?php echo base_url().'assets/Gambar/Website/Dashboard/contohevent2.jpg';?>);"></div>
+            <div class="popular-course-thumb bg-img" style="background-image: url(<?php echo base_url().'assets/Gambar/Website/Dashboard/kiprah.png';?>);"></div>
         </div>
     </div>
     <!-- ##### Top Popular Courses Details Area End ##### -->

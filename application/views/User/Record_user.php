@@ -209,7 +209,7 @@
                        <div class="teachers-info mt-30">
                             <h5><?php echo $row['nama'] ?></h5>
                             <span>Tahun Lulus : <?php echo $row['tahun_lulus'] ?></span><br>
-                            <a class="btn btn-primary" href="<?= base_url("User/Record_User/detail/".$row['id_profile'])?>">Record</a>
+                            <a class="btn btn-primary" href="<?= base_url("User/Record_User/detail/".$row['id_profile'])?>">Detail</a>
                         </div>
                     </div>
                 </div>
