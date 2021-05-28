@@ -5,12 +5,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Profile</h1>
+            <h1>Informasi Pengguna</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="<?php echo base_url('Admin/dashboard_admin') ?>">Home</a></li>
-              <li class="breadcrumb-item active">Table Profile</li>
+              <li class="breadcrumb-item active">Informasi Pengguna</li>
             </ol>
           </div>
         </div>
@@ -24,7 +24,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">Table Profile</h3>
+                <h3 class="card-title">Table Informasi Pengguna</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">

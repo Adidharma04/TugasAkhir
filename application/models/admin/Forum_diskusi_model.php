@@ -107,16 +107,60 @@
 
         // proses Edit Data Forum
         function editDataForum($upload) {
+
             $id_forum   = $this->input->post('id_forum');
             $id_profile = $this->session->userdata('sess_id_profile');
             
+            // ambil detail informasi event
+            $ambilInformasiForum = $this->getForum( $id_forum );
+
+            // upload foto
+            $config['upload_path'] = './assets/Gambar/Upload/Forum/';    
+            $config['allowed_types'] = 'jpg|png|jpeg';
+            $this->load->library('upload', $config);
+
+            $foto = "";
+            // apabila dia ingin mengubah gambar 
+            if ( !empty( $_FILES['foto']['name'] ) ) {
+
+
+                if ( $this->upload->do_upload('foto') ){
+
+                    if ( $ambilInformasiForum->foto ) { 
+                        // remove old photo
+                        $link = $config['upload_path']. $ambilInformasiForum->foto;
+                        unlink( $link );
+                    }
+
+                    // set value new photo
+                    $foto = $this->upload->data('file_name');
+                    
+                }else{    
+                    
+                    // upload error
+                    $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> '.$this->upload->display_errors().'</div>';
+                    $this->session->set_flashdata('msg', $html);
+
+                    redirect('Admin/event/edit/'. $id_forum);
+                    
+                }  
+
+            // gaambar tetap alias tidak diubah sama sekali
+            } else {
+
+                if ( $ambilInformasiForum->foto ) {
+
+                    $foto = $ambilInformasiForum->foto;
+                }
+            }
+
             $forum = array(
                 'id_profile'        => $id_profile,
                 'id_topik'          => $this->input->post('id_topik'),
                 'nama_forum'        => $this->input->post('nama_forum'),
                 'deskripsi'         => $this->input->post('deskripsi'),
                 'tanggal_forum'     => $this->input->post('tanggal_forum'),
-                'foto'              => $upload['file']['file_name'],
+                'foto'              => $foto,
                 
             );
             $this->db->where('id_forum', $id_forum);

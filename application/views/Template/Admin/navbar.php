@@ -33,7 +33,7 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="index3.html" class="nav-link">Home</a>
+                    <a href="<?= base_url().'Admin/dashboard_admin'?>" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link">Contact</a>
@@ -41,8 +41,8 @@
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="modal" data-target="#action-logout">
-                        <i class="nav-icon fa fa-power-off fa-2x"></i>
+                    <a class="nav-link btn " data-toggle="modal" data-target="#action-logout">
+                        <font style="color:black; size:5px"><i class="nav-icon fa fa-power-off fa-1x"> Logout  </i></font>
                     </a>
                 </li>
             </ul>
@@ -53,7 +53,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <b>Logout</b>
+                        <b>Keluar</b>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -66,7 +66,7 @@
                     </div>
                     <div class="modal-footer justify-content-between">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                        <a href="<?php echo base_url('Admin/login/logout') ?>" class="btn btn-danger"><i class="fa fa-power-off"></i> Logout</a>
+                        <a href="<?php echo base_url('Admin/login/logout') ?>" class="btn btn-danger"><i class="fa fa-sign-out"></i> Logout</a>
                     </div>
                 </div>
                 <!-- /.modal-content -->

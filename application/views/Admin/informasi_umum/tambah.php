@@ -42,7 +42,7 @@
       <section class="content">
         <!-- Default box -->
         <div class="card">
-          <div class="card-header" style="background-color:blanchedalmond">
+          <div class="card-header alert-warning" >
             <h3 class="card-title">Form Tambah Informasi</h3>
 
             <div class="card-tools">
@@ -52,6 +52,14 @@
             </div>
           </div>
           <div class="card-body">
+          <div class="alert " style="background-color:blanchedalmond">
+              <h5><i class="icon fas fa-info"></i>Ketentuan Pengisian Data</h5>
+                <p>
+                  <li>Isi data dengan benar</li>
+                  <li>Tanda (<font color="red"><b>*</b></font>) Wajib untuk di isi! </li>
+                  <li>File foto harus berekstensi &emsp; .jpg/png/jpeg</li>
+                </p>
+            </div>
             <form action="" method="post" enctype="multipart/form-data">
               <div div class="row">
                   <div class="col-md-6">
@@ -65,9 +73,15 @@
                     <?= form_error('nama_informasi','<small class="text-danger">','</small>');?>
                   </div>
                   <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="foto">Foto</label>
-                        <input type="file" class="form-control" id="foto" name="foto">
+                  <div class="form-group">
+                      <label>Foto Informasi Kuliah</label>
+                      <div class="input-group">
+                        <div class="custom-file">
+                          <input type="file" class="custom-file-input form-control" id="foto" name="foto" value="">
+                          <label class="custom-file-label" for="foto" value="">Choose file</label>
+                        </div>
+                      </div>
+                      <small>Tambahkan foto apabila dibutuhkan</small>
                     </div>
                   </div>
                 </div>
@@ -99,10 +113,12 @@
             </form>
           </div>
           <!-- /.card-body -->
+          <!-- /.card -->
+          <div class="card-footer">
+            SMAN 1 PLOSO JOMBANG
+          </div>
           <!-- /.card-footer-->
-        </div>
-        <!-- /.card -->
-
+          <br><br><br>
       </section>
       <!-- /.content -->
     </div>

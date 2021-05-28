@@ -88,7 +88,7 @@
               <div class="row">
                 <div class="col-md-8">
                   <div class="form-group">
-                    <h4>Foto Event</h4>
+                    <h4>Foto Lowongan Kerja</h4>
                     <div class="input-group">
                       <div class="custom-file">
                         <input type="file" class="custom-file-input form-control" id="foto" name="foto" value="<?= $loker->foto; ?>">

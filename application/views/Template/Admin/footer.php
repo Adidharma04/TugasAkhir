@@ -29,6 +29,8 @@
 <script src="<?= base_url("assets/Template/Admin/dist/js/adminlte.js") ?>"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="<?= base_url("assets/Template/Admin/dist/js/demo.js") ?>"></script>
+<!-- ChartJS -->
+<script src="<?= base_url("assets/Template/Admin/plugins/chart.js/Chart.min.js")?>"></script>
 
 <!-- Bootstrap 4 -->
 <script src="<?= base_url("assets/Template/Admin/plugins/bootstrap/js/bootstrap.bundle.min.js") ?>"></script>
@@ -72,6 +74,116 @@ $('.custom-file-input').on('change', function() {
 });
 </script>
 
+
+<script>
+
+$(function () {
+  'use strict'
+
+  var ticksStyle = {
+    fontColor: '#495057',
+    fontStyle: 'bold'
+  }
+
+  var mode      = 'index'
+  var intersect = true
+
+  var $tracer = $('#tracer-chart')
+  var tracerChart  = new Chart($tracer, {
+    type   : 'bar',
+    data   : {
+      labels  : [
+          <?php
+            
+            foreach ( $tracer AS $data ) {
+
+                echo $data['tahun'].',';
+            }
+        ?>
+      ],
+      datasets: [
+        {
+          backgroundColor: '#007bff',
+          borderColor    : '#007bff',
+          data           : [
+
+            <?php
+            
+                foreach ( $tracer AS $data ) {
+
+                    echo $data['kerja'].',';
+                }
+            ?>
+
+          ]
+        },
+        {
+          backgroundColor: '#ced4da',
+          borderColor    : '#ced4da',
+          data           : [
+
+
+            <?php
+            
+                foreach ( $tracer AS $data ) {
+
+                    echo $data['kuliah'].',';
+                }
+            ?>
+
+          ]
+        }
+      ]
+    },
+    options: {
+      maintainAspectRatio: false,
+      tooltips           : {
+        mode     : mode,
+        intersect: intersect
+      },
+      hover              : {
+        mode     : mode,
+        intersect: intersect
+      },
+      legend             : {
+        display: false
+      },
+      scales             : {
+        yAxes: [{
+          // display: false,
+          gridLines: {
+            display      : true,
+            lineWidth    : '4px',
+            color        : 'rgba(0, 0, 0, .2)',
+            zeroLineColor: 'transparent'
+          },
+          ticks    : $.extend({
+            beginAtZero: true,
+
+            // Include a dollar sign in the ticks
+            callback: function (value, index, values) {
+              if (value >= 1000) {
+                value /= 1000
+                value += 'k'
+              }
+              return value
+            }
+          }, ticksStyle)
+        }],
+        xAxes: [{
+          display  : true,
+          gridLines: {
+            display: false
+          },
+          ticks    : ticksStyle
+        }]
+      }
+    }
+  })
+})
+
+
+</script>
 </body>
 
 </html>
