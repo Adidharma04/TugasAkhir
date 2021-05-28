@@ -72,7 +72,7 @@
                   <label for="lokasi">Lokasi</label>
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
+                      <span class="input-group-text"><i class="fas fa-globe"></i></span>
                     </div>
                     <input type="text" class="form-control" name="lokasi" id="lokasi" placeholder="Masukkan Lokasi Event" value="<?= $event->lokasi; ?>">
                   </div>

@@ -43,7 +43,7 @@
             </div>
             <form action="" method="post" enctype="multipart/form-data">
             <div div class="row">
-                <div class="col-md-2">
+                <div class="col-md-5">
                   <label for="nama_informasi">Nama Informasi</label>
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -53,7 +53,7 @@
                   </div>
                   <?= form_error('nama_informasi', '<small class="text-danger">', '</small>'); ?>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-3">
                   <div class="form-group">
                     <label>Foto Event</label>
                     <div class="input-group">
@@ -75,15 +75,20 @@
                   </div>
                 </div>
                 <div class="col-md-4">
-                  <img src="<?php echo $img ?>" alt="preview" style="width: 30%; border-radius: 5px; border: 2px solid #e0e0e0">
+                  <img src="<?php echo $img ?>" alt="preview" style="width: 50%; border-radius: 5px; border: 2px solid #e0e0e0">
                 </div>
               </div>
+              <!-- Batas Baris -->
+              <hr>
               <!-- Batas Baris -->
               <div class="form-group">
                 <label for="deskripsi_informasi">Deskripsi Informasi</label>
                 <textarea type="text" class="form-control" id="deskripsi_informasi" name="deskripsi_informasi" cols="30" rows="6" placeholder="Masukkan Deskripsi Informasi"><?= $informasi_umum->deskripsi_informasi; ?></textarea>
                 <?= form_error('deskripsi_informasi', '<small class="text-danger">', '</small>'); ?>
               </div>
+              <!-- Batas Baris -->
+              <hr>
+              <!-- Batas Baris -->
               <div class="form-group">
                 <label for="status">Status</label>
                 <?php if ($informasi_umum->status == "accept") : ?>
@@ -118,10 +123,13 @@
                   </div>
                 <?php endif ?>
               </div>
+              <!-- Batas Baris -->
+              <hr>
+              <!-- Batas Baris -->
               <div class="row">
                   <div class="col-md-2">
                     <button type="submit" class="btn btn-primary">Submit</button>
-                    <span> <a href="<?= base_url() . 'Admin/event' ?>" class="btn btn-danger">Cancel</a></span>
+                    <span> <a href="<?= base_url() . 'Admin/informasi_umum' ?>" class="btn btn-danger">Cancel</a></span>
                   </div>
               </div>
             </form>
