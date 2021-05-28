@@ -37,17 +37,52 @@
                       <th>Kritik</th>
                       <th>Saran</th>
                       <th>Dibuat pada</th>
+                      <th>Opsi</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <?php $no = 1; foreach ($penilaian->result() as $pnl) : ?>
+                    <?php $no = 1; 
+                    foreach ($penilaian->result() as $pnl) : ?>
                       <tr>
                         <td><?= $no++ ?></td>
                         <td><a target="_blank" href="<?php echo base_url('admin/siswa/detail/'. $pnl->id_siswa) ?>"><?= $pnl->nama.' <br> <small>NIS : '. $pnl->nis.'</small>' ?></a></td>
                         <td><?= $pnl->kritik ?></td>
                         <td><?= $pnl->saran ?></td>
                         <td><?= date('d F Y H.i A', strtotime($pnl->created_at)) ?></td>
-                                        </tr>
+                        <td>
+                                                    <a href="#" data-toggle="modal" data-target="#action-delete-<?php echo $pnl->id_penilaian ?>" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>
+
+                                                    <!-- Modal delete -->
+                                                    <div class="modal fade" id="action-delete-<?php echo $pnl->id_penilaian ?>">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <label for="">Informasi : <span class="text-bold"><?php echo $pnl->id_penilaian ?></span></label> <br>
+
+                                                                    <hr>
+                                                                    <label>
+                                                                        Apakah anda yakin ingin menghapus informasi <?php echo $pnl->id_penilaian ?> ?
+                                                                    </label> <br>
+                                                                    <small>Informasi yang telah dihapus tidak dapat dipulihkan kembali.</small>
+                                                                </div>
+                                                                <div class="modal-footer justify-content-between">
+                                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                                                                    <a href="<?php echo base_url('admin/penilaian/onDelete/' . $pnl->id_penilaian) ?>" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus Sekarang</a>
+                                                                </div>
+                                                            </div>
+                                                            <!-- /.modal-content -->
+                                                        </div>
+                                                        <!-- /.modal-dialog -->
+                                                    </div>
+                                                    <!-- /.modal -->
+                                                </td>
+                                            </tr>
                                         <?php endforeach ?>
                                     </tbody>
                                     <tfoot>
@@ -57,6 +92,7 @@
                                         <th>Kritik</th>
                                         <th>Saran</th>
                                         <th>Dibuat pada</th>
+                                        <th>Opsi</th>
                                         </tr>
                                     </tfoot>
                                 </table>
