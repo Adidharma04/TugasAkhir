@@ -14,6 +14,12 @@ class Informasi_User extends CI_Controller {
         
         $this->load->view('User/informasi', $data);
     }
+
+    // public function detail($id_umum){
+    //     //-- Title Halaman
+    //         $data ['informasi_umum'] = $this->informasi_umum_model->getInformasiUmum($id_umum);
+    //         $this->load->view('User/detail_informasi',$data);
+    // }
     
 }
 ?>

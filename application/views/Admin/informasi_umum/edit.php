@@ -55,7 +55,7 @@
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label>Foto Event</label>
+                    <label>Foto Informasi</label>
                     <div class="input-group">
                       <div class="custom-file">
                         <input type="file" class="custom-file-input form-control" id="foto" name="foto" value="<?= $informasi_umum->foto; ?>">

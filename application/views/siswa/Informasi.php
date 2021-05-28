@@ -78,7 +78,7 @@
                 <h5>[INFORMASI PERKULIAHAN]</h5>
                 <p>Percayalah Setiap ada Kemauan pasti ada jalan. Tetap berusaha dengan maksimal dan selalu berdoa kepada Tuhan Yang Maha Esa.</p>
             </div>
-            <div class="popular-course-thumb bg-img" style="background-image: url(<?php echo base_url().'assets/Gambar/Website/Dashboard/infonya.jpg';?>);"></div>
+            <div class="popular-course-thumb bg-img" style="background-image: url(<?php echo base_url().'assets/Gambar/Website/Dashboard/infonya.png';?>);"></div>
         </div>
     </div>
     <!-- ##### CTA Area Start ##### -->

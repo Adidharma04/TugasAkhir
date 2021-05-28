@@ -57,7 +57,7 @@
                 <div class="col-12 col-lg-6">
                     <div class="single-top-popular-course d-flex align-items-center flex-wrap mb-30 wow fadeInUp" data-wow-delay="400ms">
                         <div class="popular-course-content">
-                            <span >By <?= $pnl->nama ?>   |  <?= date('d F Y', strtotime($pnl->created_at)) ?></span>
+                            <span >Oleh Alumni  |  Pada : <?= date('d F Y', strtotime($pnl->created_at)) ?></span>
                             <p> Kritik :  <?= $pnl->kritik ?></p>
                             <p> Saran  : <?= $pnl->saran ?></p>
                     </div>
