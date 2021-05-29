@@ -54,7 +54,6 @@ class Informasi_umum extends CI_Controller {
             $this->load->view('Admin/informasi_umum/tambah',$data);
             $this->load->view('Template/Admin/footer');
         }else{
-
             $uploadBerkas = $this->informasi_umum_model->uploadBerkas();
             $uploadFoto = $this->informasi_umum_model->uploadFoto();
             if ($uploadBerkas['result'] == 'success' || $uploadFoto['result'] == 'success' ) {
