@@ -14,6 +14,9 @@ class informasi_umum_model extends CI_Model {
     //     $this->db->order_by('id_umum', 'DESC');
     //     return $this->db->get('informasi_umum')->result();
     // }
+
+
+    // SELECT * FROM informasi_umum ORDER BY created_at DESC LIMIT 3
 }
 
 /* End of file ModelName.php */
