@@ -29,7 +29,6 @@
                                 <font color="black" size="2px">Note : Tunggu proses persetujuan alumni!</font>
                             </b>
                         </p>
-                        <a href="<?= base_url() . 'Admin/login'; ?>" class="signup-image-link">I am already account</a>
                     </div>
 
                     <div class="signup-form">

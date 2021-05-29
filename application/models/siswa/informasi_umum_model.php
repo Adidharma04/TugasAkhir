@@ -7,6 +7,13 @@ class informasi_umum_model extends CI_Model {
         $this->db->select('informasi_umum.*');
         return $this->db->get('informasi_umum')->result();
     }
+
+    // public function showInfoBaru(){
+    //     $this->db->select('informasi_umum.*');
+    //     $this->db->limit(3);
+    //     $this->db->order_by('id_umum', 'DESC');
+    //     return $this->db->get('informasi_umum')->result();
+    // }
 }
 
 /* End of file ModelName.php */

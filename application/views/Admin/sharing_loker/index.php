@@ -31,7 +31,7 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="col-md-3">
-                                <a href='<?php echo base_url('Admin/Sharing_loker/tambah') ?>'><button type="button" class="btn btn-outline-primary btn-block"><i class="fa fa-plus"></i> Tambah</button></a>
+                                <a href='<?php echo base_url('Admin/sharing_loker/tambah') ?>'><button type="button" class="btn btn-outline-primary btn-block"><i class="fa fa-plus"></i> Tambah</button></a>
                             </div>
                             <div class="card-body">
                                 <table id="example1" class="table table-bordered table-striped">
@@ -95,7 +95,7 @@
                                                         <div class="modal-dialog">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
-
+                                                                    <b>Hapus</b>
                                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                         <span aria-hidden="true">&times;</span>
                                                                     </button>

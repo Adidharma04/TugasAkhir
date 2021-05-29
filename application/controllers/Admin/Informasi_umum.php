@@ -54,18 +54,20 @@ class Informasi_umum extends CI_Controller {
             $this->load->view('Admin/informasi_umum/tambah',$data);
             $this->load->view('Template/Admin/footer');
         }else{
-            $upload = $this->informasi_umum_model->upload();
-            if ($upload['result'] == 'success') {
-                $this->informasi_umum_model->tambahDataInformasiUmum($upload);
+            $uploadBerkas = $this->informasi_umum_model->uploadBerkas();
+            $uploadFoto = $this->informasi_umum_model->uploadFoto();
+            if ($uploadBerkas['result'] == 'success' || $uploadFoto['result'] == 'success' ) {
+                $this->informasi_umum_model->tambahDataInformasiUmum($uploadBerkas,$uploadFoto);
                 $html = '<div class="alert alert-success">
                             <a href="sharing_loker" class="close" data-dismiss="alert" >&times;</a>
                             <b>Pemberitahuan</b> <br>
                             Data Informasi Umum berhasil di tambah pada tanggal ' . date('d F Y H.i A') . '
                         </div>';
                 $this->session->set_flashdata('msg', $html);
-                redirect('Admin/informasi_umum','refresh');
+                // redirect('Admin/informasi_umum','refresh');
+                print_r($uploadFoto);
             }else{
-                echo $upload['error'];
+                echo $uploadBerkas['error'];
             }
         }
     }

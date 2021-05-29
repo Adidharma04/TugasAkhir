@@ -2,6 +2,11 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class sharing_loker_model extends CI_Model {
+    public function tampilDataLokerUser()
+    {  
+        $this->db->select('loker.*');
+        return $this->db->get('loker')->result();
+    }
     public function tampilDataLoker()
     {  
         $sql = "SELECT 

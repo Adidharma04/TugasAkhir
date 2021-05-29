@@ -56,10 +56,10 @@
 
           if ( $baris->update_at ) {  // tidak null
 
-            $update_at = date('l d F Y H.i A', strtotime( $baris->update_at ));
+            $update_at = date('l d F Y H.i A', strtotime( $baris->created_at ));
           } else {
 
-            $update_at = date('l d F Y H.i A', strtotime( $baris->created_at ));
+            $update_at = date('l d F Y H.i A', strtotime( $baris->update_at ));
           }
 
 
@@ -97,7 +97,7 @@
                 </blockquote>
                 <div class="row">
                   <div class="col-md-4">
-                  <a href="<?= base_url("Alumni/penilaian/tambah")?>" class="btn <?php echo $btnColor ?>"><?php echo $btnText ?></a>
+                  <a href="<?= base_url("Alumni/penilaian/edit")?>" class="btn <?php echo $btnColor ?>"><?php echo $btnText ?></a>
                 </div>
 
                 <?php } else {  ?>

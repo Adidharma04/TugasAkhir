@@ -36,8 +36,8 @@
                       <th>No</th>
                       <th>Nama Alumni</th>
                       <th>Event</th>
-                      <th>Lokasi</th>
                       <th>Tanggal Event</th>
+                      <th>Lokasi</th>
                       <th>Status</th>
                       <th>Foto</th>
                       <th>Opsi</th>
@@ -146,8 +146,8 @@
                       <th>No</th>
                       <th>Nama Alumni</th>
                       <th>Event</th>
-                      <th>Lokasi</th>
                       <th>Tanggal Event</th>
+                      <th>Lokasi</th>
                       <th>Status</th>
                       <th>Foto</th>
                       <th>Opsi</th>

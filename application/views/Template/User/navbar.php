@@ -69,8 +69,8 @@
                                     <li><a href="#">Informasi</a>
                                         <ul class="dropdown">
                                             <li><a href="<?php echo base_url('User/event_user')?>">Event</a></li>
-                                            <li><a href="<?php echo base_url('User/informasi_user')?>">Perkuliahan</a></li>
-                                            <li><a href="<?php echo base_url("User/loker_user")?>">Loker</a></li>
+                                            <li><a href="<?php echo base_url('User/informasi_umum')?>">Informasi Kuliah</a></li>
+                                            <li><a href="<?php echo base_url('User/sharing_loker')?>">Informasi Loker</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="<?php echo base_url("User/kritik_saran_user");?>">Kritik & Saran</a></li>

@@ -70,7 +70,7 @@ class Record_User extends CI_Controller {
 
         $config['base_url'] = base_url().'User/record_user/index/';
         $config['total_rows'] = $dataAlumni->num_rows();
-        $config['per_page'] = 2;
+        $config['per_page'] = 8;
         
         $config['full_tag_open'] = '<ul class="pagination modal-1">';
         $config['full_tag_close'] = '</ul>';

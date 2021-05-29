@@ -146,7 +146,7 @@
                     <label for="foto">Foto</label>
                     <div class="custom-file">
                         <input type="file" class="custom-file-input form-control" id="foto" name="foto" value="">
-                        <label class="custom-file-label" for="foto" value="">Choose file</label>
+                        <label class="custom-file-label" for="foto" value="">Pilih file</label>
                         <small>Tambahkan Foto jika ada!</small>
                     </div>
               </div>

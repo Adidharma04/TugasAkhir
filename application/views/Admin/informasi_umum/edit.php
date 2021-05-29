@@ -43,8 +43,8 @@
             </div>
             <form action="" method="post" enctype="multipart/form-data">
             <div div class="row">
-                <div class="col-md-2">
-                  <label for="nama_informasi">Nama Informasi</label>
+                <div class="col-md-12">
+                  <label for="nama_informasi">(<font color="red"><b>*</b></font>)Nama Informasi</label>
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="fas fa-id-card"></i></span>
@@ -53,37 +53,18 @@
                   </div>
                   <?= form_error('nama_informasi', '<small class="text-danger">', '</small>'); ?>
                 </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <label>Foto Event</label>
-                    <div class="input-group">
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input form-control" id="foto" name="foto" value="<?= $informasi_umum->foto; ?>">
-                        <label class="custom-file-label" for="foto" value="">
-                          <?php
-                          $img = base_url('assets/Gambar/Website/default_info.png');
-                          if ($informasi_umum->foto == "") : ?>
-                            Choose File
-                          <?php else : ?>
-                            <?= $informasi_umum->foto;
-                            $img = base_url('assets/Gambar/Upload/Informasi/' . $informasi_umum->foto); ?>
-                          <?php endif ?>
-                        </label>
-                      </div>
-                    </div>
-                    <small>Tambahkan foto apabila dibutuhkan</small>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <img src="<?php echo $img ?>" alt="preview" style="width: 30%; border-radius: 5px; border: 2px solid #e0e0e0">
-                </div>
               </div>
               <!-- Batas Baris -->
+              <hr>
+              <!-- Batas Baris -->
               <div class="form-group">
-                <label for="deskripsi_informasi">Deskripsi Informasi</label>
+                <label for="deskripsi_informasi">(<font color="red"><b>*</b></font>)Deskripsi Informasi</label>
                 <textarea type="text" class="form-control" id="deskripsi_informasi" name="deskripsi_informasi" cols="30" rows="6" placeholder="Masukkan Deskripsi Informasi"><?= $informasi_umum->deskripsi_informasi; ?></textarea>
                 <?= form_error('deskripsi_informasi', '<small class="text-danger">', '</small>'); ?>
               </div>
+              <!-- Batas Baris -->
+              <hr>
+              <!-- Batas Baris -->
               <div class="form-group">
                 <label for="status">Status</label>
                 <?php if ($informasi_umum->status == "accept") : ?>
@@ -118,10 +99,63 @@
                   </div>
                 <?php endif ?>
               </div>
+              <!-- Batas Baris -->
+              <hr>
+              <!-- Batas Baris -->
+              <hr>
+              <!-- Batas Baris -->
+              <div class="row">
+              <div class="col-md-4">
+                  <div class="form-group">
+                    <label>Foto Informasi Kuliah</label>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input form-control" id="foto" name="foto" value="<?= $informasi_umum->foto; ?>">
+                        <label class="custom-file-label" for="foto" value="">
+                          <?php
+                          $img = base_url('assets/Gambar/Website/default_info.png');
+                          if ($informasi_umum->foto == "") : ?>
+                            Pilih File
+                          <?php else : ?>
+                            <?= $informasi_umum->foto;
+                            $img = base_url('assets/Gambar/Upload/Informasi/' . $informasi_umum->foto); ?>
+                          <?php endif ?>
+                        </label>
+                      </div>
+                    </div>
+                    <small>Tambahkan foto apabila dibutuhkan</small>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <img src="<?php echo $img ?>" alt="preview" style="width: 50%; border-radius: 5px; border: 2px solid #e0e0e0">
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                  <label>Berkas Dokumen Informasi Kuliah</label>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input form-control" id="foto" name="foto" value="<?= $informasi_umum->foto; ?>">
+                        <label class="custom-file-label" for="foto" value="">
+                          <?php
+                          $img = base_url('assets/Gambar/Website/default_info.png');
+                          if ($informasi_umum->foto == "") : ?>
+                            Pilih File
+                          <?php else : ?>
+                            <?= $informasi_umum->foto;
+                            $img = base_url('assets/Gambar/Upload/Informasi/' . $informasi_umum->foto); ?>
+                          <?php endif ?>
+                        </label>
+                      </div>
+                    </div>
+                    <small>Tambahkan foto apabila dibutuhkan</small>
+                  </div>
+                </div>
+              </div>
+              <!-- Batas Baris -->
               <div class="row">
                   <div class="col-md-2">
                     <button type="submit" class="btn btn-primary">Submit</button>
-                    <span> <a href="<?= base_url() . 'Admin/event' ?>" class="btn btn-danger">Cancel</a></span>
+                    <span> <a href="<?= base_url() . 'Admin/informasi_umum' ?>" class="btn btn-danger">Cancel</a></span>
                   </div>
               </div>
             </form>

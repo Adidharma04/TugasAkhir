@@ -89,7 +89,7 @@
                           <?php
                           $img = base_url('assets/Gambar/Website/default_event_null.png');
                           if ($event->foto == "") : ?>
-                            Choose File
+                            Pilih File
                           <?php else : ?>
                             <?= $event->foto;
                             $img = base_url('assets/Gambar/Upload/Event/' . $event->foto); ?>

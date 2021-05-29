@@ -57,10 +57,11 @@
                 <div class="col-12 col-lg-6">
                     <div class="single-top-popular-course d-flex align-items-center flex-wrap mb-30 wow fadeInUp" data-wow-delay="400ms">
                         <div class="popular-course-content">
-                            <span >By <?= $pnl->nama ?>   |  <?= date('d F Y', strtotime($pnl->created_at)) ?></span>
-                            <p> Kritik :  <?= $pnl->kritik ?></p>
-                            <p> Saran  : <?= $pnl->saran ?></p>
+                            <span >Oleh Alumni  |  Pada : <?= date('d F Y', strtotime($pnl->created_at)) ?></span>
+                            <p> Kritik : <br>  <?= $pnl->kritik ?></p>
+                            <p> Saran  : <br> <?= $pnl->saran ?></p>
                     </div>
+                    <div class="popular-course-thumb bg-img" style="background-image: url(<?php echo base_url().'assets/Gambar/Website/Dashboard/kritiksaran.png';?>);"></div>
                     </div>
                 </div>
                 <?php endforeach ?>
