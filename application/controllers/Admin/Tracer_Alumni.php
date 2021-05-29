@@ -36,10 +36,15 @@ class Tracer_Alumni extends CI_Controller {
          $data ['title'] = 'Halaman Tracer Alumni | Admin';
          //----------------------------
         $data['tracer_alumni'] = $this->Tracer_Alumni_model->tampilDataTracerKuliah(); 
+        $data['tracer_kuliahkerja'] = $this->Tracer_Alumni_model->ambilDataStatistik_kerjaKuliah();
+        
         $this->load->view('Template/Admin/navbar',$data);
         $this->load->view('Template/Admin/sidebar',$data);
         $this->load->view('Admin/Tracer_Alumni/index',$data);
         $this->load->view('Template/Admin/footer');
+
+
+        // print_r( $data['tracer_alumni']->result_array() );
     }
 
 

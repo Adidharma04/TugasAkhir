@@ -97,7 +97,7 @@
                 </blockquote>
                 <div class="row">
                   <div class="col-md-4">
-                  <a href="<?= base_url("Alumni/penilaian/edit")?>" class="btn <?php echo $btnColor ?>"><?php echo $btnText ?></a>
+                  <a href="<?= base_url("Alumni/penilaian/edit/". $baris->id_penilaian)?>" class="btn <?php echo $btnColor ?>"><?php echo $btnText ?></a>
                 </div>
 
                 <?php } else {  ?>

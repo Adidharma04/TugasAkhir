@@ -14,9 +14,9 @@
 
 
 <!-- jQuery -->
-<script src="<?= base_url("assets/Template/Admin/plugins/jquery/jquery.min.js") ?>"></script>
+<!-- <script src="<?= base_url("assets/Template/Admin/plugins/jquery/jquery.min.js") ?>"></script> -->
 <!-- jQuery UI 1.11.4 -->
-<script src="<?= base_url("assets/Template/Admin/plugins/jquery-ui/jquery-ui.min.js") ?>"></script>
+<!-- <script src="<?= base_url("assets/Template/Admin/plugins/jquery-ui/jquery-ui.min.js") ?>"></script> -->
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
   $.widget.bridge('uibutton', $.ui.button)
@@ -47,6 +47,11 @@
 <script src="<?= base_url("assets/Template/Admin/plugins/datatables-buttons/js/buttons.html5.min.js") ?>"></script>
 <script src="<?= base_url("assets/Template/Admin/plugins/datatables-buttons/js/buttons.print.min.js") ?>"></script>
 <script src="<?= base_url("assets/Template/Admin/plugins/datatables-buttons/js/buttons.colVis.min.js") ?>"></script>
+
+
+
+
+
 <!-- Page specific script -->
 <script>
     $(function() {
