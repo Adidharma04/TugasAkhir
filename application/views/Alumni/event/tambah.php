@@ -87,7 +87,7 @@
                   <div class="col-md-6">
                     <div class="form-group">
                       <label>Tanggal Event:(Month/Day/Year)</label>
-                      <input type="date" class="form-control" id="tanggal_event" name="tanggal_event" value="<?= set_value('tanggal_event'); ?>">
+                      <input type="date" class="form-control" id="tanggal_event" name="tanggal_event" value="<?= set_value('tanggal_event'); ?>" min="<?php echo date('Y-m-d') ?>" required="">
                       <?= form_error('tanggal_event','<small class="text-danger">','</small>');?>
                     </div>
                   </div>

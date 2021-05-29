@@ -247,7 +247,7 @@ class sharing_loker_model extends CI_Model {
 																		Halo saudara
 																			<br>'.$nama_siswa.',
 																			<br><br>
-																		Lowongan Pekerjaan '.$nama_pekerjaan.' yang ingin anda bagikan' .$pesan.'  dikarenakan "'.$alasan.'"
+																		Lowongan Pekerjaan '.$nama_pekerjaan.' yang ingin anda bagikan' .$pesan.'
 																		</div>
 																	</td>
 																</tr>
