@@ -88,7 +88,7 @@ class event_model extends CI_Model {
     
     public function editDataEvent( $id_event ){
         
-        // ambil detail informasi siswa
+        // ambil detail informasi event
         $ambilInformasiEvent = $this->getEvent( $id_event );
         
         
@@ -134,7 +134,7 @@ class event_model extends CI_Model {
             }
         }
         
-        // data informasi siswa
+        // data informasi event
         $dataInformationEvent =[
 
             'nama_event'            => $this->input->post('nama_event', true),

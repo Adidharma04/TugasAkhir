@@ -96,7 +96,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-calendar"></i></span>
                         </div>
-                        <input type="date" class="form-control" id="tahun_masuk" name="tahun_masuk" value="<?= set_value('tahun_masuk'); ?>" >
+                        <input type="text" class="form-control" id="tahun_masuk" name="tahun_masuk" placeholder="Tahun Masuk" value="<?= set_value('tahun_masuk'); ?>" >
                     </div>
                     <?= form_error('tahun_masuk','<small class="text-danger">','</small>');?>
                   </div>
@@ -106,7 +106,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-calendar"></i></span>
                         </div>
-                        <input type="date" class="form-control" id="tahun_keluar" name="tahun_keluar"  value="<?= set_value('tahun_keluar'); ?>" >
+                        <input type="text" class="form-control" id="tahun_keluar" name="tahun_keluar" placeholder="Tahun Keluar"  value="<?= set_value('tahun_keluar'); ?>" >
                     </div>
                   </div>
               </div>

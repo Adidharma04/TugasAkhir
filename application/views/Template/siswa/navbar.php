@@ -69,8 +69,8 @@
                                     <li><a href="#">Informasi</a>
                                         <ul class="dropdown">
                                             <li><a href="<?php echo base_url('siswa/event_siswa')?>">Event</a></li>
-                                            <li><a href="<?php echo base_url('siswa/informasi_siswa')?>">Perkuliahan</a></li>
-                                            <li><a href="<?php echo base_url("siswa/loker_siswa")?>">Loker</a></li>
+                                            <li><a href="<?php echo base_url('siswa/informasi_umum')?>">Informasi Kuliah</a></li>
+                                            <li><a href="<?php echo base_url("siswa/sharing_loker")?>">Informasi Loker</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="<?php echo base_url("siswa/kritik_saran_siswa");?>">Kritik & Saran</a></li>

@@ -22,6 +22,9 @@
             }
             action();
         </script>
+
+
+    <link rel="stylesheet" href="<?php echo base_url('assets/Template/Pagination/style.css') ?>" />
 </head>
 <body>
     <!-- ##### Preloader ##### -->
@@ -206,7 +209,7 @@
                        <div class="teachers-info mt-30">
                             <h5><?php echo $row['nama'] ?></h5>
                             <span>Tahun Lulus : <?php echo $row['tahun_lulus'] ?></span><br>
-                            <a class="btn btn-primary" href="<?= base_url("siswa/Record_Siswa/detail/".$row['id_profile'])?>">Record</a>
+                            <a class="btn btn-primary" href="<?= base_url("siswa/Record_siswa/detail/".$row['id_profile'])?>">Detail</a>
                         </div>
                     </div>
                 </div>
@@ -214,7 +217,15 @@
                 <?php 
             
                 $nomor++;
-                endforeach; ?>
+
+
+                
+                endforeach;
+                
+                echo '<div class="col-md-12">'.$this->pagination->create_links().'</div>';                
+                ?>
+
+                
 
                 <?php } else { ?>
 

@@ -23,7 +23,7 @@
         <!-- Default box -->
         <div class="card">
           <?php echo $this->session->flashdata('msg') ?>
-          <div class="card-header" style="background-color:blanchedalmond">
+          <div class="card-header alert-warning" >
             <h3 class="card-title">Form Edit Event</h3>
 
             <div class="card-tools">
@@ -58,7 +58,7 @@
                   <label for="lokasi">Lokasi</label>
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="fas fa-map-marker"></i></span>
+                      <span class="input-group-text"><i class="fas fa-globe"></i></span>
                     </div>
                     <input type="text" class="form-control" name="lokasi" id="lokasi" placeholder="Masukkan Lokasi Event" value="<?= $event->lokasi; ?>">
                   </div>
@@ -87,12 +87,12 @@
                         <input type="file" class="custom-file-input form-control" id="foto" name="foto" value="<?= $event->foto; ?>">
                         <label class="custom-file-label" for="foto" value="">
                           <?php
-                          $img = base_url('assets/Gambar/Website/default_event.png');
+                          $img = base_url('assets/Gambar/Website/default_event_null.png');
                           if ($event->foto == "") : ?>
-                            Choose File
+                            Pilih File
                           <?php else : ?>
                             <?= $event->foto;
-                            $img = base_url('assets/Gambar/Upload/Loker/' . $event->foto); ?>
+                            $img = base_url('assets/Gambar/Upload/Event/' . $event->foto); ?>
                           <?php endif ?>
                         </label>
                       </div>
@@ -101,7 +101,7 @@
                   </div>
                 </div>
                 <div class="col-md-3">
-                  <img src="<?php echo $img ?>" alt="preview" style="width: 30%; border-radius: 5px; border: 2px solid #e0e0e0">
+                  <img src="<?php echo $img ?>" alt="preview" style="width: 60%; border-radius: 5px; border: 2px solid #e0e0e0">
                 </div>
               </div>
               <div class="form-group">

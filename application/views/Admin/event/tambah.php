@@ -90,7 +90,7 @@
                       <div class="input-group">
                         <div class="custom-file">
                           <input type="file" class="custom-file-input form-control" id="foto" name="foto" value="">
-                          <label class="custom-file-label" for="foto" value="">Choose file</label>
+                          <label class="custom-file-label" for="foto" value="">Pilih file</label>
                         </div>
                       </div>
                       <small>Tambahkan foto apabila dibutuhkan</small>
@@ -102,7 +102,7 @@
                 <!-- Batas Baris -->
                 <div class="row">
                     <div class="col-md-4">
-                      <label>(<font color="red"><b>*</b></font>) Jenis Kelamin</label>
+                      <label>(<font color="red"><b>*</b></font>) Jenis Event</label>
                       <div class="form-group ">
                         <div class="custom-control custom-radio">
                           <input class="custom-control-input custom-control-input-danger custom-control-input-outline" type="radio" name="status" value="pending" <?= set_value('status') == "pending" ? "checked" : "" ?> id="pending">

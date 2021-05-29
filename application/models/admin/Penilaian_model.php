@@ -4,12 +4,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Penilaian_model extends CI_Model {
     public function tampilDataPenilaian()
     {  
-        // $this->db->select('penilaian.*');
-        // return $this->db->get('penilaian')->result();
-
         $sql = "SELECT 
                     profil_siswa.*,
-                    penilaian.kritik, penilaian.saran, penilaian.created_at, penilaian.update_at
+                    penilaian.id_penilaian,penilaian.kritik, penilaian.saran, penilaian.created_at, penilaian.update_at
                     
                 FROM penilaian
                 
@@ -19,7 +16,10 @@ class Penilaian_model extends CI_Model {
 
         return $this->db->query( $sql );
     }
-
+    public function getPenilaian($id_penilaian){
+        return $this->db->get_where('penilaian',['id_penilaian'=>$id_penilaian])->row();
+	}
+    // porses hapus
     function prosesHapusPenilaian( $id_penilaian ){
 
         $this->db->where('id_penilaian', $id_penilaian)->delete('penilaian');
