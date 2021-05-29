@@ -90,7 +90,7 @@
                 <div class="input-group">
                   <div class="custom-file">
                     <input type="file" class="custom-file-input form-control" id="foto" name="foto" value="">
-                    <label class="custom-file-label" for="foto" value="">Choose file ekstensi .jpg/png/jpeg</label>
+                    <label class="custom-file-label" for="foto" value="">Pilih file ekstensi .jpg/png/jpeg</label>
                   </div>
                 </div>
                 <small>Tambahkan <b><font color="red">foto</font></b> apabila dibutuhkan</small>
@@ -102,7 +102,7 @@
                 <div class="input-group">
                   <div class="custom-file">
                     <input type="file" class="custom-file-input form-control" id="berkas" name="berkas" value="">
-                    <label class="custom-file-label" for="berkas" value="">Choose file ekstensi .pdf/docx/xls</label>
+                    <label class="custom-file-label" for="berkas" value="">Pilih file ekstensi .pdf/docx/xls</label>
                   </div>
                 </div>
                 <small>Tambahkan <b><font color="red">berkas</font></b> apabila dibutuhkan</small>

@@ -11,7 +11,9 @@ class Penilaian extends CI_Controller {
         $this->load->model('Admin/Penilaian_model');
         if ( empty( $this->session->userdata('sess_id_profile') ) ) {
             
-            $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> <br> 
+            $html = '<div class="alert alert-warning">
+                    <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
+                        <b>Pemberitahuan</b> <br> 
                         <small>Anda harus login terlebih dahulu !</small>
                     </div>';
             $this->session->set_flashdata('msg', $html);
@@ -44,7 +46,7 @@ class Penilaian extends CI_Controller {
         $this->Penilaian_model->prosesHapusPenilaian( $id_penilaian );
         $html = '<div class="alert alert-success">
                      <b>Pemberitahuan</b> <br>
-                     Data Kritik dan Saran berhasil terhapus pada tanggal '.date('d F Y H.i A').'
+                     Data Penilaian berhasil terhapus pada tanggal '.date('d F Y H.i A').'
                      </div>';
             $this->session->set_flashdata('msg', $html);
             redirect('Admin/penilaian','refresh');

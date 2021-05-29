@@ -11,6 +11,11 @@ class penilaian_model extends CI_Model {
         return $this->db->get_where('penilaian', $where);
 
     }
+
+    public function getPenilaian($id_penilaian){
+        return $this->db->get_where('penilaian',['id_penilaian'=>$id_penilaian])->row();
+	}
+
     public function tambahDataPenilaian(){
 
         $id_profile = $this->session->userdata('sess_id_profile');
@@ -34,6 +39,22 @@ class penilaian_model extends CI_Model {
             $this->db->insert('penilaian', $penilaian);
         }
     }
+
+    public function editDataPenilaian($id_penilaian){
+
+        $id_profile = $this->session->userdata('sess_id_profile');
+
+        // data input
+        $penilaian =[
+            'id_profile'    => $id_profile,
+            'kritik'        => $this->input->post('kritik', true),
+            'saran'         => $this->input->post('saran', true),    
+        ];
+        // update profil_pegawai
+        $this->db->where('id_penilaian', $id_penilaian);	
+        $this->db->update('penilaian', $penilaian);
+    }
+
     
 }
 

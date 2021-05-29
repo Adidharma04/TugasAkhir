@@ -74,7 +74,7 @@
           <div class="row">
             <div class="col-md-8">
               <div class="form-group">
-                <label>Foto Event</label>
+                <label>Foto Forum</label>
                 <div class="input-group">
                   <div class="custom-file">
                     <input type="file" class="custom-file-input form-control" id="foto" name="foto" value="">

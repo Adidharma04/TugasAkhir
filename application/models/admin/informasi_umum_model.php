@@ -2,6 +2,12 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class informasi_umum_model extends CI_Model {
+    public function tampilDataInformasiUmumUser()
+    {  
+        $this->db->select('informasi_umum.*');
+        return $this->db->get('informasi_umum')->result();
+    }
+
     public function tampilDataInformasiUmum()
     {  
         $sql = "SELECT 	
@@ -47,7 +53,7 @@ class informasi_umum_model extends CI_Model {
         $config['allowed_types'] = 'jpg|png|jpeg';
         $this->load->library('upload', $config);
 
-        if ( empty( $_FILES['foto']['name1'] ) ) {
+        if ( empty( $_FILES['foto']['name'] ) ) {
 
             return array('result' => 'success', 'file' => ['file_name' => ""]);
         } else {

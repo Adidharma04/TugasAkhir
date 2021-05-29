@@ -34,7 +34,7 @@
 
     <!-- <Body> -->
     <!-- ##### Breadcumb Area Start ##### -->
-    <div class="breadcumb-area bg-img" style="background-image: url(img/bg-img/breadcumb.jpg);">
+    <div class="breadcumb-area bg-img" style="background-image: url(<?php echo base_url().'assets/Gambar/Website/Dashboard/breadcumb.jpg';?>);">
         <div class="bradcumbContent">
             <h2>Detail Informasi</h2>
         </div>
@@ -48,44 +48,50 @@
                 <div class="col-12 col-md-8">
                     <div class="academy-blog-posts">
                         <div class="row">
-
                             <!-- Single Blog Start -->
                             <div class="col-12">
-                            <?php foreach ($informasi_umum as $ig) : ?>
                                 <div class="single-blog-post mb-50 wow fadeInUp" data-wow-delay="300ms">
                                     <!-- Post Thumb -->
                                     <div class="blog-post-thumb mb-50">
-                                    <img src="<?= base_url('assets/images/berita/') . $ig->foto ?>" alt="" style="width:600px; height:400px;">
+                                    <img src="
+                                    <?php if($informasi_umum->foto == "") : ?>
+                                        <?= base_url('assets/Gambar/Website/default_information_null.png') ?>
+                                    <?php else : ?>
+                                    <?= base_url('assets/Gambar/Upload/informasi/') . $informasi_umum->foto ?>
+                                    <?php endif?>
+                                    " alt="" style="width:600px; height:400px;">
                                     </div>
                                     <!-- Post Title -->
-                                    <a class="post-title"><?= $ig->nama_informasi ?></a>
+                                    <a class="post-title"><?= $informasi_umum->nama_informasi ?></a>
                                     <!-- Post Meta -->
                                     <div class="post-meta">
-                                    <span> Ditambahkan pada |  <?= date('d F Y', strtotime($ig->created_at)) ?></span>
+                                    <span> Ditambahkan pada |  <?= date('d F Y', strtotime($informasi_umum->created_at)) ?></span>
                                     </div>
                                     <!-- Post Excerpt -->
-                                    <p><?= $ig->deskripsi_informasi ?></p>
+                                    <p><?= $informasi_umum->deskripsi_informasi ?></p>
                                 </div>
                             </div>
-
+                        </div>
+                        <!-- Add Widget -->
+                        <div class="add-widget">
+                            <a href="#"><img src="img/blog-img/add.png" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+                
                 <div class="col-12 col-md-4">
                     <div class="academy-blog-sidebar">
                         <!-- Blog Post Widget -->
-                        <div class="blog-post-search-widget mb-30">
-                            <form action="#" method="post">
-                                <input type="search" name="search" id="Search" placeholder="Search">
-                                <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-                            </form>
-                        </div>
 
                         <!-- Blog Post Catagories -->
                         <div class="blog-post-categories mb-30">
-                            <h5>Categories</h5>
+                            <h5>Informasi terkait :</h5>
                             <ul>
-                                <li><a href="#">Courses</a></li>
-                                <li><a href="#">Education</a></li>
-                                <li><a href="#">Teachers</a></li>
-                                <li><a href="#">Uncategorized</a></li>
+                                <li><a href="<?php echo base_url().'User/dashboard_user'?>">Home</a></li>
+                                <li><a href="<?php echo base_url().'User/event_user'?>">Event</a></li>
+                                <li><a href="<?php echo base_url().'User/sharing_loker'?>">Sharing Loker</a></li>
+                                <li><a href="<?php echo base_url().'User/kritik_saran_user'?>">Kritik dan Saran</a></li>
+                                <li><a href="<?php echo base_url().'User/Record_user'?>">Tracer</a></li>
                             </ul>
                         </div>
 
@@ -141,13 +147,9 @@
                                 </div>
                             </div>
                         </div>
-
-                        <!-- Add Widget -->
-                        <div class="add-widget">
-                            <a href="#"><img src="img/blog-img/add.png" alt=""></a>
-                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>

@@ -86,7 +86,7 @@
                           <?php
                           $img = base_url('assets/Gambar/Website/default_job.png');
                           if ($loker->foto == "") : ?>
-                            Choose File
+                            Pilih File
                           <?php else : ?>
                             <?= $loker->foto;
                             $img = base_url('assets/Gambar/Upload/Loker/' . $loker->foto); ?>

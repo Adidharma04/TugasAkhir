@@ -149,7 +149,7 @@
                           <?php
                           $img = base_url('assets/Gambar/Website/default_siswa.jpg');
                           if ($profil_siswa->foto == "") : ?>
-                            Choose File
+                            Pilih File
                           <?php else : ?>
                             <?= $profil_siswa->foto;
                             $img = base_url('assets/Gambar/Upload/Siswa/' . $profil_siswa->foto); ?>

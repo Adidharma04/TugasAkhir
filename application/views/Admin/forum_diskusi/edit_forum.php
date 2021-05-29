@@ -92,7 +92,7 @@
                       <?php
                       $img = base_url('assets/Gambar/Website/default_forum_null.png');
                       if ($forum->foto == "") : ?>
-                        Choose File
+                        Pilih File
                       <?php else : ?>
                         <?= $forum->foto;
                         $img = base_url('assets/Gambar/Upload/Forum/' . $forum->foto); ?>

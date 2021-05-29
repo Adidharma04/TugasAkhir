@@ -67,6 +67,37 @@ class Penilaian extends CI_Controller {
                 redirect('Alumni/penilaian', 'refresh');
         }
     }
+    public function edit($id_penilaian){
+        $getDataPenilaianById = $this->penilaian_model->getPenilaian($id_penilaian);
+        //rule
+        $this->form_validation->set_rules('kritik', 'Kritik', 'required|trim',[
+            'required' => 'Masukkan Kritik',
+        ]);
+        $this->form_validation->set_rules('saran', 'Saran', 'required|trim',[
+            'required' => 'Masukkan Saran',
+        ]);
+
+        //-- Title Halaman
+        $data ['title'] = 'Halaman Edit Penilaian | Alumni';
+        //----------------------------
+        $data ['penilaian'] = $getDataPenilaianById;
+
+        if ($this->form_validation->run() == FALSE) {
+            $this->load->view('Template/Alumni/navbar_alumni',$data);
+            $this->load->view('Template/Alumni/sidebar_alumni',$data);
+            $this->load->view('Alumni/penilaian/edit',$data);
+            $this->load->view('Template/Alumni/footer_alumni');
+        }else{
+            $this->penilaian_model->editDataPenilaian($id_penilaian);
+                $html = '<div class="alert alert-success">
+                                <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
+                                <b>Pemberitahuan</b> <br>
+                                Kritik dan saran berhasil di edit pada tanggal ' . date('d F Y H.i A') . '
+                         </div>';
+                $this->session->set_flashdata('msg', $html);
+                redirect('Alumni/penilaian', 'refresh');
+        }
+    }
 
 
 }
