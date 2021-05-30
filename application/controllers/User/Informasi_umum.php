@@ -19,6 +19,7 @@ class Informasi_umum extends CI_Controller {
     public function detail($id_umum){
         //-- Title Halaman
             $data ['informasi_umum'] = $this->informasi_umum_model->getInformasiUmum($id_umum);
+            $data['latepost'] = $this->informasi_umum_model->tampilDataInformasiUmumUser();
             $this->load->view('User/informasi_umum/detail',$data);
     }
     

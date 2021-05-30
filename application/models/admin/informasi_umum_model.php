@@ -5,6 +5,7 @@ class informasi_umum_model extends CI_Model {
     public function tampilDataInformasiUmumUser()
     {  
         $this->db->select('informasi_umum.*');
+        $this->db->order_by('created_at', 'DESC');
         return $this->db->get('informasi_umum')->result();
     }
 
@@ -27,9 +28,9 @@ class informasi_umum_model extends CI_Model {
         return $this->db->query( $sql );
     }
 
-    public function tambahDataInformasiUmum($upload,$upload1){
+    public function tambahDataInformasiUmum($upload_foto,$upload_berkas){
 
-    
+        
         $id_profile = $this->session->userdata('sess_id_profile');
 
         $data =[
@@ -37,36 +38,42 @@ class informasi_umum_model extends CI_Model {
             'nama_informasi'               => $this->input->post('nama_informasi', true),
             'deskripsi_informasi'          => $this->input->post('deskripsi_informasi', true),
             'status'                       => $this->input->post('status', true),
-            'foto'                         => $upload['file']['file_name'],
-            'berkas'                       => $upload1['file']['file_name'],
+            'foto'                         => $upload_foto['file'],
+            'berkas'                       => $upload_berkas['file'],
         ];  
+
         $this->db->insert('informasi_umum', $data);
     }   
 
-    public function upload(){    
+    public function upload( $type, $size, $name ){    
         $config['upload_path'] = './assets/Gambar/Upload/Informasi/';  
-        $config['allowed_types'] = 'doc|docx|pdf|png|jpg|jpeg';  
-        $config['max_size']     = '20000';
+        $config['allowed_types'] = $type;
+        $config['max_size']     = $size; // 3 mb
 
         $this->load->library('upload', $config);
+        $this->upload->initialize($config);
         
-            if($this->upload->do_upload('foto')){
-                $return = array('result' => 'success', 'file' => $this->upload->data(), 'error' => '');      
+            if($this->upload->do_upload( $name )){
+                $return = array(
+                    'result' => 'success', 
+                    'file' => $this->upload->data('file_name'), 
+                    'error' => '');      
                 return $return;
             }else{    
-                $return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors()); return $return;   
+                $return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors());
+                return $return;   
             }  
     }
     
     public function upload1(){    
         $config['upload_path'] = './assets/Gambar/Upload/Informasi/';  
-        $config['allowed_types'] = 'doc|docx|pdf|png|jpg|jpeg';  
-        $config['max_size']     = '50000';
+        $config['allowed_types'] = 'pdf|docx'; 
+        $config['max_size']     = '10000'; // mb
 
         $this->load->library('upload', $config);
         
             if($this->upload->do_upload('berkas')){
-                $return = array('result' => 'success', 'file' => $this->upload->data(), 'error' => '');      
+                $return = array('result' => 'success', 'file' => $this->upload->data('file_name'), 'error' => '');      
                 return $return;
             }else{    
                 $return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors()); return $return;   
