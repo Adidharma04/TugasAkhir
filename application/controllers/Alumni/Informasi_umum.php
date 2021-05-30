@@ -58,8 +58,9 @@ class informasi_umum extends CI_Controller {
             $this->load->view('Template/Alumni/footer_alumni');
         }else{
             $upload = $this->informasi_umum_model->upload();
+            $upload1 = $this->informasi_umum_model->upload1();
             if ($upload['result'] == 'success') {
-                $this->informasi_umum_model->tambahDataInformasi($upload);
+                $this->informasi_umum_model->tambahDataInformasi($upload,$upload1);
                 $html = '<div class="alert alert-success">
                                 <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
                                 <b>Pemberitahuan</b> <br>

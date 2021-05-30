@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title><?= $title ?></title>
-
-</head>
-
-<body class="hold-transition sidebar-mini layout-fixed" data-panel-auto-height-mode="height">
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -102,9 +92,9 @@
                               <td>
                                 <br>
                                 <small>Ubah Event</small><br>
-                                <a href="<?= base_url() . 'alumni/event/edit/' . $evn->id_event ?>" class="btn btn-sm btn-warning">Edit</a>
+                                <a href="<?= base_url() . 'alumni/event/edit/' . $evn->id_event ?>" class="btn btn-sm btn-primary">Edit</a>
                                 &nbsp;
-                                <a href="#" data-toggle="modal" data-target="#action-delete-<?php echo $evn->id_event ?>" class="btn btn-sm btn-warning">Hapus</a>
+                                <a href="#" data-toggle="modal" data-target="#action-delete-<?php echo $evn->id_event ?>" class="btn btn-sm btn-danger">Hapus</a>
                               </td>
                             </tr>
                             <!-- Modal delete -->
@@ -166,6 +156,4 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-</body>
-
-</html>
+  <br><br>

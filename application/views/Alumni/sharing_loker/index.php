@@ -100,9 +100,9 @@
                               <td>
                                 <br>
                                 <small>Ubah Sharing Loker</small><br>
-                                <a href="<?= base_url() . 'alumni/sharing_loker/edit/' . $jv->id_loker ?>" class="btn btn-sm btn-warning">Sunting</a>
+                                <a href="<?= base_url() . 'alumni/sharing_loker/edit/' . $jv->id_loker ?>" class="btn btn-sm btn-primary">Sunting</a>
                                 &nbsp;
-                                <a href="#" data-toggle="modal" data-target="#action-delete-<?php echo $jv->id_loker ?>" class="btn btn-sm btn-warning">Hapus</a>
+                                <a href="#" data-toggle="modal" data-target="#action-delete-<?php echo $jv->id_loker ?>" class="btn btn-sm btn-danger">Hapus</a>
                               </td>
                             </tr>
                             <!-- Modal delete -->

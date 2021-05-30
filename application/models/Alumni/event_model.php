@@ -47,7 +47,6 @@ class Event_model extends CI_Model {
             // maaf masukkan tanggal yang valid
             $html = '<div class="alert alert-danger">
                                 <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
-                                <br>
                                 <b>Pemberitahuan</b> <br>
                                 Tanggal event harus hari ini ' . date('d F Y H.i A') . ' atau lebih dari hari ini
                          </div>';
@@ -70,7 +69,6 @@ class Event_model extends CI_Model {
 
             $html = '<div class="alert alert-success">
                                 <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
-                                <br>
                                 <b>Pemberitahuan</b> <br>
                                 Data event berhasil di tambah pada tanggal ' . date('d F Y H.i A') . '
                          </div>';
@@ -166,7 +164,6 @@ class Event_model extends CI_Model {
             // maaf masukkan tanggal yang valid
             $html = '<div class="alert alert-danger">
                                 <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
-                                <br>
                                 <b>Pemberitahuan</b> <br>
                                 Data event tidak berhasil di tambah pada tanggal ' . date('d F Y H.i A') . '
                          </div>';
@@ -209,10 +206,7 @@ class Event_model extends CI_Model {
 
 
 
-
-
     function notifikasiEmail( $email, $nama_siswa, $nama_event) {
-
 
 		// load library
 		$this->load->library('email');

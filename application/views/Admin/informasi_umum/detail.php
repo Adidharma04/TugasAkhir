@@ -53,18 +53,23 @@
                   <ul class="ml-5 mb-0 fa-ul text-muted">
                     <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building fa-1x"></i> </span><b><h6>Deskripsi</h6></b></li>
                     <span align="justify"><p><?= $informasi_umum->deskripsi_informasi ?></p></span>
-                    <br>
                     <li class="small"><span class="fa-li"><i class="fas fa-lg fa-clock-o fa-1x"></i> </span><b><h6>Status</h6></b> </li>
-                    <span align="justify"><p><?= $informasi_umum->status ?></p></span><br>
+                    <span align="justify"><p><?= $informasi_umum->status ?></p></span>
                     <li class="small"><span class="fa-li"><i class="fas fa-lg fa-calendar fa-1x"></i> </span><b><h6>Tanggal ditambahkan</h6></b> </li>
                     <span align="justify"><?= date('d F Y', strtotime($informasi_umum->created_at)) ?></p></span>
+                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-paperclip fa-1x"></i> </span><b><h6>Tautan</h6></b> </li>
+                    <?php if ($informasi_umum->berkas == "") : ?>
+                      <small>Tidak tersedia</small>
+                    <?php else : ?>
+                      <span align="justify"><p><a href="<?= base_url('assets/Gambar/Upload/Informasi/').$informasi_umum->berkas ?>"><?= $informasi_umum->berkas ?></a> </p></span>
+                    <?php endif ?>
                   </ul>
                 </div>
-                <div class="col-5 text-center">
+                <div class="col-md-4 ">
                     <?php if ($informasi_umum->foto == "") : ?>
-                      <img src="<?= base_url('assets/Gambar/Website/default_info.png') ?>" style="width:230px; height:300px;">
+                      <img src="<?= base_url('assets/Gambar/Website/default_info.png') ?>" style="width:200; height:300px;">
                     <?php else : ?>
-                      <img src="<?= base_url('assets/Gambar/Upload/informasi/') . $informasi_umum->foto ?>" style="width:300px; height:300px;">
+                      <img src="<?= base_url('assets/Gambar/Upload/informasi/') . $informasi_umum->foto ?>" style="width:200px; height:200px;">
                     <?php endif ?>
                 </div>
               </div>

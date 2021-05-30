@@ -101,9 +101,9 @@
                               <td>
                                 <br>
                                 <small>Ubah Informasi Umum</small><br>
-                                <a href="<?= base_url() . 'alumni/informasi_umum/edit/' . $ifu->id_umum ?>" class="btn btn-sm btn-warning">Edit</a>
+                                <a href="<?= base_url() . 'alumni/informasi_umum/edit/' . $ifu->id_umum ?>" class="btn btn-sm btn-primary">Edit</a>
                                 &nbsp;
-                                <a href="#"  data-toggle="modal" data-target="#action-delete-<?php echo $ifu->id_umum ?>" class="btn btn-sm btn-warning">Hapus</a>
+                                <a href="#"  data-toggle="modal" data-target="#action-delete-<?php echo $ifu->id_umum ?>" class="btn btn-sm btn-danger">Hapus</a>
                               </td>
                             </tr>
                             <!-- Modal delete -->

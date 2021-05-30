@@ -10,7 +10,7 @@ class Sharing_loker_model extends CI_Model {
         $where = ['id_profile' => $id_profile];
         return $this->db->get_where('loker', $where);
 
-    }public function tambahDataLoker($upload){
+    }public function tambahDataLoker($upload,$upload1){
 
         $id_profile = $this->session->userdata('sess_id_profile');
         $getDataSiswaById = $this->db->where('id_profile', $id_profile)->get('profil_siswa')->row();
@@ -31,6 +31,7 @@ class Sharing_loker_model extends CI_Model {
             'alamat'                       => $this->input->post('alamat', true),
             'status'                       => 'pending',
             'foto'                         => $upload['file']['file_name'],
+            'berkas'                       => $upload1['file']['file_name'],
         ];
         $this->db->insert('loker', $loker);
 
@@ -38,24 +39,37 @@ class Sharing_loker_model extends CI_Model {
 
 			$this->notifikasiEmail( $getDataBKByLevel->email, $getDataSiswaById->nama, $nama_pekerjaan );
     }
+
     public function upload(){    
-        $config['upload_path'] = './assets/Gambar/Upload/Loker/';    
-        $config['allowed_types'] = 'jpg|png|jpeg';
+        $config['upload_path'] = './assets/Gambar/Upload/Loker/';  
+        $config['allowed_types'] = 'doc|docx|pdf|png|jpg|jpeg';  
+        $config['max_size']     = '20000';
+
         $this->load->library('upload', $config);
-
-        if ( empty( $_FILES['foto']['name'] ) ) {
-
-            return array('result' => 'success', 'file' => ['file_name' => ""]);
-        } else {
-
+        
             if($this->upload->do_upload('foto')){
                 $return = array('result' => 'success', 'file' => $this->upload->data(), 'error' => '');      
                 return $return;
             }else{    
-                $return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors());return $return;   
+                $return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors()); return $return;   
             }  
-        }
     }
+    
+    public function upload1(){    
+        $config['upload_path'] = './assets/Gambar/Upload/Loker/';  
+        $config['allowed_types'] = 'doc|docx|pdf|png|jpg|jpeg';  
+        $config['max_size']     = '50000';
+
+        $this->load->library('upload', $config);
+        
+            if($this->upload->do_upload('berkas')){
+                $return = array('result' => 'success', 'file' => $this->upload->data(), 'error' => '');      
+                return $return;
+            }else{    
+                $return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors()); return $return;   
+            } 
+    }
+
     public function getLoker($id_loker){
 		// return $this->db->get_where('profil_siswa',['id_siswa'=>$id_siswa])->result();
         return $this->db->get_where('loker',['id_loker'=>$id_loker])->row();
@@ -74,7 +88,6 @@ class Sharing_loker_model extends CI_Model {
         $foto = "";
         // apabila dia ingin mengubah gambar 
         if ( !empty( $_FILES['foto']['name'] ) ) {
-
 
             if ( $this->upload->do_upload('foto') ){
 
@@ -121,7 +134,26 @@ class Sharing_loker_model extends CI_Model {
         $this->db->update('loker', $dataInformationLoker);
 
     }   // porses hapus
+
     function prosesHapusLoker( $id_loker ){
+		$ambilInformasiLoker = $this->getLoker( $id_loker );
+
+        $config['upload_path'] = './assets/Gambar/Upload/Loker/';    
+        $config['allowed_types'] = 'doc|docx|pdf|png|jpg|jpeg';
+        $this->load->library('upload', $config);
+
+        if (!empty( $_FILES['berkas']['name'] )  ) {
+            if ( $ambilInformasiLoker->berkas) { 
+                $link = $config['upload_path']. $ambilInformasiLoker->berkas;
+                unlink( $link );
+            }
+        }
+        if (!empty( $_FILES['foto']['name'] )  ) {
+            if ( $ambilInformasiLoker->foto) { 
+                $link = $config['upload_path']. $ambilInformasiLoker->foto;
+                unlink( $link );
+            }
+        }
 
         $this->db->where('id_loker', $id_loker)->delete('loker');
 

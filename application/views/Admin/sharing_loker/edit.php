@@ -104,6 +104,32 @@
               <!-- Batas Baris -->
               <hr>
               <!-- Batas Baris -->
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="form-group">
+                    <h4>Berkas Lowongan Kerja</h4>
+                    <div class="input-group">
+                      <div class="custom-file">
+                        <input type="file" class="custom-file-input form-control" id="berkas" name="berkas" value="<?= $loker->berkas; ?>">
+                        <label class="custom-file-label" for="berkas" value="">
+                          <?php
+                          $img = base_url('assets/Gambar/Website/default_document.png');
+                          if ($loker->berkas == "") : ?>
+                            Pilih File
+                          <?php else : ?>
+                            <?= $loker->berkas;
+                            $img = base_url('assets/Gambar/Upload/Loker/' . $loker->berkas); ?>
+                          <?php endif ?>
+                        </label>
+                      </div>
+                    </div>
+                    <small>Tambahkan foto apabila dibutuhkan</small>
+                  </div>
+                </div>
+              </div>
+              <!-- Batas Baris -->
+              <hr>
+              <!-- Batas Baris -->
               <div class="form-group">
                 <label for="status">Status</label>
                     <?php if ($loker->status == "accept") : ?>

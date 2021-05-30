@@ -26,72 +26,52 @@ class informasi_umum_model extends CI_Model {
 
         return $this->db->query( $sql );
     }
-    
-   
-    public function uploadBerkas(){    
-        $config['upload_path'] = './assets/Gambar/Upload/Informasi/';    
-        $config['allowed_types'] = 'pdf|doc|docx|xls|xlsx';
-        $config['max_size'] =  5000;
-        $this->load->library('upload', $config);
 
-        if ( empty( $_FILES['berkas']['name'] ) ) {
-
-            return array('result' => 'success', 'file' => ['file_name' => ""]);
-        } else {
-
-            if($this->upload->do_upload('berkas')){
-                $return = array('result' => 'success', 'file' => $this->upload->data(), 'error' => '');      
-                return $return;
-            }else{    
-                $return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors());return $return;   
-            }  
-        }
-    }
-
-    public function uploadFoto(){    
-        $config['upload_path'] = './assets/Gambar/Upload/Informasi/';    
-        $config['allowed_types'] = 'jpg|png|jpeg';
-        $this->load->library('upload', $config);
-
-        if ( empty( $_FILES['foto']['name'] ) ) {
-
-            return array('result' => 'success', 'file' => ['file_name' => ""]);
-        } else {
-
-            if($this->upload->do_upload('foto')){
-                $return = array('result' => 'success', 'file' => $this->upload->data(), 'error' => '');      
-                return $return;
-            }else{    
-                $return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors());return $return;   
-            }  
-        }
-    }
-
-    public function tambahDataInformasiUmum($uploadBerkas,$uploadFoto){
+    public function tambahDataInformasiUmum($upload,$upload1){
 
     
         $id_profile = $this->session->userdata('sess_id_profile');
 
-        $informasi_umum =[
+        $data =[
             'id_profile'                   => $id_profile,
             'nama_informasi'               => $this->input->post('nama_informasi', true),
             'deskripsi_informasi'          => $this->input->post('deskripsi_informasi', true),
             'status'                       => $this->input->post('status', true),
-            'berkas'                       => $uploadBerkas['file']['file_name'],
-            'foto'                         => $uploadFoto['file']['file_name'],
+            'foto'                         => $upload['file']['file_name'],
+            'berkas'                       => $upload1['file']['file_name'],
         ];  
-        $this->db->insert('informasi_umum', $informasi_umum);
+        $this->db->insert('informasi_umum', $data);
     }   
+
+    public function upload(){    
+        $config['upload_path'] = './assets/Gambar/Upload/Informasi/';  
+        $config['allowed_types'] = 'doc|docx|pdf|png|jpg|jpeg';  
+        $config['max_size']     = '20000';
+
+        $this->load->library('upload', $config);
+        
+            if($this->upload->do_upload('foto')){
+                $return = array('result' => 'success', 'file' => $this->upload->data(), 'error' => '');      
+                return $return;
+            }else{    
+                $return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors()); return $return;   
+            }  
+    }
     
+    public function upload1(){    
+        $config['upload_path'] = './assets/Gambar/Upload/Informasi/';  
+        $config['allowed_types'] = 'doc|docx|pdf|png|jpg|jpeg';  
+        $config['max_size']     = '50000';
 
-
-
-
-
-
-
-
-
+        $this->load->library('upload', $config);
+        
+            if($this->upload->do_upload('berkas')){
+                $return = array('result' => 'success', 'file' => $this->upload->data(), 'error' => '');      
+                return $return;
+            }else{    
+                $return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors()); return $return;   
+            } 
+    }
 
 
     public function getInformasiUmum($id_umum){
@@ -163,6 +143,24 @@ class informasi_umum_model extends CI_Model {
     // porses hapus
     function prosesHapusInformasiUmum( $id_umum ){
 
+        $ambilInformasiUmum = $this->getInformasiUmum( $id_umum );
+
+        $config['upload_path'] = './assets/Gambar/Upload/Informasi/';    
+        $config['allowed_types'] = 'doc|docx|pdf|png|jpg|jpeg';
+        $this->load->library('upload', $config);
+
+        if (!empty( $_FILES['berkas']['name'] )  ) {
+            if ( $ambilInformasiUmum->berkas) { 
+                $link = $config['upload_path']. $ambilInformasiUmum->berkas;
+                unlink( $link );
+            }
+        }
+        if (!empty( $_FILES['foto']['name'] )  ) {
+            if ( $ambilInformasiUmum->foto) { 
+                $link = $config['upload_path']. $ambilInformasiUmum->foto;
+                unlink( $link );
+            }
+        }
         $this->db->where('id_umum', $id_umum)->delete('informasi_umum');
     }
 }

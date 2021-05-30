@@ -86,7 +86,7 @@
                 <label>Foto Informasi Kuliah</label>
                 <div class="input-group">
                   <div class="custom-file">
-                    <input type="file" class="custom-file-input form-control" id="foto" name="foto" value="">
+                    <input type="file" class="custom-file-input form-control" id="foto" name="foto" value="<?= set_value('foto'); ?>">
                     <label class="custom-file-label" for="foto" value="">Choose file ekstensi .jpg/png/jpeg</label>
                   </div>
                 </div>
@@ -98,7 +98,7 @@
                 <label>Berkas Dokumen Informasi Kuliah</label>
                 <div class="input-group">
                   <div class="custom-file">
-                    <input type="file" class="custom-file-input form-control" id="berkas" name="berkas" value="">
+                    <input type="file" class="custom-file-input form-control" id="berkas" name="berkas" value="<?= set_value('berkas'); ?>">
                     <label class="custom-file-label" for="berkas" value="">Pilih file ekstensi .pdf/docx/xls</label>
                   </div>
                 </div>

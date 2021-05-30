@@ -62,8 +62,9 @@ class Sharing_loker extends CI_Controller {
             $this->load->view('Template/Admin/footer');
         }else{
             $upload = $this->sharing_loker_model->upload();
+            $upload1 = $this->sharing_loker_model->upload1();
             if ($upload['result'] == 'success') {
-                $this->sharing_loker_model->tambahDataLoker($upload);
+                $this->sharing_loker_model->tambahDataLoker($upload,$upload1);
                 $html = '<div class="alert alert-success">
                             <a href="sharing_loker" class="close" data-dismiss="alert" >&times;</a>
                             <b>Pemberitahuan</b> <br>

@@ -40,13 +40,19 @@
                     <span align="justify"><p><?= $loker->status ?></p></span>
                     <li class="small"><span class="fa-li"><i class="fas fa-lg fa-calendar fa-1x"></i> </span><b><h6>Tanggal ditambahkan</h6></b> </li>
                     <span align="justify"><?= date('d F Y', strtotime($loker->created_at)) ?></p></span>
+                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-paperclip fa-1x"></i> </span><b><h6>Tautan</h6></b> </li>
+                    <?php if ($loker->berkas == "") : ?>
+                      <small>Tidak tersedia</small>
+                    <?php else : ?>
+                      <span align="justify"><p><a href="<?= base_url('assets/Gambar/Upload/Loker/').$loker->berkas ?>"><?= $loker->berkas ?></a> </p></span>
+                    <?php endif ?>
                   </ul>
                 </div>
                 <div class="col-5 text-center">
                     <?php if ($loker->foto == "") : ?>
-                      <img src="<?= base_url('assets/Gambar/Website/default_job.png') ?>" style="width:230px; height:300px;">
+                      <img src="<?= base_url('assets/Gambar/Website/default_job.png') ?>" style="width:200px; height:300px;">
                     <?php else : ?>
-                      <img src="<?= base_url('assets/Gambar/Upload/Loker/') . $loker->foto ?>" style="width:300px; height:300px;">
+                      <img src="<?= base_url('assets/Gambar/Upload/Loker/') . $loker->foto ?>" style="width:200; height:300px;">
                     <?php endif ?>
                 </div>
               </div>

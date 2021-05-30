@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title><?= $title ?></title>
- 
-</head>
-<body class="hold-transition sidebar-mini layout-fixed" data-panel-auto-height-mode="height">
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -18,7 +9,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="<?php echo base_url('Admin/dashboard_admin')?>">Home</a></li>
+              <li class="breadcrumb-item"><a href="<?php echo base_url('Alumni/dashboard_alumni')?>">Home</a></li>
               <li class="breadcrumb-item active">Dashboard </li>
             </ol>
           </div><!-- /.col -->
@@ -32,7 +23,6 @@
       
 
       <div class="container-fluid">
-        
           <!-- /.row -->
           <div class="row">
             <div class="col-8">
@@ -113,5 +103,3 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-</body>
-</html>
