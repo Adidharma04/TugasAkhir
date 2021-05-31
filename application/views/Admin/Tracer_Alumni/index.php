@@ -109,6 +109,8 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
+              <a href="<?php echo base_url('Admin/tracer_alumni/exportToPDF/'. $filter_graduate) ?>" class="btn btn-danger"><i class="fas fa-pdf"></i>Cetak PDF</a>
+              <small>Klik untuk mengekspor rekap data tracer</small><br>
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                     <tr>

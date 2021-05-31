@@ -221,7 +221,7 @@ class Siswa extends CI_Controller
         // //meletakkan gambar
         // $pdf->letak('assets/Gambar/Website/Title_SMA.png');
         // //meletakkan judul disamping logo diatas
-        // $pdf->judul('PEMERINTAH KOTA PAGAR ALAM', 'DINAS PENDIDIKAN','SEKOLAH MENENGAH ATAS NEGERI 4','Jambat Balo Pagar Alam Selatan Kota Pagar Alam Telp. (0730)622442', 'Website: http://sman4pagaralam.sch.id | E-Mail: smanegeri4pagaralam@gmail.com');
+        // $pdf->judul('PEMERINTAH PROVINSI JAWA TIMUR', 'DINAS PENDIDIKAN','SEKOLAH MENENGAH ATAS NEGERI PLOSO','Jl. Raya 230 Ploso Jombang Telp. (0321)888814', 'Website: www.smanegeriploso.sch.id | E-Mail: smanegeri_ploso@yahoo.co.id');
         // //membuat garis ganda tebal dan tipis
         // $pdf->garis();
 
@@ -230,7 +230,7 @@ class Siswa extends CI_Controller
 
         // set document information
         $pdf->SetCreator(PDF_CREATOR);
-        $pdf->SetAuthor('Nicola Asuni');
+        $pdf->SetAuthor('smannplosojombang');
         $pdf->SetTitle('LAPORAN DATA SISWA DAN ALUMNI');
         $pdf->SetSubject('TCPDF Tutorial');
         $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
@@ -289,7 +289,7 @@ class Siswa extends CI_Controller
         $spesifik = "";
         if ( $filter_query == true ) {
 
-            $spesifik = "berdasarkan tahun lulus ". $filter_query; 
+            $spesifik = "Tahun ". $filter_query; 
         }
 
 
@@ -299,7 +299,7 @@ class Siswa extends CI_Controller
         // Set some content to print
         $html = '<table border="0">
                 <tr>
-                    <td align="center"><h2>LAPORAN DATA SISWA</h2></td>
+                    <td align="center"><h2>LAPORAN DATA SISWA DAN ALUMNI</h2></td>
                 </tr>
                 <tr>
                     <td align="center"><h3>SMA Negeri Ploso '.$spesifik.'</h3></td>
@@ -333,6 +333,11 @@ class Siswa extends CI_Controller
                     <td>'.$no.'</td>
                     <td>'.$row->nis.'</td>
                     <td>'.$row->nama.'</td>
+                    <td>'.$row->alamat.'</td>
+                    <td>'.$row->tempat_lahir.'</td>
+                    <td>'.$row->tanggal_lahir.'</td>
+                    <td>'.$row->jurusan.'</td>
+                    <td>'.$row->no_telfon.'</td>
                     <td>'.$status_siswa.'</td>
                 </tr>
             ';
@@ -351,6 +356,11 @@ class Siswa extends CI_Controller
                     <th><b>No</b></th>
                     <th><b>NIS</b></th>
                     <th>NAMA</th>
+                    <th>ALAMAT</th>
+                    <th>TEMPAT LAHIR</th>
+                    <th>TANGGAL LAHIR</th>
+                    <th>JURUSAN</th>
+                    <th>HP/TELEPON</th>
                     <th>Status</th>
                 </tr>
 
@@ -369,7 +379,7 @@ class Siswa extends CI_Controller
 
         // Close and output PDF document
         // This method has several options, check the source code documentation for more information.
-        $pdf->Output('LAPORAN DATA SISWA.pdf', 'I');
+        $pdf->Output('LAPORAN DATA ALUMNI SMANIS.pdf', 'I');
 
         //============================================================+
         // END OF FILE
