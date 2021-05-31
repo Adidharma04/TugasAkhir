@@ -1,3 +1,7 @@
+    
+    <link rel="stylesheet" href="https://www.jqueryscript.net/demo/Year-Picker-Text-Input/yearpicker.css">
+    <script src="https://www.jqueryscript.net/demo/Year-Picker-Text-Input/yearpicker.js"></script>
+    
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -29,7 +33,31 @@
                             <div class="card-body">
                             
                                 <h6>Informasi Alumni dan Siswa</h6>
-                                <h3><?php echo date('Y') ?></h3>
+
+                                <?php
+                                
+                                    $tahun = date('Y');
+                                    $filter_tahun = $this->input->get('tahun');
+
+
+                                    $query_filter = "";
+
+                                    if ( $filter_tahun == true ) {
+
+                                        $tahun = $filter_tahun;
+                                        $query_filter = "?tahun=". $filter_tahun;
+                                    }
+                                ?>
+                                <h3><?php echo $tahun ?></h3>
+
+                                <form action="" method="GET">
+
+                                <input type="text" name="tahun" class="yearpicker form-control" value="<?php echo $tahun ?>" />
+                                <button class="btn btn-xs btn-default"><i class="fa fa-calendar"></i> Tampilkan</button>
+                                <a href="<?php echo base_url('Admin/siswa') ?>" class="btn btn-xs btn-default">Reset Filter</a>
+                                </form>
+
+                                <hr>
                                 <small>Tahun yang dipilih</small>
 
 
@@ -50,6 +78,9 @@
                                 <h3 class="card-title">Table Informasi Siswa</h3>
                             </div>
                             <div class="card-body">
+                                <a href="<?php echo base_url('Admin/siswa/exportToPDF/'. $query_filter) ?>" class="btn btn-danger"><i class="fas fa-pdf"></i>Cetak PDF</a>
+                                <small>Klik untuk mengekspor data siswa</small><br>
+
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                         <tr>
@@ -66,11 +97,11 @@
                                         $jumlahAlumni = 0;
                                         $jumlahSiswa  = 0;
                                         foreach ($profil_siswa as $swa) :
-                                        
-                                        
+                                            
+
+                                            
                                             if ( $swa->verifikasi_alumni == "diterima" ) $jumlahAlumni++;
                                             else $jumlahSiswa++;
-                                        
                                         ?>
                                         <tr>
                                                 <td><?= $no++ ?></td>
@@ -129,7 +160,8 @@
                                                     <!-- /.modal -->
                                                 </td>
                                         </tr>
-                                        <?php endforeach ?>
+                                        <?php                                         
+                                        endforeach ?>
                                     </tbody>
                                     <tfoot>
                                         <tr>
@@ -189,5 +221,11 @@
           data: donutData,
           options: donutOptions      
         })
+
+
+
+
+
+        $('.yearpicker').yearpicker();
     
     </script>

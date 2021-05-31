@@ -22,6 +22,10 @@ class Siswa extends CI_Controller
             $this->session->sess_destroy();
             redirect('Admin/login', 'refresh');
         }
+
+
+
+        $this->load->library('pdf');
     }
     public function index()
     {
@@ -195,6 +199,181 @@ class Siswa extends CI_Controller
                  </div>';
         $this->session->set_flashdata('msg', $html);
         redirect('Admin/siswa', 'refresh');
+    }
+
+
+
+
+
+
+
+
+
+
+    // cetak pdf
+    function exportToPDF() {
+
+        
+        // create new PDF document
+        $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+
+
+        // //meletakkan gambar
+        // $pdf->letak('assets/Gambar/Website/Title_SMA.png');
+        // //meletakkan judul disamping logo diatas
+        // $pdf->judul('PEMERINTAH KOTA PAGAR ALAM', 'DINAS PENDIDIKAN','SEKOLAH MENENGAH ATAS NEGERI 4','Jambat Balo Pagar Alam Selatan Kota Pagar Alam Telp. (0730)622442', 'Website: http://sman4pagaralam.sch.id | E-Mail: smanegeri4pagaralam@gmail.com');
+        // //membuat garis ganda tebal dan tipis
+        // $pdf->garis();
+
+
+
+
+        // set document information
+        $pdf->SetCreator(PDF_CREATOR);
+        $pdf->SetAuthor('Nicola Asuni');
+        $pdf->SetTitle('LAPORAN DATA SISWA DAN ALUMNI');
+        $pdf->SetSubject('TCPDF Tutorial');
+        $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
+
+        // set default header data
+
+        // set header and footer fonts
+        $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
+        $pdf->setFooterFont(Array(PDF_FONT_NAME_DATA, '', PDF_FONT_SIZE_DATA));
+
+        // set default monospaced font
+        $pdf->SetDefaultMonospacedFont(PDF_FONT_MONOSPACED);
+
+        // set margins
+        $pdf->SetMargins(PDF_MARGIN_LEFT, PDF_MARGIN_TOP, PDF_MARGIN_RIGHT);
+        $pdf->SetHeaderMargin(PDF_MARGIN_HEADER);
+        $pdf->SetFooterMargin(PDF_MARGIN_FOOTER);
+
+        // set auto page breaks
+        $pdf->SetAutoPageBreak(TRUE, PDF_MARGIN_BOTTOM);
+
+        // set image scale factor
+        $pdf->setImageScale(PDF_IMAGE_SCALE_RATIO);
+
+        // set some language-dependent strings (optional)
+        if (@file_exists(dirname(__FILE__).'/lang/eng.php')) {
+            require_once(dirname(__FILE__).'/lang/eng.php');
+            $pdf->setLanguageArray($l);
+        }
+
+        // ---------------------------------------------------------
+
+        // set default font subsetting mode
+        $pdf->setFontSubsetting(true);
+
+        // Set font
+        // dejavusans is a UTF-8 Unicode font, if you only need to
+        // print standard ASCII chars, you can use core fonts like
+        // helvetica or times to reduce file size.
+        $pdf->SetFont('times', '', 14, '', true);
+
+        // Add a page
+        // This method has several options, check the source code documentation for more information.
+        $pdf->AddPage('L', 'A4');
+
+        // set text shadow effect
+        $pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'color'=>array(196,196,196), 'opacity'=>1, 'blend_mode'=>'Normal'));
+
+
+
+
+
+
+        $filter_query = $this->input->get('tahun');
+        
+        $spesifik = "";
+        if ( $filter_query == true ) {
+
+            $spesifik = "berdasarkan tahun lulus ". $filter_query; 
+        }
+
+
+
+
+
+        // Set some content to print
+        $html = '<table border="0">
+                <tr>
+                    <td align="center"><h2>LAPORAN DATA SISWA</h2></td>
+                </tr>
+                <tr>
+                    <td align="center"><h3>SMA Negeri Ploso '.$spesifik.'</h3></td>
+                </tr>
+            </table>';
+
+        $pdf->writeHTML($html, true, false, true, false, '');
+        $pdf->Ln(5, false);
+
+
+
+
+        $table_body = "";
+        $profil_siswa = $this->siswa_model->tampilDataSiswa();
+
+        $no = 1;
+        foreach ( $profil_siswa AS $row ) {
+
+            $status_siswa = "";
+
+            if ( $row->verifikasi_alumni == "diterima" ) {
+
+                $status_siswa  = "Alumni";
+            } else {
+                $status_siswa  = "Siswa";
+            }
+
+            $table_body .= '
+                <tr>
+                
+                    <td>'.$no.'</td>
+                    <td>'.$row->nis.'</td>
+                    <td>'.$row->nama.'</td>
+                    <td>'.$status_siswa.'</td>
+                </tr>
+            ';
+
+            $no++;
+        }
+
+
+
+
+        
+        $table = '
+        
+            <table border="1" width="100%" cellpadding="6" style="font-size: 10px">
+                <tr>
+                    <th><b>No</b></th>
+                    <th><b>NIS</b></th>
+                    <th>NAMA</th>
+                    <th>Status</th>
+                </tr>
+
+                '.$table_body.'
+            </table>
+        ';
+
+
+        $pdf->writeHTML($table, true, false, true, false, '');
+        $pdf->Ln(5, false);
+
+
+
+
+        // ---------------------------------------------------------
+
+        // Close and output PDF document
+        // This method has several options, check the source code documentation for more information.
+        $pdf->Output('LAPORAN DATA SISWA.pdf', 'I');
+
+        //============================================================+
+        // END OF FILE
+        //============================================================+
     }
 }
 

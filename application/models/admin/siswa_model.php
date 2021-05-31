@@ -71,8 +71,23 @@ class Siswa_model extends CI_Model {
 
     // porses tampil Data Siswa
     public function tampilDataSiswa()
-    {  
+    {   
+
         $this->db->select('profil_siswa.*');
+
+
+
+
+        // filter data tahun lulus
+        $filter_tahun = $this->input->get('tahun');
+
+        if ( $filter_tahun == true ){
+
+            $this->db->where('profil_siswa.tahun_lulus', $filter_tahun);
+        }
+
+
+
         return $this->db->get('profil_siswa')->result();
     }
 
