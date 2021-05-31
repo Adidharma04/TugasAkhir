@@ -60,7 +60,8 @@
                             <span >Oleh Alumni  |  Pada : <?= date('d F Y', strtotime($pnl->created_at)) ?></span>
                             <p> Kritik :  <?= $pnl->kritik ?></p>
                             <p> Saran  : <?= $pnl->saran ?></p>
-                    </div>
+                            </div>
+                    <div class="popular-course-thumb bg-img" style="background-image: url(<?php echo base_url().'assets/Gambar/Website/Dashboard/kritiksaran.png';?>);"></div>
                     </div>
                 </div>
                 <?php endforeach ?>

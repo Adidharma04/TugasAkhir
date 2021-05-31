@@ -10,7 +10,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="<?php echo base_url('Admin/dashboard_admin') ?>">Home</a></li>
-                            <li class="breadcrumb-item active">Table Pegawai</li>
+                            <li class="breadcrumb-item active">Data Pegawai</li>
                         </ol>
                     </div>
                 </div>
