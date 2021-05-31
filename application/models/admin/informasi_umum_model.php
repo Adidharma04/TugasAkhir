@@ -152,7 +152,7 @@ class informasi_umum_model extends CI_Model {
 
             'nama_informasi'               => $this->input->post('nama_informasi', true),
             'deskripsi_informasi'          => $this->input->post('deskripsi_informasi', true),
-            'status'                       => $this->input->post('status', true),
+            'status'                       => "accept",
             'foto'                         => $foto,
             'berkas'                       => $berkas,
 		];

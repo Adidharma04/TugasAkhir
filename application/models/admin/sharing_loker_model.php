@@ -97,7 +97,6 @@ class sharing_loker_model extends CI_Model {
                 $foto = $this->upload->data('file_name');
                 
             }else{    
-                
                 // upload error
                 $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> '.$this->upload->display_errors().'</div>';
                 $this->session->set_flashdata('msg', $html);
@@ -155,7 +154,7 @@ class sharing_loker_model extends CI_Model {
             'nama_pekerjaan'               => $this->input->post('nama_pekerjaan', true),
             'deskripsi_pekerjaan'          => $this->input->post('deskripsi_pekerjaan', true),
             'alamat'                       => $this->input->post('alamat', true),
-            'status'                       => $this->input->post('status', true),
+            'status'                       => "accept",
             'foto'                         => $foto,
             'berkas'                       => $berkas,
 		];
