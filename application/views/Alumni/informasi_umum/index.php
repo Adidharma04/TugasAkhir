@@ -16,13 +16,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Informasi Umum</h1>
-            <p>Deskripsi penjelasan Informasi Umum</p>
+            <h1 class="m-0">Informasi Kuliah</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="<?php echo base_url('Alumni/dashboard_alumni') ?>">Home</a></li>
-              <li class="breadcrumb-item active">Informasi Umum </li>
+              <li class="breadcrumb-item active">Informasi Kuliah </li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -100,10 +99,16 @@
                               </td>
                               <td>
                                 <br>
-                                <small>Ubah Informasi Umum</small><br>
-                                <a href="<?= base_url() . 'alumni/informasi_umum/edit/' . $ifu->id_umum ?>" class="btn btn-sm btn-primary">Edit</a>
-                                &nbsp;
-                                <a href="#"  data-toggle="modal" data-target="#action-delete-<?php echo $ifu->id_umum ?>" class="btn btn-sm btn-danger">Hapus</a>
+                                <?php
+                                if($ifu->status == "accept" || $ifu->status == "decline" ){
+                                  echo '<span class="badge badge-warning">Telah dikonfirmasi</span>'; 
+                                }
+                                elseif ($ifu->status == "pending"){
+                                ?>
+                                 <a href="<?= base_url() .'Alumni/informasi_umum/edit/' . $ifu->id_umum?>" class="btn btn-sm btn-primary">Edit</a>
+                                 &nbsp;
+                                 <a href="#"  data-toggle="modal" data-target="#action-delete-.'.'<?php echo $ifu->id_umum ?>" class="btn btn-sm btn-danger">Hapus</a>
+                                 <?php }?>
                               </td>
                             </tr>
                             <!-- Modal delete -->

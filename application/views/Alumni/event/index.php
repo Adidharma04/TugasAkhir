@@ -91,10 +91,16 @@
                               </td>
                               <td>
                                 <br>
-                                <small>Ubah Event</small><br>
-                                <a href="<?= base_url() . 'alumni/event/edit/' . $evn->id_event ?>" class="btn btn-sm btn-primary">Edit</a>
-                                &nbsp;
-                                <a href="#" data-toggle="modal" data-target="#action-delete-<?php echo $evn->id_event ?>" class="btn btn-sm btn-danger">Hapus</a>
+                                <?php
+                                if($evn->status == "accept" || $evn->status == "decline" ){
+                                  echo '<span class="badge badge-warning">Telah dikonfirmasi</span>'; 
+                                }
+                                elseif ($evn->status == "pending"){
+                                ?>
+                                 <a href="<?= base_url() .'Alumni/event/edit/' . $evn->id_event?>" class="btn btn-sm btn-primary">Edit</a>
+                                 &nbsp;
+                                 <a href="#"  data-toggle="modal" data-target="#action-delete-.'.'<?php echo $evn->id_event ?>" class="btn btn-sm btn-danger">Hapus</a>
+                                 <?php }?>
                               </td>
                             </tr>
                             <!-- Modal delete -->
