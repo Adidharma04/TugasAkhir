@@ -5,12 +5,12 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Data Siswa / Alumni</h1>
+                        <h1>Informasi Siswa</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="<?php echo base_url('Admin/dashboard_admin') ?>">Home</a></li>
-                            <li class="breadcrumb-item active">Table Siswa atau Alumni</li>
+                            <li class="breadcrumb-item active">Table Siswa</li>
                         </ol>
                     </div>
                 </div>
@@ -28,7 +28,7 @@
                         
                             <div class="card-body">
                             
-                                <h6>Data Siswa / Aumni</h6>
+                                <h6>Informasi Alumni dan Siswa</h6>
                                 <h3><?php echo date('Y') ?></h3>
                                 <small>Tahun yang dipilih</small>
 
@@ -47,7 +47,7 @@
                                 <?php echo $this->session->flashdata('msg') ?>
                             <br>
                             <div class="card-header">
-                                <h3 class="card-title">Table Data Siswa / Alumni</h3>
+                                <h3 class="card-title">Table Informasi Siswa</h3>
                             </div>
                             <div class="card-body">
                                 <table id="example1" class="table table-bordered table-striped">
