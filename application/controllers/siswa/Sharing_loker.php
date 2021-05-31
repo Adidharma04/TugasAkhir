@@ -30,6 +30,7 @@ class sharing_loker extends CI_Controller {
     public function detail($id_loker){
         //-- Title Halaman
             $data ['loker'] = $this->sharing_loker_model->getLoker($id_loker);
+            $data['latepost'] = $this->sharing_loker_model->tampilDataLokerUser();
             $this->load->view('Siswa/sharing_loker/detail',$data);
     } 
 }

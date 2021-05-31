@@ -7,6 +7,7 @@ class sharing_loker_model extends CI_Model {
         $this->db->select('loker.*');
         return $this->db->get('loker')->result();
     } 
+    
 }
 
 /* End of file ModelName.php */

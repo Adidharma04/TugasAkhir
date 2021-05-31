@@ -94,59 +94,36 @@
                                 <li><a href="<?php echo base_url().'Siswa/Record_siswa'?>">Tracer</a></li>
                             </ul>
                         </div>
-
+                        
                         <!-- Latest Blog Posts Area -->
                         <div class="latest-blog-posts mb-30">
-                            <h5>Post Terbaru</h5>
+                            <h5>Latest Posts</h5>
+                            <?php foreach( $latepost AS $row ) :
+                            
+                                if ( $informasi_umum->id_umum != $row->id_umum ) {
+                            ?>
                             <!-- Single Latest Blog Post -->
                             <div class="single-latest-blog-post d-flex mb-30">
                                 <div class="latest-blog-post-thumb">
-                                    <img src="img/blog-img/lb-1.jpg" alt="">
+                                    <img src="
+                                    <?php if ($informasi_umum->foto == "") : ?>
+                                        <?= base_url('assets/Gambar/Website/default_information_null.png') ?>
+                                    <?php else : ?>
+                                    <?= base_url('assets/Gambar/Upload/informasi/') . $informasi_umum->foto ?>
+                                    <?php endif ?>
+                                    " alt="" style="width:100px; height:80px;">
                                 </div>
                                 <div class="latest-blog-post-content">
-                                    <a href="#" class="post-title">
-                                        <h6>New Courses for you</h6>
+                                    <a href="<?= base_url().'User/informasi_umum/detail/'.$row->id_umum?>" class="post-title">
+                                        <h6><?php echo $row->nama_informasi ?></h6>
                                     </a>
-                                    <a href="#" class="post-date">March 18, 2018</a>
+                                    <a href="#" class="post-date"><?php echo date('d F, Y', strtotime( $row->created_at )) ?></a>
                                 </div>
                             </div>
-                            <!-- Single Latest Blog Post -->
-                            <div class="single-latest-blog-post d-flex mb-30">
-                                <div class="latest-blog-post-thumb">
-                                    <img src="img/blog-img/lb-2.jpg" alt="">
-                                </div>
-                                <div class="latest-blog-post-content">
-                                    <a href="#" class="post-title">
-                                        <h6>A great way to start</h6>
-                                    </a>
-                                    <a href="#" class="post-date">March 18, 2018</a>
-                                </div>
-                            </div>
-                            <!-- Single Latest Blog Post -->
-                            <div class="single-latest-blog-post d-flex mb-30">
-                                <div class="latest-blog-post-thumb">
-                                    <img src="img/blog-img/lb-3.jpg" alt="">
-                                </div>
-                                <div class="latest-blog-post-content">
-                                    <a href="#" class="post-title">
-                                        <h6>New Courses for you</h6>
-                                    </a>
-                                    <a href="#" class="post-date">March 18, 2018</a>
-                                </div>
-                            </div>
-                            <!-- Single Latest Blog Post -->
-                            <div class="single-latest-blog-post d-flex">
-                                <div class="latest-blog-post-thumb">
-                                    <img src="img/blog-img/lb-4.jpg" alt="">
-                                </div>
-                                <div class="latest-blog-post-content">
-                                    <a href="#" class="post-title">
-                                        <h6>Start your training</h6>
-                                    </a>
-                                    <a href="#" class="post-date">March 18, 2018</a>
-                                </div>
-                            </div>
+                            <?php } 
+                                endforeach; ?>
                         </div>
+
                     </div>
                 </div>
 

@@ -11,7 +11,7 @@ class informasi_umum_model extends CI_Model {
         return $this->db->get_where('informasi_umum', $where);
 
     }
-    public function tambahDataInformasi($upload,$upload1){
+    public function tambahDataInformasi($upload_foto,$upload_berkas){
 
         $id_profile = $this->session->userdata('sess_id_profile');
 
@@ -32,8 +32,8 @@ class informasi_umum_model extends CI_Model {
             'nama_informasi'            => $nama_informasi,
             'deskripsi_informasi'   => $this->input->post('deskripsi_informasi', true),    
             'status'                => "pending",    
-            'foto'                  => $upload['file']['file_name'],
-            'berkas'                => $upload1['file']['file_name'],
+            'foto'                         => $upload_foto['file'],
+            'berkas'                       => $upload_berkas['file'],
         ];
         
         // query untuk melakukan pengecekan
@@ -55,18 +55,23 @@ class informasi_umum_model extends CI_Model {
 
     }
 
-    public function upload(){    
+	public function upload( $type, $size, $name ){    
         $config['upload_path'] = './assets/Gambar/Upload/Informasi/';  
-        $config['allowed_types'] = 'doc|docx|pdf|png|jpg|jpeg';  
-        $config['max_size']     = '20000';
+        $config['allowed_types'] = $type;
+        $config['max_size']     = $size; // 3 mb
 
         $this->load->library('upload', $config);
+        $this->upload->initialize($config);
         
-            if($this->upload->do_upload('foto')){
-                $return = array('result' => 'success', 'file' => $this->upload->data(), 'error' => '');      
+            if($this->upload->do_upload( $name )){
+                $return = array(
+                    'result' => 'success', 
+                    'file' => $this->upload->data('file_name'), 
+                    'error' => '');      
                 return $return;
             }else{    
-                $return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors()); return $return;   
+                $return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors());
+                return $return;   
             }  
     }
     

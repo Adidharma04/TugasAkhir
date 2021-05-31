@@ -79,7 +79,7 @@
                                                 </td>
                                                 <td>
                                                     <?php if ($ig->foto == "") : ?>
-                                                        <img src="<?= base_url('assets/Gambar/Website/default_info.png') ?>" style="width:70px; height:70px;">
+                                                        <img src="<?= base_url('assets/Gambar/Website/default_information_null.png') ?>" style="width:70px; height:70px;">
                                                     <?php else : ?>
                                                         <img src="<?= base_url('assets/Gambar/Upload/Informasi/') . $ig->foto ?>" style="width:70px; height:70px;">
                                                     <?php endif ?>

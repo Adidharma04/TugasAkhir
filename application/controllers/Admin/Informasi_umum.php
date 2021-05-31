@@ -62,8 +62,6 @@ class Informasi_umum extends CI_Controller {
             $conf_berkas_allowed = 'pdf|docx|doc';
             $conf_berkas_size    = 10000;
 
-            // $upload_foto = $this->informasi_umum_model->upload();
-            // $upload_berkas = $this->informasi_umum_model->upload1();
             
             $upload_foto = $this->informasi_umum_model->upload( $conf_foto_allowed, $conf_foto_size, 'foto' );
             $upload_berkas = $this->informasi_umum_model->upload( $conf_berkas_allowed, $conf_berkas_size, 'berkas' );
@@ -86,8 +84,6 @@ class Informasi_umum extends CI_Controller {
                 echo $upload_foto['error'];
                 echo '<hr>';
                 echo $upload_berkas['error'];
-
-
             }
         }
     }

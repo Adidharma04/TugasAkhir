@@ -61,10 +61,19 @@ class Sharing_loker extends CI_Controller {
             $this->load->view('Admin/sharing_loker/tambah',$data);
             $this->load->view('Template/Admin/footer');
         }else{
-            $upload = $this->sharing_loker_model->upload();
-            $upload1 = $this->sharing_loker_model->upload1();
-            if ($upload['result'] == 'success') {
-                $this->sharing_loker_model->tambahDataLoker($upload,$upload1);
+            $conf_foto_allowed = 'jpg|jpeg|png';
+            $conf_foto_size    = 3000;
+
+
+            $conf_berkas_allowed = 'pdf|docx|doc';
+            $conf_berkas_size    = 10000;
+
+            
+            $upload_foto = $this->sharing_loker_model->upload( $conf_foto_allowed, $conf_foto_size, 'foto' );
+            $upload_berkas = $this->sharing_loker_model->upload( $conf_berkas_allowed, $conf_berkas_size, 'berkas' );
+            
+            if ($upload_foto['result'] == 'success' || $upload_berkas['result'] == 'success') {
+                $this->sharing_loker_model->tambahDataLoker($upload_foto,$upload_berkas);
                 $html = '<div class="alert alert-success">
                             <a href="sharing_loker" class="close" data-dismiss="alert" >&times;</a>
                             <b>Pemberitahuan</b> <br>
@@ -73,7 +82,9 @@ class Sharing_loker extends CI_Controller {
                 $this->session->set_flashdata('msg', $html);
                 redirect('Admin/sharing_loker','refresh');
             }else{
-                echo $upload['error'];
+                echo $upload_foto['error'];
+                echo '<hr>';
+                echo $upload_berkas['error'];
             }
         }
     }

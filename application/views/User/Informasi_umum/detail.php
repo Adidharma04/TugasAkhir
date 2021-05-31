@@ -126,10 +126,16 @@
                             <!-- Single Latest Blog Post -->
                             <div class="single-latest-blog-post d-flex mb-30">
                                 <div class="latest-blog-post-thumb">
-                                    <img src="img/blog-img/lb-1.jpg" alt="">
+                                    <img src="
+                                    <?php if ($informasi_umum->foto == "") : ?>
+                                        <?= base_url('assets/Gambar/Website/default_information_null.png') ?>
+                                    <?php else : ?>
+                                    <?= base_url('assets/Gambar/Upload/informasi/') . $informasi_umum->foto ?>
+                                    <?php endif ?>
+                                    " alt="" style="width:100px; height:80px;">
                                 </div>
                                 <div class="latest-blog-post-content">
-                                    <a href="#" class="post-title">
+                                    <a href="<?= base_url().'User/informasi_umum/detail/'.$row->id_umum?>" class="post-title">
                                         <h6><?php echo $row->nama_informasi ?></h6>
                                     </a>
                                     <a href="#" class="post-date"><?php echo date('d F, Y', strtotime( $row->created_at )) ?></a>

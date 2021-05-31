@@ -37,7 +37,7 @@ class informasi_umum_model extends CI_Model {
             'id_profile'                   => $id_profile,
             'nama_informasi'               => $this->input->post('nama_informasi', true),
             'deskripsi_informasi'          => $this->input->post('deskripsi_informasi', true),
-            'status'                       => $this->input->post('status', true),
+            'status'                       => "accept",
             'foto'                         => $upload_foto['file'],
             'berkas'                       => $upload_berkas['file'],
         ];  
@@ -63,21 +63,6 @@ class informasi_umum_model extends CI_Model {
                 $return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors());
                 return $return;   
             }  
-    }
-    
-    public function upload1(){    
-        $config['upload_path'] = './assets/Gambar/Upload/Informasi/';  
-        $config['allowed_types'] = 'pdf|docx'; 
-        $config['max_size']     = '10000'; // mb
-
-        $this->load->library('upload', $config);
-        
-            if($this->upload->do_upload('berkas')){
-                $return = array('result' => 'success', 'file' => $this->upload->data('file_name'), 'error' => '');      
-                return $return;
-            }else{    
-                $return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors()); return $return;   
-            } 
     }
 
 

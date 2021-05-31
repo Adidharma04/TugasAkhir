@@ -105,7 +105,7 @@
               <hr>
               <!-- Batas Baris -->
               <div class="row">
-              <div class="col-md-4">
+              <div class="col-md-8">
                   <div class="form-group">
                     <label>Foto Informasi Kuliah</label>
                     <div class="input-group">
@@ -113,7 +113,7 @@
                         <input type="file" class="custom-file-input form-control" id="foto" name="foto" value="<?= $informasi_umum->foto; ?>">
                         <label class="custom-file-label" for="foto" value="">
                           <?php
-                          $img = base_url('assets/Gambar/Website/default_info.png');
+                          $img = base_url('assets/Gambar/Website/default_information_null.png');
                           if ($informasi_umum->foto == "") : ?>
                             Pilih File
                           <?php else : ?>
@@ -129,25 +129,27 @@
                 <div class="col-md-4">
                   <img src="<?php echo $img ?>" alt="preview" style="width: 50%; border-radius: 5px; border: 2px solid #e0e0e0">
                 </div>
-                <div class="col-md-4">
+              </div>
+              <div class="row ">
+                <div class="col-md-8">
                   <div class="form-group">
                   <label>Berkas Dokumen Informasi Kuliah</label>
                     <div class="input-group">
                       <div class="custom-file">
-                        <input type="file" class="custom-file-input form-control" id="foto" name="foto" value="<?= $informasi_umum->foto; ?>">
-                        <label class="custom-file-label" for="foto" value="">
+                        <input type="file" class="custom-file-input form-control" id="berkas" name="berkas" value="<?= $informasi_umum->berkas; ?>">
+                        <label class="custom-file-label" for="berkas" value="">
                           <?php
                           $img = base_url('assets/Gambar/Website/default_info.png');
-                          if ($informasi_umum->foto == "") : ?>
+                          if ($informasi_umum->berkas == "") : ?>
                             Pilih File
                           <?php else : ?>
-                            <?= $informasi_umum->foto;
-                            $img = base_url('assets/Gambar/Upload/Informasi/' . $informasi_umum->foto); ?>
+                            <?= $informasi_umum->berkas;
+                            $img = base_url('assets/Gambar/Upload/Informasi/' . $informasi_umum->berkas);?>
                           <?php endif ?>
                         </label>
                       </div>
                     </div>
-                    <small>Tambahkan foto apabila dibutuhkan</small>
+                    <small>Tambahkan berkas apabila dibutuhkan</small>
                   </div>
                 </div>
               </div>

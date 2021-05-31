@@ -65,18 +65,6 @@
             <textarea type="text" class="form-control" id="deskripsi_informasi" name="deskripsi_informasi" cols="30" rows="6" placeholder="Masukkan Deskripsi Informasi"><?= set_value('deskripsi_informasi'); ?></textarea>
             <?= form_error('deskripsi_informasi', '<small class="text-danger">', '</small>'); ?>
           </div>
-          <div class="form-group">
-            <label for="status">(<font color="red"><b>*</b></font>)Status</label>
-            <div class="form-check">
-              <input type="radio" name="status" value="pending"> Pending
-            </div>
-            <div class="form-check">
-              <input type="radio" name="status" value="accept"> Diterima
-            </div>
-            <div class="form-check">
-              <input type="radio" name="status" value="decline"> Ditolak
-            </div>
-          </div>
           <!-- Batas Baris -->
           <hr>
           <!-- Batas Baris -->

@@ -10,7 +10,7 @@ class Sharing_loker_model extends CI_Model {
         $where = ['id_profile' => $id_profile];
         return $this->db->get_where('loker', $where);
 
-    }public function tambahDataLoker($upload,$upload1){
+    }public function tambahDataLoker($upload_foto,$upload_berkas){
 
         $id_profile = $this->session->userdata('sess_id_profile');
         $getDataSiswaById = $this->db->where('id_profile', $id_profile)->get('profil_siswa')->row();
@@ -30,8 +30,8 @@ class Sharing_loker_model extends CI_Model {
             'deskripsi_pekerjaan'          => $this->input->post('deskripsi_pekerjaan', true),
             'alamat'                       => $this->input->post('alamat', true),
             'status'                       => 'pending',
-            'foto'                         => $upload['file']['file_name'],
-            'berkas'                       => $upload1['file']['file_name'],
+            'foto'                         => $upload_foto['file'],
+            'berkas'                       => $upload_berkas['file'],
         ];
         $this->db->insert('loker', $loker);
 
@@ -40,40 +40,31 @@ class Sharing_loker_model extends CI_Model {
 			$this->notifikasiEmail( $getDataBKByLevel->email, $getDataSiswaById->nama, $nama_pekerjaan );
     }
 
-    public function upload(){    
+    public function upload( $type, $size, $name ){    
         $config['upload_path'] = './assets/Gambar/Upload/Loker/';  
-        $config['allowed_types'] = 'doc|docx|pdf|png|jpg|jpeg';  
-        $config['max_size']     = '20000';
+        $config['allowed_types'] = $type;
+        $config['max_size']     = $size; // 3 mb
 
         $this->load->library('upload', $config);
+        $this->upload->initialize($config);
         
-            if($this->upload->do_upload('foto')){
-                $return = array('result' => 'success', 'file' => $this->upload->data(), 'error' => '');      
+            if($this->upload->do_upload( $name )){
+                $return = array(
+                    'result' => 'success', 
+                    'file' => $this->upload->data('file_name'), 
+                    'error' => '');      
                 return $return;
             }else{    
-                $return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors()); return $return;   
+                $return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors());
+                return $return;   
             }  
-    }
-    
-    public function upload1(){    
-        $config['upload_path'] = './assets/Gambar/Upload/Loker/';  
-        $config['allowed_types'] = 'doc|docx|pdf|png|jpg|jpeg';  
-        $config['max_size']     = '50000';
-
-        $this->load->library('upload', $config);
-        
-            if($this->upload->do_upload('berkas')){
-                $return = array('result' => 'success', 'file' => $this->upload->data(), 'error' => '');      
-                return $return;
-            }else{    
-                $return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors()); return $return;   
-            } 
     }
 
     public function getLoker($id_loker){
 		// return $this->db->get_where('profil_siswa',['id_siswa'=>$id_siswa])->result();
         return $this->db->get_where('loker',['id_loker'=>$id_loker])->row();
 	}
+	
     public function editDataLoker( $id_loker){
         
         // ambil detail informasi loker

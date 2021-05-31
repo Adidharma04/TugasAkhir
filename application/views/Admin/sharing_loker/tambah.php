@@ -113,19 +113,6 @@
           <hr>
           <!-- Batas Baris -->
           <div class="form-group">
-            <label for="status">Status</label>
-            <div class="form-check">
-              <input type="radio" name="status" value="pending"> Pending
-            </div>
-            <div class="form-check">
-              <input type="radio" name="status" value="accept"> Diterima
-            </div>
-            <div class="form-check">
-              <input type="radio" name="status" value="decline"> Ditolak
-            </div>
-          </div>
-          <!-- Batas Baris -->
-          <div class="form-group">
             <button type="submit" class="btn btn-primary"><i class="fa fa-save"> Submit</i></button>
             &nbsp;
             <span> <input type="reset" class="btn btn-danger" value="Reset"></input></span>
