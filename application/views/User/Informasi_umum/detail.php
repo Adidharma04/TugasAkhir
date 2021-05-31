@@ -108,7 +108,7 @@
                         <div class="blog-post-categories mb-30">
                             <h5>Informasi terkait :</h5>
                             <ul>
-                                <li><a href="<?php echo base_url() . 'User/dashboard_user' ?>">Home</a></li>
+                                <li><a href="<?php echo base_url() . 'User/dashboard_user' ?>">Beranda</a></li>
                                 <li><a href="<?php echo base_url() . 'User/event_user' ?>">Event</a></li>
                                 <li><a href="<?php echo base_url() . 'User/sharing_loker' ?>">Sharing Loker</a></li>
                                 <li><a href="<?php echo base_url() . 'User/kritik_saran_user' ?>">Kritik dan Saran</a></li>

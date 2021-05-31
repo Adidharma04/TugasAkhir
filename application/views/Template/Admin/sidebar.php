@@ -54,19 +54,19 @@
               <li class="nav-item">
                 <a href="<?php echo base_url('Admin/profile')?>" class="nav-link <?php if ($uriSegment == "profile") echo 'active'; ?>">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Informasi Pengguna</p>
+                  <p>Data Pengguna</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="<?php echo base_url('Admin/siswa')?>" class="nav-link <?php if ($uriSegment == "siswa") echo 'active'; ?>">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Informasi Siswa</p>
+                  <p>Data Siswa / Alumni</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="<?php echo base_url('Admin/pegawai')?>" class="nav-link <?php if ($uriSegment == "pegawai") echo 'active'; ?>">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Informasi Pegawai</p>
+                  <p>Data Pegawai</p>
                 </a>
               </li>
             </ul>

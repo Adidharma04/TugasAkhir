@@ -65,6 +65,7 @@
                     </div>
                 </div>
                 <?php endforeach ?>
+            </div>
         </div>
     </div>
     <!-- ##### Top Popular Courses Area End ##### -->

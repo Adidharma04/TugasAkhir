@@ -87,7 +87,7 @@
                         <div class="blog-post-categories mb-30">
                             <h5>Informasi terkait :</h5>
                             <ul>
-                                <li><a href="<?php echo base_url().'Siswa/dashboard_siswa'?>">Home</a></li>
+                                <li><a href="<?php echo base_url().'Siswa/dashboard_siswa'?>">Beranda</a></li>
                                 <li><a href="<?php echo base_url().'Siswa/event_siswa'?>">Event</a></li>
                                 <li><a href="<?php echo base_url().'Siswa/informasi_umum'?>">Informasi Kuliah</a></li>
                                 <li><a href="<?php echo base_url().'Siswa/kritik_saran_siswa'?>">Kritik dan Saran</a></li>

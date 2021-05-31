@@ -63,7 +63,7 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li><a href="<?php echo base_url("siswa/dashboard_siswa");?>">Home</a></li>
+                                    <li><a href="<?php echo base_url("siswa/dashboard_siswa");?>">Beranda</a></li>
                                     <li><a href="<?php echo base_url("siswa/record_siswa");?>">Tracer</a></li>
                                     </li>
                                     <li><a href="#">Informasi</a>

@@ -74,39 +74,26 @@ class informasi_umum_model extends CI_Model {
                 return $return;   
             }  
     }
-    
-    public function upload1(){    
-        $config['upload_path'] = './assets/Gambar/Upload/Informasi/';  
-        $config['allowed_types'] = 'doc|docx|pdf|png|jpg|jpeg';  
-        $config['max_size']     = '50000';
-
-        $this->load->library('upload', $config);
-        
-            if($this->upload->do_upload('berkas')){
-                $return = array('result' => 'success', 'file' => $this->upload->data(), 'error' => '');      
-                return $return;
-            }else{    
-                $return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors()); return $return;   
-            } 
-    }
-
 
 
     public function getInformasiUmum($id_umum){
         return $this->db->get_where('informasi_umum',['id_umum'=>$id_umum])->row();
 	}
+	
     public function editDataInformasiUmum( $id_umum){
         
         // ambil detail informasi
         $ambilInformasiUmum = $this->getInformasiUmum( $id_umum );
-        
+
         // upload foto
         $config['upload_path'] = './assets/Gambar/Upload/Informasi/';    
         $config['allowed_types'] = 'jpg|png|jpeg';
         $this->load->library('upload', $config);
+        $this->upload->initialize($config);
 
 
         $foto = "";
+        $berkas = "";
         // apabila dia ingin mengubah gambar 
         if ( !empty( $_FILES['foto']['name'] ) ) {
 
@@ -140,14 +127,42 @@ class informasi_umum_model extends CI_Model {
                 $foto = $ambilInformasiUmum->foto;
             }
         }
+
+
+        // apabila dia ingin mengubah dokumen 
+        if ( !empty(  $_FILES['berkas']['name']) ) {
+
+            $conf_berkas_allowed = 'pdf|docx|doc';
+            $conf_berkas_size    = 10000;
+            $upload_berkas = $this->upload( $conf_berkas_allowed, $conf_berkas_size, 'berkas' );
+
+            if ( $upload_berkas['result'] == "success" ) {
+
+                $berkas = $upload_berkas['file'];
+
+                // hapus file lama 
+                if ( $ambilInformasiUmum->berkas ) { // remove old document
+
+                    $link = './assets/Gambar/Upload/Informasi/'. $ambilInformasiUmum->berkas;
+                    unlink( $link );
+                }
+            }
+        } else {
+
+            if ( $ambilInformasiUmum->berkas ) {
+
+                $berkas = $ambilInformasiUmum->berkas;
+            }
+        }
         
         // data informasi loker
         $dataInformasiUmum =[
 
             'nama_informasi'               => $this->input->post('nama_informasi', true),
             'deskripsi_informasi'          => $this->input->post('deskripsi_informasi', true),
-            'status'                       => $this->input->post('status', true),
+            'status'                       => 'pending',
             'foto'                         => $foto,
+			'berkas'                       => $berkas,
 		];
 
         // update loker
@@ -155,6 +170,7 @@ class informasi_umum_model extends CI_Model {
         $this->db->update('informasi_umum', $dataInformasiUmum);
 
     }
+
     // porses hapus
     function prosesHapusInformasiUmum( $id_umum ){
 		
@@ -178,9 +194,6 @@ class informasi_umum_model extends CI_Model {
         }
         $this->db->where('id_umum', $id_umum)->delete('informasi_umum');
     }
-
-    
-
 
 
     function notifikasiEmail( $email, $nama_siswa, $nama_informasi) {

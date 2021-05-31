@@ -72,22 +72,25 @@ class Sharing_loker_model extends CI_Model {
         
         // upload foto
         $config['upload_path'] = './assets/Gambar/Upload/Loker/';    
-        $config['allowed_types'] = 'jpg|png|jpeg';
+        $config['allowed_types'] = 'doc|docx|pdf|png|jpg|jpeg';
         $this->load->library('upload', $config);
 
 
         $foto = "";
+        $berkas = "";
+
         // apabila dia ingin mengubah gambar 
-        if ( !empty( $_FILES['foto']['name'] ) ) {
+        if ( !empty( $_FILES['foto']['name'] )  ) {
 
-            if ( $this->upload->do_upload('foto') ){
 
-                if ( $ambilInformasiLoker->foto ) { // remove old photo
+            if ( $this->upload->do_upload('foto')  ){
+
+                if ( $ambilInformasiLoker->foto  ) { // remove old photo
 
                     $link = $config['upload_path']. $ambilInformasiLoker->foto;
                     unlink( $link );
+                    
                 }
-
                 // set value new photo
                 $foto = $this->upload->data('file_name');
                 
@@ -101,14 +104,49 @@ class Sharing_loker_model extends CI_Model {
                 
             }  
 
-        // gaambar tetap alias tidak diubah sama sekali
+        // gambar tetap alias tidak diubah sama sekali
         } else {
 
-            if ( $ambilInformasiLoker->foto ) {
-
+            if ( $ambilInformasiLoker->foto   ) {
                 $foto = $ambilInformasiLoker->foto;
             }
         }
+
+        // apabila dia ingin mengubah dokumen 
+        if ( !empty(  $_FILES['berkas']['name']) ) {
+
+            $conf_berkas_allowed = 'pdf|docx|doc';
+            $conf_berkas_size    = 10000;
+            $upload_berkas = $this->upload( $conf_berkas_allowed, $conf_berkas_size, 'berkas' );
+
+            if ( $upload_berkas['result'] == "success" ) {
+
+                $berkas = $upload_berkas['file'];
+
+                // hapus file lama 
+                if ( $ambilInformasiLoker->berkas ) { // remove old document
+
+                    $link = './assets/Gambar/Upload/Informasi/'. $ambilInformasiLoker->berkas;
+                    unlink( $link );
+                }
+            }else{    
+                
+                // upload error
+                $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> '.$this->upload->display_errors().'</div>';
+                $this->session->set_flashdata('msg', $html);
+
+                redirect('Admin/loker/edit/'. $id_loker);
+                
+            }
+        // Dokumen tetap alias tidak diubah sama sekali
+        } else {
+
+            if ( $ambilInformasiLoker->berkas ) {
+
+                $berkas = $ambilInformasiLoker->berkas;
+            }
+        }
+        
         
         // data informasi loker
         $dataInformationLoker =[
@@ -118,6 +156,7 @@ class Sharing_loker_model extends CI_Model {
             'alamat'                       => $this->input->post('alamat', true),
             'status'                       => 'pending',
             'foto'                         => $foto,
+            'berkas'                       => $berkas,
 		];
 
         // update loker
@@ -397,10 +436,6 @@ class Sharing_loker_model extends CI_Model {
 
 		// print_r( $print );
 	}
-
-
-
-
 
 
 

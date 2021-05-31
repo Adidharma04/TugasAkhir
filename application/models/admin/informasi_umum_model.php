@@ -118,10 +118,7 @@ class informasi_umum_model extends CI_Model {
         }
 
 
-
-
-
-        // berkas 
+        // apabila dia ingin mengubah dokumen 
         if ( !empty(  $_FILES['berkas']['name']) ) {
 
             $conf_berkas_allowed = 'pdf|docx|doc';
@@ -157,7 +154,7 @@ class informasi_umum_model extends CI_Model {
             'deskripsi_informasi'          => $this->input->post('deskripsi_informasi', true),
             'status'                       => $this->input->post('status', true),
             'foto'                         => $foto,
-            'berkas'        => $berkas
+            'berkas'                       => $berkas,
 		];
 
         // update loker

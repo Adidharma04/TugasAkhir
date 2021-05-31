@@ -81,7 +81,7 @@ class sharing_loker extends CI_Controller {
                             Data Loker berhasil di tambah pada tanggal ' . date('d F Y H.i A') . '
                         </div>';
                 $this->session->set_flashdata('msg', $html);
-                redirect('Admin/sharing_loker','refresh');
+                redirect('Alumni/sharing_loker','refresh');
             }else{
                 echo $upload_foto['error'];
                 echo '<hr>';
