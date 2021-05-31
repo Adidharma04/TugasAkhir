@@ -17,7 +17,7 @@
         <div class="row mb-2">
           <div class="col-sm-6">
 
-            <h1 class="m-0">Halaman Informasi Tracer</h1><br>
+            <h1 class="m-0">Data Tracer Alumni</h1><br>
             <a href="javascript:;" data-toggle="modal" data-target="#konfirmasi" class="btn btn-primary"><i class="fas fa-plus"></i>Tambah Tracer Baru</a>
           </div><!-- /.col -->
           <div class="col-sm-6">
