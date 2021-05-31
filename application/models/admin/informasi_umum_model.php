@@ -78,9 +78,11 @@ class informasi_umum_model extends CI_Model {
         $config['upload_path'] = './assets/Gambar/Upload/Informasi/';    
         $config['allowed_types'] = 'jpg|png|jpeg';
         $this->load->library('upload', $config);
+        $this->upload->initialize($config);
 
 
         $foto = "";
+        $berkas = "";
         // apabila dia ingin mengubah gambar 
         if ( !empty( $_FILES['foto']['name'] ) ) {
 
@@ -114,6 +116,39 @@ class informasi_umum_model extends CI_Model {
                 $foto = $ambilInformasiUmum->foto;
             }
         }
+
+
+
+
+
+        // berkas 
+        if ( !empty(  $_FILES['berkas']['name']) ) {
+
+            $conf_berkas_allowed = 'pdf|docx|doc';
+            $conf_berkas_size    = 10000;
+            $upload_berkas = $this->upload( $conf_berkas_allowed, $conf_berkas_size, 'berkas' );
+
+            if ( $upload_berkas['result'] == "success" ) {
+
+                $berkas = $upload_berkas['file'];
+
+                // hapus file lama 
+                if ( $ambilInformasiUmum->berkas ) { // remove old document
+
+                    $link = './assets/Gambar/Upload/Informasi/'. $ambilInformasiUmum->berkas;
+                    unlink( $link );
+                }
+            }
+        } else {
+
+            if ( $ambilInformasiUmum->berkas ) {
+
+                $berkas = $ambilInformasiUmum->berkas;
+            }
+        }
+
+
+
         
         // data informasi loker
         $dataInformasiUmum =[
@@ -122,6 +157,7 @@ class informasi_umum_model extends CI_Model {
             'deskripsi_informasi'          => $this->input->post('deskripsi_informasi', true),
             'status'                       => $this->input->post('status', true),
             'foto'                         => $foto,
+            'berkas'        => $berkas
 		];
 
         // update loker
