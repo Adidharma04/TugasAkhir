@@ -72,14 +72,14 @@
               <div class="row">
                 <div class="col-md-8">
                   <div class="form-group">
-                    <label>Foto Event</label>
+                    <label>Upload Foto</label>
                     <div class="input-group">
                       <div class="custom-file">
                         <input type="file" class="custom-file-input form-control" id="foto" name="foto" value="">
                         <label class="custom-file-label" for="foto" value="">Choose file</label>
                       </div>
                     </div>
-                    <small>Tambahkan foto apabila dibutuhkan</small>
+                    <small>Upload foto yang anda inginkan</small>
                   </div>
                 </div>
               </div>
