@@ -5,12 +5,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Dashboard</h1>
+            <h1 class="m-0">Berikut data diri anda</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="<?php echo base_url('Alumni/dashboard_alumni')?>">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard </li>
+              <li class="breadcrumb-item active">Profil</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -28,7 +28,7 @@
             <div class="col-8">
               <div class="card bg-light">
                 <div class="card-header text-muted border-bottom-0">
-                  <h2>Profile Akun <?php echo ucfirst($this->session->userdata('sess_level')) ?><h2>
+                  <h2>Profil<h2>
                   <hr>
                 </div>
                 <div class="card-body pt-0" style="padding-right:70.7px;">
@@ -65,7 +65,7 @@
                     <div class="col-6">
                       <h4 class="lead"><b><?php echo ucfirst($this->session->userdata('sess_name')) ?></b></h4>
                       
-                      <p class="text-muted text-sm"><b>Tanggal Lahir: </b> <?php echo ucfirst($this->session->userdata('sess_tanggal_lahir')) ?></p>
+                      <p class="text-muted text-sm"><b>Tanggal Lahir : </b> <?php echo ucfirst($this->session->userdata('sess_tanggal_lahir')) ?></p>
                       <ul class="ml-4 mb-0 fa-ul text-muted">
                           <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building fa-1x"></i> </span><h6><b>Alamat</b><h6></li>
                           <span align="justify"> <p ><?php echo ucfirst($this->session->userdata('sess_alamat')) ?></p></span>
@@ -73,7 +73,7 @@
                           <li class="small"><span class="fa-li"><i class="fas fa-lg fa-envelope fa-1x"></i> </span><h6><b>Email</b><h6></li>
                           <span align="justify"> <p ><?php echo ucfirst($this->session->userdata('sess_email')) ?></p></span>
                           
-                          <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone fa-1x"></i> </span><h6><b>No telfon</b><h6></li>
+                          <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone fa-1x"></i> </span><h6><b>HP/Telepon</b><h6></li>
                           <span align="justify"> <p ><?php echo ucfirst($this->session->userdata('sess_telfon')) ?></p></span>
                           <br>
                       </ul>
@@ -85,10 +85,10 @@
                   <div class="text-right">
                       <?php $sess_id_siswa = $this->session->userdata('sess_id_siswa') ?>
                     <a href="<?= base_url() . 'alumni/Siswa/index/'. $sess_id_siswa ?>" class="btn btn-sm btn-primary">
-                      <i class="fas fa-user"></i> Edit Profile
+                      <i class="fas fa-user"></i> Edit Profil
                     </a>
                     <a href="<?= base_url() . 'alumni/siswa/password' ?>" class="btn btn-sm btn-primary">
-                      <i class="fas fa-key"></i> Change Password
+                      <i class="fas fa-key"></i> Ubah Password
                     </a>
                   </div>
                 </div>
