@@ -5,12 +5,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Penilaian</h1>
+            <h1>Kritik dan Saran</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="<?php echo base_url('bk/dashboard_bk') ?>">Home</a></li>
-              <li class="breadcrumb-item active">Table Penilaian</li>
+              <li class="breadcrumb-item active">Kritik dan Saran</li>
             </ol>
           </div>
         </div>
@@ -25,7 +25,7 @@
             <div class="card">
             <?php echo $this->session->flashdata('msg') ?>
               <div class="card-header">
-                <h3 class="card-title">Table Penilaian</h3>
+                <h3 class="card-title">Kritik dan Saran dari Alumni</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
