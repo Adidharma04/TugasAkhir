@@ -59,7 +59,7 @@
                                     <?php else : ?>
                                     <?= base_url('assets/Gambar/Upload/Loker/') . $loker->foto ?>
                                     <?php endif?>
-                                    " alt="" style="width:600px; height:400px;">
+                                    " alt="">
                                     </div>
                                     <!-- Post Title -->
                                     <a class="post-title"><?= $loker->nama_pekerjaan ?></a>

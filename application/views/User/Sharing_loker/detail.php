@@ -63,7 +63,7 @@
                                     <?php else : ?>
                                     <?= base_url('assets/Gambar/Upload/Loker/') . $loker->foto ?>
                                     <?php endif ?>
-                                    " alt="" style="width:600px; height:500px;">
+                                    " alt="">
                                     </div>
                                     
                                     <div class="row">
