@@ -59,7 +59,7 @@
                                     <?php else : ?>
                                     <?= base_url('assets/Gambar/Upload/informasi/') . $informasi_umum->foto ?>
                                     <?php endif?>
-                                    " alt="" style="width:600px; height:400px;">
+                                    " alt="">
                                     </div>
                                     <!-- Post Title -->
                                     <a class="post-title"><?= $informasi_umum->nama_informasi ?></a>
@@ -97,7 +97,7 @@
                         
                         <!-- Latest Blog Posts Area -->
                         <div class="latest-blog-posts mb-30">
-                            <h5>Latest Posts</h5>
+                            <h5>Terbaru</h5>
                             <?php foreach( $latepost AS $row ) :
                             
                                 if ( $informasi_umum->id_umum != $row->id_umum ) {
@@ -106,10 +106,10 @@
                             <div class="single-latest-blog-post d-flex mb-30">
                                 <div class="latest-blog-post-thumb">
                                     <img src="
-                                    <?php if ($informasi_umum->foto == "") : ?>
+                                    <?php if ($row->foto == "") : ?>
                                         <?= base_url('assets/Gambar/Website/default_information_null.png') ?>
                                     <?php else : ?>
-                                    <?= base_url('assets/Gambar/Upload/informasi/') . $informasi_umum->foto ?>
+                                    <?= base_url('assets/Gambar/Upload/informasi/') . $row->foto ?>
                                     <?php endif ?>
                                     " alt="" style="width:100px; height:80px;">
                                 </div>
