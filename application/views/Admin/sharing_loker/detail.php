@@ -28,7 +28,7 @@
                 <h2><?= $loker->nama_pekerjaan ?></h2>
                 <hr>
             </div>
-            <div class="card-body pt-0" style="padding-right:120.7px;">
+            <div class="card-body pt-0">
               <div class="row">
                 <div class="col-7">
                   <ul class="ml-5 mb-0 fa-ul text-muted">
@@ -47,12 +47,13 @@
                       <span align="justify"><p><a href="<?= base_url('assets/Gambar/Upload/Loker/').$loker->berkas ?>"><?= $loker->berkas ?></a> </p></span>
                     <?php endif ?>
                   </ul>
+                  <br>
                 </div>
-                <div class="col-5 text-center">
+                <div class="col-md-5 ">
                     <?php if ($loker->foto == "") : ?>
-                      <img src="<?= base_url('assets/Gambar/Website/default_job.png') ?>" style="width:200px; height:300px;">
+                      <img src="<?= base_url('assets/Gambar/Website/default_job.png') ?>" style="width:100%; height:100%;">
                     <?php else : ?>
-                      <img src="<?= base_url('assets/Gambar/Upload/Loker/') . $loker->foto ?>" style="width:200; height:300px;">
+                      <img src="<?= base_url('assets/Gambar/Upload/Loker/') . $loker->foto ?>" style="width:100%; height:width:150px;">
                     <?php endif ?>
                 </div>
               </div>
@@ -70,3 +71,4 @@
       </section>
       <!-- /.content -->
     </div>
+    <br><br>

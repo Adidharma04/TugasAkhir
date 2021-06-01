@@ -29,7 +29,7 @@
                     <div class="col-12 h-100">
                         <div class="header-content h-100 d-flex align-items-center justify-content-between">
                             <div class="academy-logo">
-                                <a href="<?php echo base_url("User/dashboard");?>"><img src=" <?php echo base_url().'assets/Gambar/Website/Dashboard/SMA_ploso.png';?>" alt=""></a>
+                                <a href="<?php echo base_url("User/dashboard_user");?>"><img src=" <?php echo base_url().'assets/Gambar/Website/Dashboard/SMA_ploso.png';?>" alt=""></a>
                             </div>
                             <div class="login-content">
                                 <a href="<?php echo base_url("Admin/login");?>">Register / Login</a>

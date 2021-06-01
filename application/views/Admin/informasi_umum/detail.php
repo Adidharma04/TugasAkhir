@@ -26,9 +26,9 @@
                 <h2><?= $informasi_umum->nama_informasi ?></h2>
                 <hr>
             </div>
-            <div class="card-body pt-0" style="padding-right:80.7px;">
+            <div class="card-body pt-0" >
               <div class="row">
-                <div class="col-7">
+                <div class="col-md-7">
                   <ul class="ml-5 mb-0 fa-ul text-muted">
                     <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building fa-1x"></i> </span><b><h6>Deskripsi</h6></b></li>
                     <span align="justify"><p><?= $informasi_umum->deskripsi_informasi ?></p></span>
@@ -43,12 +43,14 @@
                       <span align="justify"><p><a href="<?= base_url('assets/Gambar/Upload/Informasi/').$informasi_umum->berkas ?>"><?= $informasi_umum->berkas ?></a> </p></span>
                     <?php endif ?>
                   </ul>
+                  <br>
                 </div>
+                <br>
                 <div class="col-md-4 ">
                     <?php if ($informasi_umum->foto == "") : ?>
-                      <img src="<?= base_url('assets/Gambar/Website/default_information_null.png') ?>" style="width:200px; height:200px;">
+                      <img src="<?= base_url('assets/Gambar/Website/default_information_null.png') ?>" style="width:100%; height:100%;">
                     <?php else : ?>
-                      <img src="<?= base_url('assets/Gambar/Upload/informasi/') . $informasi_umum->foto ?>" style="width:200px; height:200px;">
+                      <img src="<?= base_url('assets/Gambar/Upload/informasi/') . $informasi_umum->foto ?>" style="width:100%; height:width:150px;">
                     <?php endif ?>
                 </div>
               </div>
@@ -66,3 +68,4 @@
       </section>
       <!-- /.content -->
     </div>
+    <br><br>

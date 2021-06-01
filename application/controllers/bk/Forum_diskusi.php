@@ -70,7 +70,7 @@ class Forum_diskusi extends CI_Controller {
             if ($upload['result'] == 'success') {
                 $this->forum_diskusi_model->tambahDataForum($upload);
                 $html = '<div class="alert alert-success">
-                                <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
+                                <a href="" class="close" data-dismiss="alert" >&times;</a>
                                 <b>Pemberitahuan</b> <br>
                                 Forum berhasil di tambah pada tanggal ' . date('d F Y H.i A') . '
                          </div>';
@@ -148,6 +148,7 @@ class Forum_diskusi extends CI_Controller {
             $this->load->view('Template/Admin/navbar',$data);
             $this->load->view('Template/Admin/sidebar_bk',$data);
             $this->load->view('bk/forum_diskusi/forum_detail',$data);
+            $this->load->view('Template/admin/footer');
        
     }
 
@@ -174,7 +175,7 @@ class Forum_diskusi extends CI_Controller {
         }else{
             $this->forum_diskusi_model->tambahDataDetailForum();
             $html = '<div class="alert alert-success">
-                        <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
+                        <a href="" class="close" data-dismiss="alert" >&times;</a>
                         <b>Pemberitahuan</b> <br>
                         Komentar berhasil di tambah pada tanggal ' . date('d F Y H.i A') . '
                     </div>';

@@ -141,7 +141,7 @@
                     $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> '.$this->upload->display_errors().'</div>';
                     $this->session->set_flashdata('msg', $html);
 
-                    redirect('Admin/event/edit/'. $id_forum);
+                    redirect('Admin/forum/edit/'. $id_forum);
                 }  
 
             // gaambar tetap alias tidak diubah sama sekali

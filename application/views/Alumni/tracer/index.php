@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title><?= $title ?></title>
-
-</head>
-
-<body class="hold-transition sidebar-mini layout-fixed" data-panel-auto-height-mode="height">
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -114,14 +104,14 @@
                       </div>
                       <div class="timeline-footer">
                         <a href="<?php echo base_url('Alumni/tracer/viewupdatetracer/' . $item['tipe_tracer'] . '/' . $id_tracer) ?>" class="btn btn-dark btn-sm">Sunting</a>
-                        <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#action-delete-<?php echo $item['tipe_tracer'] . '-' . $id_tracer ?>">Delete</a>
+                        <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#action-delete-<?php echo $item['tipe_tracer'] . '-' . $id_tracer ?>">Hapus</a>
 
                         <!-- Modal delete -->
                         <div class="modal fade" id="action-delete-<?php echo $item['tipe_tracer'] . '-' . $id_tracer ?>">
                           <div class="modal-dialog">
                             <div class="modal-content">
                               <div class="modal-header">
-
+                                <b>Hapus</b>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                   <span aria-hidden="true">&times;</span>
                                 </button>
@@ -214,6 +204,3 @@
   <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-</body>
-
-</html>

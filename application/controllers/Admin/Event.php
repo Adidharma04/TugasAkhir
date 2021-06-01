@@ -47,9 +47,6 @@ class Event extends CI_Controller {
         $this->form_validation->set_rules('tanggal_event', 'Tanggal Event', 'required|trim',[
             'required' => 'Masukkan Tanggal Event',
         ]);
-        $this->form_validation->set_rules('status', 'Status', 'required|trim',[
-            'required' => 'Masukkan Status',
-        ]);
 
         //-- Title Halaman
         $data ['title'] = 'Halaman Tambah Event | Admin';

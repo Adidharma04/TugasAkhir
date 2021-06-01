@@ -21,7 +21,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="<?= base_url().'assets/Gambar/Website/admin.png'?>">
+          <img src="<?= base_url().'assets/Gambar/Website/pegawai_laki.png'?>">
         </div>
         <div class="info">
           <a href="<?= base_url('Admin/dashboard_admin')?>" class="d-block"><?php echo ucfirst($this->session->userdata('sess_name')) ?></a>

@@ -176,18 +176,21 @@ class informasi_umum_model extends CI_Model {
         $config['upload_path'] = './assets/Gambar/Upload/Informasi/';    
         $config['allowed_types'] = 'doc|docx|pdf|png|jpg|jpeg';
         $this->load->library('upload', $config);
+        
 
         if (!empty( $_FILES['berkas']['name'] )  ) {
             if ( $ambilInformasiUmum->berkas) { 
                 $link = $config['upload_path']. $ambilInformasiUmum->berkas;
                 unlink( $link );
             }
+            $this->upload->initialize($config);
         }
         if (!empty( $_FILES['foto']['name'] )  ) {
             if ( $ambilInformasiUmum->foto) { 
                 $link = $config['upload_path']. $ambilInformasiUmum->foto;
                 unlink( $link );
             }
+            $this->upload->initialize($config);
         }
         $this->db->where('id_umum', $id_umum)->delete('informasi_umum');
     }

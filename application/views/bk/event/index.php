@@ -94,9 +94,9 @@
                           <a href="javascript:;" data-toggle="modal" data-target="#konfirmasi-<?php echo $evn->id_event ?>" class="btn <?php echo $colorBtn ?>"><?php echo $textBtn ?></a>
                           
                           <?php } ?>
-                          
-                          <!-- Modal Konfirmasi -->
-                          <div class="modal fade" id="konfirmasi-<?php echo $evn->id_event ?>">
+                        </td>
+                        <!-- Modal Konfirmasi -->
+                        <div class="modal fade" id="konfirmasi-<?php echo $evn->id_event ?>">
                             <div class="modal-dialog">
                               <div class="modal-content">
                                 <div class="modal-header">
@@ -114,7 +114,6 @@
                                       <small>Klik tombol dibawah ini untuk mensetujui event</small> <br><br>
                                       <a href="<?php echo base_url('bk/event/processVerify/' . $evn->id_event . '?status=accept') ?>" class="btn btn-success btn-sm">Setujui</a>
                                     </div>
-
                                     <!-- Ditolak -->
                                     <div class="col-md-6 text-center" style="border-right: 1px solid #e0e0e0">
                                       <?php echo pemanggilanSVG("decline") ?>
@@ -137,7 +136,6 @@
                             <!-- /.modal-dialog -->
                           </div>
                           <!-- /.modal -->
-                        </td>
                       </tr>
                     <?php endforeach ?>
                   </tbody>
@@ -169,7 +167,7 @@
   </div>
   <!-- /.content-wrapper -->
 
-
+<br>
 <?php
 
 

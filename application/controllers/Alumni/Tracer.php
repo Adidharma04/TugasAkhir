@@ -48,7 +48,7 @@
             $this->load->view('Template/Alumni/navbar_alumni',$data);
             $this->load->view('Template/Alumni/sidebar_alumni',$data);
             $this->load->view('Alumni/tracer/index',$data);
-            // $this->load->view('Template/Alumni/footer_alumni');
+            $this->load->view('Template/Alumni/footer_alumni');
         }
 
         // proses hapus
@@ -91,7 +91,7 @@
                     $this->load->view('Template/Alumni/navbar_alumni',$data);
                     $this->load->view('Template/Alumni/sidebar_alumni',$data);
                     $this->load->view('Alumni/tracer/edit_tracer_kuliah',$data);
-
+                    $this->load->view('Template/Alumni/footer_alumni');
                 }else{
                     $this->Tracer_model->editDataTracer ($tipe,$id);
                     $html = '<div class="alert alert-success">
@@ -128,6 +128,7 @@
                  $this->load->view('Template/Alumni/navbar_alumni',$data);
                  $this->load->view('Template/Alumni/sidebar_alumni',$data);
                  $this->load->view('Alumni/tracer/edit_tracer_kerja',$data);
+                 $this->load->view('Template/Alumni/footer_alumni');
                 }else{
                     $this->Tracer_model->editDataTracer();
                     $html = '<div class="alert alert-success">

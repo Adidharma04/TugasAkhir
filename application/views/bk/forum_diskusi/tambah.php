@@ -23,7 +23,7 @@
       <section class="content">
         <!-- Default box -->
         <div class="card">
-          <div class="card-header" style="background-color:blanchedalmond">
+          <div class="card-header alert-warning">
             <h3 class="card-title">Form Tambah Forum Diskusi</h3>
 
             <div class="card-tools">
@@ -101,6 +101,7 @@
       </section>
       <!-- /.content -->
     </div>
+<br><br>
 <script>
 $('.custom-file-input').on('change', function() {
     let fileName = $(this).val().split('\\').pop();

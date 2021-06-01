@@ -188,7 +188,7 @@
     </div>
     <!-- /.content-wrapper -->
 
-
+<br><br>
   <!-- ChartJS -->
   <script src="<?php echo base_url() ?>assets/Template/Admin/plugins/chart.js/Chart.min.js"></script>
     

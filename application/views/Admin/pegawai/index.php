@@ -47,9 +47,9 @@
                                                 <td><?= $pgw->nama ?></td>
                                                 <td><?= $pgw->alamat ?></td>
                                                 <td>
-                                                    <a href="<?= base_url().'Admin/pegawai/detail/'.$pgw->id_pegawai ?>" class="btn btn-info"><i class="fas fa-eye"></i> Detail</a>
-                                                    <a href="<?= base_url().'Admin/pegawai/edit/'.$pgw->id_pegawai ?>" class="btn btn-success"><i class="fas fa-pencil-square-o"></i>Edit</a>
-                                                    <a href="#"  data-toggle="modal" data-target="#action-delete-<?php echo $pgw->id_pegawai ?>" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>
+                                                    <a href="<?= base_url().'Admin/pegawai/detail/'.$pgw->id_pegawai ?>" class="btn btn-xs btn-info"><i class="fas fa-eye"></i> Detail</a>
+                                                    <a href="<?= base_url().'Admin/pegawai/edit/'.$pgw->id_pegawai ?>" class="btn btn-xs btn-success"><i class="fas fa-pencil-square-o"></i>Edit</a>
+                                                    <a href="#"  data-toggle="modal" data-target="#action-delete-<?php echo $pgw->id_pegawai ?>" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> Hapus</a>
                                                     <!-- Modal delete -->
                                                     <div class="modal fade" id="action-delete-<?php echo $pgw->id_pegawai ?>">
                                                         <div class="modal-dialog">
@@ -107,3 +107,4 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
+    <br><br>

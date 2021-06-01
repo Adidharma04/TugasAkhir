@@ -85,6 +85,7 @@ class Login extends CI_Controller {
                         $this->session->set_userdata('sess_alamat', $kolomEmployee['alamat']);
                         $this->session->set_userdata('sess_email', $kolomEmployee['email']);
                         $this->session->set_userdata('sess_telfon', $kolomEmployee['no_telfon']);
+                        $this->session->set_userdata('sess_jenis_kelamin', $kolomEmployee['jenis_kelamin']);
                     }
                 }
 
@@ -105,6 +106,7 @@ class Login extends CI_Controller {
                         $this->session->set_userdata('sess_alamat', $kolomEmployeeBK['alamat']);
                         $this->session->set_userdata('sess_email', $kolomEmployeeBK['email']);
                         $this->session->set_userdata('sess_telfon', $kolomEmployeeBK['no_telfon']);
+                        $this->session->set_userdata('sess_jenis_kelamin', $kolomEmployeeBK['jenis_kelamin']);
                     }
                 }
 

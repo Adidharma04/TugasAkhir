@@ -1,21 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?= $title ?></title>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
-    <!-- DataTables -->
-    <link rel="stylesheet" href="<?= base_url() . 'assets/Template/Admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css' ?>">
-    <link rel="stylesheet" href="<?= base_url() . 'assets/Template/Admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css' ?>">
-    <link rel="stylesheet" href="<?= base_url() . 'assets/Template/Admin/plugins/datatables-buttons/css/buttons.bootstrap4.min.css' ?>">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="<?= base_url() . 'assets/Template/Admin/dist/css/adminlte.min.css' ?>">
-</head>
-
-<body class="hold-transition sidebar-mini layout-fixed" data-panel-auto-height-mode="height">
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -52,7 +34,7 @@
                             </p>
 
                             <div class="card card-body">
-                                <p class="text-sm text-muted">
+                                <p class="text-sm text-muted text-center">
                                     <?php
                                     $gambar = "";
                                     if ($detail->foto) {
@@ -77,7 +59,7 @@
 
                             <div class="row" style="border-bottom: 2px solid #e0e0e0">
 
-                                <div class="col-md-10">
+                                <div class="col-md-12">
 
                                     <form action="<?php echo base_url('bk/forum_diskusi/tambahDetailForum')?>" method="POST">
                                         <h5>Komentar</h5>
@@ -190,32 +172,4 @@
         </section>
         <!-- /.content -->
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <!-- /.content-wrapper -->
-    <!-- jQuery -->
-    <script src="<?= base_url("assets/Template/Admin/plugins/jquery/jquery.min.js") ?>"></script>
-    <!-- Bootstrap 4 -->
-    <script src="<?= base_url("assets/Template/Admin/plugins/bootstrap/js/bootstrap.bundle.min.js") ?>"></script>
-
-    <!-- AdminLTE App -->
-    <script src="<?= base_url("assets/Template/Admin/dist/js/adminlte.min.js") ?>"></script>
-    <!-- AdminLTE for demo purposes -->
-
-</body>
-
-</html>
+    <br><br>

@@ -5,12 +5,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Forum Detail Diskusi</h1>
+                    <h1 class="m-0">Forum Diskusi</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="<?php echo base_url('Alumni/dashboar_alumni') ?>">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard </li>
+                        <li class="breadcrumb-item active">Forum Diskusi  </li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -34,7 +34,7 @@
                         </p>
 
                         <div class="card card-body">
-                            <p class="text-sm text-muted">
+                            <p class="text-sm text-muted text-center">
                                 <?php
                                 $gambar = "";
                                 if ($detail->foto) {
@@ -59,7 +59,7 @@
 
                         <div class="row" style="border-bottom: 2px solid #e0e0e0">
 
-                            <div class="col-md-10">
+                            <div class="col-md-12">
 
                                 <form action="<?php echo base_url('Alumni/forum_diskusi/tambahDetailForum') ?>" method="POST">
                                     <h5>Komentar</h5>
@@ -186,9 +186,5 @@
         <!-- /.container-fluid -->
     </section>
     <!-- /.content -->
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
 </div>
+<br><br>

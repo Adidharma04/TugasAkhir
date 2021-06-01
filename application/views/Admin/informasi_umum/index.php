@@ -88,9 +88,9 @@
                                                     <a href="<?= base_url() . 'Admin/informasi_umum/detail/' . $ig->id_umum ?>" class="btn btn-xs btn-info"><i class="fas fa-eye"></i> Detail</a>
                                                     <a href="<?= base_url() . 'Admin/informasi_umum/edit/' . $ig->id_umum ?>" class="btn btn-xs btn-success"><i class="fas fa-pencil-square-o"></i>Edit</a>
                                                     <a href="#" data-toggle="modal" data-target="#action-delete-<?php echo $ig->id_umum ?>" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> Hapus</a>
-
-                                                    <!-- Modal delete -->
-                                                    <div class="modal fade" id="action-delete-<?php echo $ig->id_umum ?>">
+                                                </td>
+                                                <!-- Modal delete -->
+                                                <div class="modal fade" id="action-delete-<?php echo $ig->id_umum ?>">
                                                         <div class="modal-dialog">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
@@ -118,7 +118,6 @@
                                                         <!-- /.modal-dialog -->
                                                     </div>
                                                     <!-- /.modal -->
-                                                </td>
                                             </tr>
                                         <?php endforeach ?>
                                     </tbody>
@@ -147,3 +146,4 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
+    <br><br>

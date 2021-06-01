@@ -165,6 +165,26 @@
             $this->db->where('id_forum', $id_forum);
             $this->db->update('forum', $forum);
         }
+
+        // porses hapus
+        function prosesHapusForum( $id_forum ){
+
+            $ambilInformasiForum = $this->getForum( $id_forum );
+            $ambilInformasiForum = $this->getDataForumById( $id_forum );
+
+            $config['upload_path'] = './assets/Gambar/Upload/Forum/';    
+            $config['allowed_types'] = 'jpg|png|jpeg';
+            $this->load->library('upload', $config);
+
+        if ( $ambilInformasiForum->foto ) { 
+            // remove old photo
+            $link = $config['upload_path']. $ambilInformasiForum->foto;
+            unlink( $link );
+        }
+            $this->db->where('id_forum', $id_forum)->delete('forum');
+            $this->db->where('id_forum', $id_forum)->delete('forum_detail');
+        }
+
         
         // Khusus Forum-----------------------------------------------------------------------------------------
 

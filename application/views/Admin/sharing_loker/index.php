@@ -89,9 +89,9 @@
                                                     <a href="<?= base_url() . 'Admin/sharing_loker/detail/' . $job->id_loker ?>" class="btn btn-xs btn-info"><i class="fas fa-eye"></i> Detail</a>
                                                     <a href="<?= base_url() . 'Admin/sharing_loker/edit/' . $job->id_loker ?>" class="btn btn-xs btn-success"><i class="fas fa-pencil-square-o"></i>Edit</a>
                                                     <a href="#" data-toggle="modal" data-target="#action-delete-<?php echo $job->id_loker ?>" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> Hapus</a>
-
-                                                    <!-- Modal delete -->
-                                                    <div class="modal fade" id="action-delete-<?php echo $job->id_loker ?>">
+                                                </td>
+                                                <!-- Modal delete -->
+                                                <div class="modal fade" id="action-delete-<?php echo $job->id_loker ?>">
                                                         <div class="modal-dialog">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
@@ -119,7 +119,6 @@
                                                         <!-- /.modal-dialog -->
                                                     </div>
                                                     <!-- /.modal -->
-                                                </td>
                                             </tr>
                                         <?php endforeach ?>
                                     </tbody>

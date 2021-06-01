@@ -41,7 +41,7 @@
                 <li>Tanda (<font color="red"><b>*</b></font>) Wajib untuk di isi! </li>
                 <b> Notes : </b>
                 <p> Penjelasan Verifikasi Alumni :</p>
-                <li>Kosong    &emsp; : Masih menjadi siswa </li>  
+                <li>Siswa    &emsp; : Masih menjadi siswa </li>  
                 <li>Pengajuan : Mengajukan Menjadi Aumni </li> 
                 <li>Di Terima &nbsp; : Sudah Menjadi Alumni </li>
               </p>
@@ -193,33 +193,33 @@
                       <label for="alumni">(<font color="red"><b>*</b></font>)Verifikasi Alumni</label>
                       <?php if ($profil_siswa->verifikasi_alumni == "null") : ?>
                           <div class="form-check">
-                            <input type="radio" name="verifikasi_alumni" value="null" checked> Kosong
+                            <input type="radio" name="verifikasi_alumni" value="null" checked> Siswa
                           </div>
                           <div class="form-check">
                             <input type="radio" name="verifikasi_alumni" value="pengajuan"> Pengajuan
                           </div>
                           <div class="form-check">
-                            <input type="radio" name="verifikasi_alumni" value="diterima"> Diterima
+                            <input type="radio" name="verifikasi_alumni" value="diterima"> Alumni
                           </div>
                       <?php elseif ($profil_siswa->verifikasi_alumni == "pengajuan") : ?>
                           <div class="form-check">
-                            <input type="radio" name="verifikasi_alumni" value="null" > Kosong
+                            <input type="radio" name="verifikasi_alumni" value="null" > Siswa
                           </div>
                           <div class="form-check">
                             <input type="radio" name="verifikasi_alumni" value="pengajuan" checked> Pengajuan
                           </div>
                           <div class="form-check">
-                            <input type="radio" name="verifikasi_alumni" value="diterima"> Diterima
+                            <input type="radio" name="verifikasi_alumni" value="diterima"> Alumni
                           </div>
                       <?php else : ?>
                           <div class="form-check">
-                            <input type="radio" name="verifikasi_alumni" value="null" > Kosong
+                            <input type="radio" name="verifikasi_alumni" value="null" > Siswa
                           </div>
                           <div class="form-check">
                             <input type="radio" name="verifikasi_alumni" value="pengajuan"> Pengajuan
                           </div>
                           <div class="form-check">
-                            <input type="radio" name="verifikasi_alumni" value="diterima" checked> Diterima
+                            <input type="radio" name="verifikasi_alumni" value="diterima" checked> Alumni
                           </div>
                       <?php endif ?>
                   </div>
@@ -266,3 +266,4 @@
       </section>
       <!-- /.content -->
     </div>
+    <br><br>

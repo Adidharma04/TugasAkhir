@@ -43,7 +43,7 @@
                     <?php $no = 1; foreach ($penilaian->result() as $pnl) : ?>
                       <tr>
                         <td><?= $no++ ?></td>
-                        <td><a target="_blank" href="<?php echo base_url('bk/siswa/detail/'. $pnl->id_siswa) ?>"><?= $pnl->nama.' <br> <small>NIS : '. $pnl->nis.'</small>' ?></a></td>
+                        <td><a  href="<?php echo base_url('bk/siswa/detail/'. $pnl->id_siswa) ?>"><?= $pnl->nama.' <br> <small>NIS : '. $pnl->nis.'</small>' ?></a></td>
                         <td><?= $pnl->kritik ?></td>
                         <td><?= $pnl->saran ?></td>
                         <td><?= date('d F Y H.i A', strtotime($pnl->created_at)) ?></td>
@@ -74,3 +74,4 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+  <br><br>

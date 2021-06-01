@@ -6,13 +6,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Penilaian</h1>
-            <p>Deskripsi penjelasan Penilaian</p>
+            <h1 class="m-0">Kritik dan Saran</h1>
+            <p>Berikan Kritik dan Saran untuk sekolah</p>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="<?php echo base_url('Alumni/dashboard_alumni')?>">Home</a></li>
-              <li class="breadcrumb-item active">Penilaian </li>
+              <li class="breadcrumb-item active">Kritik dan Saran </li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -127,3 +127,4 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+<br><br>

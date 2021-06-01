@@ -22,7 +22,7 @@
       <section class="content">
         <!-- Default box -->
         <div class="card">
-          <div class="card-header" style="background-color:blanchedalmond">
+          <div class="card-header alert-warning" >
             <h3 class="card-title">Form Tambah Event</h3>
             <div class="card-tools">
               <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">

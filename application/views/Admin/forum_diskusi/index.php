@@ -77,7 +77,7 @@
                                             </div>
                                             <div class="modal-footer justify-content-between">
                                                 <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Batal</button>
-                                                <button class="btn btn-warning btn-sm"><i class="fa fa-power-off"></i> Simpan</button>
+                                                <button class="btn btn-primary btn-sm"><i class="fa fa-save"></i> Simpan</button>
                                             </div>
                                         </form>
                                     </div>
@@ -210,7 +210,7 @@
                                                             <!-- End Button -->
 
                                                             <div class="text-sm text-muted" style="margin: 0px">
-                                                                <marquee behavior="" direction="">Forum dibuka pada <?php echo date('d F Y H.i A', strtotime($row['tanggal_forum'])) ?> &emsp;|&emsp; dibuat oleh <label for=""><?php echo $row['username'] ?></label></marquee>
+                                                                <marquee behavior="" direction="">Forum di buat pada <?php echo date('d F Y H.i A', strtotime($row['tanggal_forum'])) ?> &emsp;|&emsp; dibuat oleh <label for=""><?php echo $row['username'] ?></label></marquee>
                                                             </div>
                                                         </div>
 
@@ -264,3 +264,4 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
+    <br><br>

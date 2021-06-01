@@ -107,6 +107,7 @@
               <img src="<?php echo $img ?>" alt="preview" style="width: 70%; border-radius: 5px; border: 2px solid #e0e0e0">
             </div>
           </div>
+          <hr>
           <div class="row">
             <div class="col-md-2">
               <button type="submit" class="btn btn-primary">Submit</button>
@@ -126,3 +127,4 @@
   </section>
   <!-- /.content -->
 </div>
+<br><br>
