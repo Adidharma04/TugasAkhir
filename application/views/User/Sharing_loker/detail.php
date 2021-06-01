@@ -118,7 +118,7 @@
 
                         <!-- Latest Blog Posts Area -->
                         <div class="latest-blog-posts mb-30">
-                            <h5>Latest Posts</h5>
+                            <h5>Terbaru</h5>
                             <?php foreach( $latepost AS $row ) :
                             
                                 if ( $loker->id_loker != $row->id_loker ) {
@@ -128,10 +128,10 @@
                                 <div class="latest-blog-post-thumb">
                                 <a href="<?= base_url().'User/Loker/detail/'.$row->id_loker?>" class="post-title">
                                     <img src="
-                                    <?php if ($loker->foto == "") : ?>
+                                    <?php if ($row->foto == "") : ?>
                                         <?= base_url('assets/Gambar/Website/default_loker_null.png') ?>
                                     <?php else : ?>
-                                    <?= base_url('assets/Gambar/Upload/Loker/') . $loker->foto ?>
+                                    <?= base_url('assets/Gambar/Upload/Loker/') . $row->foto ?>
                                     <?php endif ?>
                                     " alt="" style="width:100px; height:80px;">
                                 </a>
