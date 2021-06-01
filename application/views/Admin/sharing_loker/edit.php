@@ -130,42 +130,6 @@
               <!-- Batas Baris -->
               <hr>
               <!-- Batas Baris -->
-              <div class="form-group">
-                <label for="status">Status</label>
-                    <?php if ($loker->status == "accept") : ?>
-                      <div class="form-check">
-                        <input type="radio" name="status" value="accept" checked> Diterima
-                      </div>
-                      <div class="form-check">
-                        <input type="radio" name="status" value="pending"> Pending
-                      </div>
-                      <div class="form-check">
-                        <input type="radio" name="status" value="decline"> Ditolak
-                      </div>
-                    <?php elseif ($loker->status == "pending") : ?>
-                      <div class="form-check">
-                        <input type="radio" name="status" value="accept"> Diterima
-                      </div>
-                      <div class="form-check">
-                        <input type="radio" name="status" value="pending" checked> Pending
-                      </div>
-                      <div class="form-check">
-                        <input type="radio" name="status" value="decline"> Ditolak
-                      </div>
-                    <?php else : ?>
-                      <div class="form-check">
-                        <input type="radio" name="status" value="accept"> Diterima
-                      </div>
-                      <div class="form-check">
-                        <input type="radio" name="status" value="pending"> Pending
-                      </div>
-                      <div class="form-check">
-                        <input type="radio" name="status" value="decline" checked> Ditolak
-                      </div>
-                    <?php endif ?>
-              </div>
-              <hr>
-              <!-- Batas Baris -->
               <div class="row">
                   <div class="col-md-2">
                     <button type="submit" class="btn btn-primary">Submit</button>
