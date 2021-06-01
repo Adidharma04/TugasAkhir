@@ -117,7 +117,7 @@
                 <?= form_error('email', '<small class="text-danger">', '</small>'); ?>
               </div>
               <div class="col-md-6">
-                <label>(<font color="red"><b>*</b></font>) Nomer Telfon :</label>
+                <label>(<font color="red"><b>*</b></font>) HP/Telepon :</label>
                 <div class="input-group">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-phone"></i></span>

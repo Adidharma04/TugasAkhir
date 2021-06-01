@@ -51,16 +51,16 @@
             <div class="card-body pt-0" style="padding-right:100.7px;">
               <div class="row">
                 <div class="col-7">
-                  <h4 class="lead"><b> <?= $profil_siswa->nis ?></b></h4>
-                  <p class="text-muted text-sm"><b>Tanggal Lahir: </b> <?= $profil_siswa->tanggal_lahir ?> </p>
+                  <h4 class="lead"><b> NIS : <?= $profil_siswa->nis ?></b></h4>
+                  <p class="text-muted text-sm"><b>Tanggal Lahir : </b> <?= $profil_siswa->tanggal_lahir ?> </p>
                   <ul class="ml-4 mb-0 fa-ul text-muted">
                     <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> <b>Alamat : </b> <?= $profil_siswa->alamat ?></li>
                     <br>
-                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> <b>No telfon : </b> <?= $profil_siswa->no_telfon ?></li>
+                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-phone"></i></span> <b>HP/Telepon : </b> <?= $profil_siswa->no_telfon ?></li>
                     <br>
                     <li class="small"><span class="fa-li"><i class="fas fa-lg fa-cogs"></i></span> <b>Jurusan : </b> <?= $profil_siswa->jurusan ?></li>
                     <br>
-                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-envelope"></i></span> <b>Emai : </b> <?= $profil_siswa->email ?></li>
+                    <li class="small"><span class="fa-li"><i class="fas fa-lg fa-envelope"></i></span> <b>Email : </b> <?= $profil_siswa->email ?></li>
                     <br>
                     <li class="small"><span class="fa-li"><i class="fas fa-lg fa-calendar"></i></span> <b>Tahun Lulus : </b> <?= $profil_siswa->tahun_lulus ?></li>
                     <br>

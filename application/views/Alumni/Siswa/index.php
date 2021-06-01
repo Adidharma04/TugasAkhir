@@ -119,7 +119,7 @@
                       </div>
                   </div>
                   <div class="col-md-4">
-                      <label>No Telfon</label>
+                      <label>HP/Telepon</label>
                       <div class="input-group">
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-phone"></i></span>
