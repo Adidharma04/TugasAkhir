@@ -52,6 +52,7 @@ class informasi_umum_model extends CI_Model {
 
         $this->load->library('upload', $config);
         $this->upload->initialize($config);
+
         
             if($this->upload->do_upload( $name )){
                 $return = array(
@@ -63,6 +64,8 @@ class informasi_umum_model extends CI_Model {
                 $return = array('result' => 'failed', 'file' => '', 'error' => $this->upload->display_errors());
                 return $return;   
             }  
+        
+           
     }
 
 

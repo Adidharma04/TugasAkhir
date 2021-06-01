@@ -1,14 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title><?= $title ?></title>
-
-</head>
-
-<body class="hold-transition sidebar-mini layout-fixed" data-panel-auto-height-mode="height">
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -35,7 +24,7 @@
       <div class="container-fluid">
 
         <div class="row">
-          <div class="col-md-10 offset-1">
+          <div class="col-md-10 ">
             <div class="card card-row card-default">
 
               <div class="card-body">
@@ -171,6 +160,4 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-</body>
-
-</html>
+<br><br>

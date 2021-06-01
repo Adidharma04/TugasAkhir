@@ -86,9 +86,9 @@
                                                     <?php endif ?>
                                                 </td>
                                                 <td>
-                                                    <a href="<?= base_url() . 'Admin/sharing_loker/detail/' . $job->id_loker ?>" class="btn btn-info"><i class="fas fa-eye"></i> Detail</a>
-                                                    <a href="<?= base_url() . 'Admin/sharing_loker/edit/' . $job->id_loker ?>" class="btn btn-success"><i class="fas fa-pencil-square-o"></i>Edit</a>
-                                                    <a href="#" data-toggle="modal" data-target="#action-delete-<?php echo $job->id_loker ?>" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>
+                                                    <a href="<?= base_url() . 'Admin/sharing_loker/detail/' . $job->id_loker ?>" class="btn btn-xs btn-info"><i class="fas fa-eye"></i> Detail</a>
+                                                    <a href="<?= base_url() . 'Admin/sharing_loker/edit/' . $job->id_loker ?>" class="btn btn-xs btn-success"><i class="fas fa-pencil-square-o"></i>Edit</a>
+                                                    <a href="#" data-toggle="modal" data-target="#action-delete-<?php echo $job->id_loker ?>" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> Hapus</a>
 
                                                     <!-- Modal delete -->
                                                     <div class="modal fade" id="action-delete-<?php echo $job->id_loker ?>">
@@ -149,3 +149,4 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
+    <br><br>

@@ -104,40 +104,6 @@
                   <img src="<?php echo $img ?>" alt="preview" style="width: 60%; border-radius: 5px; border: 2px solid #e0e0e0">
                 </div>
               </div>
-              <div class="form-group">
-                <label for="status">Status Kegiatan</label>
-                <?php if ($event->status == "accept") : ?>
-                  <div class="form-check">
-                    <input type="radio" name="status" value="accept" checked> Diterima
-                  </div>
-                  <div class="form-check">
-                    <input type="radio" name="status" value="pending"> Pending
-                  </div>
-                  <div class="form-check">
-                    <input type="radio" name="status" value="decline"> Ditolak
-                  </div>
-                <?php elseif ($event->status == "pending") : ?>
-                  <div class="form-check">
-                    <input type="radio" name="status" value="accept"> Diterima
-                  </div>
-                  <div class="form-check">
-                    <input type="radio" name="status" value="pending" checked> Pending
-                  </div>
-                  <div class="form-check">
-                    <input type="radio" name="status" value="decline"> Ditolak
-                  </div>
-                <?php else : ?>
-                  <div class="form-check">
-                    <input type="radio" name="status" value="accept"> Diterima
-                  </div>
-                  <div class="form-check">
-                    <input type="radio" name="status" value="pending"> Pending
-                  </div>
-                  <div class="form-check">
-                    <input type="radio" name="status" value="decline" checked> Ditolak
-                  </div>
-                <?php endif ?>
-              </div>
               <div class="row">
                   <div class="col-md-2">
                     <button type="submit" class="btn btn-primary">Submit</button>
@@ -157,3 +123,4 @@
       </section>
       <!-- /.content -->
     </div>
+    <br><br>

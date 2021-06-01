@@ -1,11 +1,8 @@
-<!-- Font Awesome -->
-<link rel="stylesheet" href="<?= base_url() . 'assets/Template/Admin/plugins/fontawesome-free/css/all.min.css' ?>">
 
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed" >
 <!-- Wrapper -->
-<div class="wrapper">
-
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />
+<div class="wrapper">
 <?php
 
   $uriSegment = $this->uri->segment(2);

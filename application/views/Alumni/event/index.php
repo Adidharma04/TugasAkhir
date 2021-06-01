@@ -6,27 +6,24 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Event </h1>
-            <p>Deskripsi Event</p>
-          </div><!-- /.col -->
+            <h1>Event</h1>
+          </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="<?php echo base_url('Alumni/dashboard_alumni') ?>">Home</a></li>
-              <li class="breadcrumb-item active">Event </li>
+              <li class="breadcrumb-item"><a href="<?php echo base_url('Admin/dashboard_admin') ?>">Home</a></li>
+              <li class="breadcrumb-item active">Table Event</li>
             </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
+          </div>
+        </div>
       </div><!-- /.container-fluid -->
     </div>
-    <!-- /.content-header -->
 
     <!-- Main content -->
     <section class="content">
 
       <div class="container-fluid">
-
         <div class="row">
-          <div class="col-md-10 offset-1">
+          <div class="col-md-10 ">
             <div class="card card-row card-default">
               <?php echo $this->session->flashdata('msg') ?>
               <div class="card-body">
@@ -97,9 +94,9 @@
                                 }
                                 elseif ($evn->status == "pending"){
                                 ?>
-                                 <a href="<?= base_url() .'Alumni/event/edit/' . $evn->id_event?>" class="btn btn-sm btn-primary">Edit</a>
+                                 <a href="<?= base_url() .'Alumni/event/edit/' . $evn->id_event?>" class="btn btn-xs btn-primary">Edit</a>
                                  &nbsp;
-                                 <a href="#"  data-toggle="modal" data-target="#action-delete-<?php echo $evn->id_event ?>" class="btn btn-sm btn-danger">Hapus</a>
+                                 <a href="#"  data-toggle="modal" data-target="#action-delete-<?php echo $evn->id_event ?>" class="btn btn-xs btn-danger">Hapus</a>
                                  <?php }?>
                               </td>
                             </tr>
@@ -156,8 +153,6 @@
           </div>
         </div>
       </div><!-- /.container-fluid -->
-
-
     </section>
     <!-- /.content -->
   </div>

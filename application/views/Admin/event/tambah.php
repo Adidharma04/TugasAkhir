@@ -100,29 +100,6 @@
                 <!-- Batas Baris -->
                 <hr>
                 <!-- Batas Baris -->
-                <div class="row">
-                    <div class="col-md-4">
-                      <label>(<font color="red"><b>*</b></font>) Jenis Event</label>
-                      <div class="form-group ">
-                        <div class="custom-control custom-radio">
-                          <input class="custom-control-input custom-control-input-danger custom-control-input-outline" type="radio" name="status" value="pending" <?= set_value('status') == "pending" ? "checked" : "" ?> id="pending">
-                          <label for="pending" class="custom-control-label">Pending</label>
-                        </div>
-                        <div class="custom-control custom-radio">
-                          <input class="custom-control-input custom-control-input-danger custom-control-input-outline" type="radio" name="status" value="accept" <?= set_value('status') == "accept" ? "checked" : "" ?> id="accept">
-                          <label for="accept" class="custom-control-label">Di Terima</label>
-                        </div>
-                        <div class="custom-control custom-radio">
-                          <input class="custom-control-input custom-control-input-danger custom-control-input-outline" type="radio" name="status" value="decline" <?= set_value('status') == "decline" ? "checked" : "" ?> id="decline">
-                          <label for="decline" class="custom-control-label">Di Tolak</label>
-                        </div>
-                      </div>
-                    </div>    
-                    <?= form_error('status','<small class="text-danger">','</small>');?>
-                </div>
-                <!-- Batas Baris -->
-                <hr>
-                <!-- Batas Baris -->
                 <div class="form-group">
                   <button type="submit" class="btn btn-primary"><i class="fa fa-save"> Submit</i></button>
                   &nbsp;
@@ -144,3 +121,4 @@
       </section>
       <!-- /.content -->
     </div>
+    <br><br>
