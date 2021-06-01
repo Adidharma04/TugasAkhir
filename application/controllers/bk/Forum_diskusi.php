@@ -102,18 +102,24 @@ class Forum_diskusi extends CI_Controller {
         //----------------------------
         if( $this->form_validation->run() == FALSE ){
             $this->load->view('Template/Admin/navbar',$data);
-            $this->load->view('Template/Admin/sidebar_bk',$data);
+            $this->load->view('Template/Admin/sidebar',$data);
             $this->load->view('bk/forum_diskusi/edit_forum',$data);
             $this->load->view('Template/Admin/footer');
         }else{
-                $this->forum_diskusi_model->editDataForum();
+            $upload = $this->forum_diskusi_model->upload();
+            if ($upload['result'] == 'success') {
+                $this->forum_diskusi_model->editDataForum($upload);
                 $html = '<div class="alert alert-success">
-                            <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
-                            <b>Pemberitahuan</b> <br>
-                            Edit Data Forum berhasil di tambah pada tanggal ' . date('d F Y H.i A') . '
-                        </div>';
+                                <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
+                                <b>Pemberitahuan</b> <br>
+                                Forum berhasil di edit pada tanggal ' . date('d F Y H.i A') . '
+                         </div>';
                 $this->session->set_flashdata('msg', $html);
-                redirect('bk/Forum_diskusi', 'refresh');
+                redirect('Alumni/forum_diskusi', 'refresh');
+                
+            } else {
+                echo $upload['error'];
+            }
         }    
     }
     

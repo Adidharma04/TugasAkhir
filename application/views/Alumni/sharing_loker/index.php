@@ -107,7 +107,7 @@
                                 ?>
                                  <a href="<?= base_url() .'Alumni/sharing_loker/edit/' . $jv->id_loker?>" class="btn btn-sm btn-primary">Edit</a>
                                  &nbsp;
-                                 <a href="#"  data-toggle="modal" data-target="#action-delete-.'.'<?php echo $jv->id_loker ?>" class="btn btn-sm btn-danger">Hapus</a>
+                                 <a href="#"  data-toggle="modal" data-target="#action-delete-<?php echo $jv->id_loker ?>" class="btn btn-sm btn-danger">Hapus</a>
                                  <?php }?>
                               </td>
                             </tr>
@@ -171,6 +171,7 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
+  <br>
 </body>
 
 </html>

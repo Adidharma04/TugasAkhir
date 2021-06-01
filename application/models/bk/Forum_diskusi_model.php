@@ -142,7 +142,6 @@
                     $this->session->set_flashdata('msg', $html);
 
                     redirect('Admin/event/edit/'. $id_forum);
-                    
                 }  
 
             // gaambar tetap alias tidak diubah sama sekali

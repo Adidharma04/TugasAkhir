@@ -99,7 +99,7 @@
                                 ?>
                                  <a href="<?= base_url() .'Alumni/event/edit/' . $evn->id_event?>" class="btn btn-sm btn-primary">Edit</a>
                                  &nbsp;
-                                 <a href="#"  data-toggle="modal" data-target="#action-delete-.'.'<?php echo $evn->id_event ?>" class="btn btn-sm btn-danger">Hapus</a>
+                                 <a href="#"  data-toggle="modal" data-target="#action-delete-<?php echo $evn->id_event ?>" class="btn btn-sm btn-danger">Hapus</a>
                                  <?php }?>
                               </td>
                             </tr>
