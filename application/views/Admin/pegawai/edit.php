@@ -178,7 +178,7 @@
               <div class="form-group">
                 <button type="submit" class="btn btn-primary"><i class="fa fa-save"> Submit</i></button>
                 &nbsp;
-                <span> <a href="<?= base_url("Admin/pegawai") ?>" class="btn btn-warning"><i class="fa fa-chevron-circle-left"> Cancel</i></a></span>
+                <span> <a href="<?= base_url("admin/pegawai") ?>" class="btn btn-warning"><i class="fa fa-chevron-circle-left"> Cancel</i></a></span>
               </div>
 
             </form>

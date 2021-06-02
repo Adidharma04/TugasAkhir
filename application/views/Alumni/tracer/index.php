@@ -12,7 +12,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="<?php echo base_url('Alumni/dashboard_alumni') ?>">Home</a></li>
+              <li class="breadcrumb-item"><a href="<?php echo base_url('alumni/dashboard_alumni') ?>">Home</a></li>
               <li class="breadcrumb-item active">Tracer </li>
             </ol>
           </div><!-- /.col -->
@@ -103,7 +103,7 @@
                         <?php } ?>
                       </div>
                       <div class="timeline-footer">
-                        <a href="<?php echo base_url('Alumni/tracer/viewupdatetracer/' . $item['tipe_tracer'] . '/' . $id_tracer) ?>" class="btn btn-dark btn-sm">Sunting</a>
+                        <a href="<?php echo base_url('alumni/tracer/viewupdatetracer/' . $item['tipe_tracer'] . '/' . $id_tracer) ?>" class="btn btn-dark btn-sm">Sunting</a>
                         <a class="btn btn-danger btn-sm" data-toggle="modal" data-target="#action-delete-<?php echo $item['tipe_tracer'] . '-' . $id_tracer ?>">Hapus</a>
 
                         <!-- Modal delete -->
@@ -124,7 +124,7 @@
                               </div>
                               <div class="modal-footer justify-content-between">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                                <a href="<?php echo base_url('Alumni/tracer/proseshapustracer/' . $item['tipe_tracer'] . '/' . $id_tracer) ?>" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</a>
+                                <a href="<?php echo base_url('alumni/tracer/proseshapustracer/' . $item['tipe_tracer'] . '/' . $id_tracer) ?>" class="btn btn-danger"><i class="fa fa-trash"></i> Delete</a>
                               </div>
                             </div>
                             <!-- /.modal-content -->
@@ -181,7 +181,7 @@
                   <img style="width: 210px" src="<?= base_url('assets/Gambar/Website/tracer_graduation.png') ?>">
                   <h6><b>Tambah Data Kuliah</b></h6>
                   <small>Klik tombol dibawah ini untuk menambahkan kuliah</small> <br><br>
-                  <a href="<?php echo base_url('Alumni/tracer_kuliah/index') ?>" class="btn btn-success btn-sm">Kuliah</a>
+                  <a href="<?php echo base_url('alumni/tracer_kuliah/index') ?>" class="btn btn-success btn-sm">Kuliah</a>
                 </div>
 
                 <!-- Ditolak -->

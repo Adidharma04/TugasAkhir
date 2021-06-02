@@ -30,7 +30,7 @@
     </div>
 
     <!-- <Header> -->
-    <?php $this->load->view('Template/User/navbar')?>
+    <?php $this->load->view('Template/user/navbar')?>
 
     <!-- <Body> -->
     <div class="breadcumb-area bg-img" style="background-image: url(<?php echo base_url().'assets/Gambar/Website/Dashboard/backgroundevent.jpg';?>);">
@@ -141,7 +141,7 @@
                 <div class="col-12">
                     <div class="cta-content d-flex align-items-center justify-content-between flex-wrap">
                         <h3>Ingin menambakan event baru? Klik disini</h3>
-                        <a href="<?= base_url("Alumni/event/tambah")?>" class="btn academy-btn">More Event!</a>
+                        <a href="<?= base_url("alumni/event/tambah")?>" class="btn academy-btn">More Event!</a>
                     </div>
                 </div>
             </div>
@@ -149,7 +149,7 @@
     </div>
     <!-- ##### Course Area End ##### -->       
     <!-- <footer> -->
-    <?php $this->load->view('Template/User/footer')?>
+    <?php $this->load->view('Template/user/footer')?>
 </body>
 
 </html>

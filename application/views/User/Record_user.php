@@ -33,7 +33,7 @@
     </div> -->
 
     <!-- <Header> -->
-    <?php $this->load->view('Template/User/navbar')?>
+    <?php $this->load->view('Template/user/navbar')?>
 
     <!-- <Body> -->
      <!-- ##### Breadcumb Area Start ##### -->
@@ -209,7 +209,7 @@
                        <div class="teachers-info mt-30">
                             <h5><?php echo $row['nama'] ?></h5>
                             <span>Tahun Lulus : <?php echo $row['tahun_lulus'] ?></span><br>
-                            <a class="btn btn-primary" href="<?= base_url("User/Record_User/detail/".$row['id_profile'])?>">Detail</a>
+                            <a class="btn btn-primary" href="<?= base_url("user/record_user/detail/".$row['id_profile'])?>">Detail</a>
                         </div>
                     </div>
                 </div>
@@ -241,7 +241,7 @@
     </section>
     <!-- ##### Blog Area End ##### -->     
     <!-- <footer> -->
-    <?php $this->load->view('Template/User/footer')?>
+    <?php $this->load->view('Template/user/footer')?>
 </body>
 
 </html>

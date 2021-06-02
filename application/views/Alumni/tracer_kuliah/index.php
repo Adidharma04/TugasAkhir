@@ -117,7 +117,7 @@
               <div class="row">
                   <div class="col-md-2">
                     <button type="submit" class="btn btn-primary">Submit</button>
-                    <span> <a href="<?= base_url("Alumni/tracer")?>" class="btn btn-danger">Cancel</a></span>
+                    <span> <a href="<?= base_url("alumni/tracer")?>" class="btn btn-danger">Cancel</a></span>
                   </div>
               </div>
 

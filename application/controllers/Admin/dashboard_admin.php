@@ -13,17 +13,15 @@ class Dashboard_admin extends CI_Controller {
                         <small>Anda harus login terlebih dahulu !</small>
                     </div>';
             $this->session->set_flashdata('msg', $html);
-            redirect("Admin/login");
+            redirect("admin/login");
         }if($this->session->userdata('sess_level') != "staff"){
             $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> <br> 
                     <small>Anda Bukan Staff!</small>
                 </div>';
             $this->session->set_flashdata('msg', $html);
             $this->session->sess_destroy();
-            redirect('Admin/login', 'refresh');
+            redirect('admin/login', 'refresh');
         }
-
-
 
         $this->load->model('M_dashboard');
     }
@@ -31,16 +29,16 @@ class Dashboard_admin extends CI_Controller {
     public function index()
     {
          //-- Title Halaman
-         $data ['title'] = 'Halaman Dashboard | Admin';
+         $data ['title'] = 'Halaman Dashboard | admin';
          $data['tracer'] = $this->M_dashboard->ambilDataStatistik_kerjaKuliah();
          $data['record'] = $this->M_dashboard->ambilDataTracer();
          $data['header'] = $this->M_dashboard->ambilJumlah();
          //----------------------------
 
-        $this->load->view('Template/Admin/navbar',$data);
-        $this->load->view('Template/Admin/sidebar',$data);
-        $this->load->view('Admin/dashboard_admin/index',$data);
-        $this->load->view('Template/Admin/footer');
+        $this->load->view('Template/admin/navbar',$data);
+        $this->load->view('Template/admin/sidebar',$data);
+        $this->load->view('admin/dashboard_admin/index',$data);
+        $this->load->view('Template/admin/footer');
     }
 
 }

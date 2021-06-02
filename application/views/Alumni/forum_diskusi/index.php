@@ -20,7 +20,7 @@ if ($this->input->get('tipe')) {
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="<?php echo base_url('Alumni/dashboard_alumni') ?>">Home</a></li>
+                        <li class="breadcrumb-item"><a href="<?php echo base_url('alumni/dashboard_alumni') ?>">Home</a></li>
                         <li class="breadcrumb-item active">Dashboard </li>
                     </ol>
                 </div><!-- /.col -->
@@ -50,7 +50,7 @@ if ($this->input->get('tipe')) {
                     <br>
                     <div class="row">
                         <div class="col-md-4">
-                            <a href="<?php echo base_url('Alumni/Forum_diskusi/tambahForum/') ?>">
+                            <a href="<?php echo base_url('alumni/Forum_diskusi/tambahForum/') ?>">
                                 <button class="btn btn-primary" style="margin-left: 20px;">
                                     Tambahkan Forum
                                 </button>
@@ -101,7 +101,7 @@ if ($this->input->get('tipe')) {
 
                                                         echo '
                                                                     <div class="text-sm">
-                                                                        <a href="' . base_url('Alumni/forum_diskusi/editForum/') . $row['id_forum'] . '" class="btn btn-primary btn-xs"><i class="fa fa-pencil"> </i>Sunting</a> &nbsp;
+                                                                        <a href="' . base_url('alumni/forum_diskusi/editForum/') . $row['id_forum'] . '" class="btn btn-primary btn-xs"><i class="fa fa-pencil"> </i>Sunting</a> &nbsp;
                                                                         <a href="#" data-toggle="modal" data-target="#action-hapus-' . $row['id_forum'] . '" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i>Hapus</a>
                                                                     </div>
 
@@ -113,7 +113,7 @@ if ($this->input->get('tipe')) {
                                                             // tampilkan button
                                                             echo '
                                                                         <div class="text-sm">
-                                                                        <a href="' . base_url('Alumni/forum_diskusi/editForum/') . $row['id_forum'] . '" class="btn btn-primary btn-xs"><i class="fa fa-pencil"> </i> Sunting</a> &emsp;
+                                                                        <a href="' . base_url('alumni/forum_diskusi/editForum/') . $row['id_forum'] . '" class="btn btn-primary btn-xs"><i class="fa fa-pencil"> </i> Sunting</a> &emsp;
                                                                         <a href="#" data-toggle="modal" data-target="#action-hapus-' . $row['id_forum'] . '" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus</a>
                                                                         </div>
                                                                         
@@ -138,7 +138,7 @@ if ($this->input->get('tipe')) {
                                                                                 </div>
                                                                                 <div class="modal-footer justify-content-between">
                                                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                                                                                <a href="' . base_url('Alumni/forum_diskusi/hapusForum/') . $row['id_forum'] . '" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>
+                                                                                <a href="' . base_url('alumni/forum_diskusi/hapusForum/') . $row['id_forum'] . '" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>
                                                                                 </div>
                                                                             </div>
                                                                             <!-- /.modal-content -->

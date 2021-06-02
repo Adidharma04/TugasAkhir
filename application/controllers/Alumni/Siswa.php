@@ -15,18 +15,18 @@ class Siswa extends CI_Controller {
         }if($this->session->userdata('sess_level') != "alumni"){
             $session_destroy = $this->session->sess_destroy();
             $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> <br> 
-                    <small>Anda Bukan Alumni!</small>
+                    <small>Anda Bukan alumni!</small>
                 </div>';
             $this->session->set_flashdata('msg', $html,$session_destroy);
             redirect('Admin/login', 'refresh');
         }
-        $this->load->model('alumni/siswa_model');
+        $this->load->model('alumni/Siswa_model');
     }
 
     public function index($id_siswa)
     {
         
-        $getDataSiswaById = $this->siswa_model->getSiswa($id_siswa);
+        $getDataSiswaById = $this->Siswa_model->getSiswa($id_siswa);
         $nis = $getDataSiswaById->nis;
         $email = $getDataSiswaById->email;
 
@@ -74,12 +74,12 @@ class Siswa extends CI_Controller {
         //----------------------------
         $data['profil_siswa'] = $getDataSiswaById;
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('Template/Alumni/navbar_alumni', $data);
-            $this->load->view('Template/Alumni/sidebar_alumni', $data);
-            $this->load->view('Alumni/siswa/index', $data);
-            $this->load->view('Template/Alumni/footer_alumni');
+            $this->load->view('Template/alumni/navbar_alumni', $data);
+            $this->load->view('Template/alumni/sidebar_alumni', $data);
+            $this->load->view('alumni/siswa/index', $data);
+            $this->load->view('Template/alumni/footer_alumni');
         } else {
-            $this->siswa_model->editDataSiswa($id_siswa);
+            $this->Siswa_model->editDataSiswa($id_siswa);
             $html = '<div class="alert alert-success">
                         <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
                         <b>Pemberitahuan</b> 
@@ -87,17 +87,10 @@ class Siswa extends CI_Controller {
                         Data siswa berhasil di edit pada tanggal ' . date('d F Y H.i A') . '
                      </div>';
             $this->session->set_flashdata('msg', $html);
-            redirect('Alumni/dashboard_alumni', 'refresh');
+            redirect('alumni/dashboard_alumni', 'refresh');
         }
 
     }
-
-
-
-
-
-
-
 
     /** Tampilan ubah password */
     function password() {
@@ -105,18 +98,16 @@ class Siswa extends CI_Controller {
         //-- Title Halaman
         $data['title'] = 'Halaman Admin-Dashboard';
 
-        $this->load->view('Template/Alumni/navbar_alumni', $data);
-        $this->load->view('Template/Alumni/sidebar_alumni', $data);
-        $this->load->view('Alumni/siswa/ubah_password', $data);
-        $this->load->view('Template/Alumni/footer_alumni');   
+        $this->load->view('Template/alumni/navbar_alumni', $data);
+        $this->load->view('Template/alumni/sidebar_alumni', $data);
+        $this->load->view('alumni/siswa/ubah_password', $data);
+        $this->load->view('Template/alumni/footer_alumni');   
     }
-
-
 
     // proses ubah password
     function prosesubahpassword() {
 
-        $this->siswa_model->doUpdatePassword();
+        $this->Siswa_model->doUpdatePassword();
     }
 
 }

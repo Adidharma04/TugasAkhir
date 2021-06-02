@@ -4,25 +4,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Tracer_kuliah extends CI_Controller {
     function __construct() {
         parent::__construct();
-        $this->load->model('Alumni/tracer_kuliah_model');
+        $this->load->model('alumni/Tracer_kuliah_model');
         if ( empty( $this->session->userdata('sess_id_profile') ) ) {
             $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> <br> 
                         <small>Anda harus login terlebih dahulu !</small>
                     </div>';
             $this->session->set_flashdata('msg', $html);
-            redirect("Admin/login");
+            redirect("admin/login");
         }if($this->session->userdata('sess_level') != "alumni"){
             $session_destroy = $this->session->sess_destroy();
             $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> <br> 
-                    <small>Anda Bukan Alumni!</small>
+                    <small>Anda Bukan alumni!</small>
                 </div>';
             $this->session->set_flashdata('msg', $html,$session_destroy);
-            redirect('Admin/login', 'refresh');
+            redirect('admin/login', 'refresh');
         }
     }
     public function index(){
         //-- Title Halaman
-        $data ['title'] = 'Halaman Tambah Tracer Kuliah | Alumni';
+        $data ['title'] = 'Halaman Tambah Tracer Kuliah | alumni';
         //----------------------------
         //rule
         $this->form_validation->set_rules('nama_kampus', 'Nama Kampus', 'required|trim',[
@@ -44,19 +44,19 @@ class Tracer_kuliah extends CI_Controller {
             'required' => 'Masukkan Jalur Penerimaan',
         ]);
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('Template/Alumni/navbar_alumni',$data);
-            $this->load->view('Template/Alumni/sidebar_alumni',$data);
-            $this->load->view('Alumni/Tracer_kuliah/index',$data);
-            $this->load->view('Template/Alumni/footer_alumni');
+            $this->load->view('Template/alumni/navbar_alumni',$data);
+            $this->load->view('Template/alumni/sidebar_alumni',$data);
+            $this->load->view('alumni/Tracer_kuliah/index',$data);
+            $this->load->view('Template/alumni/footer_alumni');
         }else{
-            $this->tracer_kuliah_model->tambahDataTracerKuliah();
+            $this->Tracer_kuliah_model->tambahDataTracerKuliah();
                 $html = '<div class="alert alert-success">
                                 <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
                                 <b>Pemberitahuan</b> <br>
                                 Tracer Kuliah berhasil di tambah pada tanggal ' . date('d F Y H.i A') . '
                          </div>';
                 $this->session->set_flashdata('msg', $html);
-                redirect('Alumni/tracer', 'refresh');
+                redirect('alumni/tracer', 'refresh');
         }
     }
 

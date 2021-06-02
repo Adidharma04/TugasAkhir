@@ -5,32 +5,32 @@ class Event extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Admin/event_model');
+        $this->load->model('admin/Event_model');
         if ( empty( $this->session->userdata('sess_id_profile') ) ) {
             $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> <br> 
                         <small>Anda harus login terlebih dahulu !</small>
                     </div>';
             $this->session->set_flashdata('msg', $html);
-            redirect("Admin/login");
+            redirect("admin/login");
         }if($this->session->userdata('sess_level') != "staff"){
             $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> <br> 
                     <small>Anda Bukan Staff!</small>
                 </div>';
             $this->session->set_flashdata('msg', $html);
             $this->session->sess_destroy();
-            redirect('Admin/login', 'refresh');
+            redirect('admin/login', 'refresh');
         }
     }
     public function index()
     {
         //-- Title Halaman
-         $data ['title'] = 'Halaman Event | Admin';
+         $data ['title'] = 'Halaman Event | admin';
         //----------------------------
-        $data['event'] = $this->event_model->tampilDataEvent(); 
-        $this->load->view('Template/Admin/navbar',$data);
-        $this->load->view('Template/Admin/sidebar',$data);
-        $this->load->view('Admin/event/index',$data);
-        $this->load->view('Template/Admin/footer');
+        $data['event'] = $this->Event_model->tampilDataEvent(); 
+        $this->load->view('Template/admin/navbar',$data);
+        $this->load->view('Template/admin/sidebar',$data);
+        $this->load->view('admin/event/index',$data);
+        $this->load->view('Template/admin/footer');
     } 
     public function tambah(){
 
@@ -49,18 +49,18 @@ class Event extends CI_Controller {
         ]);
 
         //-- Title Halaman
-        $data ['title'] = 'Halaman Tambah Event | Admin';
+        $data ['title'] = 'Halaman Tambah Event | admin';
         //----------------------------
-        $data['event'] = $this->event_model->tampilDataEvent(); 
+        $data['event'] = $this->Event_model->tampilDataEvent(); 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('Template/Admin/navbar',$data);
-            $this->load->view('Template/Admin/sidebar',$data);
-            $this->load->view('Admin/event/tambah',$data);
-            $this->load->view('Template/Admin/footer');
+            $this->load->view('Template/admin/navbar',$data);
+            $this->load->view('Template/admin/sidebar',$data);
+            $this->load->view('admin/event/tambah',$data);
+            $this->load->view('Template/admin/footer');
         }else{
-            $upload = $this->event_model->upload();
+            $upload = $this->Event_model->upload();
             if ($upload['result'] == 'success') {
-                $this->event_model->tambahDataEvent($upload);
+                $this->Event_model->tambahDataEvent($upload);
                 
             } else {
                 echo $upload['error'];
@@ -68,7 +68,7 @@ class Event extends CI_Controller {
         }
     }
     public function edit($id_event){
-        $getDataEventById = $this->event_model->getEvent($id_event);
+        $getDataEventById = $this->Event_model->getEvent($id_event);
         
         //rule
         $this->form_validation->set_rules('nama_event', 'Nama Event', 'required|trim',[
@@ -79,18 +79,18 @@ class Event extends CI_Controller {
         ]);
 
         //-- Title Halaman
-        $data ['title'] = 'Halaman Edit Event | Admin';
+        $data ['title'] = 'Halaman Edit Event | admin';
         //----------------------------
         $data ['event'] = $getDataEventById;
         
             if($this->form_validation->run() == FALSE){
-                $this->load->view('Template/Admin/navbar',$data);
-                $this->load->view('Template/Admin/sidebar',$data);
-                $this->load->view('Admin/event/edit',$data);
-                $this->load->view('Template/Admin/footer');
+                $this->load->view('Template/admin/navbar',$data);
+                $this->load->view('Template/admin/sidebar',$data);
+                $this->load->view('admin/event/edit',$data);
+                $this->load->view('Template/admin/footer');
             }
             else{
-                $this->event_model->editDataEvent( $id_event );
+                $this->Event_model->editDataEvent( $id_event );
                 $html = '<div class="alert alert-success">
                             <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
                             <br>
@@ -98,33 +98,33 @@ class Event extends CI_Controller {
                             Data event berhasil di edit pada tanggal ' . date('d F Y H.i A') . '
                         </div>';
                 $this->session->set_flashdata('msg', $html);
-                redirect('Admin/event','refresh');
+                redirect('admin/event','refresh');
             }
         }
 
     // proses detail 
     public function detail($id_event){
         //-- Title Halaman
-            $data ['title'] = 'Halaman Admin-Dashboard';
+            $data ['title'] = 'Halaman admin-Dashboard';
         //----------------------------
-            $data ['event'] = $this->event_model->getEvent($id_event);
+            $data ['event'] = $this->Event_model->getEvent($id_event);
             
-            $this->load->view('Template/Admin/navbar',$data);
-            $this->load->view('Template/Admin/sidebar',$data);
-            $this->load->view('Admin/event/detail',$data);
-            $this->load->view('Template/Admin/footer');
+            $this->load->view('Template/admin/navbar',$data);
+            $this->load->view('Template/admin/sidebar',$data);
+            $this->load->view('admin/event/detail',$data);
+            $this->load->view('Template/admin/footer');
     }
 
     // proses hapus
     function onDelete( $id_event ) {
 
-        $this->event_model->prosesHapusEvent( $id_event );
+        $this->Event_model->prosesHapusEvent( $id_event );
         $html = '<div class="alert alert-success">
                      <b>Pemberitahuan</b> <br>
                      Data Event berhasil terhapus pada tanggal '.date('d F Y H.i A').'
                      </div>';
             $this->session->set_flashdata('msg', $html);
-            redirect('Admin/event','refresh');
+            redirect('admin/event','refresh');
     }
 
 }

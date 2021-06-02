@@ -91,7 +91,7 @@
             <div class="form-group">
               <button type="submit" class="btn btn-primary"><i class="fa fa-save"> Submit</i></button>
               &nbsp;
-              <span> <a href="<?= base_url("Alumni/forum_diskusi") ?>" class="btn btn-warning"><i class="fa fa-chevron-circle-left"> Cancel</i></a></span>
+              <span> <a href="<?= base_url("alumni/forum_diskusi") ?>" class="btn btn-warning"><i class="fa fa-chevron-circle-left"> Cancel</i></a></span>
             </div>
           </div>
 

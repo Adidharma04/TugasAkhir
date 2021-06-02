@@ -13,14 +13,14 @@ class Dashboard_bk extends CI_Controller {
                         <small>Anda harus login terlebih dahulu !</small>
                     </div>';
             $this->session->set_flashdata('msg', $html);
-            redirect("Admin/login");
+            redirect("admin/login");
         }if($this->session->userdata('sess_level') != "bk"){
             $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> <br> 
                     <small>Anda Bukan Guru BK!</small>
                 </div>';
             $this->session->set_flashdata('msg', $html);
             $this->session->sess_destroy();
-            redirect('Admin/login', 'refresh');
+            redirect('admin/login', 'refresh');
         }
         $this->load->model('M_dashboard');
     }
@@ -34,10 +34,10 @@ class Dashboard_bk extends CI_Controller {
          $data['header'] = $this->M_dashboard->ambilJumlah();
          //----------------------------
 
-        $this->load->view('Template/Admin/navbar',$data);
-        $this->load->view('Template/Admin/sidebar_bk',$data);
+        $this->load->view('Template/admin/navbar',$data);
+        $this->load->view('Template/admin/sidebar_bk',$data);
         $this->load->view('bk/dashboard_bk/index',$data);
-        $this->load->view('Template/Admin/footer');
+        $this->load->view('Template/admin/footer');
     }
 
 }

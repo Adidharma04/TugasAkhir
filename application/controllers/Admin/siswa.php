@@ -6,21 +6,21 @@ class Siswa extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Admin/siswa_model');
+        $this->load->model('admin/Siswa_model');
         if (empty($this->session->userdata('sess_id_profile'))) {
 
             $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> <br> 
                         <small>Anda harus login terlebih dahulu !</small>
                     </div>';
             $this->session->set_flashdata('msg', $html);
-            redirect("Admin/login");
+            redirect("admin/login");
         }if($this->session->userdata('sess_level') != "staff"){
             $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> <br> 
                     <small>Anda Bukan Staff!</small>
                 </div>';
             $this->session->set_flashdata('msg', $html);
             $this->session->sess_destroy();
-            redirect('Admin/login', 'refresh');
+            redirect('admin/login', 'refresh');
         }
 
 
@@ -30,14 +30,14 @@ class Siswa extends CI_Controller
     public function index()
     {
         //-- Title Halaman
-        $data['title'] = 'Halaman Siswa | Admin';
+        $data['title'] = 'Halaman Siswa | admin';
         //----------------------------
-        $data['profil_siswa'] = $this->siswa_model->tampilDataSiswa();
+        $data['profil_siswa'] = $this->Siswa_model->tampilDataSiswa();
         
-        $this->load->view('Template/Admin/navbar', $data);
-        $this->load->view('Template/Admin/sidebar', $data);
-        $this->load->view('Admin/siswa/index', $data);
-        $this->load->view('Template/Admin/footer');
+        $this->load->view('Template/admin/navbar', $data);
+        $this->load->view('Template/admin/sidebar', $data);
+        $this->load->view('admin/siswa/index', $data);
+        $this->load->view('Template/admin/footer');
     }
     public function tambah()
     {
@@ -81,27 +81,27 @@ class Siswa extends CI_Controller
         //----------------------------------------------------------------------
 
         //-- Title Halaman
-        $data['title'] = 'Halaman Admin-Dashboard';
+        $data['title'] = 'Halaman admin-Dashboard';
         //----------------------------
-        $data['profil_siswa'] = $this->siswa_model->tampilDataSiswa();
+        $data['profil_siswa'] = $this->Siswa_model->tampilDataSiswa();
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('Template/Admin/navbar', $data);
-            $this->load->view('Template/Admin/sidebar', $data);
-            $this->load->view('Admin/siswa/tambah', $data);
-            $this->load->view('Template/Admin/footer',$data);
+            $this->load->view('Template/admin/navbar', $data);
+            $this->load->view('Template/admin/sidebar', $data);
+            $this->load->view('admin/siswa/tambah', $data);
+            $this->load->view('Template/admin/footer',$data);
         } else {
 
             $nis = $this->input->post('nis');
-            $upload = $this->siswa_model->upload( $nis );
+            $upload = $this->Siswa_model->upload( $nis );
             if ($upload['result'] == 'success') {
-                $this->siswa_model->tambahDataSiswa($upload);
+                $this->Siswa_model->tambahDataSiswa($upload);
                 $html = '<div class="alert alert-success">
                                 <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
                                 <b>Pemberitahuan</b> <br>
                                 Data siswa berhasil di tambah pada tanggal ' . date('d F Y H.i A') . '
                          </div>';
                 $this->session->set_flashdata('msg', $html);
-                redirect('Admin/siswa', 'refresh');
+                redirect('admin/siswa', 'refresh');
             } else {
                 echo $upload['error'];
             }
@@ -109,7 +109,7 @@ class Siswa extends CI_Controller
     }
     public function edit($id_siswa)
     {
-        $getDataSiswaById = $this->siswa_model->getSiswa($id_siswa);
+        $getDataSiswaById = $this->Siswa_model->getSiswa($id_siswa);
         $nis = $getDataSiswaById->nis;
         $email = $getDataSiswaById->email;
 
@@ -153,16 +153,16 @@ class Siswa extends CI_Controller
         ]);
         //----------------------------------------------------------------------
         //-- Title Halaman
-        $data['title'] = 'Halaman Admin-Dashboard';
+        $data['title'] = 'Halaman admin-Dashboard';
         //----------------------------
         $data['profil_siswa'] = $getDataSiswaById;
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('Template/Admin/navbar', $data);
-            $this->load->view('Template/Admin/sidebar', $data);
-            $this->load->view('Admin/siswa/edit', $data);
-            $this->load->view('Template/Admin/footer');
+            $this->load->view('Template/admin/navbar', $data);
+            $this->load->view('Template/admin/sidebar', $data);
+            $this->load->view('admin/siswa/edit', $data);
+            $this->load->view('Template/admin/footer');
         } else {
-            $this->siswa_model->editDataSiswa($id_siswa);
+            $this->Siswa_model->editDataSiswa($id_siswa);
             $html = '<div class="alert alert-success">
                         <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
                         <b>Pemberitahuan</b> 
@@ -170,20 +170,20 @@ class Siswa extends CI_Controller
                         Data siswa berhasil di edit pada tanggal ' . date('d F Y H.i A') . '
                      </div>';
             $this->session->set_flashdata('msg', $html);
-            redirect('Admin/siswa', 'refresh');
+            redirect('admin/siswa', 'refresh');
         }
     }
     public function detail($id_siswa)
     {
         //-- Title Halaman
-        $data['title'] = 'Halaman Admin-Dashboard';
+        $data['title'] = 'Halaman admin-Dashboard';
         //----------------------------
-        $data['profil_siswa'] = $this->siswa_model->getSiswa($id_siswa);
+        $data['profil_siswa'] = $this->Siswa_model->getSiswa($id_siswa);
 
-        $this->load->view('Template/Admin/navbar', $data);
-        $this->load->view('Template/Admin/sidebar', $data);
-        $this->load->view('Admin/siswa/detail', $data);
-        $this->load->view('Template/Admin/footer');
+        $this->load->view('Template/admin/navbar', $data);
+        $this->load->view('Template/admin/sidebar', $data);
+        $this->load->view('admin/siswa/detail', $data);
+        $this->load->view('Template/admin/footer');
     }
 
 
@@ -191,14 +191,14 @@ class Siswa extends CI_Controller
     // proses hapus siswa
     function onDelete($id_profile)
     {
-        $this->siswa_model->prosesHapusSiswa($id_profile);
+        $this->Siswa_model->prosesHapusSiswa($id_profile);
         $html = '<div class="alert alert-success">
                     <a href="siswa" class="close" data-dismiss="alert" >&times;</a>
                     <b>Pemberitahuan</b> <br>
                     Data siswa berhasil terhapus pada tanggal ' . date('d F Y H.i A') . '
                  </div>';
         $this->session->set_flashdata('msg', $html);
-        redirect('Admin/siswa', 'refresh');
+        redirect('admin/siswa', 'refresh');
     }
 
 
@@ -313,7 +313,7 @@ class Siswa extends CI_Controller
 
 
         $table_body = "";
-        $profil_siswa = $this->siswa_model->tampilDataSiswa();
+        $profil_siswa = $this->Siswa_model->tampilDataSiswa();
 
         $no = 1;
         foreach ( $profil_siswa AS $row ) {

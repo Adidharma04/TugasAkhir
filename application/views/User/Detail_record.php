@@ -231,7 +231,7 @@
     </div> -->
 
     <!-- <Header> -->
-    <?php $this->load->view('Template/User/navbar') ?>
+    <?php $this->load->view('Template/user/navbar') ?>
 
     <!-- <Body> -->
     <!-- ##### Breadcumb Area Start ##### -->
@@ -333,7 +333,7 @@
             </div>
             </div>
     <!-- <footer> -->
-    <?php $this->load->view('Template/User/footer') ?>
+    <?php $this->load->view('Template/user/footer') ?>
 </body>
 
 </html>

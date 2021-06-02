@@ -133,7 +133,7 @@
               <div class="row">
                   <div class="col-md-2">
                     <button type="submit" class="btn btn-primary">Submit</button>
-                    <span> <a href="<?= base_url() . 'Alumni/sharing_loker' ?>" class="btn btn-danger">Cancel</a></span>
+                    <span> <a href="<?= base_url() . 'alumni/sharing_loker' ?>" class="btn btn-danger">Cancel</a></span>
                   </div>
               </div>
             </form>

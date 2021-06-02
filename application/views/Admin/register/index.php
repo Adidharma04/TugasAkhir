@@ -126,7 +126,7 @@
                 $.ajax({
 
                     type: "GET", // type {GET, POST}
-                    url: base_url + 'Admin/register/checkDataNIS', // link 
+                    url: base_url + 'admin/register/checkDataNIS', // link 
                     data: 'nis=' + nis, // data yang dikirim
                     dataType: "json",
 
@@ -202,7 +202,7 @@
                 $.ajax({
 
                     type : "POST",
-                    url  : base_url + 'Admin/register/prosesRegistrasiSiswa',
+                    url  : base_url + 'admin/register/prosesRegistrasiSiswa',
                     data : $(this).serialize(), // get all attribute name with value | no_induk=1868135063&email=ika@gmail.com
                     dataType : "json",
 

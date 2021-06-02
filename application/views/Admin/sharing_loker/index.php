@@ -10,7 +10,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="<?php echo base_url('Admin/dashboard_admin') ?>">Home</a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo base_url('admin/dashboard_admin') ?>">Home</a></li>
                             <li class="breadcrumb-item active">Table Loker</li>
                         </ol>
                     </div>
@@ -31,7 +31,7 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="col-md-3">
-                                <a href='<?php echo base_url('Admin/sharing_loker/tambah') ?>'><button type="button" class="btn btn-outline-primary btn-block"><i class="fa fa-plus"></i> Tambah</button></a>
+                                <a href='<?php echo base_url('admin/sharing_loker/tambah') ?>'><button type="button" class="btn btn-outline-primary btn-block"><i class="fa fa-plus"></i> Tambah</button></a>
                             </div>
                             <div class="card-body">
                                 <table id="example1" class="table table-bordered table-striped">
@@ -86,8 +86,8 @@
                                                     <?php endif ?>
                                                 </td>
                                                 <td>
-                                                    <a href="<?= base_url() . 'Admin/sharing_loker/detail/' . $job->id_loker ?>" class="btn btn-xs btn-info"><i class="fas fa-eye"></i> Detail</a>
-                                                    <a href="<?= base_url() . 'Admin/sharing_loker/edit/' . $job->id_loker ?>" class="btn btn-xs btn-success"><i class="fas fa-pencil-square-o"></i>Edit</a>
+                                                    <a href="<?= base_url() . 'admin/sharing_loker/detail/' . $job->id_loker ?>" class="btn btn-xs btn-info"><i class="fas fa-eye"></i> Detail</a>
+                                                    <a href="<?= base_url() . 'admin/sharing_loker/edit/' . $job->id_loker ?>" class="btn btn-xs btn-success"><i class="fas fa-pencil-square-o"></i>Edit</a>
                                                     <a href="#" data-toggle="modal" data-target="#action-delete-<?php echo $job->id_loker ?>" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> Hapus</a>
                                                 </td>
                                                 <!-- Modal delete -->

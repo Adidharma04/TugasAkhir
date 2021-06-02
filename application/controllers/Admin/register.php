@@ -10,17 +10,17 @@ class Register extends CI_Controller {
         $this->load->helper('url');
         $this->load->helper('form');
         $this->load->library('form_validation');
-        $this->load->model('Admin/register_model');
+        $this->load->model('admin/Register_model');
     }
     public function index()
     {
         $this->load->view('Template/Login_register/header.php');
-        $this->load->view('Admin/register/index');
+        $this->load->view('admin/register/index');
         $this->load->view('Template/Login_register/footer.php');
         
     }
     public function registrasi(){
-        $this->load->model("Admin/register_model");
+        $this->load->model("admin/Register_model");
        
     }
     private function _proses_registrasi(){
@@ -32,22 +32,22 @@ class Register extends CI_Controller {
             if($nis){
                 if($name){
                     if($nis['role_id']==3){
-                        $this->register_model->registerAlumni();
+                        $this->Register_model->registerAlumni();
                         $this->session->set_flashdata('pesan','<center> Registrasi anda berhasil. <br> Tunggu validasi Admin</center>');
-                        redirect("Admin/login");
+                        redirect("admin/login");
                     }else{
                         $this->session->set_flashdata('not_alumni','<center>Anda Masih Menjadi Siswa. <br> Belum Menjadi Alumni </center>');
-                        redirect("Admin/register");
+                        redirect("admin/register");
                     }
                    
                 }else{
                     $this->session->set_flashdata('not_available_nama','<center>Nama anda tidak terdaftar</center>');
-                    redirect("Admin/register");
+                    redirect("admin/register");
                 }
                 
             }else{
                 $this->session->set_flashdata('not_available_nis','<center>NIS anda tidak terdaftar</center>');
-                redirect("Admin/register");
+                redirect("admin/register");
             }
 
            
@@ -62,14 +62,14 @@ class Register extends CI_Controller {
     // check nis 
     function checkDataNIS() {
 
-        $this->register_model->cekDataNIS();
+        $this->Register_model->cekDataNIS();
     }
 
 
     // proses registrasi siswa (alumni)
     function prosesRegistrasiSiswa() {
 
-        $pesan = $this->register_model->registrasiSiswa();   
+        $pesan = $this->Register_model->registrasiSiswa();   
         
         echo json_encode( $pesan );
     }
@@ -84,7 +84,7 @@ class Register extends CI_Controller {
         echo "mau mentesting gmail dari ". $email;
 
 
-        $this->register_model->notifikasiEmail( $email, "Dwi Nur" );
+        $this->Register_model->notifikasiEmail( $email, "Dwi Nur" );
     }
 
 }

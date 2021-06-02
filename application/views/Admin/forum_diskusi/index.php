@@ -20,7 +20,7 @@
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="<?php echo base_url('Admin/dashboard_admin') ?>">Home</a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo base_url('admin/dashboard_admin') ?>">Home</a></li>
                             <li class="breadcrumb-item active">Forum Diskusi</li>
                         </ol>
                     </div><!-- /.col -->
@@ -158,7 +158,7 @@
 
                                                                 echo '
                                                                     <div class="text-sm">
-                                                                    <a href="'.base_url('Admin/forum_diskusi/editForum/').$row['id_forum'].'" class="btn btn-primary btn-xs"><i class="fa fa-pencil"> </i>Sunting</a> &nbsp;
+                                                                    <a href="'.base_url('admin/forum_diskusi/editForum/').$row['id_forum'].'" class="btn btn-primary btn-xs"><i class="fa fa-pencil"> </i>Sunting</a> &nbsp;
                                                                     <a href="#" data-toggle="modal" data-target="#action-hapus-'.$row['id_forum'].'" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i>Hapus</a>
                                                                     </div>
 
@@ -181,7 +181,7 @@
                                                                             </div>
                                                                             <div class="modal-footer justify-content-between">
                                                                             <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                                                                            <a href="'.base_url('Admin/forum_diskusi/hapusForum/').$row['id_forum'].'" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>
+                                                                            <a href="'.base_url('admin/forum_diskusi/hapusForum/').$row['id_forum'].'" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>
                                                                             </div>
                                                                         </div>
                                                                         <!-- /.modal-content -->

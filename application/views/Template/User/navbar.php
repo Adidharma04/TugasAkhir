@@ -29,10 +29,10 @@
                     <div class="col-12 h-100">
                         <div class="header-content h-100 d-flex align-items-center justify-content-between">
                             <div class="academy-logo">
-                                <a href="<?php echo base_url("User/dashboard_user");?>"><img src=" <?php echo base_url().'assets/Gambar/Website/Dashboard/SMA_ploso.png';?>" alt=""></a>
+                                <a href="<?php echo base_url("user/dashboard_user");?>"><img src=" <?php echo base_url().'assets/Gambar/Website/Dashboard/SMA_ploso.png';?>" alt=""></a>
                             </div>
                             <div class="login-content">
-                                <a href="<?php echo base_url("Admin/login");?>">Register / Login</a>
+                                <a href="<?php echo base_url("admin/login");?>">Register / Login</a>
                             </div>
                         </div>
                     </div>
@@ -63,17 +63,17 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li><a href="<?php echo base_url("User/dashboard_user");?>">Beranda</a></li>
-                                    <li><a href="<?php echo base_url("User/record_user");?>">Tracer</a></li>
+                                    <li><a href="<?php echo base_url("user/dashboard_user");?>">Beranda</a></li>
+                                    <li><a href="<?php echo base_url("user/record_user");?>">Tracer</a></li>
                                     </li>
                                     <li><a href="#">Informasi</a>
                                         <ul class="dropdown">
-                                            <li><a href="<?php echo base_url('User/event_user')?>">Event</a></li>
-                                            <li><a href="<?php echo base_url('User/informasi_umum')?>">Informasi Kuliah</a></li>
-                                            <li><a href="<?php echo base_url('User/sharing_loker')?>">Informasi Loker</a></li>
+                                            <li><a href="<?php echo base_url('user/event_user')?>">Event</a></li>
+                                            <li><a href="<?php echo base_url('user/informasi_umum')?>">Informasi Kuliah</a></li>
+                                            <li><a href="<?php echo base_url('user/sharing_loker')?>">Informasi Loker</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="<?php echo base_url("User/kritik_saran_user");?>">Kritik & Saran</a></li>
+                                    <li><a href="<?php echo base_url("user/kritik_saran_user");?>">Kritik & Saran</a></li>
                                 </ul>
                             </div>
                             <!-- Nav End -->

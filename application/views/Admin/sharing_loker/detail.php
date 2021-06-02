@@ -60,7 +60,7 @@
             </div>
             <div class="card-footer">
               <div class="text-right">
-                <a href="<?= base_url() . 'Admin/sharing_loker' ?>" class="btn btn-sm btn-primary">
+                <a href="<?= base_url() . 'admin/sharing_loker' ?>" class="btn btn-sm btn-primary">
                   <i class="fas fa-arrow-left"></i> Kembali
                 </a>
               </div>

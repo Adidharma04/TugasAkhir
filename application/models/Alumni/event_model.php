@@ -51,7 +51,7 @@ class Event_model extends CI_Model {
                                 Tanggal event harus hari ini ' . date('d F Y H.i A') . ' atau lebih dari hari ini
                          </div>';
                 $this->session->set_flashdata('msg', $html);
-                redirect('Alumni/event/tambah', 'refresh');
+                redirect('alumni/event/tambah', 'refresh');
         } else {
 
             if ( $dataEvent->num_rows() == 1 ) {
@@ -73,7 +73,7 @@ class Event_model extends CI_Model {
                                 Data event berhasil di tambah pada tanggal ' . date('d F Y H.i A') . '
                          </div>';
                 $this->session->set_flashdata('msg', $html);
-            redirect('Alumni/event', 'refresh');
+            redirect('alumni/event', 'refresh');
         }
     }
     public function upload(){    
@@ -133,7 +133,7 @@ class Event_model extends CI_Model {
                 $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> '.$this->upload->display_errors().'</div>';
                 $this->session->set_flashdata('msg', $html);
 
-                redirect('Alumni/event/edit/'. $id_event);
+                redirect('alumni/event/edit/'. $id_event);
                 
             }  
 
@@ -168,7 +168,7 @@ class Event_model extends CI_Model {
                                 Data event tidak berhasil di tambah pada tanggal ' . date('d F Y H.i A') . '
                          </div>';
                 $this->session->set_flashdata('msg', $html);
-                redirect('Alumni/event/tambah', 'refresh');
+                redirect('alumni/event/tambah', 'refresh');
         } else {
 
             // update information_event
@@ -182,7 +182,7 @@ class Event_model extends CI_Model {
                                 Data event berhasil di tambah pada tanggal ' . date('d F Y H.i A') . '
                          </div>';
                 $this->session->set_flashdata('msg', $html);
-            redirect('Alumni/event', 'refresh');
+            redirect('alumni/event', 'refresh');
         }
         
 

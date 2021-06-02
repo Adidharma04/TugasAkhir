@@ -8,7 +8,7 @@ class Login extends CI_Controller {
         parent::__construct();
         $this->load->helper('url');
         $this->load->helper('form');
-        $this->load->model('Admin/login_model');        
+        $this->load->model('admin/Login_model');        
     }
     public function index()
     {
@@ -29,7 +29,7 @@ class Login extends CI_Controller {
         if( $this->form_validation->run() == FALSE ){
 
             $this->load->view('Template/Login_register/header.php');
-            $this->load->view('Admin/login/index', $data);
+            $this->load->view('admin/login/index', $data);
             $this->load->view('Template/Login_register/footer.php');
             
         }else{
@@ -47,7 +47,7 @@ class Login extends CI_Controller {
         $password = $this->input->post('password');
 
         // call model
-        $ambilDataProfile = $this->login_model->getDataLogin( $username );
+        $ambilDataProfile = $this->Login_model->getDataLogin( $username );
 
         // check account registered
         if ( $ambilDataProfile->num_rows() == 1 ) {
@@ -70,7 +70,7 @@ class Login extends CI_Controller {
                 if ( ($kolom['level'] == "staff") || ($kolom['level'] == "bk") ) {
 
                     $id_profile = $kolom['id_profile'];
-                    $getDataInformationEmployee = $this->login_model->getDataEmployeeBy_IdLogin( $id_profile );
+                    $getDataInformationEmployee = $this->Login_model->getDataEmployeeBy_IdLogin( $id_profile );
 
                     if ( $getDataInformationEmployee->num_rows() == 0 ) {
                         
@@ -92,7 +92,7 @@ class Login extends CI_Controller {
                 if ( ($kolom['level'] == "bk") || ($kolom['level'] == "bk") ) {
 
                     $id_profile = $kolom['id_profile'];
-                    $getDataInformationEmployeeBK = $this->login_model->getDataEmployeeBKBy_IdLogin( $id_profile );
+                    $getDataInformationEmployeeBK = $this->Login_model->getDataEmployeeBKBy_IdLogin( $id_profile );
 
                     $kolomEmployeeBK = $getDataInformationEmployeeBK->row_array();
                     if ( $getDataInformationEmployeeBK->num_rows() == 0 ) {
@@ -113,7 +113,7 @@ class Login extends CI_Controller {
                 if ( ($kolom['level'] == "alumni")  ) {
 
                     $id_profile = $kolom['id_profile'];
-                    $getDataInformationAlumni = $this->login_model->getDataAlumniBy_IdLogin( $id_profile );
+                    $getDataInformationAlumni = $this->Login_model->getDataAlumniBy_IdLogin( $id_profile );
 
                     if ( $getDataInformationAlumni->num_rows() == 0 ) {
                         
@@ -137,7 +137,7 @@ class Login extends CI_Controller {
                 if ( ($kolom['level'] == "siswa")  ) {
 
                     $id_profile = $kolom['id_profile'];
-                    $getDataInformationSiswa = $this->login_model->getDataSiswaBy_IdLogin( $id_profile );
+                    $getDataInformationSiswa = $this->Login_model->getDataSiswaBy_IdLogin( $id_profile );
 
                     
                     if ( $getDataInformationSiswa->num_rows() == 0 ) {
@@ -175,7 +175,7 @@ class Login extends CI_Controller {
                         redirect("siswa/dashboard_siswa");
                         break;
                     case "alumni":
-                        redirect("Alumni/dashboard_alumni");
+                        redirect("alumni/dashboard_alumni");
                         break;
                 }
                 /// ................
@@ -190,7 +190,7 @@ class Login extends CI_Controller {
                          <center>
                          </div>';
                 $this->session->set_flashdata('msg', $html);
-                redirect("Admin/login");
+                redirect("admin/login");
             }
 
 
@@ -204,14 +204,14 @@ class Login extends CI_Controller {
                     <center>
                     </div>';
             $this->session->set_flashdata('msg', $html);
-            redirect("Admin/login");
+            redirect("admin/login");
         }
 
     }
 
     public function logout(){
         $this->session->sess_destroy();
-        redirect('User/dashboard_user', 'refresh');
+        redirect('user/dashboard_user', 'refresh');
     }
 
 }

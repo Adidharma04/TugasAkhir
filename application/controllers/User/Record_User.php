@@ -2,15 +2,15 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Record_User extends CI_Controller {
+class Record_user extends CI_Controller {
 
     function __construct() {
 
         parent::__construct();
 
         // load siswa model
-        $this->load->model('admin/siswa_model');
-        $this->load->model('Alumni/Tracer_model');
+        $this->load->model('admin/Siswa_model');
+        $this->load->model('alumni/Tracer_model');
     }
 
     public function index()
@@ -20,7 +20,7 @@ class Record_User extends CI_Controller {
         $this->load->library('pagination');
         
         // nilai awal
-        $dataAlumni = $this->siswa_model->tampilDataAlumni();
+        $dataAlumni = $this->Siswa_model->tampilDataAlumni();
 
     
         // init nilai 
@@ -68,7 +68,7 @@ class Record_User extends CI_Controller {
         }
 
 
-        $config['base_url'] = base_url().'User/record_user/index/';
+        $config['base_url'] = base_url().'user/record_user/index/';
         $config['total_rows'] = $dataAlumni->num_rows();
         $config['per_page'] = 8;
         
@@ -107,31 +107,31 @@ class Record_User extends CI_Controller {
         if ( (!empty($filter_tahun)) && ( !empty($filter_nama_alumni) ) ) {
 
             // filter keduanya
-            $dataAlumni = $this->siswa_model->filter_datasiswa_nama_tahunlulus( $filter_tahun, $filter_nama_alumni );
+            $dataAlumni = $this->Siswa_model->filter_datasiswa_nama_tahunlulus( $filter_tahun, $filter_nama_alumni );
 
         } else if ( $filter_tahun ) {
 
 
             // hanya filter tahun
-            $dataAlumni = $this->siswa_model->filter_datasiswa_tahunlulus( $filter_tahun );
+            $dataAlumni = $this->Siswa_model->filter_datasiswa_tahunlulus( $filter_tahun );
 
 
         } else if ( $filter_nama_alumni ) {
 
             // hanya filter nama
-            $dataAlumni = $this->siswa_model->filter_datasiswa_nama( $filter_nama_alumni );
+            $dataAlumni = $this->Siswa_model->filter_datasiswa_nama( $filter_nama_alumni );
 
 
         } else {
 
             // tanpa filter
-            $dataAlumni = $this->siswa_model->tampilDataAlumni( $key );
+            $dataAlumni = $this->Siswa_model->tampilDataAlumni( $key );
             
         }   
         
             
         $data['alumni'] = $dataAlumni;
-        $this->load->view('User/record_user', $data);
+        $this->load->view('user/record_user', $data);
     }
 
 
@@ -158,7 +158,7 @@ class Record_User extends CI_Controller {
                     $nama = $row['data']['nama_perusahaan'];
                 }
             }
-            $this->load->view('User/detail_record',$data);
+            $this->load->view('user/detail_record',$data);
         } else {
 
             // page not found

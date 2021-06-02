@@ -1,7 +1,7 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class informasi_umum_model extends CI_Model {
+class Informasi_umum_model extends CI_Model {
     public function tampilDataInformasiUmum()
     {  
         $sql = "SELECT 

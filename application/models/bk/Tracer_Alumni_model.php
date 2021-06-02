@@ -1,7 +1,7 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Tracer_Alumni_model extends CI_Model {
+class Tracer_alumni_model extends CI_Model {
     public function tampilDataTracerKuliah()
     {  
 

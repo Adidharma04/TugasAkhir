@@ -12,7 +12,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="<?php echo base_url('Admin/dashboard_admin') ?>">Home</a></li>
+              <li class="breadcrumb-item"><a href="<?php echo base_url('admin/dashboard_admin') ?>">Home</a></li>
               <li class="breadcrumb-item active">Tracer Alumni</li>
             </ol>
           </div>
@@ -109,7 +109,7 @@
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-              <!-- <a href="<?php echo base_url('Admin/tracer_alumni/exportToPDF/'. $filter_graduate) ?>" class="btn btn-danger"><i class="fas fa-pdf"></i>Cetak PDF</a>
+              <!-- <a href="<?php echo base_url('admin/tracer_alumni/exportToPDF/'. $filter_graduate) ?>" class="btn btn-danger"><i class="fas fa-pdf"></i>Cetak PDF</a>
               <small>Klik untuk mengekspor rekap data tracer</small><br> -->
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>

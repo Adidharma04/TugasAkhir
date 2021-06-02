@@ -10,7 +10,7 @@ class Record_Siswa extends CI_Controller {
 
         // load siswa model
         $this->load->model('admin/siswa_model');
-        $this->load->model('Alumni/Tracer_model');
+        $this->load->model('alumni/Tracer_model');
         if ( empty( $this->session->userdata('sess_id_profile') ) ) {
             $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> <br> 
                         <small>Anda harus login terlebih dahulu !</small>

@@ -1,7 +1,7 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class sharing_loker_model extends CI_Model {
+class Sharing_loker_model extends CI_Model {
     public function tampilDataLoker()
     {  
 		$sql = "SELECT 

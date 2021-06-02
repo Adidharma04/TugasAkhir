@@ -22,7 +22,7 @@
                     <div class="signup-content">
 
                         <div class="signup-form">
-                            <p align='center'><a href="<?php echo base_url("User/dashboard_user");?>"><img width="150px" src="<?= base_url().'assets/Gambar/Website/Title_SMA.png';?>"></a></p>
+                            <p align='center'><a href="<?php echo base_url("user/dashboard_user");?>"><img width="150px" src="<?= base_url().'assets/Gambar/Website/Title_SMA.png';?>"></a></p>
                             
                             <h2 class="form-title">Sign In</h2>
 
@@ -52,7 +52,7 @@
                                     
 									<br>
 									<br>
-                                    <p>Registrasi Alumni<a href="<?= base_url().'Admin/register';?>" class="signup-image-link"> Klik disini !</a></p>
+                                    <p>Registrasi Alumni<a href="<?= base_url().'admin/register';?>" class="signup-image-link"> Klik disini !</a></p>
                                 </div>
 
                             </form>

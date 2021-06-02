@@ -30,7 +30,7 @@
     </div>
 
     <!-- <Header> -->
-    <?php $this->load->view('Template/User/navbar')?>
+    <?php $this->load->view('Template/user/navbar')?>
 
     <!-- <Body> -->
     <!-- ##### Hero Area Start ##### -->
@@ -175,7 +175,7 @@
     </div>
     <!-- ##### Course Area End ##### -->       
     <!-- <footer> -->
-    <?php $this->load->view('Template/User/footer')?>
+    <?php $this->load->view('Template/user/footer')?>
 </body>
 
 </html>

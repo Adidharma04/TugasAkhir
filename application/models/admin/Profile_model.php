@@ -1,7 +1,7 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class profile_model extends CI_Model {
+class Profile_model extends CI_Model {
     public function tampilDataProfile()
     {  
         $this->db->select('profile.*');

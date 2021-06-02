@@ -13,7 +13,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="<?php echo base_url('Admin/dashboard_admin') ?>">Home</a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo base_url('admin/dashboard_admin') ?>">Home</a></li>
                             <li class="breadcrumb-item active">Data Siswa atau Alumni</li>
                         </ol>
                     </div>
@@ -54,7 +54,7 @@
 
                                 <input type="text" name="tahun" class="yearpicker form-control" value="<?php echo $tahun ?>" />
                                 <button class="btn btn-xs btn-default"><i class="fa fa-calendar"></i> Tampilkan</button>
-                                <a href="<?php echo base_url('Admin/siswa') ?>" class="btn btn-xs btn-default">Reset Filter</a>
+                                <a href="<?php echo base_url('admin/siswa') ?>" class="btn btn-xs btn-default">Reset Filter</a>
                                 </form>
 
                                 <hr>
@@ -78,7 +78,7 @@
                                 <h3 class="card-title">Table Informasi Siswa</h3>
                             </div>
                             <div class="card-body">
-                                <a href="<?php echo base_url('Admin/siswa/exportToPDF/'. $query_filter) ?>" class="btn btn-danger"><i class="fas fa-pdf"></i>Cetak PDF</a>
+                                <a href="<?php echo base_url('admin/siswa/exportToPDF/'. $query_filter) ?>" class="btn btn-danger"><i class="fas fa-pdf"></i>Cetak PDF</a>
                                 <small>Klik untuk mengekspor data siswa</small><br>
 
                                 <table id="example1" class="table table-bordered table-striped">
@@ -126,8 +126,8 @@
                                                     
                                                 </td>
                                                 <td>
-                                                    <a href="<?= base_url().'Admin/siswa/detail/'.$swa->id_siswa ?>" class="btn btn-xs btn-info"><i class="fas fa-eye"></i> Detail</a>
-                                                    <a href="<?= base_url().'Admin/siswa/edit/'.$swa->id_siswa ?>" class="btn btn-xs btn-success"><i class="fas fa-pencil-square-o"></i>Edit</a>
+                                                    <a href="<?= base_url().'admin/siswa/detail/'.$swa->id_siswa ?>" class="btn btn-xs btn-info"><i class="fas fa-eye"></i> Detail</a>
+                                                    <a href="<?= base_url().'admin/siswa/edit/'.$swa->id_siswa ?>" class="btn btn-xs btn-success"><i class="fas fa-pencil-square-o"></i>Edit</a>
                                                     <a href="#"  data-toggle="modal" data-target="#action-delete-<?php echo $swa->id_siswa ?>" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> Hapus</a>
                                                     <!-- Modal delete -->
                                                     <div class="modal fade" id="action-delete-<?php echo $swa->id_siswa ?>">

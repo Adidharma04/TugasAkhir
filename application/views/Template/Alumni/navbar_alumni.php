@@ -37,7 +37,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="<?= base_url().'Alumni/dashboard_alumni'?>" class="nav-link">Dashboard</a>
+        <a href="<?= base_url().'alumni/dashboard_alumni'?>" class="nav-link">Dashboard</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
       <a class="nav-link btn " data-toggle="modal" data-target="#action-contact">
@@ -73,7 +73,7 @@
         </div>
         <div class="modal-footer justify-content-between">
           <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-          <a href="<?php echo base_url('Admin/login/logout') ?>" class="btn btn-danger"><i class="fa fa-power-off"></i> Logout</a>
+          <a href="<?php echo base_url('admin/login/logout') ?>" class="btn btn-danger"><i class="fa fa-power-off"></i> Logout</a>
         </div>
       </div>
       <!-- /.modal-content -->

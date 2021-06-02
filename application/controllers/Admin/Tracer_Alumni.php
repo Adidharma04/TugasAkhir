@@ -2,14 +2,14 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Tracer_Alumni extends CI_Controller {
+class Tracer_alumni extends CI_Controller {
 
 
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Admin/Tracer_Alumni_model');
-        $this->load->model('Alumni/Tracer_model');
+        $this->load->model('admin/Tracer_alumni_model');
+        $this->load->model('alumni/Tracer_model');
 
 
 
@@ -19,29 +19,29 @@ class Tracer_Alumni extends CI_Controller {
                         <small>Anda harus login terlebih dahulu !</small>
                     </div>';
             $this->session->set_flashdata('msg', $html);
-            redirect("Admin/login");
+            redirect("admin/login");
         }if($this->session->userdata('sess_level') != "staff"){
             $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> <br> 
                     <small>Anda Bukan Staff!</small>
                 </div>';
             $this->session->set_flashdata('msg', $html);
             $this->session->sess_destroy();
-            redirect('Admin/login', 'refresh');
+            redirect('admin/login', 'refresh');
         }
     }
 
     public function index()
     {
          //-- Title Halaman
-         $data ['title'] = 'Halaman Tracer Alumni | Admin';
+         $data ['title'] = 'Halaman Tracer alumni | admin';
          //----------------------------
-        $data['tracer_alumni'] = $this->Tracer_Alumni_model->tampilDataTracerKuliah(); 
-        $data['tracer_kuliahkerja'] = $this->Tracer_Alumni_model->ambilDataStatistik_kerjaKuliah();
+        $data['tracer_alumni'] = $this->Tracer_alumni_model->tampilDataTracerKuliah(); 
+        $data['tracer_kuliahkerja'] = $this->Tracer_alumni_model->ambilDataStatistik_kerjaKuliah();
         
-        $this->load->view('Template/Admin/navbar',$data);
-        $this->load->view('Template/Admin/sidebar',$data);
-        $this->load->view('Admin/Tracer_Alumni/index',$data);
-        $this->load->view('Template/Admin/footer');
+        $this->load->view('Template/admin/navbar',$data);
+        $this->load->view('Template/admin/sidebar',$data);
+        $this->load->view('admin/tracer_alumni/index',$data);
+        $this->load->view('Template/admin/footer');
 
 
         // print_r( $data['tracer_alumni']->result_array() );
@@ -56,7 +56,7 @@ class Tracer_Alumni extends CI_Controller {
 
         if ( $id_profile ) {
 
-            $data ['title'] = 'Detail Tracer | Alumni';
+            $data ['title'] = 'Detail Tracer | alumni';
             $data['tracer'] =  $this->Tracer_model->getDataTracer( $id_profile );
             //----------------------------
 
@@ -74,10 +74,10 @@ class Tracer_Alumni extends CI_Controller {
                 }
             }
 
-            $this->load->view('Template/Admin/navbar',$data);
-            $this->load->view('Template/Admin/sidebar',$data);
-            $this->load->view('Admin/tracer_alumni/detail',$data);
-            $this->load->view('Template/Admin/footer');
+            $this->load->view('Template/admin/navbar',$data);
+            $this->load->view('Template/admin/sidebar',$data);
+            $this->load->view('admin/tracer_alumni/detail',$data);
+            $this->load->view('Template/admin/footer');
         } else {
 
             // page not found
@@ -107,7 +107,7 @@ class Tracer_Alumni extends CI_Controller {
         // set document information
         $pdf->SetCreator(PDF_CREATOR);
         $pdf->SetAuthor('smannplosojombang');
-        $pdf->SetTitle('REKAP DATA TRACER ALUMNI');
+        $pdf->SetTitle('REKAP DATA TRACER alumni');
         $pdf->SetSubject('TCPDF Tutorial');
         $pdf->SetKeywords('TCPDF, PDF, example, test, guide');
 
@@ -175,7 +175,7 @@ class Tracer_Alumni extends CI_Controller {
         // Set some content to print
         $html = '<table border="0">
                 <tr>
-                    <td align="center"><h2>REKAP DATA TRACER ALUMNI</h2></td>
+                    <td align="center"><h2>REKAP DATA TRACER alumni</h2></td>
                 </tr>
                 <tr>
                     <td align="center"><h3>SMA Negeri Ploso '.$spesifik.'</h3></td>
@@ -189,7 +189,7 @@ class Tracer_Alumni extends CI_Controller {
 
 
         $table_body = "";
-        $profil_siswa = $this->Tracer_Alumni_model->tampilDataTracerKuliah();
+        $profil_siswa = $this->Tracer_alumni_model->tampilDataTracerKuliah();
 
         $no = 1;
         foreach ( $profil_siswa AS $row ) {
@@ -238,7 +238,7 @@ class Tracer_Alumni extends CI_Controller {
 
         // Close and output PDF document
         // This method has several options, check the source code documentation for more information.
-        $pdf->Output('REKAP DATA TRACER ALUMNI.pdf', 'I');
+        $pdf->Output('REKAP DATA TRACER alumni.pdf', 'I');
 
         //============================================================+
         // END OF FILE

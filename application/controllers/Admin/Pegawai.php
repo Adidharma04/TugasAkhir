@@ -5,21 +5,21 @@ class Pegawai extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('Admin/Pegawai_model');
+        $this->load->model('admin/Pegawai_model');
         if (empty($this->session->userdata('sess_id_profile'))) {
 
             $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> <br> 
                         <small>Anda harus login terlebih dahulu !</small>
                     </div>';
             $this->session->set_flashdata('msg', $html);
-            redirect("Admin/login");
+            redirect("admin/login");
         }if($this->session->userdata('sess_level') != "staff"){
             $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> <br> 
                     <small>Anda Bukan Staff!</small>
                 </div>';
             $this->session->set_flashdata('msg', $html);
             $this->session->sess_destroy();
-            redirect('Admin/login', 'refresh');
+            redirect('admin/login', 'refresh');
         }
     }
 
@@ -27,13 +27,13 @@ class Pegawai extends CI_Controller {
     public function index()
     {
         //-- Title Halaman
-        $data['title'] = 'Halaman Pegawai | Admin';
+        $data['title'] = 'Halaman Pegawai | admin';
         //----------------------------
         $data['profil_pegawai'] = $this->Pegawai_model->tampilDataPegawai();
-        $this->load->view('Template/Admin/navbar', $data);
-        $this->load->view('Template/Admin/sidebar', $data);
-        $this->load->view('Admin/pegawai/index', $data);
-        $this->load->view('Template/Admin/footer');
+        $this->load->view('Template/admin/navbar', $data);
+        $this->load->view('Template/admin/sidebar', $data);
+        $this->load->view('admin/pegawai/index', $data);
+        $this->load->view('Template/admin/footer');
     }
 
     // Proses Tambah data Pegawai
@@ -79,10 +79,10 @@ class Pegawai extends CI_Controller {
         $data ['title'] = 'Halaman Registrasi';
         //----------------------------
         if($this->form_validation->run() == FALSE){
-            $this->load->view('Template/Admin/navbar',$data);
-            $this->load->view('Template/Admin/sidebar',$data);
-            $this->load->view('Admin/pegawai/tambah',$data);
-            $this->load->view('Template/Admin/footer');
+            $this->load->view('Template/admin/navbar',$data);
+            $this->load->view('Template/admin/sidebar',$data);
+            $this->load->view('admin/pegawai/tambah',$data);
+            $this->load->view('Template/admin/footer');
         }else{
             $this->Pegawai_model->tambahDataPegawai();
                 $html = '<div class="alert alert-success">
@@ -91,7 +91,7 @@ class Pegawai extends CI_Controller {
                             Registrasi Pegawai berhasil di tambah pada tanggal ' . date('d F Y H.i A') . '
                          </div>';
                 $this->session->set_flashdata('msg', $html);
-                redirect('Admin/pegawai', 'refresh');
+                redirect('admin/pegawai', 'refresh');
         }    
     }
 
@@ -153,15 +153,15 @@ class Pegawai extends CI_Controller {
 
         //----------------------------------------------------------------------
         //-- Title Halaman
-        $data['title'] = 'Halaman Admin-Dashboard';
+        $data['title'] = 'Halaman admin-Dashboard';
         //----------------------------
         $data['profil_pegawai'] = $getDataPegawaiById;
 
         if ($this->form_validation->run() == FALSE) {
-            $this->load->view('Template/Admin/navbar', $data);
-            $this->load->view('Template/Admin/sidebar', $data);
-            $this->load->view('Admin/pegawai/edit', $data);
-            $this->load->view('Template/Admin/footer');
+            $this->load->view('Template/admin/navbar', $data);
+            $this->load->view('Template/admin/sidebar', $data);
+            $this->load->view('admin/pegawai/edit', $data);
+            $this->load->view('Template/admin/footer');
         } else {
             $this->Pegawai_model->editDataPegawai($id_pegawai);
             $html = '<div class="alert alert-success">
@@ -171,7 +171,7 @@ class Pegawai extends CI_Controller {
                         Data Pegawai berhasil di edit pada tanggal ' . date('d F Y H.i A') . '
                      </div>';
             $this->session->set_flashdata('msg', $html);
-            redirect('Admin/pegawai', 'refresh');
+            redirect('admin/pegawai', 'refresh');
         }
     }
 
@@ -179,14 +179,14 @@ class Pegawai extends CI_Controller {
     public function detail($id_pegawai)
     {
         //-- Title Halaman
-        $data['title'] = 'Halaman Admin-Dashboard';
+        $data['title'] = 'Halaman admin-Dashboard';
         //----------------------------
         $data['profil_pegawai'] = $this->Pegawai_model->getPegawai($id_pegawai);
 
-        $this->load->view('Template/Admin/navbar', $data);
-        $this->load->view('Template/Admin/sidebar', $data);
-        $this->load->view('Admin/pegawai/detail', $data);
-        $this->load->view('Template/Admin/footer');
+        $this->load->view('Template/admin/navbar', $data);
+        $this->load->view('Template/admin/sidebar', $data);
+        $this->load->view('admin/pegawai/detail', $data);
+        $this->load->view('Template/admin/footer');
     }
 
      // proses Hapus data Pewgawai
@@ -199,7 +199,7 @@ class Pegawai extends CI_Controller {
                      Data Pegawai berhasil terhapus pada tanggal ' . date('d F Y H.i A') . '
                   </div>';
          $this->session->set_flashdata('msg', $html);
-         redirect('Admin/pegawai', 'refresh');
+         redirect('admin/pegawai', 'refresh');
      }
 
 }

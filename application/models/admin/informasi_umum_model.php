@@ -1,7 +1,7 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class informasi_umum_model extends CI_Model {
+class Informasi_umum_model extends CI_Model {
     public function tampilDataInformasiUmumUser()
     {  
         $this->db->select('informasi_umum.*');
@@ -107,7 +107,7 @@ class informasi_umum_model extends CI_Model {
                 $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> '.$this->upload->display_errors().'</div>';
                 $this->session->set_flashdata('msg', $html);
 
-                redirect('Admin/informasi_umum/edit/'. $id_umum);
+                redirect('admin/informasi_umum/edit/'. $id_umum);
                 
             }  
 

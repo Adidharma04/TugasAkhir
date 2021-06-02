@@ -1,7 +1,7 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class sharing_loker_model extends CI_Model {
+class Sharing_loker_model extends CI_Model {
     public function tampilDataLokerUser()
     {  
         $this->db->select('loker.*');
@@ -101,7 +101,7 @@ class sharing_loker_model extends CI_Model {
                 $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> '.$this->upload->display_errors().'</div>';
                 $this->session->set_flashdata('msg', $html);
 
-                redirect('Admin/loker/edit/'. $id_loker);
+                redirect('admin/loker/edit/'. $id_loker);
                 
             }  
 
@@ -136,7 +136,7 @@ class sharing_loker_model extends CI_Model {
                 $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> '.$this->upload->display_errors().'</div>';
                 $this->session->set_flashdata('msg', $html);
 
-                redirect('Admin/loker/edit/'. $id_loker);
+                redirect('admin/loker/edit/'. $id_loker);
                 
             }
         // Dokumen tetap alias tidak diubah sama sekali

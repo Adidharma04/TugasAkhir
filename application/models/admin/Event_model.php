@@ -1,7 +1,7 @@
 <?php 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class event_model extends CI_Model {
+class Event_model extends CI_Model {
     public function tampilDataEvent()
     {  
         $sql = "SELECT 
@@ -47,7 +47,7 @@ class event_model extends CI_Model {
                         Tanggal event harus hari ini ' . date('d F Y H.i A') . ' atau lebih dari hari ini
                      </div>';
                 $this->session->set_flashdata('msg', $html);
-                redirect('Admin/event/tambah', 'refresh');
+                redirect('admin/event/tambah', 'refresh');
         } else {
 
             $this->db->insert('event', $event);
@@ -59,7 +59,7 @@ class event_model extends CI_Model {
                                 Data event berhasil di tambah pada tanggal ' . date('d F Y H.i A') . '
                          </div>';
                 $this->session->set_flashdata('msg', $html);
-            redirect('Admin/event', 'refresh');
+            redirect('admin/event', 'refresh');
         }
 
         
@@ -121,7 +121,7 @@ class event_model extends CI_Model {
                 $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> '.$this->upload->display_errors().'</div>';
                 $this->session->set_flashdata('msg', $html);
 
-                redirect('Admin/event/edit/'. $id_event);
+                redirect('admin/event/edit/'. $id_event);
                 
             }  
 

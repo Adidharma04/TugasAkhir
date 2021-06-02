@@ -9,7 +9,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="<?php echo base_url('Alumni/dashboard_alumni')?>">Home</a></li>
+              <li class="breadcrumb-item"><a href="<?php echo base_url('alumni/dashboard_alumni')?>">Home</a></li>
               <li class="breadcrumb-item active">Profil</li>
             </ol>
           </div><!-- /.col -->
@@ -52,7 +52,7 @@
                         } else {
 
                           // terdapat foto
-                          $img = base_url('assets/Gambar/Upload/siswa/'. $sess_img);
+                          $img = base_url('assets/Gambar/Upload/Siswa/'. $sess_img);
                         }
                       ?>
 
@@ -82,7 +82,7 @@
                 <div class="card-footer">
                   <div class="text-right">
                       <?php $sess_id_siswa = $this->session->userdata('sess_id_siswa') ?>
-                    <a href="<?= base_url() . 'alumni/Siswa/index/'. $sess_id_siswa ?>" class="btn btn-sm btn-primary">
+                    <a href="<?= base_url() . 'alumni/siswa/index/'. $sess_id_siswa ?>" class="btn btn-sm btn-primary">
                       <i class="fas fa-user"></i> Edit Profil
                     </a>
                     <a href="<?= base_url() . 'alumni/siswa/password' ?>" class="btn btn-sm btn-primary">

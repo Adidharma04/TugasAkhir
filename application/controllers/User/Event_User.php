@@ -5,13 +5,13 @@ class Event_user extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('siswa/event_model');
+        $this->load->model('siswa/Event_model');
     }
     public function index()
     {
-        $data['event'] = $this->event_model->tampilDataEvent(); 
+        $data['event'] = $this->Event_model->tampilDataEvent(); 
         
-        $this->load->view('User/event', $data);
+        $this->load->view('user/event', $data);
     }
 }
 ?>

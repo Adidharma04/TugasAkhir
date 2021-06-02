@@ -10,7 +10,7 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="<?php echo base_url('Alumni/dashboard_alumni') ?>">Home</a></li>
+              <li class="breadcrumb-item"><a href="<?php echo base_url('alumni/dashboard_alumni') ?>">Home</a></li>
               <li class="breadcrumb-item active">Informasi Kuliah </li>
             </ol>
           </div><!-- /.col -->
@@ -95,7 +95,7 @@
                                 }
                                 elseif ($ifu->status == "pending"){
                                 ?>
-                                 <a href="<?= base_url() .'Alumni/informasi_umum/edit/' . $ifu->id_umum?>" class="btn btn-sm btn-primary">Edit</a>
+                                 <a href="<?= base_url() .'alumni/informasi_umum/edit/' . $ifu->id_umum?>" class="btn btn-sm btn-primary">Edit</a>
                                  &nbsp;
                                  <a href="#"  data-toggle="modal" data-target="#action-delete-<?php echo $ifu->id_umum ?>" class="btn btn-sm btn-danger">Hapus</a>
                                  <?php }?>

@@ -173,7 +173,7 @@
 
 
             // redirect
-            redirect('Alumni/tracer');
+            redirect('alumni/tracer');
         }
     }
 

@@ -105,7 +105,7 @@
                   &nbsp;
                   <span> <input type="reset" class="btn btn-danger" value="Reset" ></input></span>
                   &nbsp;
-                  <span> <a href="<?= base_url("Admin/event") ?>" class="btn btn-warning"><i class="fa fa-chevron-circle-left"> Cancel</i></a></span>
+                  <span> <a href="<?= base_url("admin/event") ?>" class="btn btn-warning"><i class="fa fa-chevron-circle-left"> Cancel</i></a></span>
                 </div>
 
             </form>

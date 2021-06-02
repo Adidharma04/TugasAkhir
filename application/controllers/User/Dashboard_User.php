@@ -5,7 +5,7 @@ class Dashboard_user extends CI_Controller {
 
     public function index ()
     {
-        $this->load->view('User/dashboard');
+        $this->load->view('user/dashboard');
     }
 }
 ?>

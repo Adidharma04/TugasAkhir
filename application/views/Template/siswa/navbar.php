@@ -110,7 +110,7 @@
         </div>
         <div class="modal-footer justify-content-between">
           <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-          <a href="<?php echo base_url('Admin/login/logout') ?>" class="btn btn-success"><i class="fa fa-power-off"></i> Logout</a>
+          <a href="<?php echo base_url('admin/login/logout') ?>" class="btn btn-success"><i class="fa fa-power-off"></i> Logout</a>
         </div>
       </div>
       <!-- /.modal-content -->

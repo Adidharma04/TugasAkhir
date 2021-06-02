@@ -30,7 +30,7 @@
     </div>
 
     <!-- <Header> -->
-    <?php $this->load->view('Template/User/navbar')?>
+    <?php $this->load->view('Template/user/navbar')?>
 
     <!-- <Body> -->
     <div class="breadcumb-area bg-img" style="background-image: url(<?php echo base_url().'assets/Gambar/Website/Dashboard/breadcumb.jpg';?>);">
@@ -85,7 +85,7 @@
     </div>
     <!-- ##### Course Area End ##### -->       
     <!-- <footer> -->
-    <?php $this->load->view('Template/User/footer')?>
+    <?php $this->load->view('Template/user/footer')?>
 </body>
 
 </html>

@@ -111,7 +111,7 @@
           <div class="row">
             <div class="col-md-2">
               <button type="submit" class="btn btn-primary">Submit</button>
-              <span> <a href="<?= base_url() . 'Admin/forum_diskusi' ?>" class="btn btn-danger">Cancel</a></span>
+              <span> <a href="<?= base_url() . 'admin/forum_diskusi' ?>" class="btn btn-danger">Cancel</a></span>
             </div>
           </div>
         </form>

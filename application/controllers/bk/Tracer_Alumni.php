@@ -2,14 +2,14 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Tracer_Alumni extends CI_Controller {
+class Tracer_alumni extends CI_Controller {
 
 
     public function __construct()
     {
         parent::__construct();
-        $this->load->model('bk/Tracer_Alumni_model');
-        $this->load->model('Alumni/Tracer_model');
+        $this->load->model('bk/Tracer_alumni_model');
+        $this->load->model('alumni/Tracer_model');
 
 
 
@@ -19,27 +19,27 @@ class Tracer_Alumni extends CI_Controller {
                         <small>Anda harus login terlebih dahulu !</small>
                     </div>';
             $this->session->set_flashdata('msg', $html);
-            redirect("Admin/login");
+            redirect("admin/login");
         }if($this->session->userdata('sess_level') != "bk"){
             $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> <br> 
                     <small>Anda Bukan Guru BK!</small>
                 </div>';
             $this->session->set_flashdata('msg', $html);
             $this->session->sess_destroy();
-            redirect('Admin/login', 'refresh');
+            redirect('admin/login', 'refresh');
         }
     }
 
     public function index()
     {
          //-- Title Halaman
-         $data ['title'] = 'Halaman Tracer Alumni | Guru BK';
+         $data ['title'] = 'Halaman Tracer alumni | Guru BK';
          //----------------------------
-        $data['tracer_alumni'] = $this->Tracer_Alumni_model->tampilDataTracerKuliah(); 
-        $this->load->view('Template/Admin/navbar',$data);
-        $this->load->view('Template/Admin/sidebar_bk',$data);
-        $this->load->view('bk/Tracer_Alumni/index',$data);
-        $this->load->view('Template/Admin/footer');
+        $data['tracer_alumni'] = $this->Tracer_alumni_model->tampilDataTracerKuliah(); 
+        $this->load->view('Template/admin/navbar',$data);
+        $this->load->view('Template/admin/sidebar_bk',$data);
+        $this->load->view('bk/Tracer_alumni/index',$data);
+        $this->load->view('Template/admin/footer');
     }
 
 
@@ -51,7 +51,7 @@ class Tracer_Alumni extends CI_Controller {
 
         if ( $id_profile ) {
 
-            $data ['title'] = 'Detail Tracer | Alumni';
+            $data ['title'] = 'Detail Tracer | alumni';
             $data['tracer'] =  $this->Tracer_model->getDataTracer( $id_profile );
             //----------------------------
 
@@ -69,10 +69,10 @@ class Tracer_Alumni extends CI_Controller {
                 }
             }
 
-            $this->load->view('Template/Admin/navbar',$data);
-            $this->load->view('Template/Admin/sidebar_bk',$data);
+            $this->load->view('Template/admin/navbar',$data);
+            $this->load->view('Template/admin/sidebar_bk',$data);
             $this->load->view('bk/tracer_alumni/detail',$data);
-            $this->load->view('Template/Admin/footer');
+            $this->load->view('Template/admin/footer');
         } else {
 
             // page not found

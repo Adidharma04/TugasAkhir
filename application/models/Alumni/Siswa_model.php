@@ -8,20 +8,6 @@ class Siswa_model extends CI_Model {
         return $this->db->get_where('profil_siswa',['id_siswa'=>$id_siswa])->row();
 	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     public function editDataSiswa( $id_siswa ){
         
         // ambil detail informasi siswa

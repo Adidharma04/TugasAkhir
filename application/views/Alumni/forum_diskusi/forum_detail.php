@@ -9,7 +9,7 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="<?php echo base_url('Alumni/dashboar_alumni') ?>">Home</a></li>
+                        <li class="breadcrumb-item"><a href="<?php echo base_url('alumni/dashboar_alumni') ?>">Home</a></li>
                         <li class="breadcrumb-item active">Forum Diskusi  </li>
                     </ol>
                 </div><!-- /.col -->
@@ -61,7 +61,7 @@
 
                             <div class="col-md-12">
 
-                                <form action="<?php echo base_url('Alumni/forum_diskusi/tambahDetailForum') ?>" method="POST">
+                                <form action="<?php echo base_url('alumni/forum_diskusi/tambahDetailForum') ?>" method="POST">
                                     <h5>Komentar</h5>
                                     <div class="form-group">
                                         <input type="hidden" name="id_forum" value="<?php echo $detail->id_forum ?>">
@@ -158,7 +158,7 @@
                                                     </div>
                                                     <div class="modal-footer justify-content-between">
                                                     <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
-                                                    <a href="' . base_url('Alumni/forum_diskusi/hapusDetailForum/') . $row['id_detail_forum'] .'/'.$row['id_forum']. '" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>
+                                                    <a href="' . base_url('alumni/forum_diskusi/hapusDetailForum/') . $row['id_detail_forum'] .'/'.$row['id_forum']. '" class="btn btn-danger"><i class="fa fa-trash"></i> Hapus</a>
                                                     </div>
                                                     </div>
                                                     <!-- /.modal-content -->

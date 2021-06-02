@@ -57,7 +57,7 @@
             </div>
             <div class="card-footer">
               <div class="text-right">
-                <a href="<?= base_url() . 'Admin/pegawai' ?>" class="btn btn-sm btn-primary">
+                <a href="<?= base_url() . 'admin/pegawai' ?>" class="btn btn-sm btn-primary">
                   <i class="fas fa-arrow-left"></i> Kembali
                 </a>
               </div>

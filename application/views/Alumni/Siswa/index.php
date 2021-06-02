@@ -191,7 +191,7 @@
               <!-- Batas Baris -->
               <div class="form-group">
                 <button type="submit" class="btn btn-primary">Submit</button>
-                <span> <a href="<?= base_url("Alumni/dashboard_alumni")?>" class="btn btn-danger">Cancel</a></span>
+                <span> <a href="<?= base_url("alumni/dashboard_alumni")?>" class="btn btn-danger">Cancel</a></span>
               </div>
             </form>
           </div>

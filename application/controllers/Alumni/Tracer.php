@@ -18,21 +18,21 @@
                             <small>Anda harus login terlebih dahulu !</small>
                         </div>';
                 $this->session->set_flashdata('msg', $html);
-                redirect("Admin/login");
+                redirect("admin/login");
             }
             if($this->session->userdata('sess_level') != "alumni"){
                 $session_destroy = $this->session->sess_destroy();
                 $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> <br> 
-                        <small>Anda Bukan Alumni!</small>
+                        <small>Anda Bukan alumni!</small>
                     </div>';
                 $this->session->set_flashdata('msg', $html,$session_destroy);
-                redirect('Admin/login', 'refresh');
+                redirect('admin/login', 'refresh');
             }
             // load model
-            $this->load->model('Alumni/Tracer_model');
+            $this->load->model('alumni/Tracer_model');
 
-            $this->load->model('Alumni/Tracer_kerja_model');
-            $this->load->model('Alumni/Tracer_kuliah_model');
+            $this->load->model('alumni/Tracer_kerja_model');
+            $this->load->model('alumni/Tracer_kuliah_model');
         }
 
         public function index(){
@@ -41,14 +41,14 @@
             // session 
             $id_profile = $this->session->userdata('sess_id_profile');
 
-            $data ['title'] = 'Halaman Tracer | Alumni';
+            $data ['title'] = 'Halaman Tracer | alumni';
             $data['tracer'] =  $this->Tracer_model->getDataTracer( $id_profile );
             //----------------------------
 
-            $this->load->view('Template/Alumni/navbar_alumni',$data);
-            $this->load->view('Template/Alumni/sidebar_alumni',$data);
-            $this->load->view('Alumni/tracer/index',$data);
-            $this->load->view('Template/Alumni/footer_alumni');
+            $this->load->view('Template/alumni/navbar_alumni',$data);
+            $this->load->view('Template/alumni/sidebar_alumni',$data);
+            $this->load->view('alumni/tracer/index',$data);
+            $this->load->view('Template/alumni/footer_alumni');
         }
 
         // proses hapus
@@ -62,7 +62,7 @@
             $ambilDataTracer = $this->Tracer_model->getDataTracerByTypeAndId( $tipe, $id )->row_array();
         
             //-- Title Halaman
-            $data ['title'] = 'Halaman Tracer | Alumni';
+            $data ['title'] = 'Halaman Tracer | alumni';
             $data ['tracer'] =  $ambilDataTracer;
             $data ['tipe']   = $tipe;
 
@@ -88,10 +88,10 @@
 
                 //----------------------------
                 if ($this->form_validation->run() == FALSE) {
-                    $this->load->view('Template/Alumni/navbar_alumni',$data);
-                    $this->load->view('Template/Alumni/sidebar_alumni',$data);
-                    $this->load->view('Alumni/tracer/edit_tracer_kuliah',$data);
-                    $this->load->view('Template/Alumni/footer_alumni');
+                    $this->load->view('Template/alumni/navbar_alumni',$data);
+                    $this->load->view('Template/alumni/sidebar_alumni',$data);
+                    $this->load->view('alumni/tracer/edit_tracer_kuliah',$data);
+                    $this->load->view('Template/alumni/footer_alumni');
                 }else{
                     $this->Tracer_model->editDataTracer ($tipe,$id);
                     $html = '<div class="alert alert-success">
@@ -101,7 +101,7 @@
                                 Data Tracer Kuliah berhasil di edit pada tanggal ' . date('d F Y H.i A') . '
                             </div>';
                     $this->session->set_flashdata('msg', $html);
-                    redirect('Alumni/tracer', 'refresh');
+                    redirect('alumni/tracer', 'refresh');
                 }
 
             } else if ( $tipe == "kerja" ) {
@@ -125,10 +125,10 @@
                     'required' => 'Masukkan Status',
                 ]);
                 if ($this->form_validation->run() == FALSE) {
-                 $this->load->view('Template/Alumni/navbar_alumni',$data);
-                 $this->load->view('Template/Alumni/sidebar_alumni',$data);
-                 $this->load->view('Alumni/tracer/edit_tracer_kerja',$data);
-                 $this->load->view('Template/Alumni/footer_alumni');
+                 $this->load->view('Template/alumni/navbar_alumni',$data);
+                 $this->load->view('Template/alumni/sidebar_alumni',$data);
+                 $this->load->view('alumni/tracer/edit_tracer_kerja',$data);
+                 $this->load->view('Template/alumni/footer_alumni');
                 }else{
                     $this->Tracer_model->editDataTracer();
                     $html = '<div class="alert alert-success">
@@ -138,7 +138,7 @@
                                 Data Tracer Kerja berhasil di edit pada tanggal ' . date('d F Y H.i A') . '
                             </div>';
                     $this->session->set_flashdata('msg', $html);
-                    redirect('Alumni/tracer', 'refresh');
+                    redirect('alumni/tracer', 'refresh');
                 }
 
             }

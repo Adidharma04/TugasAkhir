@@ -187,7 +187,7 @@ class Siswa_model extends CI_Model {
                 $html = '<div class="alert alert-warning"><b>Pemberitahuan</b> '.$this->upload->display_errors().'</div>';
                 $this->session->set_flashdata('msg', $html);
 
-                redirect('Admin/siswa/edit/'. $id_siswa);
+                redirect('admin/siswa/edit/'. $id_siswa);
                 
             }  
 

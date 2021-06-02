@@ -11,7 +11,7 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="<?php echo base_url('Admin/dashboard_admin') ?>">Home</a></li>
+              <li class="breadcrumb-item"><a href="<?php echo base_url('alumni/dashboard_alumni') ?>">Home</a></li>
               <li class="breadcrumb-item active">Table Event</li>
             </ol>
           </div>
@@ -95,7 +95,7 @@
                                 }
                                 elseif ($evn->status == "pending"){
                                 ?>
-                                 <a href="<?= base_url() .'Alumni/event/edit/' . $evn->id_event?>" class="btn btn-xs btn-primary">Edit</a>
+                                 <a href="<?= base_url() .'alumni/event/edit/' . $evn->id_event?>" class="btn btn-xs btn-primary">Edit</a>
                                  &nbsp;
                                  <a href="#"  data-toggle="modal" data-target="#action-delete-<?php echo $evn->id_event ?>" class="btn btn-xs btn-danger">Hapus</a>
                                  <?php }?>
