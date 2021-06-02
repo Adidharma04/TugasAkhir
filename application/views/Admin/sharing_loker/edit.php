@@ -6,12 +6,12 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>Edit Data Informasi Umum</h1>
+              <h1>Edit Data Sharing Lowongan Pekerjaan</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">Edit Informasi Umum</li>
+                <li class="breadcrumb-item active">Edit Lowongan Kerja</li>
               </ol>
             </div>
           </div>
@@ -24,7 +24,7 @@
         <div class="card">
           <?php echo $this->session->flashdata('msg') ?>
           <div class="card-header alert-warning" >
-            <h3 class="card-title">Form Edit Informasi Umum</h3>
+            <h3 class="card-title">Form Edit Lowongan Pekerjaan</h3>
 
             <div class="card-tools">
               <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">

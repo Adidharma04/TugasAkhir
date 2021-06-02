@@ -6,6 +6,7 @@
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1 class="m-0">Informasi Kuliah</h1>
+            <p>Berikan Iinformasi terkait dunia perkuliahan untuk Siswa</p>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -31,7 +32,7 @@
                 <div class="card card-light card-outline">
                   <?php echo $this->session->flashdata('msg') ?>
                   <div class="card-header">
-                    <h5 class="card-title">Detail Informasi</h5>
+                    <h5 class="card-title">Informasi Kuliah yang anda bagikan</h5>
                     <div class="card-tools">
                       <a href="informasi_umum/tambah" class="btn btn-primary"><i class="fas fa-plus"></i>Tambah Informasi Baru</a>
                     </div>

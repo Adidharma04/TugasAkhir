@@ -38,7 +38,7 @@ class Event extends CI_Controller {
 
     public function tambah(){
         //-- Title Halaman
-        $data ['title'] = 'Halaman Tambah Penilaian | Alumni';
+        $data ['title'] = 'Halaman Tambah Event | Alumni';
         //----------------------------
         //rule
         $this->form_validation->set_rules('nama_event', 'Nama Event', 'required|trim',[

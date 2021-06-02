@@ -7,6 +7,7 @@
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1>Event</h1>
+            <p>Berbagi event menarik untuk Smanis Tracer Study</p>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -29,7 +30,7 @@
               <div class="card-body">
                 <div class="card card-light card-outline">
                   <div class="card-header">
-                    <h5 class="card-title">Detail Event</h5>
+                    <h5 class="card-title">Event yang anda tambahkan</h5>
                     <div class="card-tools">
                       <a href="event/tambah" class="btn btn-primary"><i class="fas fa-plus"></i>Tambah Event Baru</a>
                     </div>

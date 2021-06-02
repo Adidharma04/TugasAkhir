@@ -6,7 +6,7 @@
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1 class="m-0">Sharing Loker </h1>
-            <p>Deskripsi Sharing Loker</p>
+            <p>Berbagi informasi lowongan pekerjaan</p>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -31,7 +31,7 @@
               <div class="card-body">
                 <div class="card card-light card-outline">
                   <div class="card-header">
-                    <h5 class="card-title">Detail Sharing Loker</h5>
+                    <h5 class="card-title">Lowongan Pekerjaan yang anda tambahkan</h5>
                     <div class="card-tools">
                       <a href="sharing_loker/tambah" class="btn btn-primary"><i class="fas fa-plus"></i>Tambah Sharing Loker Baru</a>
                     </div>

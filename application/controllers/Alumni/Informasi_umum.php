@@ -76,7 +76,7 @@ class informasi_umum extends CI_Controller {
                 $html = '<div class="alert alert-success">
                             <a href="sharing_loker" class="close" data-dismiss="alert" >&times;</a>
                             <b>Pemberitahuan</b> <br>
-                            Data Informasi Umum berhasil di tambah pada tanggal ' . date('d F Y H.i A') . '
+                            Data Informasi Kuliah berhasil di tambah pada tanggal ' . date('d F Y H.i A') . '
                         </div>';
                 $this->session->set_flashdata('msg', $html);
 

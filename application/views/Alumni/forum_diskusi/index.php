@@ -16,7 +16,7 @@ if ($this->input->get('tipe')) {
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Forum Diskusi jenis <?php echo $topik_aktif ?></h1>
+                    <h1 class="m-0">Forum Diskusi</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 26, 2021 at 01:03 AM
+-- Generation Time: Jun 02, 2021 at 01:59 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -48,7 +48,8 @@ CREATE TABLE `event` (
 --
 
 INSERT INTO `event` (`id_event`, `id_profile`, `nama_event`, `deskripsi_event`, `tanggal_event`, `foto`, `lokasi`, `update_at`, `created_at`, `status`, `status_event`, `pesan_ditolak`) VALUES
-(5, 45, 'Smanis Campus Fair', 'Event ini untuk berbagi informasi mengenai kampus', '2021-06-17', 'contohevent2.JPG', 'Lapangan Basket SMANIS', '2021-05-25 23:00:49', '2021-05-25 22:52:22', 'accept', 'berlangsung', NULL);
+(8, 1, 'Diskusi Publik', 'Untuk peringatan hari Kelahiran Pancasila dimana kegiatan ini sebagai forum Diskusi Publik yang diisi oleh pemateri pemateri yang terpercaya dan keren banget pastinya!.', '2021-06-01', 'pens.jpeg', 'Webinar', '2021-06-01 13:36:50', '2021-06-01 13:36:20', 'accept', 'berlangsung', NULL),
+(9, 45, 'Webinar Fakultas Ilmu Keperawatan', 'Pada tanggal 30 Juli 2020, Fakultas Ilmu Keperawatan Universitas Advent Indonesia telah melaksanakan kegiatan webinar melalui aplikasi Zoom dengan tema “Kampus Merdeka Untuk Pendidikan Keperawatan” yang menghadirkan beberapa narasumber', '2021-07-30', 'Poster-WEBINAR-FIK-UNAI-seri-1-1.jpg', 'Webinar Universitas Advent Indonesia', '2021-06-01 13:45:08', '2021-06-01 13:41:56', 'accept', 'berlangsung', NULL);
 
 -- --------------------------------------------------------
 
@@ -62,7 +63,7 @@ CREATE TABLE `forum` (
   `id_topik` int(11) NOT NULL,
   `nama_forum` varchar(70) NOT NULL,
   `deskripsi` text NOT NULL,
-  `tanggal_forum` date NOT NULL,
+  `tanggal_forum` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `foto` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -71,10 +72,9 @@ CREATE TABLE `forum` (
 --
 
 INSERT INTO `forum` (`id_forum`, `id_profile`, `id_topik`, `nama_forum`, `deskripsi`, `tanggal_forum`, `foto`) VALUES
-(12, 1, 3, 'Penerbangan lion air', 'Lowongan kerja lion', '2021-05-08', 'img11.PNG'),
-(13, 1, 2, 'Beasiswa PPA', 'Beasiswa untuk semuanya', '2021-05-08', ''),
-(14, 2, 4, 'Ini forum nyobak guis', 'ya eyaa sichhhh', '2021-05-12', ''),
-(15, 11, 4, 'Alumni Angkatan 2018', 'Untuk alumni angkatan 2018 akan diadakan reuni', '0000-00-00', '5f52e79196f04.png');
+(14, 2, 4, 'Ini forum nyobak guis', 'ya eyaa sichhhh', '2021-05-11 17:00:00', ''),
+(15, 11, 4, 'Alumni Angkatan 2018', 'Untuk alumni angkatan 2018 akan diadakan reuni', '0000-00-00 00:00:00', '5f52e79196f04.png'),
+(20, 1, 4, 'Panitia SCF 2022', 'Untuk alumni angkatan 2020 silahkan berdikusi mengenai SCF 2022', '2021-06-01 17:47:18', 'contohevent1.JPG');
 
 -- --------------------------------------------------------
 
@@ -96,13 +96,7 @@ CREATE TABLE `forum_detail` (
 
 INSERT INTO `forum_detail` (`id_detail_forum`, `id_profile`, `id_forum`, `notes`, `created_at`) VALUES
 (24, 2, 14, 'ya eya lah boskuuuww', '2021-05-10 13:56:47'),
-(25, 1, 13, 'fsdgsgevesvev', '2021-05-11 15:43:34'),
-(26, 1, 13, 'dvsexAD', '2021-05-12 06:07:42'),
-(27, 1, 13, 'dvve', '2021-05-12 06:50:17'),
-(28, 2, 13, 'cvv', '2021-05-12 06:50:38'),
-(30, 11, 14, 'ccccccccs', '2021-05-18 12:04:28'),
-(31, 11, 12, 'Bagus', '2021-05-21 01:51:42'),
-(32, 11, 12, 'Membantu', '2021-05-21 01:52:21');
+(30, 11, 14, 'ccccccccs', '2021-05-18 12:04:28');
 
 -- --------------------------------------------------------
 
@@ -136,11 +130,12 @@ CREATE TABLE `informasi_umum` (
   `id_umum` int(11) NOT NULL,
   `id_profile` int(11) NOT NULL,
   `nama_informasi` varchar(100) NOT NULL,
-  `deskripsi_informasi` varchar(255) NOT NULL,
+  `deskripsi_informasi` text NOT NULL,
   `status` enum('accept','pending','decline') NOT NULL,
   `update_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `foto` varchar(75) DEFAULT NULL,
+  `berkas` varchar(75) DEFAULT NULL,
   `pesan_ditolak` varchar(70) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -148,8 +143,11 @@ CREATE TABLE `informasi_umum` (
 -- Dumping data for table `informasi_umum`
 --
 
-INSERT INTO `informasi_umum` (`id_umum`, `id_profile`, `nama_informasi`, `deskripsi_informasi`, `status`, `update_at`, `created_at`, `foto`, `pesan_ditolak`) VALUES
-(11, 45, 'Info SBMPTN', 'Info pendaftaran SBMPTN untuk siswa kelas 12', 'accept', '2021-05-25 23:00:59', '2021-05-25 22:58:12', 'sbm1.jpg', NULL);
+INSERT INTO `informasi_umum` (`id_umum`, `id_profile`, `nama_informasi`, `deskripsi_informasi`, `status`, `update_at`, `created_at`, `foto`, `berkas`, `pesan_ditolak`) VALUES
+(16, 1, 'KIP-KULIAH (UNY)', 'PIP adalah bantuan berupa uang tunai, perluasan akses, dan kesempatan belajar dari pemerintah yang diberikan kepada peserta didik dan mahasiswa yang berasal dari keluarga miskin atau rentan miskin untuk membiayai pendidikan. Hal ini menjadi dasar komitmen pemerintah yang menempatkan akses pendidikan tinggi bagi seluruh masyarakat sebagai salah satu prioritas pembangunan.', 'accept', '2021-06-01 13:23:10', '2021-06-01 12:50:36', 'kip.JPG', 'Pedoman_Pendaftaran_KIP_KULIAH.pdf', NULL),
+(17, 1, 'Pendaftaran Mahasiswa Baru HangTuah', 'Fakultas Teknik dan Ilmu Kelautan (FTIK) Universitas Hang Tuah Surabaya telah membukan pendaftaran mahasiswa baru tahun 2021-2022. Dengan meluncurkan 5 jurusan populer di dunia industri 4.0 <BR> TEKNIK PERKAPALAN <BR>\r\nTEKNIK SISTEM PERKAPALAN <BR>\r\nTEKNIK ELEKTRO OSEANOGRAFI  <BR>\r\nILMU PERIKANAN.', 'accept', '2021-06-01 13:31:17', '2021-06-01 12:51:07', 'IG-FLYER-FTIK-2021-2022-02-web-820x1024.jpg', 'Brosur_PMB_UHT_2021-2022.pdf', NULL),
+(18, 1, 'Mandiri UM', 'Dalam rangka penerimaan calon mahasiswa baru yang memiliki kemampuan akademik dan keterampilan untuk mengikuti dan menyelesaikan pendidikan tepat waktu, serta perluasan kesempatan belajar bagi calon peserta, UM membuka pendaftaran mahasiswa baru seleksi mandiri untuk program Diploma (D3) dan Sarjana (S1) secara online, dengan jalur mandiri sebagai berikut.\r\nJalur Prestasi Akdemik dan Non Akademik Jalur Tes Berbasis Komputer (TBK)/Tes KetrampilanJalur Seleksi Program Alih Jenjang (SPAJ).', 'accept', '2021-06-01 13:14:59', '2021-06-01 12:51:42', 'Mandiri-UTBK-Portofolio.png', '', NULL),
+(19, 1, 'Mandiri UPN', 'Penerimaan Jalur UTBC adalah seleksi penerimaan mahasiswa baru Program Sarjana yang diselenggarakan Universitas Pembangunan Nasional “Veteran” Yogyakarta bagi siswa yang mengikuti Ujian Tulis Berbasis Cetak UPN “Veteran” Yogyakarta tahun 2021 <br>\r\n\r\nPersyaratan Umum<br>\r\n1) Siswa lulusan SMA/SMK/MA atau yang sederajat, lulus ujian persamaan, atau yang setara lainnya (paket C); <br>\r\n2) Bagi siswa lulusan tahun 2019 dan 2020 harus sudah memiliki ijazah;\r\n3) Bagi siswa lulusan 2021 telah memiliki Surat Keterangan Lulus Pendidikan Menengah, sekurang-kurangnya memuat informasi jati diri dan foto terbaru yang bersangkutan serta dibubuhi cap dan stempel yang syah', 'accept', '2021-06-01 13:12:52', '2021-06-01 12:54:27', 'tm_pjp.jpg', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -162,8 +160,9 @@ CREATE TABLE `loker` (
   `id_profile` int(11) NOT NULL,
   `nama_pekerjaan` varchar(100) NOT NULL,
   `alamat` varchar(150) NOT NULL,
-  `deskripsi_pekerjaan` varchar(255) NOT NULL,
+  `deskripsi_pekerjaan` text NOT NULL,
   `foto` varchar(100) DEFAULT NULL,
+  `berkas` varchar(75) DEFAULT NULL,
   `update_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `status` enum('pending','accept','decline') NOT NULL,
@@ -174,8 +173,10 @@ CREATE TABLE `loker` (
 -- Dumping data for table `loker`
 --
 
-INSERT INTO `loker` (`id_loker`, `id_profile`, `nama_pekerjaan`, `alamat`, `deskripsi_pekerjaan`, `foto`, `update_at`, `created_at`, `status`, `pesan_ditolak`) VALUES
-(12, 45, 'BUMN', 'Jombang', 'Perusahaan BUMN buka lowongan pekerjaan', 'contohloker11.JPG', '2021-05-25 23:01:09', '2021-05-25 23:00:11', 'accept', NULL);
+INSERT INTO `loker` (`id_loker`, `id_profile`, `nama_pekerjaan`, `alamat`, `deskripsi_pekerjaan`, `foto`, `berkas`, `update_at`, `created_at`, `status`, `pesan_ditolak`) VALUES
+(15, 1, 'PT. MITRA INSAN SEJAHTERA', 'JAKARTA SELATAN', 'Memberikan konsultasi kepada customer tentang produk kesehatan: obat, vitamin/ suplemen, alat kesehatan<br>\r\nMencapai komitmen sales yg disepakati dg atasan supaya mencapai Growth24 yg positif<br>\r\nMemperhatikan ketersediaan stok barang dan melakukan retur barang selama masih dalam periode yg bisa diterima oleh gudang atau supplier<br><br> <br>\r\n\r\nPersyaratan:<br>\r\nWanita.<br>\r\nMax. 26th.<br>\r\nMin D3 Segala Jurusan.', 'ptmitra.JPG', '', '2021-06-02 09:10:50', '2021-06-01 13:57:33', 'accept', NULL),
+(16, 1, 'C# Developer /w Revit API Experienc - PT. MAGICSOFT ASIA SYSTEMS', 'KOTA MALANG', 'Industri: Teknologi Informatika / Komputer <br>\r\nJenjang Karir: Staff ( > 1 tahun pengalaman kerja) <br>\r\nPendidikan: Diploma (D3) <br>\r\nGaji yang Ditawarkan: - <br>\r\nFasilitas & Tunjangan: <br>\r\nKeahlian: Adobe Photoshop, C# Programming dan Javascript/ HTML/ CSS/ AJAX/ Bootstrap <br>\r\nJumlah yang dibutuhkan: 1 Orang <br>\r\nDitempatkan: Indonesia', 'magisoft.JPG', '', '0000-00-00 00:00:00', '2021-06-01 14:05:49', 'accept', NULL),
+(18, 45, 'JAVA WALLPAPER', 'Perum Green Mansion Blok M No.9 Waru Sidoarjo', 'Kirim Surat Lamaran, CV, Pas Foto Berwarna 4×6 Terbaru di :<br>\r\nKantor : Perum Green Mansion Blok M No.9 Waru Sidoarjo<br>\r\nE-mail : admin@wallpaperdinding.co.id<br>\r\nTelepon : 031.8541070<br>\r\nWA : 083857496943', 'Loker.jpg', '', '0000-00-00 00:00:00', '2021-06-02 08:56:34', 'pending', NULL);
 
 -- --------------------------------------------------------
 
@@ -249,7 +250,9 @@ INSERT INTO `profile` (`id_profile`, `username`, `password`, `level`, `last_logg
 (42, '0008858195', '$2y$10$hdQ59ULhdkZL63deS3A8eeiNWEONAiUcu4OsrSalcdUiRp7LgQzbi', 'siswa', '2021-05-25 13:29:20'),
 (43, '0007310124', '$2y$10$p87p92R6kevQfxPGaBspae08TVzzCJjrES.QH2z0WyGuJv40nuQbi', 'siswa', '2021-05-25 13:31:19'),
 (44, '9998531025', '$2y$10$U2mWUhd6NrMKFzxJAWCWZ.YR96PIJT8pxCXIgqtrpZYdu2whU5Qqy', 'siswa', '2021-05-25 13:33:39'),
-(45, '0008857884', '$2y$10$JD/jscECnw801io8lFao/.HLJ8yZ2g2XUmpD5krw/bdIFD0jZZ3TC', 'alumni', '2021-05-25 13:38:12');
+(45, '0008857884', '$2y$10$JD/jscECnw801io8lFao/.HLJ8yZ2g2XUmpD5krw/bdIFD0jZZ3TC', 'alumni', '2021-05-25 13:38:12'),
+(46, '196312141985122003', '$2y$10$Egs8VnaBSWBOwvztMXLQv.rQi7kAGaI1PNq6FWpk2m9a00vajKDfW', 'bk', '2021-05-27 03:22:05'),
+(47, '196607211988112003', '$2y$10$HOGNYuEMyzK.F5Re1BbJj.dP.XHxYD6.5dmVi/hFCcNEXc1TkuCoO', 'bk', '2021-05-27 03:23:38');
 
 -- --------------------------------------------------------
 
@@ -278,7 +281,9 @@ CREATE TABLE `profil_pegawai` (
 
 INSERT INTO `profil_pegawai` (`id_pegawai`, `id_profile`, `nama`, `email`, `jenis_kelamin`, `tanggal_lahir`, `tempat_lahir`, `no_telfon`, `alamat`, `updated_at`, `created_at`, `no_induk`) VALUES
 (1, 1, 'Superadmin', 'smanegeri_ploso@yahoo.co.id', 'l', '1985-03-15', 'Jombang', '085678767564', 'Jl Raya Ploso-Babat, No. 230, Ploso', '2021-05-25 03:50:58', '0000-00-00 00:00:00', ''),
-(4, 17, 'Titik Romziati', 'smanistracerstudy@gmail.com', 'p', '1960-03-25', 'Jombang', '085730301065', 'Sentul, Kec. Tembelang, Kab.Jombang', '0000-00-00 00:00:00', '2021-05-25 03:56:22', '196501282008012001');
+(4, 17, 'Titik Romziati', 'smanistracerstudy@gmail.com', 'p', '1960-03-25', 'Jombang', '085730301065', 'Sentul, Kec. Tembelang, Kab.Jombang', '0000-00-00 00:00:00', '2021-05-25 03:56:22', '196501282008012001'),
+(5, 46, 'Siwi Utami', 'siwiutami@gmail.com', 'p', '1965-01-01', 'Jombang', '086756456765', 'Karang Pakis, Kabuh, Jombang', '0000-00-00 00:00:00', '2021-05-27 03:22:05', '196312141985122003'),
+(6, 47, 'Tia', 'tianur@gmail.com', 'p', '1991-04-12', 'Jombang', '085656456345', 'Rejoagung, Ploso, Jombang', '0000-00-00 00:00:00', '2021-05-27 03:23:38', '196607211988112003');
 
 -- --------------------------------------------------------
 
@@ -338,7 +343,7 @@ INSERT INTO `profil_siswa` (`id_siswa`, `id_profile`, `nama`, `alamat`, `tanggal
 (38, 42, 'FATHIKHATU\' ABDATUN NAFIYYAH', 'Dsn. Blole Timur,  Ploso, Kab. Jombang', '2000-01-23', 'Jombang', 'ipa', 'fathikhatunafiyah.fan@gmail.com', '085730827508', '0008858195.JPG', '0008858195', 2018, 'perempuan', 'null', '0000-00-00 00:00:00', '2021-05-25 13:29:20', ''),
 (39, 43, 'FITRIA MELIYANA', 'Dsn. Kedung, Kedungrejo, Kec. Megaluh', '2000-01-12', 'Jombang', 'ipa', 'fitriameliyana1201@gmail.com', '085745918734', '0007310124.JPG', '0007310124', 2018, 'perempuan', 'null', '0000-00-00 00:00:00', '2021-05-25 13:31:19', ''),
 (40, 44, 'GERY FERNADI', 'Dsn. Bulu Lowo, Ds. Purisemaanding, Kec. Plandaan, Kab. Jombang', '1999-07-31', 'Jombang', 'ipa', 'miasjery@gmail.com', '085748154027', '9998531025.JPG', '9998531025', 2018, 'laki', 'null', '0000-00-00 00:00:00', '2021-05-25 13:33:39', ''),
-(41, 45, 'IKA WAHYU FEBRIANY', 'Dsn. Kedung Glagah, Ds. Kedungdowo, Kec. Ploso', '2000-02-17', 'Jombang', 'ipa', 'ikawahyujoe87@gmail.com', '085733209701', '0008857884.JPG', '0008857884', 2018, 'perempuan', 'diterima', '2021-05-25 13:38:12', '2021-05-25 13:34:56', '');
+(41, 45, 'IKA WAHYU FEBRIANY', 'Dsn. Kedung Glagah, Ds. Kedungdowo, Kec. Ploso', '2000-02-17', 'Jombang', 'ipa', 'ikawahyujoe87@gmail.com', '085733209809', '0008857884.JPG', '0008857884', 2018, 'perempuan', '', '2021-06-02 08:00:03', '2021-05-25 13:34:56', '');
 
 -- --------------------------------------------------------
 
@@ -504,19 +509,19 @@ ALTER TABLE `tracer_kuliah`
 -- AUTO_INCREMENT for table `event`
 --
 ALTER TABLE `event`
-  MODIFY `id_event` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_event` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `forum`
 --
 ALTER TABLE `forum`
-  MODIFY `id_forum` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_forum` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `forum_detail`
 --
 ALTER TABLE `forum_detail`
-  MODIFY `id_detail_forum` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `id_detail_forum` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `forum_topik`
@@ -528,13 +533,13 @@ ALTER TABLE `forum_topik`
 -- AUTO_INCREMENT for table `informasi_umum`
 --
 ALTER TABLE `informasi_umum`
-  MODIFY `id_umum` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_umum` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `loker`
 --
 ALTER TABLE `loker`
-  MODIFY `id_loker` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_loker` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `penilaian`
@@ -546,13 +551,13 @@ ALTER TABLE `penilaian`
 -- AUTO_INCREMENT for table `profile`
 --
 ALTER TABLE `profile`
-  MODIFY `id_profile` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `id_profile` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `profil_pegawai`
 --
 ALTER TABLE `profil_pegawai`
-  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_pegawai` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `profil_siswa`
@@ -576,7 +581,7 @@ ALTER TABLE `tracer_kerja`
 -- AUTO_INCREMENT for table `tracer_kuliah`
 --
 ALTER TABLE `tracer_kuliah`
-  MODIFY `id_kuliah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id_kuliah` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
