@@ -81,9 +81,9 @@
                           <a href="<?= base_url() . 'Admin/event/detail/' . $evn->id_event ?>" class="btn btn-xs btn-info"><i class="fa fa-eye"></i> Detail</a>
                           <a href="<?= base_url() . 'Admin/event/edit/' . $evn->id_event ?>" class="btn btn-xs btn-success"><i class="fa fa-pencil"></i>Edit</a>
                           <a href="#" data-toggle="modal" data-target="#action-delete-<?php echo $evn->id_event ?>" class="btn btn-xs btn-danger"><i class="fa fa-trash"></i> Hapus</a>
-
-                          <!-- Modal delete -->
-                          <div class="modal fade" id="action-delete-<?php echo $evn->id_event ?>">
+                        </td>
+                        <!-- Modal delete -->
+                        <div class="modal fade" id="action-delete-<?php echo $evn->id_event ?>">
                             <div class="modal-dialog">
                               <div class="modal-content">
                                 <div class="modal-header">
@@ -111,7 +111,6 @@
                             <!-- /.modal-dialog -->
                           </div>
                           <!-- /.modal -->
-                        </td>
                       </tr>
                     <?php endforeach ?>
                   </tbody>

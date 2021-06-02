@@ -21,17 +21,15 @@
     <!-- Main content -->
     <section class="content">
       
-
       <div class="container-fluid">
           <!-- /.row -->
-          <div class="row">
-            <div class="col-8">
-              <div class="card bg-light">
-                <div class="card-header text-muted border-bottom-0">
-                  <h2>Profil<h2>
-                  <hr>
-                </div>
-                <div class="card-body pt-0" style="padding-right:70.7px;">
+          <div class="col-19 col-lg-7 d-flex align-items-stretch" >
+            <div class="card bg-light">
+              <div class="card-header text-muted border-bottom-0">
+                <h2>Profil<h2>
+                <hr>
+              </div>
+                <div class="card-body pt-0" >
                   <div class="row">
                     
                     <div class="col-md-6" align="center">
@@ -62,10 +60,10 @@
 
                     </div>
 
-                    <div class="col-6">
+                    <div class="col-6" >
                       <h4 class="lead"><b><?php echo ucfirst($this->session->userdata('sess_name')) ?></b></h4>
                       
-                      <p class="text-muted text-sm"><b>Tanggal Lahir : </b> <?php echo ucfirst($this->session->userdata('sess_tanggal_lahir')) ?></p>
+                      <p class="text-muted text-sm "><b>Tanggal Lahir : </b> <?php echo ucfirst($this->session->userdata('sess_tanggal_lahir')) ?></p>
                       <ul class="ml-4 mb-0 fa-ul text-muted">
                           <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building fa-1x"></i> </span><h6><b>Alamat</b><h6></li>
                           <span align="justify"> <p ><?php echo ucfirst($this->session->userdata('sess_alamat')) ?></p></span>
@@ -98,7 +96,6 @@
           </div>
       </div><!-- /.container-fluid -->
 
-      
     </section>
     <!-- /.content -->
   </div>

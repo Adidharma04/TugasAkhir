@@ -36,8 +36,6 @@ class Dashboard_alumni extends CI_Controller {
         $this->load->view('Alumni/dashboard_alumni/index',$data);
         $this->load->view('Template/Alumni/footer_alumni');
 
-
-        // print_r( $this->session->userdata() );
     }
 
     // user edit

@@ -99,8 +99,7 @@
                                  <a href="#"  data-toggle="modal" data-target="#action-delete-<?php echo $evn->id_event ?>" class="btn btn-xs btn-danger">Hapus</a>
                                  <?php }?>
                               </td>
-                            </tr>
-                            <!-- Modal delete -->
+                              <!-- Modal delete -->
                             <div class="modal fade" id="action-delete-<?php echo $evn->id_event ?>">
                               <div class="modal-dialog">
                                 <div class="modal-content">
@@ -128,6 +127,7 @@
                               <!-- /.modal-dialog -->
                             </div>
                             <!-- /.modal -->
+                            </tr>
                           <?php
                           } // end foreach
 
