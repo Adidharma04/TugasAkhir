@@ -35,7 +35,11 @@ class Tracer_alumni extends CI_Controller {
          //-- Title Halaman
          $data ['title'] = 'Halaman Tracer alumni | admin';
          //----------------------------
-        $data['tracer_alumni'] = $this->Tracer_alumni_model->tampilDataTracerKuliah(); 
+                // old
+        // $data['tracer_alumni'] = $this->Tracer_alumni_model->tampilDataTracerKuliah(); 
+        
+        // new
+        $data['tracer_alumni'] = $this->Tracer_alumni_model->unionTracerKuliahAndKerja(); 
         $data['tracer_kuliahkerja'] = $this->Tracer_alumni_model->ambilDataStatistik_kerjaKuliah();
         
         $this->load->view('Template/admin/navbar',$data);

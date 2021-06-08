@@ -28,6 +28,39 @@ class Tracer_alumni_model extends CI_Model {
     }
 
 
+        // Gabungan Kuliah dan Kerja
+        function unionTracerKuliahAndKerja() {
+
+            $sql = "SELECT 
+                    tahun_masuk AS tahun, 'kerja' AS tipe, 
+                    profil_siswa.*
+                    
+                FROM tracer_kerja 
+                JOIN profil_siswa ON profil_siswa.id_profile = tracer_kerja.id_profile
+                
+                GROUP BY id_profile
+                
+                
+                UNION
+                
+                           
+                
+                SELECT tahun_masuk AS tahun, 'kuliah' AS tipe,
+                profil_siswa.*
+                    
+                FROM tracer_kuliah
+                JOIN profil_siswa ON profil_siswa.id_profile = tracer_kuliah.id_profile
+                GROUP BY id_profile
+                
+                
+                ";
+                return $this->db->query( $sql );
+        }
+    
+    
+    
+
+
 
 
 
