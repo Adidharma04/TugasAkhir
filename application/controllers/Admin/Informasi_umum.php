@@ -66,54 +66,25 @@ class Informasi_umum extends CI_Controller {
             $upload_foto = $this->Informasi_umum_model->upload( $conf_foto_allowed, $conf_foto_size, 'foto' );
             $upload_berkas = $this->Informasi_umum_model->upload( $conf_berkas_allowed, $conf_berkas_size, 'berkas' );
             
-            $cek_file_foto = $_FILES['foto']['name'];
-            $cek_file_berkas = $_FILES['berkas']['name'];
-            
-            
-            if ( !empty( $cek_file_foto ) || !empty( $cek_file_berkas )  ) {
-
-                if ($upload_foto['result'] == 'success' || $upload_berkas['result'] == 'success') {
+            if ($upload_foto['result'] == 'success' || $upload_berkas['result'] == 'success') {
                 
-                    // do insert
-                    $this->Informasi_umum_model->tambahDataInformasiUmum($upload_foto, $upload_berkas);
-                    
-                    $html = '<div class="alert alert-success">
-                                <a href="sharing_loker" class="close" data-dismiss="alert" >&times;</a>
-                                <b>Pemberitahuan</b> <br>
-                                Data Informasi Umum berhasil di tambah pada tanggal ' . date('d F Y H.i A') . '
-                            </div>';
-                    $this->session->set_flashdata('msg', $html);
-    
-    
-                    redirect('admin/informasi_umum','refresh');
-                }else{
-                    echo $upload_foto['error'];
-                    echo '<hr>';
-                    echo $upload_berkas['error'];
-                }
-
-
-            // apabila kedua berkas kosong
-            } else {
-
-                // dokumen yang kosong
-                $upload_foto['file'] = null;
-                $upload_berkas['file'] = null;
-
+                // do insert
                 $this->Informasi_umum_model->tambahDataInformasiUmum($upload_foto, $upload_berkas);
                 
                 $html = '<div class="alert alert-success">
-                                <a href="sharing_loker" class="close" data-dismiss="alert" >&times;</a>
-                                <b>Pemberitahuan</b> <br>
-                                Data Informasi Umum berhasil di tambah pada tanggal ' . date('d F Y H.i A') . '
-                            </div>';
-                    $this->session->set_flashdata('msg', $html);
-    
-    
-                redirect('admin/informasi_umum');
-            }
+                            <a href="sharing_loker" class="close" data-dismiss="alert" >&times;</a>
+                            <b>Pemberitahuan</b> <br>
+                            Data Informasi Umum berhasil di tambah pada tanggal ' . date('d F Y H.i A') . '
+                        </div>';
+                $this->session->set_flashdata('msg', $html);
 
-            
+
+                redirect('admin/informasi_umum','refresh');
+            }else{
+                echo $upload_foto['error'];
+                echo '<hr>';
+                echo $upload_berkas['error'];
+            }
         }
     }
     public function edit($id_umum){

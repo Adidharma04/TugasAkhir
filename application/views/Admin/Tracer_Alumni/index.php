@@ -41,12 +41,18 @@
                   }
 
 
-                  
+                  // cek filter graduate
+                  $filter_graduate = "";
+                  if ( $this->input->get('graduate') ) {
+
+                    $filter_graduate = $this->input->get('graduate');
+                  }
 
                   echo $tahun.'<small style="font-size: 12px"> &emsp;Kuliah dan Kerja</small>' ?></h3>
 
                 <form action="" method="GET">
 
+                <input type="hidden" name="graduate" value="<?php echo $filter_graduate ?>">
                 <input type="text" name="tahun" class="yearpicker form-control" value="<?php echo $tahun ?>" />
                 <button class="btn btn-xs btn-default"><i class="fa fa-calendar"></i> Tampilkan</button>
                 </form>
@@ -60,12 +66,6 @@
           				<canvas id="donutChart" style="width: 100%; height: 300px"></canvas>
           			</div>
 
-                <small>Jumlah Kuliah</small>
-                <h3 style="color: #b71c1c"><?php echo $tracer_kuliahkerja['kuliah'] ?> <small style="font-size: 18px">Alumni</small></h3>
-
-
-                <small>Jumlah Kerja</small>
-                <h3 style="color: #1565c0"><?php echo $tracer_kuliahkerja['kerja'] ?> <small style="font-size: 18px">Alumni</small></h3>
 
           		</div>
 
@@ -79,6 +79,17 @@
 
                 <?php
                 
+                
+                  $tahun_graduate = date('Y');
+
+                  $filter_graduate = $this->input->get('graduate');
+                  if ( $filter_graduate ) {
+
+                    $tahun_graduate = $filter_graduate;
+                  }
+                
+
+
                   // cek filter tahun kerja + kuliah
                   $filter_kulker = "";
                   if ( $filter ) {
@@ -87,11 +98,18 @@
                   }
                 
                 ?>
-  
+
+                <form action="" method="GET">
+                
+                <input type="hidden" name="tahun" value="<?php echo $filter_kulker ?>">
+                <input type="text" name="graduate" class="yearpicker form-control" value="<?php echo $tahun_graduate ?>" />
+                <small>Lihat kelulusan</small>
+                <button class="btn btn-xs btn-default"><i class="fa fa-calendar"></i> Tampilkan</button>
+                </form>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-              <!-- <a href="<?php echo base_url('admin/tracer_alumni/exportToPDF/') ?>" class="btn btn-danger"><i class="fas fa-pdf"></i>Cetak PDF</a>
+              <!-- <a href="<?php echo base_url('admin/tracer_alumni/exportToPDF/'. $filter_graduate) ?>" class="btn btn-danger"><i class="fas fa-pdf"></i>Cetak PDF</a>
               <small>Klik untuk mengekspor rekap data tracer</small><br> -->
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
